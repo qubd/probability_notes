@@ -1,0 +1,217 @@
+\documentclass{book}
+\title{{\huge Probability \& Statistics Notes}\\{Chapter 1}}
+\author{B. Cordy}
+\date{201-BLE, Winter 2018}
+
+\usepackage{theorem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots, pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{imakeidx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{enumerate} 
+\usepackage{textcomp}
+\usepackage{latexsym}
+\usepackage{cancel}
+\usetikzlibrary{patterns}
+\usetikzlibrary{trees}
+\usetikzlibrary{arrows.meta}
+\setlength{\parskip}{0.1in}
+\setlength{\textheight}{8.1in}
+\setlength{\textwidth}{5in}
+\setlength{\topmargin}{.25in}
+\setlength{\oddsidemargin}{.75in}
+\setlength{\evensidemargin}{.75in}
+
+% Set the overall layout of tikz trees
+\tikzstyle{level 1}=[level distance=2.5cm, sibling distance=2.25cm]
+\tikzstyle{level 2}=[level distance=2.5cm, sibling distance=1.5cm]
+\tikzstyle{level 3}=[level distance=2.5cm, sibling distance=1.5cm]
+
+% Define styles for bags and leafs
+\tikzstyle{head} = [inner sep=0pt]
+\tikzstyle{bag} = [text width=2em, text centered]
+\tikzstyle{bigbag} = [text width=6em, text centered]
+\tikzstyle{megabag} = [text width=10em, text centered]
+\tikzstyle{end} = [minimum width=3pt, inner sep=0pt]
+
+\makeatletter
+\long\def\ifnodedefined#1#2#3{%
+    \@ifundefined{pgf@sh@ns@#1}{#3}{#2}%
+}
+
+\def\aeundefinenode#1{%%
+  \ifnodedefined{#1}{\global\expandafter\let\csname pgf@sh@ns@#1\endcsname\relax}{}%
+}
+
+\pgfplotsset{
+    xtick parsed/.code={
+        \c@pgf@counta 0\relax
+        \foreach \x in {#1} {
+            \pgfmathparse{\x}
+            \ifnum\c@pgf@counta=0
+                \xdef\pgfplots@xtick{\pgfmathresult}
+            \else
+                \xdef\pgfplots@xtick{\pgfplots@xtick,\pgfmathresult}
+            \fi
+            \global\advance\c@pgf@counta 1\relax
+        }
+    }
+ } 
+
+\pgfplotsset{
+    cdf init/.code={\aeundefinenode{marker}},
+    cdf/.style={
+    scatter,
+    scatter/@pre marker code/.code={
+			\ifnodedefined{marker}{
+            \pgfpointdiff{\pgfpointanchor{marker}{center}}%
+             {\pgfpoint{0}{0}}%
+             \ifdim\pgf@y>0pt
+                \tikzset{options/.style={mark=*}}
+                \draw plot [mark=*,mark options={fill=white}] coordinates {(marker-|0,0)};
+             \else
+                \ifdim\pgf@y<0pt
+                    \tikzset{options/.style={mark=*,fill=white}}
+                    \draw plot [mark=*] coordinates {(marker-|0,0)};
+                \else
+                    \tikzset{options/.style={mark=none}}
+                \fi
+             \fi
+        }
+				{
+            \tikzset{options/.style={mark=none}}        
+        }
+        \coordinate (marker) at (0,0);
+        \begin{scope}[options]
+    },
+    scatter/@post marker code/.code={\end{scope}}
+    }
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\newenvironment{itmize}
+{ \vspace{-4pt}\begin{itemize}
+    \setlength{\itemsep}{3pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}\vspace{-4pt}}
+
+\newenvironment{enumrate}
+{ \vspace{-4pt}\begin{enumerate}
+    \setlength{\itemsep}{3pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{enumerate}\vspace{-4pt}               }  
+
+\newenvironment{example}
+{\noindent\begin{examp}}
+{\hfill \end{examp}}
+
+\newenvironment{definition}
+{\noindent\begin{defn}}
+{\hfill \end{defn}}
+
+\newenvironment{theorem}
+{\noindent\begin{thm}}
+{\hfill $\Box$ \end{thm}}
+
+\newenvironment{corollary}
+{\noindent\begin{cor}}
+{\hfill $\Box$ \end{cor}}
+
+\newenvironment{pf}
+{\vspace*{-7pt}\noindent\begin{proof}}
+{\hfill $\Box$ \end{proof}}
+
+\newenvironment{lemma}
+{\noindent\begin{lem}}
+{\hfill $\Box$ \end{lem}}
+
+\newenvironment{proposition}
+{\noindent\begin{prop}}
+{\hfill $\Box$ \end{prop}}
+%
+\newtheorem{examp}{Example}[chapter]
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{cor}{Corollary}[chapter]
+\newtheorem{prop}{Proposition}[chapter]
+\newtheorem{lem}{Lemma}[chapter]
+\newcommand{\rmk}{\noindent{\bf Remark}\ }
+\newcommand{\exercises}{\subsection*{Exercises}}
+\newcommand{\proof}{\noindent{\bf Pf.}}
+\newcommand{\vsp}{\vspace{0.1in}}
+\newcommand{\emx}[1]{{\em{#1}\/}}
+\newcommand{\mat}[1]{{\mbox{\bf#1}\/}}
+\newcommand{\inbox}[1]{{\begin{center}\begin{minipage}{0.8\textwidth}\hrule \vspace{5pt}  #1 \vspace{5pt} \hrule \end{minipage}\end{center}}}
+\newcommand{\eqnsbiggap}[1]{{$$\begin{aligned} #1 \end{aligned}\vspace*{5pt}$$}}
+\newcommand{\eqns}[1]{{$$\begin{aligned} #1 \end{aligned}\vspace*{-10pt}$$}}
+\newcommand{\eqnsgap}[1]{{$$\begin{aligned} #1 \end{aligned}$$}}
+\newcommand{\eqnspar}[1]{{$$\begin{aligned} #1 \end{aligned}\vspace*{-18pt}$$}}
+\newcommand{\given}{\,|\,}
+\newcommand{\biimp}{\ \leftrightarrow\ }
+\newcommand{\xbar}{{\overline{X}}}
+\newcommand{\littlexbar}{{\overline{x}}}
+\newcommand{\muxbar}{\mu_{\overline{X}}}
+\newcommand{\sigmaxbar}{\sigma_{\overline{X}}}
+
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancy}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+
+
+% hyperref should always be loaded last
+\usepackage[hyperindex,pagebackref,bookmarks,bookmarksnumbered,bookmarksopen,pdfpagemode={UseOutlines}]{hyperref}
+
+\includeonly{front,ch1}
+
+\makeindex
+\begin{document}
+\addtolength{\normalbaselineskip}{1pt}
+\normalbaselines
+
+\frontmatter
+\include{front}
+
+\mainmatter
+\include{ch1}
+\include{ch2}
+\include{ch3}
+\include{ch4}
+%\include{ch5} <- Move to appendix. Not course content.
+\include{ch6}
+\include{ch7}
+%\include{ch8} <- Future hypothesis testing chapter.
+
+\backmatter
+
+% add Bibliography entry to Table of Contents
+\phantomsection  % necessary for hyperref numbering
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibliographystyle{siam}
+\bibliography{Probability_Notes}{}
+
+%\include{back}
+\cleardoublepage
+\phantomsection  % necessary for hyperref numbering
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+
+\end{document}
