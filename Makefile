@@ -45,18 +45,18 @@ pdf: $(pdffiles)
 # -----------------------------------------------------------
 
 %.pdf : %.tex
-	$(LATEXMK) $(LATEXMKOPT) $< 
+	$(LATEXMK) $(LATEXMKOPT) -pdflatex="$(LATEX) $(LATEXOPT) $(NONSTOP) %O %S" -use-make $<
 
 # -----------------------------------------------------------
 
 .PHONY : clean cleanall
 clean:     # only removes temporary files
-	latexmk -c
-	rm -rf *.deps *~ *.comments
+	latexmk -silent -c
+	rm -f *.deps *~ *.comments *.brf
 
-cleanall:  # also removes pdf-files
-	latexmk -C
-	rm -rf *.deps *~ *.comments $(BUILDDIR)
+cleanall:  clean # also removes pdf-files
+	latexmk -silent -C
+	rm -rf $(BUILDDIR)
 
 # -----------------------------------------------------------
 
