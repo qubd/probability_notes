@@ -505,7 +505,7 @@ $5$ & $\frac{1}{500}$ \\
 
 Can we find the expected value and variance of $S = X + Y$ without having to construct the distribution of $S$? We've already established that for \emph{any} random variables $X$ and $Y$, $E(X+Y) = E(X)+E(Y)$ in Theorem \ref{LinearityII}. You can check this holds in Example \ref{sumdistribution} above: $E(S) = E(X) + E(Y) = 3 \cdot \frac{1}{5} + 2 \cdot \frac{1}{2} = \frac{8}{5}$.
 \par
-In general, the relationship between $Var(X)$, $Var(Y)$, and $Var(X+Y)$ is more involved. However, in the case where $X$ and $Y$ are independent, we have the simple identity $Var(X+Y) = Var(X) + Var(Y)$. To prove this, we need to establish the technical lemma below.
+In general, the relationship between $\Var(X)$, $\Var(Y)$, and $\Var(X+Y)$ is more involved. However, in the case where $X$ and $Y$ are independent, we have the simple identity $\Var(X+Y) = \Var(X) + \Var(Y)$. To prove this, we need to establish the technical lemma below.
 
 \begin{lem}\label{ExpectationIndependentProduct} If $X$ and $Y$ are independent random variables, $E(XY) = E(X)E(Y)$.
 \end{lem}
@@ -518,18 +518,18 @@ $$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \cap Y= y) \ = \sum_{(x, y
 &= E(X)E(Y) }
 \end{pf}
 
-\begin{thm}\label{VarianceIndependentSum} If $X$ and $Y$ are independent, $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$.
+\begin{thm}\label{VarianceIndependentSum} If $X$ and $Y$ are independent, $\Var(X+Y) = \Var(X) + \Var(Y)$.
 \end{thm}
 \begin{pf} The result follows from a long calculation involving properties of expectation, and the lemma above, which is used in the second last line. When reading through, it's helpful to remember that $E(\emph{anything})$ is some real number, so that, for example $E[E(X)Y] = E[X]E[Y]$ because $E[aY] = aE[Y]$ for any $a \in \mathbb{R}$.
-\eqns{&\text{Var}(X+Y) = E[((X+Y) - E[X+Y])^2] \\
+\eqns{&\Var(X+Y) = E[((X+Y) - E[X+Y])^2] \\
 &= E[(X+Y-E(X)-E(Y))^2] \\
 &= E[(X-E(X)+Y-E(Y))^2] \\
 &= E[(X-E(X))^2 - 2(X-E(X))(Y-E(Y)) + (Y-E(Y))^2] \\
 &= E[(X-E(X))^2] - 2E[(X-E(X))(Y-E(Y))] + E[(Y-E(Y))^2] \\
-&= \text{Var}(X) - 2E[XY-XE(Y)-E(X)Y-E(X)E(Y)] + \text{Var}(Y) \\
-&= \text{Var}(X) - 2(E[XY]-E[XE(Y)]-E[E(X)Y]-E[E(X)E(Y)]) + \text{Var}(Y) \\
-&= \text{Var}(X) - 2(E[X]E[Y]-E[X]E[Y]-E[X]E[Y]+E[X]E[Y]) + \text{Var}(Y) \\
-&= \text{Var}(X) + \text{Var}(Y) \\}
+&= \Var(X) - 2E[XY-XE(Y)-E(X)Y-E(X)E(Y)] + \Var(Y) \\
+&= \Var(X) - 2(E[XY]-E[XE(Y)]-E[E(X)Y]-E[E(X)E(Y)]) + \Var(Y) \\
+&= \Var(X) - 2(E[X]E[Y]-E[X]E[Y]-E[X]E[Y]+E[X]E[Y]) + \Var(Y) \\
+&= \Var(X) + \Var(Y) \\}
 \end{pf}
 
 Though we've only dealt with sums of two random variables, these arguments can be easily extended to finite sums of any length.
@@ -537,7 +537,7 @@ Though we've only dealt with sums of two random variables, these arguments can b
 \begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, ... , $X_n$ is any sequence of random variables,
 $$E(X_1 + X_2 + \, ... \, + X_n) = E(X_1) + E(X_2) + \, ... \, + E(X_n).$$
 Furthermore, if this sequence is independent,
-$$\text{Var}(X_1 + X_2 + \, ... \, + X_n) = \text{Var}(X_1) + \text{Var}(X_2) + \, ... \, + \text{Var}(X_n).$$
+$$\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).$$
 \end{cor}
 
 

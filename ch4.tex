@@ -558,29 +558,29 @@ This example may not convince you the tail sum formula is very helpful, but it s
 
 \subsection*{Variance for Continuous Random Variables}
 
-\begin{defn}\index{Variance}\index{Continuous Random Variable!variance of}The variance of a continuous random variable $X$ is denoted $\text{Var}(X)$ or ${\sigma_X}^2$, and is defined as follows.
-\eqns{\boxed{\text{Var}(X) = E[(X - \mu_X)^2] = \int_{-\infty}^{\infty}(x - \mu_X)^2 f_X(x)\, dx}}
+\begin{defn}\index{Variance}\index{Continuous Random Variable!variance of}The variance of a continuous random variable $X$ is denoted $\Var(X)$ or ${\sigma_X}^2$, and is defined as follows.
+\eqns{\boxed{\Var(X) = E[(X - \mu_X)^2] = \int_{-\infty}^{\infty}(x - \mu_X)^2 f_X(x)\, dx}}
 \par
 \noindent The variance of $X$ is undefined if this improper integral diverges.
 \end{defn}
 \par
-As in the discrete case, the standard deviation of a continuous random variable is defined by $\sigma_X = \sqrt{\text{Var}(X)}$, and the two useful identities below hold. 
+As in the discrete case, the standard deviation of a continuous random variable is defined by $\sigma_X = \sqrt{\Var(X)}$, and the two useful identities below hold. 
 
-\begin{prop}If $X$ is a continuous random variable and $\text{Var}(X)$ is defined, then
+\begin{prop}If $X$ is a continuous random variable and $\Var(X)$ is defined, then
 \vspace{-2em}
 \begin{enumerate}[(i)]
-\item $\text{Var}(X) = E[X^2] -(E[X])^2$
-\item $\text{Var}(aX+b) = a^2\text{Var}(X)$
+\item $\Var(X) = E[X^2] -(E[X])^2$
+\item $\Var(aX+b) = a^2\Var(X)$
 \end{enumerate}
 \end{prop}
 
-\begin{examp}The proportion of parts produced at a certain factory each day which pass quality control is a random variable with pdf $f_X(x) = 105x^4(1-x)^2$ on $[0,1]$. Find $E(X)$ and $\text{Var}(X)$.
+\begin{examp}The proportion of parts produced at a certain factory each day which pass quality control is a random variable with pdf $f_X(x) = 105x^4(1-x)^2$ on $[0,1]$. Find $E(X)$ and $\Var(X)$.
 \eqnsgap{E(X) &= \int_{-\infty}^{\infty}xf_X(x)\, dx = \int_{0}^{1}105x^5(1-x)^2\, dx = 105\int_{0}^{1}x^5-2x^6+x^7\, dx \\
 &= 105\left(\frac{1}{6}x^6 -\frac{2}{7}x^7 + \frac{1}{8}x^8\right)\biggr|_{0}^{1} = 105\left(\frac{1}{6} -\frac{2}{7} + \frac{1}{8}\right) = 0.625}
 \eqnsgap{E(X^2) &= \int_{-\infty}^{\infty}x^2f_X(x)\, dx = \int_{0}^{1}105x^6(1-x)^2\, dx = 105\int_{0}^{1}x^6-2x^7+x^8\, dx \\
 &= 105\left(\frac{1}{7}x^7 -\frac{2}{8}x^8 + \frac{1}{9}x^9\right)\biggr|_{0}^{1} = 105\left(\frac{1}{7} -\frac{2}{8} + \frac{1}{9}\right) \simeq 0.4166}
 \par
-\noindent Thus, $E(X) = 0.625$ and $\text{Var}(X) = E[X^2] - (E[X])^2 \simeq 0.4166 - 0.3906 = 0.0260$. 
+\noindent Thus, $E(X) = 0.625$ and $\Var(X) = E[X^2] - (E[X])^2 \simeq 0.4166 - 0.3906 = 0.0260$. 
 \end{examp}
 \par
 The variance measures the dispersion of a random variable, and so allows to us to compare two random variables on the basis of how much they vary, but so far we haven't been able to make any concrete statements about the values a random variable can take based only on its expected value and variance. The result below allows us to do this by giving a concrete bound on how far a random variable can stray from its expected value.
@@ -588,17 +588,17 @@ The variance measures the dispersion of a random variable, and so allows to us t
 \begin{thm}(Chebyshev's Inequality)\index{Chebyshev's Inequality}\label{ChebyshevsInequality} For any random variable $X$ whose expected value and variance are defined, the probability that $X$ is within $k$ standard deviations of its expected value is at least $1-\frac{1}{k^2}$. 
 \eqnsbiggap{\boxed{P\bigr(X \in (\mu_X - k\sigma_X, \, \mu_X + k\sigma_X)\bigr) \geq 1 - \frac{1}{k^2}}}
 \end{thm}
-\begin{pf} Consider splitting the integral in the definition of $\text{Var}(X)$ at the endpoints of the interval $(\mu_X - k\sigma_X, \, \mu_X + k\sigma_X)$.
-\eqns{\text{Var}(X) &= \int_{-\infty}^{\infty} (x-\mu_X)^2 f_X(x) \, dx \\
+\begin{pf} Consider splitting the integral in the definition of $\Var(X)$ at the endpoints of the interval $(\mu_X - k\sigma_X, \, \mu_X + k\sigma_X)$.
+\eqns{\Var(X) &= \int_{-\infty}^{\infty} (x-\mu_X)^2 f_X(x) \, dx \\
 &=\int_{-\infty}^{\mu_X - k\sigma_X} (x-\mu_X)^2 f_X(x) \, dx + \int_{\mu_X - k\sigma_X}^{\mu_X + k\sigma_X} (x-\mu_X)^2 f_X(x) \, dx \\ &+ \int_{\mu_X + k\sigma_X}^{\infty} (x-\mu_X)^2 f_X(x) \, dx}
 \par
 \noindent Note that for the last integral, $x \in (\mu_X + k\sigma_X, \,\infty)$, which means $x > \mu_X + k\sigma_X$, so $(x - \mu_X)^2 > k^2{\sigma_X}^2$. We can make a similar argument if $x \in (-\infty,\, \mu_X + k\sigma_X)$ and conclude $(x - \mu_X)^2 > k^2{\sigma_X}^2$ in that case also. Thus, if we replace $(x-\mu_X)^2$ with $k^2{\sigma_X}^2$ in the first and third integrals, and remove the second integral, whose value must be non-negative since $f_X$ is a non-negative function, we can only have diminished the right hand side.
-\eqns{\text{Var}(X) &\geq \int_{-\infty}^{\mu_X - k\sigma_X} k^2{\sigma_X}^2 f_X(x) \, dx + \int_{\mu_X + k\sigma_X}^{\infty} k^2{\sigma_X}^2 f_X(x) \, dx \\
+\eqns{\Var(X) &\geq \int_{-\infty}^{\mu_X - k\sigma_X} k^2{\sigma_X}^2 f_X(x) \, dx + \int_{\mu_X + k\sigma_X}^{\infty} k^2{\sigma_X}^2 f_X(x) \, dx \\
 &\geq k^2{\sigma_X}^2 \left(\int_{-\infty}^{\mu_X - k\sigma_X} f_X(x) \, dx + \int_{\mu_X + k\sigma_X}^{\infty} f_X(x) \, dx\right)\\
 &\geq k^2{\sigma_X}^2\left[ P\left( X \in (-\infty, \, \mu_X - k\sigma_X) \right)+ P\left( X \in (\mu_X + k\sigma_X, \, \infty) \right)\right]\\
 &\geq k^2{\sigma_X}^2\left[ 1 - P\left( X \in (\mu_X - k\sigma_X,\, \mu_X + k\sigma_X)\right)\right]\\}
 \par
-\noindent Since $\text{Var}(X)={\sigma_X}^2$, dividing both sides by ${\sigma_X}^2$ (which is always positive) yields the inequality below.
+\noindent Since $\Var(X)={\sigma_X}^2$, dividing both sides by ${\sigma_X}^2$ (which is always positive) yields the inequality below.
 \eqns{1 &\geq k^2\left[ 1 - P\left( X \in (\mu_X - k\sigma_X,\, \mu_X + k\sigma_X)\right)\right]\\
 \frac{1}{k^2} &\geq  1 - P\left( X \in (\mu_X - k\sigma_X,\, \mu_X + k\sigma_X)\right) \\
 -1 + \frac{1}{k^2} &\geq - P\left( X \in (\mu_X - k\sigma_X,\, \mu_X + k\sigma_X)\right) \\
@@ -615,7 +615,7 @@ The variance measures the dispersion of a random variable, and so allows to us t
 \par
 \rmk Note that in Example \ref{ChebyshevEx} above, the random variable $X$, which represents the weight of a randomly selected fish from a certain group of ten, is discrete, since it can only have ten or fewer distinct values. Though the proof was given for the continuous case, Chebyshev's Inequality applies in the discrete case as well.
 \par
-Chebyshev's Inequality plays an important role in the theoretical foundations of statistics because of its generality. The distribution of $X$ (equivalently, the graph of its pdf $f_X$) might have any ridiculous shape you could imagine, and yet as long as $E(X)$ and $Var(X)$ are well defined, this inequality gives some simple probabilistic constraints on the value of $X$.
+Chebyshev's Inequality plays an important role in the theoretical foundations of statistics because of its generality. The distribution of $X$ (equivalently, the graph of its pdf $f_X$) might have any ridiculous shape you could imagine, and yet as long as $E(X)$ and $\Var(X)$ are well defined, this inequality gives some simple probabilistic constraints on the value of $X$.
 
 \section{The Uniform Distribution}\label{UniformDistSec}
 
@@ -648,14 +648,14 @@ Chebyshev's Inequality plays an important role in the theoretical foundations of
 \par
 \noindent In general, if $X$ is uniformly distributed on an interval $I$ which has its left endpoint at $a$ and its right endpoint at $b$, then $f_X(x) = \frac{1}{b-a}$ on $I$ and $f_X$ is zero everywhere else. Next, let's derive the expected value and variance of a continuous uniform random variable.
 \par
-\begin{prop}\index{Uniform Distribution!expected value of}\index{Uniform Distribution!variance of}\label{UniformVariance}If $I$ is an interval with endpoints $a$ and $b$, and $X \sim Uniform(I)$, then $E(X) = \frac{a+b}{2}$ and $\text{Var}(X) = \frac{1}{12}(b-a)^2$. 
+\begin{prop}\index{Uniform Distribution!expected value of}\index{Uniform Distribution!variance of}\label{UniformVariance}If $I$ is an interval with endpoints $a$ and $b$, and $X \sim Uniform(I)$, then $E(X) = \frac{a+b}{2}$ and $\Var(X) = \frac{1}{12}(b-a)^2$. 
 \end{prop}
 \begin{pf} We observed above that $f_X(x) = \frac{1}{b-a}$ on $I$, so we calculate $E(X)$ and $E(X^2)$.
 \eqns{E(X) = \int_{a}^{b} x f_X(x) \, dx = \int_{a}^{b} x \, \textstyle\frac{1}{b-a} \, dx = \frac{1}{b-a} \displaystyle\int_{a}^{b} x \, dx = \textstyle\frac{1}{b-a}\left(\frac{1}{2}x^2 \bigr|_{a}^{b}\right) = \frac{a+b}{2}}
 \eqns{E(X^2) = \int_{a}^{b} x^2 f_X(x) \, dx = \int_{a}^{b} x^2 \, \textstyle\frac{1}{b-a} \, dx = \frac{1}{b-a} \displaystyle\int_{a}^{b} x^2 \, dx = \textstyle\frac{1}{b-a}\left(\frac{1}{3}x^3 \bigr|_{a}^{b}\right) = \frac{a^2+ab+b^2}{3}}
 \par
 \noindent Note that the difference of squares and difference of cubes identities were used above to simplify the results.
-\eqns{\text{Var}(X) = E[X^2] - (E[X])^2 = \textstyle\frac{a^2+ab+b^2}{3} - \frac{a^2+2ab+b^2}{4} = \frac{a^2-2ab+b^2}{12} = \frac{1}{12}(b-a)^2}
+\eqns{\Var(X) = E[X^2] - (E[X])^2 = \textstyle\frac{a^2+ab+b^2}{3} - \frac{a^2+2ab+b^2}{4} = \frac{a^2-2ab+b^2}{12} = \frac{1}{12}(b-a)^2}
 \end{pf}
 \par Though the uniform distribution is certainly the most basic type of continuous random variable we'll study, there are many interesting problems and applications that involve uniformly distributed quantities. The problem in the introduction to this chapter is a great example.
 
@@ -777,8 +777,8 @@ Quantities that are typically modelled by exponential random variables include t
 \eqnsgap{P(X \in (5,\infty)) &= 1- \int_{0}^{5} f_X(x) \, dx  \\ &= 1 - \int_{0}^{5} \frac{1}{8}e^{-\frac{1}{8}x}\,dx \\ &= 1 - \int_{0}^{-\frac{5}{8}}\frac{1}{8}e^{u}(-8\, du)  \text{ \ where \ } u = -\frac{1}{8} x  \\ &= 1+\int_{0}^{-\frac{5}{8}}e^u \, du \\ &= 1 + \left( e^u \bigr|_{0}^{-\frac{5}{8}}\right) \\ &= 1 + (e^{-\frac{5}{8}} - 1) \simeq 0.535}
 \end{examp}
 \par
-The variance of an exponential random variable can be derived from the formula $\text{Var}(X) = E[X^2] - (E[X])^2$ after computing $E[X^2]$ using integration by parts. The result is given below, and the proof is left as an exercise.
-\begin{prop}\index{Exponential Distribution!variance of} If $X \sim Exponential(\lambda)$, then $\text{Var}(X) = \frac{1}{\lambda^2}$.
+The variance of an exponential random variable can be derived from the formula $\Var(X) = E[X^2] - (E[X])^2$ after computing $E[X^2]$ using integration by parts. The result is given below, and the proof is left as an exercise.
+\begin{prop}\index{Exponential Distribution!variance of} If $X \sim Exponential(\lambda)$, then $\Var(X) = \frac{1}{\lambda^2}$.
 \end{prop}
 \par
 One key property of the exponential distribution is that it's `memoryless'. If $X$ is an exponentially distributed random variable representing, for example, a gap between recurring events, then regardless of how long you've already been waiting for the next event to occur, the probability that it will occur in the next minute is the same. Formally, we can state the memoryless property as follows.
@@ -850,9 +850,9 @@ Pareto distributions have been used to model household income, sizes of cities (
 \eqns{E(X) &= \int_{\infty}^{\infty}xf_X(x) \, dx = \int_{m}^{\infty}x\frac{1\cdot m^1}{x^{2}} \, dx = m\int_{m}^{\infty}\frac{1}{x} \, dx \\ &= m\ln(x) \biggr|_{m}^{\infty} = m\left(\left(\lim_{x \to \infty} \ln(x)\right) - \ln(m)\right) \to \infty}
 \end{pf}
 
-We can determine $E(X^2)$ by a very similar calculation. Applying the formula $\text{Var}(X^2) = E[X^2] - (E[X])^2$ yields the result below.
+We can determine $E(X^2)$ by a very similar calculation. Applying the formula $\Var(X^2) = E[X^2] - (E[X])^2$ yields the result below.
 
-\begin{prop}\label{ParetoVariance}\index{Pareto Distribution!variance of}If $X \sim Pareto(m,c)$, then $\text{Var}(X) = \frac{cm^2}{(c-1)^2(c-2)}$ if $c>2$, and $\text{Var}(X)$ is undefined if $c \leq 2$.\end{prop}
+\begin{prop}\label{ParetoVariance}\index{Pareto Distribution!variance of}If $X \sim Pareto(m,c)$, then $\Var(X) = \frac{cm^2}{(c-1)^2(c-2)}$ if $c>2$, and $\Var(X)$ is undefined if $c \leq 2$.\end{prop}
 
 \begin{examp} Suppose that a Pareto distribution is used to model a quantity with an average value of $4$ and a variance of $2$. What are the parameters $m$ and $c$?
 \par

@@ -462,7 +462,7 @@ This is a very strange result, since it implies that even if you're required to 
 \par
 Notice that this is not a game one could actually play, as there's only a finite amount of money in the world. If this example is redone with an upper limit on the payout, the expected value will exist and give the average payout in the game. Using the current global GDP as the payout limit, the result is around \$45.
 \par
-It's also worth considering that someone with \$\,$2 \times 10^{100}$ has twice as much money as someone with \$\,$1 \times 10^{100}$ in a literal sense, but both could spend the rest of their lives throwing briefcases of money into a fire and neither would make a dent in their net worth. In practice, twice as money doesn't have twice as much value.
+It's also worth considering that someone with \$\,$2 \times 10^{100}$ has twice as much money as someone with \$\,$1 \times 10^{100}$ in a literal sense, but both could spend the rest of their lives throwing briefcases of money into a fire and neither would make a dent in their net worth. In practice, twice as much money doesn't have twice as much value.
 \par
 Regardless, if one were actually able to play this game as stated, and play it as many times as one desires, it would be rational do so even if every play cost \$1\,000\,000, since one would \emph{eventually} win an amount so large that the sum of all prior losses would be rendered insignificant. 
 
@@ -641,7 +641,7 @@ The values of $X$ tend to be clustered close to the center of the distribution, 
 \par
 Thus, we can quantify the dispersion of a random variable $X$ by calculating the average distance from $X$ to $\mu_X$, that is, the expected value of the difference between $X$ and its expected value. In practice, it's more common to work with the expected value of the \emx{squared} difference between $X$ and its average.
 
-\begin{defn}\index{Random Variable!variance of}\index{Random Variable!standard deviation of}\index{Variance}\index{Standard Deviation}\label{VarianceDef} The variance of a discrete random variable $X$ is denoted $Var(X)$ or $\sigma^{2}_{X}$, and defined by $\emph{var}(X) = E[(X - \mu_X)^2]$. The standard deviation of $X$ is then defined by $\sigma_X = \sqrt{\sigma^{2}_X} = \sqrt{\emph{Var}(X)}$.
+\begin{defn}\index{Random Variable!variance of}\index{Random Variable!standard deviation of}\index{Variance}\index{Standard Deviation}\label{VarianceDef} The variance of a discrete random variable $X$ is denoted $\Var(X)$ or $\sigma^{2}_{X}$, and defined by $\Var(X) = E[(X - \mu_X)^2]$. The standard deviation of $X$ is then defined by $\sigma_X = \sqrt{\sigma^{2}_X} = \sqrt{\Var(X)}$.
 \end{defn}
 
 \par Why square the differences between $X$ and $\mu_X$? It ensures that any deviations, either left or right of $\mu_X$, are always counted positively. If we opt not to square, and ensure the differences are positive using the absolute value, we could calculate $E[\,|X-\mu_X|\,]$, which is called the mean absolute deviation\index{Random Variable!mean absolute deviation of}\index{Mean Absolute Deviation}.
@@ -661,7 +661,7 @@ Thus, we can quantify the dispersion of a random variable $X$ by calculating the
 \renewcommand*{\arraystretch}{1}
 \par
 \noindent First, $E(X) = 1 \cdot \frac{2}{8} + 3 \cdot \frac{1}{8} + 5 \cdot \frac{3}{8} + 6 \cdot \frac{2}{8} = 4$, that is, $\mu_X = 4$. Then we can calculate the variance below.
-\eqnsgap{\emph{Var}(X)&=E[(X-\mu_x)^2] \\
+\eqnsgap{\Var(X)&=E[(X-\mu_x)^2] \\
 &=(1-4)^2 \cdot \frac{2}{8} + (3-4)^2 \cdot \frac{1}{8} + (5-4)^2 \cdot \frac{3}{8} + (6-4)^2 \cdot \frac{2}{8} \\
 &=9 \cdot \frac{2}{8} + 1 \cdot \frac{1}{8} + 1 \cdot \frac{3}{8} + 4 \cdot \frac{2}{8} = \frac{31}{8}}
 \par
@@ -675,8 +675,8 @@ Thus, we can quantify the dispersion of a random variable $X$ by calculating the
 E(Y) &= 2 \cdot \frac{1}{4} + (-1) \cdot \frac{3}{4} = -0.25}
 \par
 \noindent Thus, it does not matter which game you play in the long run. Over a very large number of plays the games are equivalent, either way the player loses 25\textcent\ per game on average. However, the variances of $X$ and $Y$ are not equal.
-\eqns{\emph{Var}(X) &= (74 - (-0.25))^2 \cdot \frac{1}{100} + (-1-(-0.25))^2 \cdot \frac{99}{100} \simeq 55.69 \\
-\emph{Var}(Y) &= (2 - (-0.25))^2 \cdot \frac{1}{4} + (-1-(-0.25))^2 \cdot \frac{3}{4} \simeq 1.68}
+\eqns{\Var(X) &= (74 - (-0.25))^2 \cdot \frac{1}{100} + (-1-(-0.25))^2 \cdot \frac{99}{100} \simeq 55.69 \\
+\Var(Y) &= (2 - (-0.25))^2 \cdot \frac{1}{4} + (-1-(-0.25))^2 \cdot \frac{3}{4} \simeq 1.68}
 \par
 \noindent This large difference in the variances indicates Big Win Bob's game is much riskier. In Bob's game players win rarely but win big, while in Charles' game players win small amounts quite often.
 
@@ -684,14 +684,14 @@ E(Y) &= 2 \cdot \frac{1}{4} + (-1) \cdot \frac{3}{4} = -0.25}
 
 \par Calculating the variance by hand is a tedious process, and in practice, one would essentially always use a computer. In simple examples like those above, the following formula can make the calculation significantly faster.
 
-\begin{thm}$\emph{Var}(X) = E[X^2] - (E[X])^2$
+\begin{thm}$\Var(X) = E[X^2] - (E[X])^2$
 \end{thm}
 
-\begin{pf} Starting from the definition of $\emph{Var}(X)$, expanding $(X-\mu_X)^2$ and using linearity of expectation, we have
-\eqns{\emph{Var}(X) &= E[(X -\mu_X)^2] \\ &=E[X^2 - 2 \mu_X \cdot X + {\mu_X}^2] \\ &= E[X^2] - E[2 \mu_X \cdot X] + E[{\mu_X}^2].}
+\begin{pf} Starting from the definition of $\Var(X)$, expanding $(X-\mu_X)^2$ and using linearity of expectation, we have
+\eqns{\Var(X) &= E[(X -\mu_X)^2] \\ &=E[X^2 - 2 \mu_X \cdot X + {\mu_X}^2] \\ &= E[X^2] - E[2 \mu_X \cdot X] + E[{\mu_X}^2].}
 \par
 \noindent Since $\mu_X$ is a constant, $E[{\mu_X}^2] = {\mu_X}^2$, and using linearity of expectation in the second term, $E[2 \mu_X \cdot X] = 2 \mu_X E[X]$. But $E[X]$ and $\mu_X$ are two different names for the same quantity, so $2 \mu_X E[X] = 2 \mu_X \cdot \mu_X = 2 {\mu_X}^2$. Therefore,
-\eqns{\emph{Var}(X) &= E[X^2] - E[2 \mu_X \cdot X] + E[{\mu_X}^2] \\
+\eqns{\Var(X) &= E[X^2] - E[2 \mu_X \cdot X] + E[{\mu_X}^2] \\
 &= E[X^2] - 2 {\mu_X}^2 + {\mu_X}^2 \\
 &= E[X^2] - {\mu_X}^2 \\
 &= E[X^2] - (E[X])^2}.
@@ -703,31 +703,31 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 \vspace{0.25em}
 \eqnsgap{E[X^2] = \sum_{x=1}^{6} x^2 f_X(x) = 1 \cdot \frac{1}{6} + 4 \cdot \frac{1}{6} + 9 \cdot \frac{1}{6} + 16 \cdot \frac{1}{6} + 25 \cdot \frac{1}{6} + 36 \cdot \frac{1}{6} = \frac{91}{6}}
 \par
-\noindent Hence, $\emph{Var}(X) = E[X^2] - (E[X])^2 = \frac{91}{6} - (\frac{7}{2})^2 = \frac{91}{6} - \frac{49}{4} = \frac{35}{12}$, and square rooting, we obtain the standard deviation $\sigma_X \simeq 1.707$.
+\noindent Hence, $\Var(X) = E[X^2] - (E[X])^2 = \frac{91}{6} - (\frac{7}{2})^2 = \frac{91}{6} - \frac{49}{4} = \frac{35}{12}$, and square rooting, we obtain the standard deviation $\sigma_X \simeq 1.707$.
 \end{examp}
 
 \subsection*{Properties of Variance} 
 
-\begin{prop}Let $X$ be any discrete random variable with $Var(X) = 0$, then $X$ takes a single value with probability one.
+\begin{prop}Let $X$ be any discrete random variable with $\Var(X) = 0$, then $X$ takes a single value with probability one.
 \end{prop}
 
 \begin{pf} Let $A$ be the set of possible values of $X$, and suppose that $k_1, k_2 \in A$ such that $f_X(k_1) \neq 0$ and $f_X (k_2) \neq 0$, i.e. $X$ can take either value with nonzero probability.
-\eqnspar{\emph{Var}(X) = E[(X - \mu_X)^2] = \sum_{x \in A} (x - \mu_X)^2f_X(x)}
+\eqnspar{\Var(X) = E[(X - \mu_X)^2] = \sum_{x \in A} (x - \mu_X)^2f_X(x)}
 \par
-\noindent Every term in the sum on the right is non-negative since squares are non-negative, and $f_X(x) \geq 0$ by definition of a pmf. Furthermore, at least one term is nonzero since $k_1$ and $k_2$ are distinct, so either $k_1  - \mu_X \neq 0$ or $k_2 - \mu_x \neq 0$. Thus, the sum must be positive, so we conclude that if $X$ takes more than one distinct value with nonzero probability, $\emph{Var}(X) \neq 0$.
+\noindent Every term in the sum on the right is non-negative since squares are non-negative, and $f_X(x) \geq 0$ by definition of a pmf. Furthermore, at least one term is nonzero since $k_1$ and $k_2$ are distinct, so either $k_1  - \mu_X \neq 0$ or $k_2 - \mu_x \neq 0$. Thus, the sum must be positive, so we conclude that if $X$ takes more than one distinct value with nonzero probability, $\Var(X) \neq 0$.
 \end{pf}
 
-\begin{thm}\label{VarianceLinearity} For any constants $a, b \in \mathbb{R}$, $\emph{Var}(aX+b) = a^2\emph{Var}(X)$.
+\begin{thm}\label{VarianceLinearity} For any constants $a, b \in \mathbb{R}$, $\Var(aX+b) = a^2\Var(X)$.
 \end{thm}
 \begin{pf} This result follows from the definition of variance, using linearity of expectation.
-\eqns{\emph{Var}(aX+b) &= E[((aX+b) - \mu_{aX+b})^2] \\
+\eqns{\Var(aX+b) &= E[((aX+b) - \mu_{aX+b})^2] \\
 &= E[((aX+b) - E(aX+b))^2] \\
 &= E[((aX+b) - (aE(X)+b))^2] \\
 &= E[((aX - aE(X))^2] \\
 &= E[a^2(X - E(X))^2] \\
 &= a^2E[(X-E(X))^2] \\
 &= a^2E[(X - \mu_X)^2] \\
-&= a^2\emph{Var}(X)}
+&= a^2\Var(X)}
 \end{pf}
 
 \begin{examp} If $X$ is a random variable with $E(X) = 2$ and $E[X(X-4)]=7$, what is the standard deviation of $Y = 2X+2$?
@@ -736,9 +736,9 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 \eqnspar{E[X(X-4)] = E[X^2 - 4X] = E[X^2] - 4E[X] = E[X^2] - 8.}
 \par
 \noindent Thus, $E[X^2] - 8 = 7$, so $E[X^2] = 15$, and hence 
-\eqnspar{\emph{Var}(X) = E[X^2] - (E[X])^2 = 15-4 = 11.}
+\eqnspar{\Var(X) = E[X^2] - (E[X])^2 = 15-4 = 11.}
 \par
-\noindent Applying the result above, $\emph{Var}(Y) = \emph{Var}(2X+2) = 4\emph{Var}(X) = 44$, so $\sigma_Y = \sqrt{44}$.
+\noindent Applying the result above, $\Var(Y) = \Var(2X+2) = 4\Var(X) = 44$, so $\sigma_Y = \sqrt{44}$.
 \end{examp}
 
 \subsection*{Independent Random Variables}
@@ -754,7 +754,7 @@ Two random variables $X$ and $Y$ defined on the same sample space $\Omega$ are i
 \begin{examp}Let X be a number chosen at random from the set \{1,2,3,4,5,6\}, and let $Y$ be the remainder when $X$ is divided by 3. Then $X$ and $Y$ are not independent random variables, since, for instance, $P(X = 3 \text{ and } Y = 1) = 0$, because if $X = 3$ then we must have $Y = 0$, while $P(X = 3)P(Y = 1) = \frac{1}{6}\cdot\frac{2}{6}$.
 \end{examp}
 
-In the last section we saw that $E(X+Y) = E(X) + E(Y)$ for any random variables $X$ and $Y$. The relationship between $Var(X)$, $Var(Y)$, and $Var(X+Y)$ is generally more complicated. However, in the case where $X$ and $Y$ are independent, it is indeed true that $Var(X+Y) = Var(X) + Var(Y)$. To prove this, we need to establish the technical lemma below.
+In the last section we saw that $E(X+Y) = E(X) + E(Y)$ for any random variables $X$ and $Y$. The relationship between $\Var(X)$, $\Var(Y)$, and $\Var(X+Y)$ is generally more complicated. However, in the case where $X$ and $Y$ are independent, it is indeed true that $\Var(X+Y) = \Var(X) + \Var(Y)$. To prove this, we need to establish the technical lemma below.
 
 \begin{lem}\label{ExpectationIndependentProduct} If $X$ and $Y$ are independent random variables, $E(XY) = E(X)E(Y)$.
 \end{lem}
@@ -765,32 +765,32 @@ $$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \text{ and } Y= y)$$
 & = \sum_{x \in A} x f_X(x) \, \sum_{y \in B} yf_Y(y) = E(X)E(Y) }
 \end{pf}
 
-\begin{thm}\label{VarianceIndependentSum} If $X$ and $Y$ are independent, $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$.
+\begin{thm}\label{VarianceIndependentSum} If $X$ and $Y$ are independent, $\Var(X+Y) = \Var(X) + \Var(Y)$.
 \end{thm}
 \begin{pf} The result follows from a long calculation involving properties of expectation, and the lemma above, which is used in the second last line.
-\eqns{&\text{Var}(X+Y) = E[((X+Y) - E[X+Y])^2] \\
+\eqns{&\Var(X+Y) = E[((X+Y) - E[X+Y])^2] \\
 &= E[(X+Y-E(X)-E(Y))^2] \\
 &= E[(X-E(X)+Y-E(Y))^2] \\
 &= E[(X-E(X))^2 - 2(X-E(X))(Y-E(Y)) + (Y-E(Y))^2] \\
 &= E[(X-E(X))^2] - 2E[(X-E(X))(Y-E(Y))] + E[(Y-E(Y))^2] \\
-&= \text{Var}(X) - 2E[XY-XE(Y)-E(X)Y-E(X)E(Y)] + \text{Var}(Y) \\
-&= \text{Var}(X) - 2(E[XY]-E[XE(Y)]-E[E(X)Y]-E[E(X)E(Y)]) + \text{Var}(Y) \\
-&= \text{Var}(X) - 2(E[X]E[Y]-E[X]E[Y]-E[X]E[Y]+E[X]E[Y]) + \text{Var}(Y) \\
-&= \text{Var}(X) + \text{Var}(Y) \\}
+&= \Var(X) - 2E[XY-XE(Y)-E(X)Y-E(X)E(Y)] + \Var(Y) \\
+&= \Var(X) - 2(E[XY]-E[XE(Y)]-E[E(X)Y]-E[E(X)E(Y)]) + \Var(Y) \\
+&= \Var(X) - 2(E[X]E[Y]-E[X]E[Y]-E[X]E[Y]+E[X]E[Y]) + \Var(Y) \\
+&= \Var(X) + \Var(Y) \\}
 \end{pf}
 
 Though we've only dealt with sums of two random variables, the arguments given above can be extended to finite sums of any length.
 
 \begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, ... , $X_n$ is a sequence of independent random variables,
-$$\text{Var}(X_1 + X_2 + \, ... \, + X_n) = \text{Var}(X_1) + \text{Var}(X_2) + \, ... \, + \text{Var}(X_n).$$
+$$\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).$$
 \end{cor}
 
 \begin{examp}Let X be the result of single roll of a die, and let Y be the average of the results of four rolls. Which random variable has the larger variance?
 
-\noindent We've seen in Example \ref{stdevoneroll} that $Var(X) = \frac{35}{12}$. If we denote the results of four different die rolls by $X_1$, $X_2$, $X_3$, and $X_4$, then we have a sequence of independent random variables, and their average is $Y = \frac{1}{4}(X_1 + X_2 + X_3 + X_4)$.
-$$\begin{aligned}Var(Y) &= Var(\textstyle\frac{1}{4}(X_1 + X_2 + X_3 + X_4)) \\
-&= \textstyle\frac{1}{16}\,Var(X_1 + X_2 + X_3 + X_4) \\
-&= \textstyle\frac{1}{16}\,(Var(X_1) + Var(X_2) + Var(X_3) + Var(X_4)) \\
+\noindent We've seen in Example \ref{stdevoneroll} that $\Var(X) = \frac{35}{12}$. If we denote the results of four different die rolls by $X_1$, $X_2$, $X_3$, and $X_4$, then we have a sequence of independent random variables, and their average is $Y = \frac{1}{4}(X_1 + X_2 + X_3 + X_4)$.
+$$\begin{aligned}\Var(Y) &= \Var(\textstyle\frac{1}{4}(X_1 + X_2 + X_3 + X_4)) \\
+&= \textstyle\frac{1}{16}\,\Var(X_1 + X_2 + X_3 + X_4) \\
+&= \textstyle\frac{1}{16}\,(\Var(X_1) + \Var(X_2) + \Var(X_3) + \Var(X_4)) \\
 &= \textstyle\frac{1}{16}\,(\frac{35}{12} + \frac{35}{12} + \frac{35}{12} + \frac{35}{12}) \\
 &= \textstyle\frac{35}{48} \\
 \end{aligned}$$
@@ -803,7 +803,7 @@ In fact, if we have a model for the error which affects each individual measurem
 
 \subsection*{Moments}\index{Moments}\index{Random Variable!moments of}
 
-Expressions of the form $E[X^k]$ for some $k \in \mathbb{N}$ have been appearing quite frequently in our discussions in this section. Mathematicians call these these values moments of the random variable $X$. There are a few common variations you might run into if you're reading about random variables, or statistics in general.
+Expressions of the form $E[X^k]$ for some $k \in \mathbb{N}$ have been appearing quite frequently in our discussions in this section. Mathematicians call these values moments of the random variable $X$. There are a few common variations you might run into if you're reading about random variables, or statistics in general.
 
 \begin{center}
 \begin{tabular}{ccl}
@@ -888,11 +888,11 @@ Think of a Bernoulli random variable as counting the number of heads observed in
 \end{tikzpicture}
 \end{center}
 
-\begin{thm}\label{BernoulliExpectation}\index{Bernoulli Distribution!expected value of}\index{Bernoulli Distribution!variance of} If $X \sim Bernoulli(p)$, then $E(X) = p$ and $\emph{Var}(X) = p(1-p)$.
+\begin{thm}\label{BernoulliExpectation}\index{Bernoulli Distribution!expected value of}\index{Bernoulli Distribution!variance of} If $X \sim Bernoulli(p)$, then $E(X) = p$ and $\Var(X) = p(1-p)$.
 \end{thm}
 
 \begin{pf} These results both follow from direct calculations. From the probability mass function above we have $E(X) = 0 \cdot (1-p) + 1 \cdot p  = p$. We can then calculate
-\eqns{\emph{Var}(X) &= E[(X - \mu_X)^2] = E[(X - p)^2] = (0-p)^2 \cdot (1-p) + (1-p)^2 \cdot p \\
+\eqns{\Var(X) &= E[(X - \mu_X)^2] = E[(X - p)^2] = (0-p)^2 \cdot (1-p) + (1-p)^2 \cdot p \\
 &= p^2(1-p) + (1-p)^2p = p(1-p)(p+(1-p)) = p(1-p).}
 \end{pf}
 \par
@@ -965,7 +965,7 @@ One of the reasons the binomial distribution appears in many contexts is that th
 \par
 When we get into statistics later in the course, we'll show that as our sample of results grows larger, the probability of an incorrect prediction shrinks, and shrinks at a fast enough rate that it's possible to draw a reasonably accurate conclusion without having to use an unrealistically large sample.
 
-\begin{thm}\index{Binomial Distribution!expected value of}\index{Binomial Distribution!variance of}If $X \sim Binomial(n,p)$, then $E(X) = np$ and $Var(X) = np(1-p)$.
+\begin{thm}\index{Binomial Distribution!expected value of}\index{Binomial Distribution!variance of}If $X \sim Binomial(n,p)$, then $E(X) = np$ and $\Var(X) = np(1-p)$.
 \end{thm}
 \begin{pf}
 If $X$ is binomial with parameters $n$ and $p$, then $X$ is the number of successes in $n$ independent Bernoulli trials, which means $X = X_1 + X_2 + ... + X_n$, where each $X_i \sim Bernoulli(p)$. The expected value of each $X_i$ is $p$ by Theorem \ref{BernoulliExpectation}, so by linearity of expectation,
@@ -974,8 +974,8 @@ If $X$ is binomial with parameters $n$ and $p$, then $X$ is the number of succes
 &= p+p+ ... +p = np}
 \par
 \noindent The variance can be derived similarly with the aid of Corollary \ref{expectationandvarianceofindependentsum}.
-\eqns{Var(X) &= Var(X_1 + X_2 + ... + X_n) \\
-&=Var(X_1) + Var(X_2) + ... + Var(X_n) \\
+\eqns{\Var(X) &= \Var(X_1 + X_2 + ... + X_n) \\
+&=\Var(X_1) + \Var(X_2) + ... + \Var(X_n) \\
 &= p(1-p)+p(1-p)+ ... +p(1-p) = np(1-p)}
 \end{pf}
 %\eqns{E(X^2) &= \sum_{x = 0}^{n} x^2 \binom{n}{x}p^x(1-p)^{n-x} = \sum_{x = 0}^{n} xn \binom{n-1}{x-1}p^x(1-p)^{n-x}  \\ &= np \sum_{x = 1}^{n} x\binom{n-1}{x-1}p^{x-1}(1-p)^{(n-1)-(x-1)} \\ &= np\sum_{y = 0}^{m} (y+1) \binom{m}{y}p^y(1-p)^{m-y} \text{\ \ where $y = x-1$ and $m = n-1$} \\
@@ -989,9 +989,9 @@ If $X$ is binomial with parameters $n$ and $p$, then $X$ is the number of succes
 
 \begin{examp} Let $X$ be the number of doubles in five rolls of a pair of dice, and let $Y$ be the number of heads in three flips of a fair coin. Which quantity is larger on average? Which quantity is more variable?
 \par
-\noindent $X$ is a binomial random variable with $n = 5$ and $p = \frac{6}{36} = \frac{1}{6}$, so $E(X) = np = \frac{5}{6}$ and $\emph{Var}(X) = np(1-p) = 5(\frac{1}{6})(\frac{5}{6}) = 25/36 \simeq 0.694$.
+\noindent $X$ is a binomial random variable with $n = 5$ and $p = \frac{6}{36} = \frac{1}{6}$, so $E(X) = np = \frac{5}{6}$ and $\Var(X) = np(1-p) = 5(\frac{1}{6})(\frac{5}{6}) = 25/36 \simeq 0.694$.
 \par
-\noindent $Y$ is a binomial random variable with $n = 3$ and $p = \frac{1}{2}$, so $E(Y) = np = \frac{3}{2}$ and $\emph{Var}(X) = np(1-p) = 3(\frac{1}{2})(\frac{1}{2}) = 3/4 \simeq 0.75$.
+\noindent $Y$ is a binomial random variable with $n = 3$ and $p = \frac{1}{2}$, so $E(Y) = np = \frac{3}{2}$ and $\Var(X) = np(1-p) = 3(\frac{1}{2})(\frac{1}{2}) = 3/4 \simeq 0.75$.
 \par
 \noindent Therefore, $Y$ is larger on average. The second question is somewhat ambiguous, but if we use the variance as our measure, $Y$ is a little more variable then $X$.
 \end{examp}
@@ -1091,7 +1091,7 @@ If $X \sim Geometric(p)$, the cdf of $X$ is given by the expression below, where
 \eqnspar{P(X > 3) = 1 - P(X \leq 3) = 1 - F_X(3) =1 - \left( 1 - \left(1 - \left(\textstyle\frac{12}{52}\right)\right)^3\right) \simeq 0.455.}
 
 \begin{thm}\label{GeometricExpectation}\index{Geometric Distribution!expected value of}\index{Geometric Distribution!variance of}
-If $X \sim Geometric(p)$, then $E(X) = \frac{1}{p}$ and $\emph{Var}(X) = \frac{1-p}{p^2}$.
+If $X \sim Geometric(p)$, then $E(X) = \frac{1}{p}$ and $\Var(X) = \frac{1-p}{p^2}$.
 \end{thm}
 \begin{pf} The expected value can be calculated with clever use of derivatives. From the definition of expected value and the pmf of $X$,
 \eqns{E(X) &= \sum_{x =1}^{\infty} x f_X(x) = \sum_{x =1}^{\infty} x(1-p)^{x-1}p = p\sum_{x =1}^{\infty} x(1-p)^{x-1}.}
@@ -1104,7 +1104,7 @@ If $X \sim Geometric(p)$, then $E(X) = \frac{1}{p}$ and $\emph{Var}(X) = \frac{1
 \end{pf}
 
 \par
-We'll omit the argument for the variance. In fact, the same trick involving the derivative can be used twice to evaluate the infinite sum that defines $E[X^2]$, and we can obtain the variance with $\emph{Var}(X) = E[X^2] - (E[X])^2$.
+We'll omit the argument for the variance. In fact, the same trick involving the derivative can be used twice to evaluate the infinite sum that defines $E[X^2]$, and we can obtain the variance with $\Var(X) = E[X^2] - (E[X])^2$.
 \par
 There is one step here that's suspect, the point where we factor the derivative out of the sum (marked with !). This works for finite sums, beacuse the sum rule in calculus tells us $\frac{d}{dp}(f(p) + g(p)) = \frac{d}{dp} f(p) + \frac{d}{dp} g(p)$. Does this same principle apply for infinite sums? Sometimes. The subtleties of this issue are beyond the scope of this course, but this instance turns out to be one where this move is justified.
 

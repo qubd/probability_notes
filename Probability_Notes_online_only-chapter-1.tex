@@ -1,5 +1,5 @@
 \documentclass{book}
-\title{\huge{Probability \& Statistics Notes}}
+\title{{\huge Probability \& Statistics Notes}\\{Chapter 1}}
 \author{B. Cordy}
 \date{201-BLE, Winter 2018}
 
@@ -176,6 +176,11 @@
 \makeatother
 
 
+% hyperref should always be loaded last
+\usepackage[hyperindex,pagebackref,bookmarks,bookmarksnumbered,bookmarksopen,pdfpagemode={UseOutlines}]{hyperref}
+
+\includeonly{front,ch1}
+
 \makeindex
 \begin{document}
 \addtolength{\normalbaselineskip}{1pt}
@@ -196,9 +201,18 @@
 
 \backmatter
 
+% add Bibliography entry to Table of Contents
+\phantomsection  % necessary for hyperref numbering
+\addcontentsline{toc}{chapter}{Bibliography}
+
 \bibliographystyle{siam}
 \bibliography{Probability_Notes}{}
 
-\include{back}
+%\include{back}
+\cleardoublepage
+\phantomsection  % necessary for hyperref numbering
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
 
 \end{document}
