@@ -631,7 +631,7 @@ $$P(B) = P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)+ \, ... \, + P(B \given A
 \noindent Note that we require $P(A_i) > 0$ for each $A_i$, so that the conditional probabilities on the right are defined.
 \end{thm}
 \par
-When a sequence $\{A_i\}_{i=1}^{n}$ is mutually exclusive sequence and has $\bigcup_{i=1}^{n}A_i = \Omega$, we say that the sequence \emx{partitions the sample space}. This means that every possible outcome is in exactly one of the $A_i$.
+When a sequence $\{A_i\}_{i=1}^{n}$ is mutually exclusive and has $\bigcup_{i=1}^{n}A_i = \Omega$, we say that the sequence \emx{partitions the sample space}. This means that every possible outcome is in exactly one of the $A_i$.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.7]
@@ -893,7 +893,7 @@ Suppose that a 64 bit sequence (a sequence of 64 zeros and ones) is sent over an
 \section{Bayes' Rule}
 
 The tools of conditional probability have so far been used to find the probability of observing a particular outcome under some assumptions about the experiment being performed. In practice though, the problem is often the other way around. We observe a particular outcome, and we'd like to use that information as evidence to evaluate or update our assumptions about the internal workings of the experiment.
-\begin{examp}
+\begin{examp}\label{BayesUrn}
 Two balls are drawn with replacement from an urn which contains either only red balls, or an equal number of red and green balls. The choice of how to load the urn is made by flipping a fair coin. If the experiment is performed, and both balls drawn are red, what is the probability the urn contains only red balls?
 \noindent Consider the tree diagram given below, where every possible outcome is illustrated.
 \begin{center}
@@ -1007,37 +1007,45 @@ Initially, the chance the all red urn was selected was $\frac{1}{2}$. This belie
 The facts we used to justify our conclusion were all derived from the Kolmogorov probability axioms, so the correctness of this approach, which is formalized in Bayes' rule below, is not in question. The fact that we can formalize the process of learning from new information is remarkable, and utility of this result is clear. From automated movie recommendations that change based on your ratings, to self-driving cars that get better at recognizing dangerous situations every time a crash happens, if you want to formalize the process of learning from new data, Bayes' rule is the fundamental tool.
 \par
 \begin{thm}\label{BayesRule}\index{Bayes' Rule}
-(Bayes' Rule) If $\{A_i\}_{i=1}^n$ is a sequence of events which partitions the sample space $\Omega$, and $B$ is an event,
-\eqnsgap{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, ... \, + P(B \given A_n)P(A_n)}}
+(Bayes' Rule) For any events $A$ and $B$ in some sample space $\Omega$,
+\eqnsgap{P(A \given B) = \frac{P(B \given A)P(A)}{P(B)}}
 \end{thm}
 \par
-\begin{pf} Starting with the definition of conditional probability, using the intersection rule in the numerator, and the law of total probability in the denominator,
-\eqns{P(A_i \given B) &= \frac{P(A_i \cap B)}{P(B)} \\
-&= \frac{P(A_i)P(B \given A_i)}{P(B)} = \frac{P(B \given A_i)P(A_i)}{P(B)}   \\
-&= \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) +  \, ... \, + P(B \given A_n)P(A_n)}}
+\begin{pf} We can derive Bayes' rule from the definition of conditional probability by applying the intersection rule in the numerator.
+\eqns{P(A \given B) &= \frac{P(A\cap B)}{P(B)} = \frac{P(A)P(B \given A)}{P(B)}} 
 \end{pf}
 \par
-\rmk There are many ways to rewrite Bayes' rule. The reason it's shown in the longer form above is that in many applications, this form is most immediately applicable, as we'll see in examples below. Intuitively, the numerator includes only branches of the tree diagram where both $A_i$ and $B$ occur, while the denominator includes all branches where $B$ occurs.
-\begin{cor}
-(Bayes' Rule, Complement Case) If $A$ and $B$ are any events,
-\eqnsgap{P(A \given B) = \frac{P(B \given A)P(A)}{P(B \given A)P(A) + P(B \given A^c)P(A^c)}}
+It's worth noting that Bayes' rule, the intersection law, and the definition of conditional probability are essentially three different rearrangements of the same statement. These three different ways of thinking about one idea (the concept of conditional probability) lend themselves more naturally to different applications.
+\par
+Bayes' rule is shown in a compact form above. However in many applications, it's natural to expand the denominator using the law of total probability, as we'll see in the examples that follow. 
+\begin{cor}If $\{A_i\}_{i=1}^n$ is a sequence of events which partitions the sample space $\Omega$, and $B$ is an event,
+\eqnsgap{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, ... \, + P(B \given A_n)P(A_n)}}
 \end{cor}
 \begin{pf}
-The sequence $\{A, A^c\}$ partitions $\Omega$ for any event $A$.
+Apply Bayes' rule as presented in Theorem \ref{BayesRule}, and expand the denominator using the law of total probability.
 \end{pf}
+\par
+This expanded form of Bayes' rule closely matches the reasoning we did with tree diagrams in Example \ref{BayesUrn} above. In the numerator, we have the probability of the branch on which both the event we're assessing the probability of and the evidence we've observed occur, while in the denominator we have the sum of the probabilities of all the branches where the evidence we've observed occurs.
 \begin{examp}
 Suppose that a rare disease affects $0.5\%$ of the population. There is a test for this disease which is $99\%$ accurate, in the sense that the probability of a positive test for someone who carries the disease (a true positive) is $99\%$, and probability of a positive test for someone who does not carry the disease (a false positive) is 1\%. If an individual is randomly selected from the population and tests positive, what is the probability they have the disease?
 \par
-\noindent Let $D =$ `the randomly selected individual tested carries the disease', and $P =$ `the result of the test is positive'. Using Bayes' rule, we compute $P(D \given P)$.
+\noindent Let $D =$ `the randomly selected individual tested carries the disease', and $P =$ `the result of the test is positive'. Using Bayes' rule, we compute
 \eqns{P(D \given P) &= \frac{P(P \given D)P(D)}{P(P \given D)P(D) + P(P \given D^c)P(D^c)} \\
-&= \frac{0.99 \cdot 0.005}{0.99 \cdot 0.005 + 0.01 \cdot 0.995} \simeq 0.33}
+&= \frac{0.99 \cdot 0.005}{0.99 \cdot 0.005 + 0.01 \cdot 0.995} \simeq 0.33.}
 \par
-\noindent Thus, if a randomly selected individual tests positive, there's only a $33\%$ chance they carry the disease. Despite the positive test result, it's still more likely that they don't carry the disease. 
+\noindent Thus, if a randomly selected individual tests positive, there's a $33\%$ chance that they carry the disease. Despite the positive test result, the scenario where this individual does not carry the disease is still the more likely one. 
 \end{examp}
 \par
-This example illustrates the problem of over-testing. If data from medical tests is to be useful, they should be applied carefully, often only in cases where there's some reason to believe the patient has an elevated risk of carrying the disease. As the test is more widely applied, the disease becomes more unusual in the group being tested and false positives become more likely. To illustrate this point, consider the most extreme case, where we're testing for a disease which has no cases in the group being tested. Every positive test will be a false positive, regardless of how accurate the test might be.
+This example illustrates the problem of over-testing. If data from medical tests is to be useful, they should be applied carefully, often only in cases where there's some reason to believe the patient has an elevated risk of carrying the disease. As the test is more widely applied, the disease becomes more unusual in the group being tested and false positives become more likely. To illustrate this point, consider the most extreme case, where we're testing for a disease which has no cases in the group being tested. Every positive test will be a false positive, regardless of how well-designed the test might be. The utility of any test is a function of not just the intrinsic properties of the test, but also of the nature of the environment in which the test is being applied. 
 \par
-It's tempting to assess the usefulness of the test by considering only the cited 99\% accuracy and ignoring the context in which the test is applied (the frequency with which the disease occurs in the population being tested). This is known as the \emx{base rate fallacy}\index{Base Rate Fallacy} and is a very common reasoning error. As we saw above, even an extremely accurate test will be nearly useless when applied to a population where the disease almost never occurs.
+Assessing the usefulness of a procedure by examining only its intrinsic properties and ignoring the context in which it's being applied is known as the \emx{base rate fallacy}\index{Base Rate Fallacy} and is a very common reasoning error.
+\par
+Bayes' rule is frequently written using the letters $H$ and $E$, as below. This is because when employing Bayes' rule, it's often useful to think of $E$ as some evidence which we're using to reassess the probability of a hypothesis $H$. 
+\eqns{P(H \given E) = \frac{P(E \given H)P(H)}{P(E)}}
+\par
+The quantity $P(H)$ is called a \emx{prior probability}\index{Prior Probability} since it represents the probability of the hypothesis before observing the new evidence, while $P(H \given E)$ is known as a \emx{posterior probability}\index{Posterior Probability}.
+\par
+We're now better equipped to understand the Bayesian interpretation of probability given in Section \ref{ProbInterpretationSection}. Two individuals with the same prior degree of confidence in a hypothesis will agree on what constitutes a rational decision after observing new evidence for that hypothesis, since they will both update their beliefs using Bayes' rule with the same prior probability. However, two individuals who have different prior beliefs may still disagree. This dependence on the knowledge, assumptions, or guesses one has before an experiment occurs means that the Bayesian interpretation of probability applies in cases where neither the classical nor the frequentist interpretation apply, but leaves open the question of how one should choose to assign a prior probability to a given hypothesis when there's no clear choice.
 \begin{examp}
 Suppose my wallet contains either a \$5 bill, a \$10 bill, or a \$20 bill, with equal likelihood. At some point during the day, I add a \$5 bill. Later in the day, I reach into the wallet and extract a \$5 bill. What is the probability the remaining bill in my wallet is another \$5 bill?
 \par
@@ -1086,26 +1094,5 @@ Suppose my wallet contains either a \$5 bill, a \$10 bill, or a \$20 bill, with 
 \end{center}
 As before, $P(B_5 \given R_5) = \displaystyle\frac{1 \cdot \frac{1}{3}}{1 \cdot \frac{1}{3} + \frac{1}{2} \cdot \frac{1}{3} + \frac{1}{2} \cdot \frac{1}{3}} = \frac{1}{2}$.
 \end{examp}
-\par
-If we write Bayes' rule without using the law of total probability to expand the denominator, we obtain the variation below, which illustrates well the terminology you'll often hear associated with Bayes' rule. 
-\eqns{P(A \given B) = \frac{P(B \given A)P(A)}{P(B)}}
-\par
-When employing Bayes' rule, it's often pertinent to think of $B$ as some evidence which we're using to reassess the probability of $A$. The quantity $P(A)$ is called a \emx{prior probability}\index{Prior Probability} since it represents the probability of $A$ before observing the new evidence, while $P(A \given B)$ is known as a \emx{posterior probability}\index{Posterior Probability}.
-\par
-We're now better equipped to understand the Bayesian interpretation of probability given in Section \ref{ProbInterpretationSection}. Two individuals with the same prior beliefs who observe the same evidence should agree on what constitutes a rational decision. However, it allows for two individuals who have different priors to disagree. This dependence on the knowledge / assumptions / guesses we have before the experiment occurs allows the Bayesian interpretation to apply in cases where the event we're interested in is not part of an indefinitely repeatable procedure.
-% Do lost keys in three classes example as an exercise
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 

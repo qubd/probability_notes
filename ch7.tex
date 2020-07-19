@@ -30,14 +30,14 @@ In other words, for any interval containing $\mu$, no matter how tiny it might b
 &= \frac{1}{n}(E(X_1)+E(X_2)+\,...\,+E(X_n))  \\
 &= \frac{1}{n}(n\mu) = \mu.}
 \par
-\noindent We can also obtain a simple expression for the variance of $\xbar$ by making use of our result in Theorem \ref{VarianceIndependentSum} above, and properties of variance we saw in Theorem \ref{VarianceLinearity}.
+\noindent We can also obtain a simple expression for the variance of $\xbar$ by making use of the properties of variance we demonstrated in Theorem \ref{VarianceIndependentSum} and \ref{VarianceLinearity}.
 \eqns{\text{Var}(\xbar) &= \text{Var}\left(\frac{X_1+X_2+\,...\,+X_n}{n}\right) \\ 
 &= \frac{1}{n^2}\text{Var}(X_1 + X_2 + \, ... \, + X_n) \\
 &=\frac{1}{n^2}(\text{Var}(X_1) + \text{Var}(X_2) + \, ... \, + \text{Var}(X_n)) \\
 &=\frac{1}{n^2}(n\sigma^2) = \frac{\sigma^2}{n}}
 \par
 \noindent
-Thus, the mean value of $\xbar$ is $\mu$, and the standard deviation of $\xbar$ is $\sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}$.
+Thus, the mean of $\xbar$ is $\mu$, and the standard deviation of $\xbar$ is $\sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}$.
 \par
 \noindent Our goal is to show that $\xbar$ can't stray too far from it's mean, $\mu$, and we have a tool for bounding the values a random variable can take, Chebyshev's Inequality (Theorem \ref{ChebyshevsInequality}). Applying the inequality to $\xbar$,
 
@@ -45,7 +45,7 @@ Thus, the mean value of $\xbar$ is $\mu$, and the standard deviation of $\xbar$ 
 P\bigr(\xbar \not\in (\mu - k\textstyle\frac{\sigma}{\sqrt{n}}, \, \mu + k\frac{\sigma}{\sqrt{n}})\bigr) &\leq \frac{1}{k^2}.}
 \vspace{0.5em}
 \par
-\noindent Taking $\epsilon = k\frac{\sigma}{\sqrt{n}}$, we have $k = \frac{\epsilon\sqrt{n}}{\sigma}$, so $\frac{1}{k^2} = \frac{\sigma^2}{\epsilon^2n}$, and we rewrite the inequality as
+\noindent Let $\epsilon = k\frac{\sigma}{\sqrt{n}}$, so we have $k = \frac{\epsilon\sqrt{n}}{\sigma}$ and $\frac{1}{k^2} = \frac{\sigma^2}{\epsilon^2n}$. We can rewrite the inequality above as
 \eqns{P\bigr(\xbar \not\in (\mu - \epsilon, \, \mu + \epsilon)\bigr) &\leq \frac{\sigma^2}{\epsilon^2n} \\
 P\left(\left|\frac{X_1 + X_2 + \, ... \, + X_n}{n} - \mu \right| \geq \epsilon \right) &\leq \frac{\sigma^2}{\epsilon^2n}.}
 \par
@@ -90,6 +90,38 @@ The law of large numbers is frequently misunderstood. Consider a scenario in whi
 If the first five flips all result in tails, it might seem reasonable to use the law of large numbers to argue that the coin is `due for heads', and so heads must now be more likely than tails, since the proportion of heads must converge to $\frac{1}{2}$. This is known as the gambler's fallacy\index{Gambler's Fallacy}.
 \par
 The key point is that as the number of flips grows very large, the influence of the first five flips on the proportion of heads becomes less and less significant. Suppose that after the first five flips, all of which are tails, heads and tails simply alternate, beginning with heads. After ten flips, the proportion of heads is $\frac{3}{10} = 30\%$, after one hundred flips, it's $\frac{48}{100} = 48\%$, and after one thousand flips, it's $\frac{498}{1000} = 49.8\%$. The coin does not need to become biased towards heads to bring the proportion of heads closer to $\frac{1}{2}$. After many flips, the initial streak of five tails simply becomes less and less significant.
+
+%\subsection*{Convergence of the Empirical Distribution}
+%Suppose that we take a random sample of $n$ values from some population, and %consider the distribution of values in our sample.
+%
+%\begin{examp}Let $X \sim Exponential(\frac{1}{2})$. A sample of $n$ values was drawn from this distribution, and the distribution of values in the sample is shown as a histogram. This was done for $n=10$, $n=100$, and $n=1000$. Along with each histogram, the pdf $f_X$ is shown as a dashed curve.
+%
+%\begin{center}
+%    \begin{minipage}{.5\textwidth}
+%        \centering
+%  \begin{tikzpicture}[scale = 0.6]
+%       \begin{axis}[title = {$X \sim Exponential(\frac{1}{2})$}, ymin=0,ymax=0.6,xmin=-0.0025, xmax = 6.2, xtick = {0,1,2,3,4,5,6}, ytick = {1}, area style]
+%       \addplot+[ybar interval,mark=no] plot coordinates {(0,0.44) (0.5,0.4) (1,0.16) (1.5,0.22) (2,0.24) (2.5,0.1) (3,0.14) (3.5,0.06) (4,0.06) (4.5,0.02) (5,0.02) (5.5,0.02) (6,0)};
+%       \addplot[dashed,domain=0:6.5,black] {0.5*e^(-0.5*x)};
+%       \draw[very thick, blue, -] (axis cs:0,0) -- (axis cs:0,2);
+%    \end{axis}
+%    \end{tikzpicture}
+%    \end{minipage}%
+%    \begin{minipage}{0.5\textwidth}
+%        \centering
+%  \begin{tikzpicture}[scale = 0.6]
+%       \begin{axis}[title = {$X \sim Exponential(\frac{1}{2})$}, ymin=0,ymax=0.6,xmin=-0.0025, xmax = 6.2, xtick = {0,1,2,3,4,5,6}, ytick = {1}, area style]
+%       \addplot+[ybar interval,mark=no] plot coordinates {(0,0.398) (0.5,0.342) (1,0.276) (1.5,0.226) (2,0.148) (2.5,0.144) (3,0.112) (3.5,0.088) (4,0.076) (4.5,0.04) (5,0.026) (5.5,0.022) (6,0.024)};
+%       \addplot[dashed,domain=0:6.5,black] {0.5*e^(-0.5*x)};
+%       \draw[very thick, blue, -] (axis cs:0,0) -- (axis cs:0,2);
+%    \end{axis}
+%    \end{tikzpicture}
+%\end{minipage}
+%\end{center}
+%
+%\end{examp}
+
+%Formally, if $X_1, X_2, ..., X_n$ are the $n$ sample values, let $S_n$ be a random variable whose value is given by uniformly selecting an integer $i$ between $1$ and $n$ inclusive, and letting $S_n = X_i$, so that $S_n$ represents a randomly selected value in our sample.
 
 \section{The Central Limit Theorem}
 
@@ -203,7 +235,7 @@ If we continue to increase the sample size, taking ten thousand random samples o
 \end{minipage}
 \end{center}
 \par
-Each of the sampling distributions has mean $\muxbar = 2$, the same as the population distribution, and the standard deviation becomes smaller and smaller as $n$ increases, as Corollary \ref{StandardErrorOfMean} predicts (since $\sigmaxbar = \sigma / \sqrt{n} \to 0$ as $n \to \infty$).
+Each of the sampling distributions has mean $\muxbar = 2$, the same as the population distribution, and the standard deviation becomes smaller and smaller as $n$ increases, as Corollary \ref{StandardErrorOfMean} assures us it will (since $\sigmaxbar = \sigma / \sqrt{n} \to 0$ as $n \to \infty$).
 \par
 Moreover, there is a striking trend in the shapes of the sampling distributions. As the sample size increases, the distribution looks less like an exponential distribution, and more like a normal distribution (albeit a narrow one).
 \par
@@ -375,7 +407,7 @@ If we follow through the calculation we made in the introduction to this section
 \par
 Note that this calculation only makes sense when $\overline{X}$ is normally distributed, but the Central Limit Theorem tells us this is indeed the case as long as our sample is a SRS of a sufficiently large size. The quantity we add to and subtract from $\overline{X}$ in the last line is called the margin of error.
 \begin{defn}\index{Margin of Error} Given a SRS of $n$ values drawn from any distribution and a confidence level $C \in (0,1)$, the margin of error for $\overline{X}$ at confidence level $C$ is 
-$$\boxed{E = z^* \frac{\sigma}{\sqrt{n}}}$$
+$$E = z^* \frac{\sigma}{\sqrt{n}}$$
 \end{defn}
 \par
 This value represents the largest possible gap between a sample mean $\overline{X}$ and the population mean $\mu$ that is observed at the confidence level $C$. For example, if $E = 2.2$ when $C = 0.9$, this means there is a $90\%$ probability that a SRS has a mean which differs from the true population mean by less than $2.2$.
@@ -408,11 +440,9 @@ $$69-0.934 < \mu < 69+0.934 \ \ \rightarrow \ \ 68.066 < \mu < 69.934$$
 \par
 Note that when we say `with 95\% confidence, $68.066 < \mu < 69.934$', this means there a 95\% chance that we have selected a sample which will produce a confidence interval containing the true mean height of the population, $\mu$.
 \par
-The mean height of all Canadian men is some fixed single value, we just don't know what it is. Thus, the probability $\mu$ is contained inside our confidence interval is either $100\%$ or $0\%$. The uncertainty when we estimate a parameter has nothing to do with the parameter itself, it comes from the randomness inherent in the process of selecting a sample.
-\par
-If we were to take twenty random samples and compute a 95\% confidence interval from each, we would expect that, typically, nineteen of those twenty would contain the true value of $\mu$ (since 19 is 95\% of 20), and one would not.
+The mean height of all Canadian men is some fixed single value, we just don't know what it is. Thus, the probability it's inside our particular confidence interval is either $100\%$ or $0\%$ (it is or it isn't). But if we were to take many random samples and compute a 95\% confidence interval from each, we would expect that, typically, nineteen of every twenty samples would produce intervals that contain the true value of $\mu$ (since 19/20 is 95\%).
 \begin{center}
-\begin{tikzpicture}[scale=0.9]
+\begin{tikzpicture}[scale=0.75]
 \draw[<->] (-3.5,0) -- (3.5,0);
 \draw (0,0.1) -- (0,-0.1);
 \node at (3.5,-0.4) {$x$};
@@ -454,7 +484,7 @@ Each individual in the population either has the desired property or does not, s
 \par
 Notice that if we sample from a Bernoulli distribution, then the sample mean $\xbar = \frac{1}{n}(X_1+X_2+...+X_n)$ is actually the proportion of individuals in our sample with the desired property (since $X_i$ was drawn from a Bernoulli distribution, so it take the value $1$ when the $i^{th}$ individual has the property, and $0$ if not). Thus, we're counting the number of individuals in our sample with the property and dividing by the sample size, so the sample mean $\xbar$ is in fact equal to the sample proportion in this context. To remind ourselves it's a proportion we can write $\widehat{p} = \xbar$.
 \par
-In summary, if our population distribution is Bernoulli, then the population mean and sample mean are actually equal to to the population proportion and sample proportion respectively, which means we can construct confidence intervals exactly the same way we did in the last section.
+In summary, if our population distribution is $X \sim Bernoulli(p)$, then the population mean and sample mean are equal to the population proportion and sample proportion respectively, that is, $p = \mu$, and $\widehat{p}=\xbar$. This means we can construct confidence intervals for a proportion in exactly the same way we made confidence intervals for the mean in the last section.
 \par
 In Section \ref{BernoulliDist}, we saw that the variance of a Bernoulli distribution is given by the formula $\sigma^2 = p(1-p)$, so the margin of error $E$ becomes
 $$E = z^*  \frac{\sigma}{\sqrt{n}}\sigma = z^*  \frac{\sqrt{p(1-p)}}{\sqrt{n}}$$
@@ -481,7 +511,7 @@ Therefore, $f$ attains its maximum value at $p = \frac{1}{2}$, and hence
 $$E = z^*   \frac{\sqrt{p(1-p)}}{\sqrt{n}} \leq z^*  \frac{\sqrt{\frac{1}{2}(1 -\frac{1}{2})}}{\sqrt{n}} = z^*  \frac{1}{2\sqrt{n}}$$
 \end{pf}
 \par
-We can use this result to construct confidence intervals for a population proportion, but keep in mind we have an upper bound, not the true value of $E$. When we construct a $95\%$ confidence interval, there should be a $95\%$ probability of selecting a sample that results in an interval containing the parameter we're estimating. If we use the bound on $E$ that was just derived, this probability may in fact be larger than $95\%$, that is, our interval may be wider than is strictly necessary.
+We can use this result to construct confidence intervals for a population proportion, but keep in mind we have an upper bound, not the true value of $E$. When we construct a $95\%$ confidence interval, there should be a $95\%$ probability of selecting a sample that results in an interval containing the parameter we're estimating. If we use the bound on $E$ that was just derived, this probability may in fact be larger than $95\%$, that is, our interval will generally be be wider than is necessary.
 \par
 \begin{examp}Suppose that a pollster is interested in knowing what proportion of voters in a certain riding plan to vote NDP. In a random sample of 817 voters from this riding, 227 plan to vote NDP. Construct a $92\%$ confidence interval for the proportion of all voters in this riding who plan to vote NDP.
 \par
@@ -497,36 +527,36 @@ We can use this result to construct confidence intervals for a population propor
     \end{tikzpicture}
 \end{center}
 \noindent The margin of error satisfies $E \leq z^*  \frac{1}{2\sqrt{n}} = 1.75 \frac{1}{2\sqrt{817}} \simeq 0.031$, and since the sample proportion is $\widehat{p} = \frac{227}{817} = 0.278$, we have
-$$0.278-0.031 < p < 0.278+0.031 \ \ \rightarrow \ \ 0.247 < \mu < 0.309.$$
+$$0.278-0.031 < p < 0.278+0.031 \ \ \rightarrow \ \ 0.247 < p < 0.309.$$
 \noindent Thus, with $95\%$ confidence, the proportion of voters in the riding who plan to vote NDP is between $24.7\%$ and $30.9\%$.
 \end{examp}
 
 \section{Confidence Interval for a Mean ($\sigma$ Unknown)}
 
-Our procedure for constructing a confidence interval for a population mean $\mu$ requires knowledge of the population standard deviation $\sigma$. This is to be expected, as means of samples from a population with a large standard deviation will be more variable more than means of samples from a population with a low standard deviation. Unfortunately, this requirement is problematic in practice since $\sigma$ is a parameter, so is typically unknown.
+Our procedure for constructing a confidence interval for a population mean $\mu$ requires knowledge of the population standard deviation $\sigma$. This is to be expected, as means of samples from a population with a large standard deviation will be more variable more than means of samples from a population with a low standard deviation. Unfortunately, this requirement is problematic in practice since $\sigma$ is a parameter of the population distribution, so is typically unknown.
 \par
 We got around this requirement when estimating a proportion by establishing an upper bound on the population standard deviation $\sigma$, but no such upper bound exists in general when we're estimating a mean.
 \par
 If we can't find an upper bound the value of $\sigma$, can we estimate it in some other way? Well, the best estimate of the population we have access to is our sample, so what if we simply use the standard deviation of our sample in place of the standard deviation of the population?
 \par
-\begin{defn}\index{Sample Standard Deviation}\index{Standard Deviation! of a sample}\index{Bessel's Correction}\label{SampleStdDev}The (Bessel corrected) sample variance is $s^2 = \frac{1}{n-1}\sum_{i} (X_i - \overline{X})^2$ and the sample standard deviation $s$ is the square root of the sample variance.
+\begin{defn}\index{Sample Standard Deviation}\index{Standard Deviation! of a sample}\index{Bessel's Correction}\label{SampleStdDev}The (Bessel corrected) sample variance is $S^2 = \frac{1}{n-1}\sum_{i} (X_i - \overline{X})^2$ and the sample standard deviation, $S$, is the square root of the sample variance.
 \end{defn}
 \par
 \begin{examp} Find the mean and standard deviation of the sample of five values $X_1 = 2$, $X_2 = 0$, $X_3 = 7$, $X_4 = 3$, $X_5 = 3$, drawn from an unknown distribution.
 
 $$\xbar = \textstyle\frac{1}{n}\sum_{i} X_i = \frac{1}{5}(2+0+7+3+3) = 3$$
-$$s = \textstyle\sqrt{\frac{1}{n-1}\sum_{i} (X_i - \overline{X})^2} = \textstyle\sqrt{\frac{1}{4}((-1)^2+(-3)^2+(4)^2+(0)^2+(0)^2)} = \textstyle\sqrt{\frac{13}{2}}$$
+$$S = \textstyle\sqrt{\frac{1}{n-1}\sum_{i} (X_i - \overline{X})^2} = \textstyle\sqrt{\frac{1}{4}((-1)^2+(-3)^2+(4)^2+(0)^2+(0)^2)} = \textstyle\sqrt{\frac{13}{2}}$$
 \end{examp}
 \par
-Note that when calculating $s^2$ and $s$, we don't divide by the number of sample points, $n$ (which is what Definition \ref{VarianceDef} would tell us we ought to do), but instead by $n-1$. This change is known as Bessel's correction, and it's done to correct bias in the sample variance. The Bessel corrected sample variance, as defined above, is an unbiased estimator of the population variance. Without the modified denominator, the sample variance typically underestimates the population variance. In practice, Bessel's correction is used almost universally. Try calculating the standard deviation of a small list of values using a spreadsheet on a computer. Is the calculation done with or without Bessel's correction?
+Note that when calculating $S^2$ and $S$, we don't divide by the number of sample points, $n$ (which is what Definition \ref{VarianceDef} would tell us we ought to do), but instead by $n-1$. This change is known as Bessel's correction, and it's done to correct bias in the sample variance. The Bessel corrected sample variance, as defined above, is an unbiased estimator of the population variance. Without the modified denominator, the sample variance typically underestimates the population variance. In practice, Bessel's correction is used almost universally. Try calculating the standard deviation of a small list of values using a spreadsheet on a computer. Is the calculation done with or without Bessel's correction?
 \par
-If we use the sample standard deviation, $s$, to estimate the standard deviation in our population, $\sigma$, then when we standardize a sample mean $\xbar$, instead of the correct standardized value
-$$\frac{\overline{X} - \muxbar}{\sigmaxbar} = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}, \ \ \text{we'll have the estimate} \ \ \frac{\overline{X} - \muxbar}{\sigmaxbar} \simeq \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}}.$$
+If we use the sample standard deviation, $s$, to estimate the standard deviation in our population, $\sigma$, then when we standardize a sample mean $\xbar$, instead of the standardized value
+$$\frac{\overline{X} - \muxbar}{\sigmaxbar} = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}, \ \ \text{we'll have the estimate} \ \ \frac{\overline{X} - \muxbar}{\sigmaxbar} \simeq \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}.$$
 Our construction of a confidence interval for the population mean $\mu$ was justified by the Central Limit Theorem, which tells us the distribution of the quantity on the left approaches $Z \sim Normal(0,1)$ as the sample size $n$ grows (and is exactly equal to $Z \sim Normal(0,1)$ when the population distribution is normal). But what about our estimate on the right? If we repeatedly draw samples and calculate this value, what kind of distribution will we obtain?
 \par
 \begin{defn}\label{TDistDef}\index{T-distribution} Suppose we draw a SRS $X_1, X_2, \, ... \, , X_n$ from a normally distributed population with mean $\mu$, and define the $T$-score of the sample as
-$$T = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}}$$
-where $s$ is the sample standard deviation, as in Definition \ref{SampleStdDev}. Then $T$ is a continuous random variable whose distribution is called Student's $T$-distribution (or simply the $T$-distribution) with $n-1$ degrees of freedom.
+$$T = \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}$$
+where $S$ is the sample standard deviation, as in Definition \ref{SampleStdDev}. Then $T$ is a continuous random variable whose distribution is called Student's $T$-distribution (or simply the $T$-distribution) with $n-1$ degrees of freedom.
 \end{defn}
 %gnuplot is used to draw t-distributions.
 \begin{center}
@@ -544,11 +574,28 @@ where $s$ is the sample standard deviation, as in Definition \ref{SampleStdDev}.
 \par
 Above in blue are plots of probability density functions for $T$-distributions with one, two, four, ten, and one hundred degrees of freedom, shaded lighter as the degree of freedom grows. The standard normal distribution is shown in dashed black. As one would expect from the discussion above, the shape of the $T$-distribution is very similar to the shape of the standard normal distribution.
 \par 
-Compared to the standard normal distribution, the $T$-distribution has more area in the tails and less near the center. This additional variability appears because the sample standard deviation $s$ can be very different from one sample to the next, which adds a source of variability to $T$-scores which is not present in $Z$-scores. As the sample size grows, the sample standard deviation $s$ becomes a better estimator of the population standard deviation $\sigma$, and the $T$-distribution slowly approaches the standard normal distribution. Notice that once the degree of freedom reaches one hundred, the $T$-distribution and the standard normal distribution are effectively identical.
+Compared to the standard normal distribution, the $T$-distribution has more area in the tails and less near the center. This additional variability appears because the sample standard deviation $S$ can be very different from one sample to the next, which adds a source of variability to $T$-scores which is not present in $Z$-scores. As the sample size grows, the sample standard deviation $S$ becomes a better estimator of the population standard deviation $\sigma$, and the $T$-distribution slowly approaches the standard normal distribution. Notice that once the degree of freedom reaches one hundred, the $T$-distribution and the standard normal distribution are effectively identical.
 \par
-\begin{examp} A sample of five values is drawn from a normal distribution with unknown mean and standard deviation. These values are $43$, $27$, $30$, $22$, and $38$. Construct a 90\% confidence interval for the mean of the normal distribution.
+If we can find areas under the $T$-distribution, then the same procedure we've been using to construct confidence intervals when the population standard deviation is known can be made to work when it's not. The only change necessary is to use the $T$-distribution in place of the standard normal distribution, and the sample standard deviation in place of the population standard deviation.
 \par
-\noindent Computing the mean and (Bessel corrected) standard deviation of the sample yields $\xbar = 32$ and $s = 8.456$. We can now construct a confidence interval for the population mean $\mu$ as we've already done in Section \ref{ConfIntervalMeanSec}, but using $s$ in place of $\sigma$ and the $T$-distribution in place of the standard normal distribution.
+\begin{prop}Let $T$ be a random variable whose distribution is the $T$ distribution with $n-1$ degrees of freedom, and take $t^*$ so that $P(-t^* < T < t^*) = C$.
+\par
+\noindent If we define $E = t^*\frac{S}{\sqrt{n}}$, then $P(\mu \in (\xbar - E, \xbar + E)) = C$, where $\xbar$ is the mean of a SRS drawn from a normal distribution with mean $\mu$.
+\end{prop}
+\begin{pf}
+By definition of $t^*$, with a probability of $C$ we have
+\begin{gather*}
+-t^* < T < t^* \\
+-t^* < \textstyle\frac{\overline{X}- \mu}{\frac{S}{\sqrt{n}}} < t^* \\
+-t^* \textstyle\frac{S}{\sqrt{n}} < \overline{X}- \mu < t^* \frac{S}{\sqrt{n}} \\[0.2ex]
+-\overline{X}-t^* \textstyle\frac{S}{\sqrt{n}} < - \mu < -\overline{X}+t^* \frac{S}{\sqrt{n}} \\[0.3ex]
+\overline{X}-t^* \textstyle\frac{S}{\sqrt{n}} <  \mu < \overline{X}+t^* \frac{S}{\sqrt{n}}
+\end{gather*}
+\end{pf}
+\par
+\begin{examp}\label{TIntExample} A sample of five values is drawn from a normal distribution with unknown mean and standard deviation. These values are $43$, $27$, $30$, $22$, and $38$. Construct a 90\% confidence interval for the mean of the normal distribution.
+\par
+\noindent Computing the mean and (Bessel corrected) standard deviation of the sample yields $\xbar = 32$ and $S = 8.456$. We can now construct a confidence interval for the population mean $\mu$ as we've already done in Section \ref{ConfIntervalMeanSec}, but using $s$ in place of $\sigma$ and the $T$-distribution in place of the standard normal distribution.
 \begin{center}
    \begin{tikzpicture}[scale = 0.6]
        \begin{axis}[unit vector ratio=1 6 1, ymin=0,ymax=0.5,xmin=-2.9, xmax = 2.9, xtick = {-2.13,0,2.13}, xticklabels = {$-2.13$,$0$,$2.13$}, ytick = {0.1,0.2,0.3,0.4,0.5}]
@@ -562,6 +609,26 @@ Compared to the standard normal distribution, the $T$-distribution has more area
 \noindent We compute $t^* = 2.13$ using a table of values for the $t$-distribution (with 4 degrees of freedom), then $E = t^{*} \frac{s}{\sqrt{n}} = 2.13 \cdot \frac{8.456}{5} = 3.60$, and therefore with $90\%$ confidence we have
 $$32 - 3.60 < \mu < 32 + 3.60 \ \ \rightarrow \ \ 28.40 < \mu < 35.60$$
 \end{examp}
+
+\subsection*{Robustness}
+Notice that the $T$-distribution is defined as the distribution of $T$-scores of random samples drawn from a normal distribution. In practice, however, we would rarely know enough about the population we're studying to be able to determine whether the distribution of the trait we're interested in is normal.
+\par
+Fortunately, whenever the hypotheses of the central limit theorem hold, the distribution of $T$-scores of random samples drawn from any distribution will, in fact, eventually converge to the $T$-distribution \cite{AsymptoticTDist}. 
+\par
+Even with smaller sample sizes, statisticians like to say that the procedure illustrated above in Example \ref{TIntExample} is `robust to non-normality'. This means that the assumption that we're sampling from a normal distribution is necessary for strict correctness, but that breaking this assumption will typically introduce only a small source of error. We also know this error can be completely eliminated by having a sufficiently large sample size. With small samples though, one can be justifiably suspicious, especially if there's reason to believe the distribution of the population being studied is fat-tailed or very asymmetric.
+\par
+\begin{examp}
+In a study of a particular species of maple in a provincial park, the height of every tree in a random sample of 38 mature trees was measured. If the sample mean and sample standard deviation for the heights of the trees were $21.3$ metres and $4.9$ metres respectively, construct a $90\%$ confidence interval for the mean height of all trees of this species in the park.
+\par
+\noindent We have $\xbar = 21.3$, $S = 4.9$, and $n = 38$. Using the $T$-table, we can see that in a $T$-distribution with 37 degrees of freedom, $P(-1.69 < T < 1.69) = 0.9$, so the critical value is $t^* = 1.69$.
+\par
+\noindent
+We can then compute the margin of error $E = t^* \frac{s}{\sqrt{n}} = 1.69 \frac{4.9}{\sqrt{38}} = 1.343$. We can then write the confidence interval
+$$21.3-1.343 < \mu < 21.3+1.343 \ \ \rightarrow \ \ 19.957 < \mu < 22.643.$$
+Therefore, with $90\%$ confidence, the mean height of all mature trees of this species in the park is between $19.9$ and $22.7$ metres.
+\end{examp}
+\par
+In examples like the one above, where the distribution our sample is drawn from is almost certainly normal-ish (think about what kind of shape the distribution of heights of mature trees might have), confidence intervals constructed using this procedure should be accurate for all but very small sample sizes.
 
 
 
