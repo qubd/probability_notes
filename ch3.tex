@@ -468,7 +468,7 @@ It's also worth considering that someone with \$\,$2 \times 10^{100}$ has twice 
 
 \begin{thm}\label{LawUnconsciousStatistician}\index{Law of the Unconscious Statistician}
 (Law of the Unconscious Statistician) If $X$ is a discrete random variable that takes values in the set $A = \{x_1, x_2, x_3, ...\}$ and $g: \mathbb{R} \to \mathbb{R}$, the random variable $Y = g(X)$ has 
-\eqns{E(Y) = \sum_{x \in A} g(x)f_X(x).}
+\eqns{\boxed{E(Y) = \sum_{x \in A}^{\ } g(x)f_X(x).}}
 \end{thm}
 \par
 Notice that the pmf in the sum is the pmf for $X$. We're finding the expected value of $Y$ so we would imagine the pmf of $Y$ would be involved here, but it isn't, and hence the name of the theorem. Using this result, we can calculate the expected value of $Y$ without knowing its pmf, which saves a lot of work.
@@ -568,7 +568,7 @@ If we roll six dice and sum the results, what is the expected value of the sum?
 \begin{examp}
 Suppose that Bob draws four marbles, with replacement, from an urn containing one blue, one green, one yellow, and one red marble. What is the expected number of different colours that will appear among Bob's selections?
 \par
-\noindent Let $I_b$ be an indicator variable for the event `at least one blue marble is drawn', so $I_b$ takes the value $1$ if a blue marble is drawn and $0$ if not. Define $I_g$, $I_y$, and $I_r$ similarly, so we have an indicator variable for each colour.
+\noindent We'll solve this problem using a clever idea known as the method of indicators. Let $I_b$ be an indicator variable for the event `at least one blue marble is drawn', so $I_b$ takes the value $1$ if a blue marble is drawn and $0$ if not. Define $I_g$, $I_y$, and $I_r$ similarly, so we have an indicator variable for each colour.
 \par
 \noindent The expected value of $I_b$ is easy to calculate, since $I_b = 0$ when no blue marbles are drawn, so $P(I_b = 0) = (\frac{3}{4})^4 = \frac{81}{256}$, and hence $P(I_b = 1) = 1 - \frac{81}{256} = \frac{175}{256}$. Therefore, $E(I_b) = 0 \cdot \frac{81}{256} + 1 \cdot \frac{175}{256} =\frac{175}{256}$. The same is true for $I_g$, $I_y$, and $I_r$.
 \par
@@ -578,7 +578,31 @@ Suppose that Bob draws four marbles, with replacement, from an urn containing on
 &= 4\left(\frac{175}{256}\right) = \frac{700}{256} \simeq 2.73.}
 \end{examp}
 \par
-Linearity of expectation is a surprisingly powerful principle. Seemingly difficult sounding averaging problems like the one above can be solved quite nicely by cleverly expressing a random variable as a sum, and using linearity.
+Notice that in the example above, though $I_b$, $I_y$, $I_g$, and $I_r$ are indicators for events that are not independent, linearity of expectation allows us to compute the expected value of their sum without thinking about how the value of one affects any of the others.
+\par
+Now consider a discrete random variable $X$ whose range is $\{1,2,\,...\,,n\}$ for some positive integer $n$, and notice that if we define an indicator $I_k$ for the event $X \geq k$ for each $k$ from $1$ to $n$, then $X = I_1 + I_2 + ... + I_n.$
+\par
+To illustrate, say for example that $X$ takes the value $2$. Then $I_1$ and $I_2$ both take the value one, and all $I_k$ for $k > 2$ are zero, so $X = I_1 + I_2 + I_3 + ... + I_n = 1 + 1 + 0 + ... + 0 = 2$. Using linearity of expectation, we have $$E(X) = E(I_1 + I_2 + ... + I_n) = E(I_1) + E(I_2) + ... + E(I_n).$$
+What is $E(I_k)$ for each $k \in \{1,2,\,...\,,n\}$? By definition, $I_k = 1$ if $X \geq k$ and $I_k = 0$ if $X < k$, hence $E(I_k) = 1\cdot P(X \geq k) + 0\cdot P(X<k) = P(X \geq k)$. Thus, $E(X) = E(I_1) + E(I_2) + ... + E(I_n) = P(X\geq 1) +P(X\geq 2) + ... + P(X\geq n)$.
+
+\begin{prop}\label{Discrete Tail Sum Formula}\index{Tail Sum Formula}\index{Expected Value!tail sum formula for}(Tail Sum Formula)
+Given a discrete random variable $X$ which takes values in $\{1,2,\,...\,,n\}$,
+\eqnsgap{\boxed{E(X) = \sum_{k=1}^{n} P(X\geq k).}}
+In fact, the assumption that there is an upper bound, $n$, on the values $X$ can take turns out to be unnecessary, and we can sum over all positive integers.
+\end{prop}
+\par
+Typically we compute expected values directly using Definition \ref{expectedvaluedef}, but there are some cases where the method of indicators or this tail sum formula make calculations substantially faster.
+\begin{examp}
+For fair dice are rolled. What is the expected value of the smallest of the four resulting numbers?
+\par
+\noindent Let $X$ be a random variable representing the smallest of the four resulting numbers. Then $X$ takes values in the set $\{1,2,3,4,5,6\}$, but writing the distribution of $X$ involves doing a lot of combinatorics. 
+\par
+\noindent On the other hand, finding $P(X \geq k)$ for each $k \in \{1,2,3,4,5,6\}$ is quite easy. For example, the event $X \geq 2$ occurs when every die shows a result higher than or equal to 2. Since the die rolls are independent, we have $P(X\geq2) = \frac{5}{6}\cdot\frac{5}{6}\cdot\frac{5}{6}\cdot \frac{5}{6} = (\frac{5}{6})^4$. Using the tail sum formula yields
+\eqnsgap{E(X) &= \sum_{k=1}^{6}P(X \geq k) \\
+&= P(X \geq 1) + P(X \geq 2) + ... + P(X \geq 6) \\
+&= 1 + \left(\frac{5}{6}\right)^4+\left(\frac{4}{6}\right)^4+\left(\frac{3}{6}\right)^4+\left(\frac{2}{6}\right)^4+\left(\frac{1}{6}\right)^4 \\ 
+&\approx 1.76}
+\end{examp}
 
 \section{Variance}
 
@@ -752,11 +776,11 @@ Two random variables $X$ and $Y$ defined on the same sample space $\Omega$ are i
 \begin{examp}Let X be a number chosen at random from the set $\{1,2,3,4,5,6\}$, and let $Y$ be the remainder when $X$ is divided by 3. Then $X$ and $Y$ are not independent random variables, since, for instance, $P(X = 3 \,\cap\, Y = 1) = 0$, because if $X = 3$ then we must have $Y = 0$, while $P(X = 3)P(Y = 1) = \frac{1}{6}\cdot\frac{2}{6}$.
 \end{examp}
 
-In the last section we saw that $E(X+Y) = E(X) + E(Y)$ for any random variables $X$ and $Y$. The relationship between $\Var(X)$, $\Var(Y)$, and $\Var(X+Y)$ is generally more complicated. However, in the case where $X$ and $Y$ are independent, it is indeed true that $\Var(X+Y) = \Var(X) + \Var(Y)$. To prove this, we need to establish the technical lemma below.
+In the last section we saw that $E(X+Y) = E(X) + E(Y)$ for any random variables $X$ and $Y$. The relationship between $\Var(X)$, $\Var(Y)$, and $\Var(X+Y)$ is generally more complicated. The details require defining the joint distribution of two random variables and an extensive discussion. If you're interested see \cite{Bertsekas} or \cite{Ghahramani}. In the case where $X$ and $Y$ are independent though, $\Var(X+Y) = \Var(X) + \Var(Y)$. To prove this, we need to establish the lemma below.
 
 \begin{lem}\label{ExpectationIndependentProduct} If $X$ and $Y$ are independent random variables, $E(XY) = E(X)E(Y)$.
 \end{lem}
-\begin{pf} Let $A$ denote the set of possible values of $X$ and $B$ denote the set of possible values of $Y$. To calculate $E(XY)$, we need to multiply every possible value of $XY$ by the probability it occurs.
+\begin{pf} Let $A$ denote the range $X$ and $B$ denote the range of $Y$. To calculate $E(XY)$, we need to multiply every possible value of $XY$ by the probability it occurs.
 $$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \,\cap\, Y= y)$$
 \noindent Now $P(X = x \,\cap\, Y= y) = P(X = x)P(Y=y) = f_X(x)f_Y(y)$ since $X$ and $Y$ are independent. We can finish the argument by arranging the order of summation nicely and factoring. 
 \eqns{E(XY) &= \sum_{(x, y) \,\in\, A \times B} xy f_X(x)f_Y(y) = \sum_{x \in A} \sum_{y \in B} \, xy f_X(x)f_Y(y) \\

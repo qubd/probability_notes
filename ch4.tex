@@ -518,10 +518,9 @@ The arguments for these linearity results mirror the corresponding arguments giv
 \par
 Compare this to the discrete version, Corollary \ref{LinearityI} in Section \ref{ExpectedValueSec}, and you'll see that it's exactly the same after changing each sum to an integral. Note that a double sum in the discrete case will become a double integral in the continuous one, and the topic of double integrals deserves a more thorough treatment than we have time for in this course. For this reason, we'll omit the argument for the law of the unconscious statistician above.
 \par
-The following result can be derived from an argument involving double integrals as well. It gives a way of computing expected values from the cdf of a continuous random variable rather than the pdf.
-\par
-\begin{prop}\label{Tail Sum Formula}\index{Tail Sum Formula}\index{Expected Value!tail sum formula for}(Tail Sum Formula) If $X$ is a random variable that takes only non-negative values, then
-\eqnsgap{\boxed{E(X) = \int_{0}^{\infty} P(X > x) \, dx = \int_{0}^{\infty} 1- F_X(x) \, dx}}
+The continuous analogue of the tail sum formula (Proposition \ref{Discrete Tail Sum Formula}) can be derived from an argument involving double integrals as well.
+\begin{prop}\label{Continuous Tail Sum Formula}\index{Tail Sum Formula}\index{Expected Value!tail sum formula for}(Continuous Tail Sum Formula) If $X$ is a continuous random variable whose range contains only non-negative values, then
+\eqnsgap{\boxed{E(X) = \int_{0}^{\infty} P(X > x) \, dx = \int_{0}^{\infty} 1- F_X(x) \, dx.}}
 \end{prop}
 
 \begin{examp}Suppose that $X$ is a randomly selected real number between 1 and 5. Then the pdf of $X$ is $f_X(x) = \frac{1}{4}$ on $[1,5]$, and the cdf of $X$ is given below.
@@ -554,6 +553,7 @@ The following result can be derived from an argument involving double integrals 
 \vspace{-0.5em}
 \par
 \noindent We can tell that $E(X) = \frac{1+5}{2} = 3$ by symmetry (recall the expected value is the literal balance point of the graph of the pdf). Verify that the tail sum formula yields the same result.
+
 \eqnsgap{E(X) &= \int_{0}^{\infty}1 - F_X(x)\, dx \\
 &= \int_{0}^{1} 1 - 0 \ dx + \int_{1}^{5} 1 - \frac{1}{4}(x-1) \, dx  + \int_{5}^{\infty} 1 - 1 \ dx \\
 &= \int_{0}^{1} 1 \ dx + \int_{1}^{5} \frac{5}{4}-\frac{1}{4}x \ dx \\
@@ -562,7 +562,7 @@ The following result can be derived from an argument involving double integrals 
 &= 1+\frac{25}{8}-\frac{9}{8} = 3}
 \end{examp}
 
-This example may not convince you the tail sum formula is very helpful, but it should at least provide some evidence that it's correct. We'll see examples where the tail sum formula will make our calculations easier in the next few sections.
+This example may not convince you the continuous tail sum formula is very useful, but it should at least provide some reassurance that it's correct. We'll see examples where the tail sum formula will make our calculations easier in the next few sections.
 
 %If at least 90% of the surface of a sphere is coloured red, show that it's possible to inscribe a cube such that all eight vertices meet the sphere at red coloured points. (Use eight indicator random variables and linearity of expectation)
 
