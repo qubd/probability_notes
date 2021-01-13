@@ -706,7 +706,7 @@ E(Y) &= 2 \cdot \frac{1}{4} + (-1) \cdot \frac{3}{4} = -0.25}
 
 \par Calculating the variance by hand is a tedious process, and in practice, one would essentially always use a computer. In simple examples like those above, the following formula can make the calculation significantly faster.
 
-\begin{thm}$\Var(X) = E[X^2] - (E[X])^2$
+\begin{thm}$\boxed{\Var(X) = E[X^2] - (E[X])^2}$
 \end{thm}
 
 \begin{pf} Starting from the definition of $\Var(X)$, expanding $(X-\mu_X)^2$ and using linearity of expectation, we have
@@ -739,7 +739,7 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 \noindent Every term in the sum on the right is non-negative since squares are non-negative, and $f_X(x) \geq 0$ by definition of a pmf. Furthermore, at least one term is nonzero since $k_1$ and $k_2$ are distinct, so either $k_1  - \mu_X \neq 0$ or $k_2 - \mu_x \neq 0$. Thus, the sum must be positive, so we conclude that if $X$ takes more than one distinct value with nonzero probability, $\Var(X) \neq 0$.
 \end{pf}
 
-\begin{thm}\label{VarianceLinearity} For any constants $a, b \in \mathbb{R}$, $\Var(aX+b) = a^2\Var(X)$.
+\begin{thm}\label{VarianceLinearity} For any constants $a, b \in \mathbb{R}$, $\boxed{\Var(aX+b) = a^2\Var(X)}$.
 \end{thm}
 \begin{pf} This result follows from the definition of variance, using linearity of expectation.
 \eqns{\Var(aX+b) &= E[((aX+b) - \mu_{aX+b})^2] \\
@@ -804,7 +804,7 @@ $$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \,\cap\, Y= y)$$
 Though we've only dealt with sums of two random variables, the arguments given above can be extended to finite sums of any length.
 
 \begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, ... , $X_n$ is a sequence of independent random variables,
-$$\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).$$
+$$\boxed{\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).}$$
 \end{cor}
 
 \begin{examp}Let X be the result of single roll of a die, and let Y be the average of the results of four rolls. Which random variable has the larger variance?

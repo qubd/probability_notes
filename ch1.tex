@@ -387,9 +387,9 @@ This pattern continues. In the case of four events $A$, $B$, $C$, and $D$, to de
 Three of the results we've derived above are such fundamental ingredients in most of the probability calculations we'll do that it's worth having them written down in one place. Let's call these the \emx{Basic Probability Laws}\index{Basic Probability Laws}\index{Complement Law}\index{Inclusion-Exclusion Law}.
 \par
 \begin{itemize}
-\item $P(A \cup B) = P(A) + P(B) \text{ if $A$ and $B$ are mutually exclusive.}$
-\item $P(A^c) = 1- P(A) \text{ for any event $A$.}$
-\item $P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{ for any events $A$ and $B$.}$
+\item $\boxed{P(A \cup B) = P(A) + P(B) \text{ if $A$ and $B$ are mutually exclusive.}}$
+\item $\boxed{P(A^c) = 1- P(A) \text{ for any event $A$.}}$
+\item $\boxed{P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{ for any events $A$ and $B$.}}$
 \end{itemize}
 
 \section{What is a Probability?}\label{ProbInterpretationSection}
@@ -501,7 +501,7 @@ We'll use this idea to formally define conditional probability, but it's often m
 \par
 \begin{defn}\label{conditionalprob}
 Given two events $E$ and $F$ in some sample space $\Omega$, the conditional probability of $E$ given $F$\index{Conditional Probability} is denoted $P(E \given F)$, and defined by
-\eqns{P(E \given F) = \frac{P(E \cap F)}{P(F)}}
+\eqns{\boxed{P(E \given F) = \frac{P(E \cap F)}{P(F)}.}}
 \end{defn}
 Note that division by zero could be problematic here, so we'll only define the conditional probability of $E$ given $F$ when $P(F) \neq 0$.
 
@@ -510,9 +510,10 @@ Note that division by zero could be problematic here, so we'll only define the c
 This definition can be used either to compute $P(E \given F)$ when $P(E \cap F)$ and $P(F)$ are known, or to compute $P(E \cap F)$ when $P(E \given F)$ and $P(F)$ are known. In fact, we'll often use it in this second way, so it's worth renaming some variables and moving terms around to make it easier to use in that direction.
 \eqns{P(B \given A) &= \frac{P(B \cap A)}{P(A)} \\
 P(B \given A) P(A) &= P(B \cap A) \\
-P(A \cap B) &= P(A) P(B \given A)}
+P(B \given A) P(A) &= P(A \cap B)}
+$$\boxed{P(A \cap B) = P(A) P(B \given A)}$$
 \par
-Intuitively, if $A$ and $B$ both occur, then $A$ must occur and $B$ must occur in this new setting where the event $A$ has already happened. The example below illustrates this idea well.
+Intuitively, if $A$ and $B$ both occur, then $A$ must occur and $B$ must occur in this new setting where the event $A$ has already happened.
 \begin{examp}
 Suppose we draw two cards from a shuffled deck without replacement. What is the probability that both are hearts? 
 \par
@@ -627,7 +628,7 @@ However, recalling the frequentist interpretation, the question above is perfect
 \par
 \begin{thm}\label{lawtotalprob}\index{Law of Total Probability}
 (Law of Total Probability) If $\{A_i\}_{i=1}^{n}$ is any mutually exclusive sequence of events with $\bigcup_{i=1}^{n}A_i = \Omega$, then for any event $B$,
-$$P(B) = P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)+ \, ... \, + P(B \given A_n)P(A_n).$$
+$$\boxed{P(B) = P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)+ \, ... \, + P(B \given A_n)P(A_n).}$$
 \noindent Note that we require $P(A_i) > 0$ for each $A_i$, so that the conditional probabilities on the right are defined.
 \end{thm}
 \par
@@ -650,7 +651,7 @@ When a sequence $\{A_i\}_{i=1}^{n}$ is mutually exclusive and has $\bigcup_{i=1}
 \end{center}
 
 \begin{cor} If $A$ is an event with $0 < P(A) < 1$, then for any event $B$, 
-\eqnsgap{P(B) = P(B \given A)P(A) + P(B \given A^c)P(A^c)}
+\eqnsgap{\boxed{P(B) = P(B \given A)P(A) + P(B \given A^c)P(A^c).}}
 \end{cor}
 \begin{pf} Apply Theorem \ref{lawtotalprob} to the sequence $\{A, A^c\}$, which always partitions $\Omega$.
 \end{pf}
@@ -1008,7 +1009,7 @@ The facts we used to justify our conclusion were all derived from the Kolmogorov
 \par
 \begin{thm}\label{BayesRule}\index{Bayes' Rule}
 (Bayes' Rule) For any events $A$ and $B$ in some sample space $\Omega$,
-\eqnsgap{P(A \given B) = \frac{P(B \given A)P(A)}{P(B)}}
+\eqnsgap{\boxed{P(A \given B) = \frac{P(B \given A)P(A)}{P(B)}}}
 \end{thm}
 \par
 \begin{pf} We can derive Bayes' rule from the definition of conditional probability by applying the intersection rule in the numerator.
@@ -1017,12 +1018,12 @@ The facts we used to justify our conclusion were all derived from the Kolmogorov
 \par
 It's worth noting that Bayes' rule, the intersection law, and the definition of conditional probability are essentially three different rearrangements of the same statement. These three different ways of thinking about one idea (the concept of conditional probability) lend themselves more naturally to different applications.
 \par
-Bayes' rule is shown in a compact form above. However in many applications, it's natural to expand the denominator using the law of total probability, as we'll see in the examples that follow. 
+Bayes' rule is shown in a compact form above. However in many applications, we will end up splitting the denominator into cases using the law of total probability.
 \begin{cor}If $\{A_i\}_{i=1}^n$ is a sequence of events which partitions the sample space $\Omega$, and $B$ is an event,
-\eqnsgap{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, ... \, + P(B \given A_n)P(A_n)}}
+\eqnsgap{\boxed{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, ... \, + P(B \given A_n)P(A_n)}}}
 \end{cor}
 \begin{pf}
-Apply Bayes' rule as presented in Theorem \ref{BayesRule}, and expand the denominator using the law of total probability.
+Apply Bayes' rule as presented in Theorem \ref{BayesRule} to the events $A_i$ and $B$, then expand the denominator using the law of total probability.
 \end{pf}
 \par
 This expanded form of Bayes' rule closely matches the reasoning we did with tree diagrams in Example \ref{BayesUrn} above. In the numerator, we have the probability of the branch on which both the event we're assessing the probability of and the evidence we've observed occur, while in the denominator we have the sum of the probabilities of all the branches where the evidence we've observed occurs.

@@ -164,10 +164,11 @@ Notice that the sampling distribution of the sample mean $\overline{X}$ that we 
 \par
 \noindent the result is precisely equal to the population mean $\mu$. Thus, if we use the estimator $\widehat\mu = \overline{X} = \frac{1}{n}(X_1+X_2)$ to estimate the population mean, then the average value of our estimator is equal to the parameter $\mu$ being estimated. We say that $\widehat\mu = \overline{X}$ is an unbiased estimator of $\mu$.
 
-\begin{defn}\label{Unbiased Estimator}\index{Unbiased Estimator}\index{Estimator!bias of} The \index{Estimator!bias of}bias of the estimator $\widehat{\theta}$ is given by $Bias(\widehat{\theta}) = E(\widehat{\theta}) - \theta$. 
+\begin{defn}\label{Unbiased Estimator}\index{Unbiased Estimator}\index{Estimator!bias of} The \index{Estimator!bias of}bias of an estimator is the difference between its expected value and the actual value of the parameter being estimated.
+$$\boxed{Bias(\widehat{\theta}) = E(\widehat{\theta}) - \theta}$$ 
 \end{defn}
 \par
-If $Bias(\widehat{\theta}) > 0$, the average value of $\widehat{\theta}$ is an overestimate of $\theta$, if $Bias(\widehat{\theta}) < 0$, the average value of $\widehat{\theta}$ is an underestimate of $\theta$, and if $Bias(\widehat{\theta}) = 0$ then $E(\widehat{\theta}) = \theta$ and $\widehat{\theta}$ is an unbiased estimator of $\theta$.
+If $Bias(\widehat{\theta}) > 0$, the mean value of $\widehat{\theta}$ is an overestimate of $\theta$, if $Bias(\widehat{\theta}) < 0$, the mean value of $\widehat{\theta}$ is an underestimate of $\theta$, and if $Bias(\widehat{\theta}) = 0$ then $E(\widehat{\theta}) = \theta$ and $\widehat{\theta}$ is an unbiased estimator of $\theta$.
 \par
 The concept of bias is fairly intuitive. Suppose you estimate the average age of all students in a classroom by finding the oldest student in the class and reporting their age. This estimator will have positive bias. Similarly, if you estimate the average age of all students in a classroom by finding the youngest student in the class and reporting their age, that estimator will have negative bias.
 
