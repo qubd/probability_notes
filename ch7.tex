@@ -125,9 +125,9 @@ The key point is that as the number of flips grows very large, the influence of 
 
 \section{The Central Limit Theorem}
 
-In the last section, two extremely important general results were established. We found expressions for the mean and standard deviation of the sampling distribution of $\xbar$ (given in Corollary \ref{StandardErrorOfMean}) which hold for any random variable $X$ whose mean $\mu$ and standard deviation $\sigma$ are defined, and we showed the sample mean will converge to the population mean as the sample size grows larger and larger. 
+In the last section, two extremely important general results were established. We found expressions for the mean and standard deviation of the sampling distribution of $\xbar$ (given in Corollary \ref{StandardErrorOfMean}) which hold for any random variable $X$ whose mean $\mu$ and standard deviation $\sigma$ are defined, and we showed the sample mean will converge to the population mean as the sample size grows without bound.
 \par
-In summary, as the sample size increases, the sampling distribution of $\xbar$ will cluster tighter and tighter around the population mean $\mu$, so that samples which have means far from $\mu$ become more and more rare. 
+In other words, the sampling distribution of $\xbar$ will cluster tighter around the population mean $\mu$ as the sample size grows larger and samples which have sample means far from $\mu$ become more and more rare. 
 \par
 What about the shape of the sampling distribution of $\xbar$? What happens as the sample size increases? Consider the population distribution $X \sim Exponential(\frac{1}{2})$. Let's approximate the sampling distribution of $\xbar$ by taking ten thousand SRSs and calculating their means. With a sample size of one, the result should look just like the population distribution, since the mean of a single observation is just that observation itself.
 
@@ -292,9 +292,9 @@ The distribution of $\xbar$ for samples of size twenty drawn from $X \sim Unifor
 
 \subsection*{How Close is Close Enough?}
 
-The central limit theorem states that the sampling distribution of $\xbar$ will converge to a normal distribution as the sample size $n \to \infty$, but how fast does this transformation occur? How large must the sample size be so that calculations involving the $Z$-table are accurate enough to justify its use?
+The central limit theorem states that the sampling distribution of $\xbar$ will converge to a normal distribution as the sample size $n \to \infty$, but how fast does this convergence occur? How large must the sample size be so we can simply use a normal distribution for calculations and have accurate results?
 \par
-Unfortunately, the answer depends very much on the population distribution. Symmetric population distributions with narrow tails tend to yield sampling distributions for $\xbar$ which become very close to normal very quickly, while skewed population distributions with fat tails can give sampling distributions for $\xbar$ which don't look normal until the sample size becomes \emph{very} large.
+The answer varies with the population distribution. Symmetric population distributions with thin tails (tails which decay exponentially) usually yield sampling distributions for $\xbar$ which are very close to normal even with a very small sample size, while asymmetric population distributions with fat tails (tails which decay polynomially) can give sampling distributions for $\xbar$ which don't look normal until the sample size becomes extremely large.
 \par
 As a rule of thumb, we'll use the guidelines below to determine if the sampling distribution of $\xbar$ is sufficiently close to normal that we can justify approximating it by a normal distribution.
 \vspace{-0.5em}
@@ -306,7 +306,7 @@ As a rule of thumb, we'll use the guidelines below to determine if the sampling 
 \par
 There is nothing mathematically important about these values, or similar values you'll find in other textbooks. We're simply establishing a clear baseline. 
 \par
-In actual practice, to determine how quickly the sampling distribution converges to normal, statisticians can either consult established error bounds for commonly studied families of population distributions, or use statistical software to take large numbers of samples from an educated guess at the population distribution and approximate the sampling distribution empirically (this was done to generate the graphics at the beginning of this section).
+In actual practice, to ensure the sampling distribution of $\xbar$ is sufficiently close to a normal distribution, statisticians either rigorously derive error bounds from some assumptions on the form of the population distribution, or use statistical software to take large numbers of samples from an educated guess at the population distribution and approximate the sampling distribution empirically, as was done to generate the graphics at the beginning of this section.
 \begin{examp}
 If a biased coin with a 55\% probability of heads is flipped thirty times, what is the probability that the number of heads observed in this sample is less than the number of tails?
 \par
