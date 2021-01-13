@@ -487,7 +487,7 @@ Notice that if we sample from a Bernoulli distribution, then the sample mean $\x
 In summary, if our population distribution is $X \sim Bernoulli(p)$, then the population mean and sample mean are equal to the population proportion and sample proportion respectively, that is, $p = \mu$, and $\widehat{p}=\xbar$. This means we can construct confidence intervals for a proportion in exactly the same way we made confidence intervals for the mean in the last section.
 \par
 In Section \ref{BernoulliDist}, we saw that the variance of a Bernoulli distribution is given by the formula $\sigma^2 = p(1-p)$, so the margin of error $E$ becomes
-$$E = z^*  \frac{\sigma}{\sqrt{n}}\sigma = z^*  \frac{\sqrt{p(1-p)}}{\sqrt{n}}$$
+$$E = z^*  \frac{\sigma}{\sqrt{n}} = z^*  \frac{\sqrt{p(1-p)}}{\sqrt{n}}$$
 and although we can't know the value of $\sqrt{p(1-p)}$ (because $p$ is the unknown we're trying to estimate), we can bound it.
 \begin{prop} If $p \in [0,1]$, then $0 \leq \sqrt{p(1-p)} \leq \frac{1}{2}$, and therefore the margin of error for a sample proportion $\widehat{p}$ satisfies
 $$\boxed{E \leq z^*  \frac{1}{2\sqrt{n}}}$$
@@ -530,12 +530,15 @@ We can use this result to construct confidence intervals for a population propor
 $$0.278-0.031 < p < 0.278+0.031 \ \ \rightarrow \ \ 0.247 < p < 0.309.$$
 \noindent Thus, with $95\%$ confidence, the proportion of voters in the riding who plan to vote NDP is between $24.7\%$ and $30.9\%$.
 \end{examp}
+\par
+Note that if you look up the margin of error formula for estimating a proportion in other sources you'll likely encounter the formula $$E = z^*\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}.$$
+This is the same error bound we derived at the beginning of this section, but the unknown population proportion $p$ has been replaced by the sample proportion $\widehat{p}$. As the sample size increases, we know $\widehat{p} \rightarrow p$ by the law of large numbers, but for any fixed $n$, they will differ, so to properly justify this error bound requires more work, as this difference introduces a new source of uncertainty we have not quantified.
 
 \section{Confidence Interval for a Mean ($\sigma$ Unknown)}
 
 Our procedure for constructing a confidence interval for a population mean $\mu$ requires knowledge of the population standard deviation $\sigma$. This is to be expected, as means of samples from a population with a large standard deviation will be more variable more than means of samples from a population with a low standard deviation. Unfortunately, this requirement is problematic in practice since $\sigma$ is a parameter of the population distribution, so is typically unknown.
 \par
-We got around this requirement when estimating a proportion by establishing an upper bound on the population standard deviation $\sigma$, but no such upper bound exists in general when we're estimating a mean.
+We got around this requirement when estimating a proportion by establishing an upper bound on the population standard deviation $\sigma = \sqrt{p(1-p)}$, but no such upper bound exists in general when we're estimating a mean.
 \par
 If we can't find an upper bound the value of $\sigma$, can we estimate it in some other way? Well, the best estimate of the population we have access to is our sample, so what if we simply use the standard deviation of our sample in place of the standard deviation of the population?
 \par
@@ -548,7 +551,26 @@ $$\xbar = \textstyle\frac{1}{n}\sum_{i} X_i = \frac{1}{5}(2+0+7+3+3) = 3$$
 $$S = \textstyle\sqrt{\frac{1}{n-1}\sum_{i} (X_i - \overline{X})^2} = \textstyle\sqrt{\frac{1}{4}((-1)^2+(-3)^2+(4)^2+(0)^2+(0)^2)} = \textstyle\sqrt{\frac{13}{2}}$$
 \end{examp}
 \par
-Note that when calculating $S^2$ and $S$, we don't divide by the number of sample points, $n$ (which is what Definition \ref{VarianceDef} would tell us we ought to do), but instead by $n-1$. This change is known as Bessel's correction, and it's done to correct bias in the sample variance. The Bessel corrected sample variance, as defined above, is an unbiased estimator of the population variance. Without the modified denominator, the sample variance typically underestimates the population variance. In practice, Bessel's correction is used almost universally. Try calculating the standard deviation of a small list of values using a spreadsheet on a computer. Is the calculation done with or without Bessel's correction?
+Note that when calculating $S^2$ and $S$, we don't divide by the sample size, $n$, as in Definition \ref{VarianceDef}, but instead by $n-1$. This change is known as Bessel's correction, and it's done to obtain an unbiased estimator of the population variance. The formula in Definition \ref{VarianceDef} systematically underestimates the population variance.
+\begin{thm}The Bessel corrected sample variance $S^2 = \frac{1}{n-1}\sum_{i} (X_i - \overline{X})^2$, is an unbiased estimator of the population variance, that is, $E(S^2) = \sigma^2$.
+\end{thm} 
+\begin{pf} This follows from a long and careful calculation using properties of expected value. One key fact to recall is that $\Var(X) = E[X^2] - (E[X])^2$ for any random variable $X$, and hence $E[X^2] = Var(X) + (E[X])^2$.
+\eqnsgap{E(S^2) &= E\left(\textstyle\frac{1}{n-1}\displaystyle \sum_{i} (X_i - \overline{X})^2 \right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i} (X_i - \xbar)^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i} \left(X_i^2 - 2X_i\xbar + \xbar^2\right)\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - \sum_{i}2X_i\xbar + \sum_{i}\xbar^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - 2\xbar\sum_{i}X_i + n\xbar^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - 2\xbar\cdot n\xbar + n\xbar^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - n\xbar^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle \left(\sum_{i}E[X_i^2] - E[n\xbar^2]\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle \left(nE[X^2] - nE[\xbar^2]\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle \left(n(Var(X) + (E[X])^2) - n(Var(\xbar)+(E[\xbar])^2)\right)\\
+&= \textstyle\frac{1}{n-1}\displaystyle \left(n(\sigma^2 + \mu^2) - n(\frac{\sigma^2}{n}+\mu^2)\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle \left(n\sigma^2 + n\mu^2 - \sigma^2 -n\mu^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle \left((n-1)\sigma^2\right) = \sigma^2}
+\end{pf}
+
+In practice, Bessel's correction is used almost universally. Try calculating the standard deviation of a small list of values using a spreadsheet on a computer. Is the calculation done with or without Bessel's correction?
 \par
 If we use the sample standard deviation, $s$, to estimate the standard deviation in our population, $\sigma$, then when we standardize a sample mean $\xbar$, instead of the standardized value
 $$\frac{\overline{X} - \muxbar}{\sigmaxbar} = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}, \ \ \text{we'll have the estimate} \ \ \frac{\overline{X} - \muxbar}{\sigmaxbar} \simeq \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}.$$
@@ -572,30 +594,29 @@ where $S$ is the sample standard deviation, as in Definition \ref{SampleStdDev}.
 \end{tikzpicture}
 \end{center}
 \par
-Above in blue are plots of probability density functions for $T$-distributions with one, two, four, ten, and one hundred degrees of freedom, shaded lighter as the degree of freedom grows. The standard normal distribution is shown in dashed black. As one would expect from the discussion above, the shape of the $T$-distribution is very similar to the shape of the standard normal distribution.
+Above in blue are plots of probability density functions for $T$-distributions with one, two, four, ten, and one hundred degrees of freedom, shaded lighter as the degree of freedom grows. The standard normal distribution is shown in dashed black.
 \par 
-Compared to the standard normal distribution, the $T$-distribution has more area in the tails and less near the center. This additional variability appears because the sample standard deviation $S$ can be very different from one sample to the next, which adds a source of variability to $T$-scores which is not present in $Z$-scores. As the sample size grows, the sample standard deviation $S$ becomes a better estimator of the population standard deviation $\sigma$, and the $T$-distribution slowly approaches the standard normal distribution. Notice that once the degree of freedom reaches one hundred, the $T$-distribution and the standard normal distribution are effectively identical.
+The $T$-distribution has fatter tails and less area near the center than the standard normal distribution. This additional variability appears because the sample standard deviation $S$ differs from one sample to the next, which adds a source of variability to $T$-scores which is not present in $Z$-scores. As the sample size grows, the sample standard deviation $S$ becomes a better estimator of the population standard deviation $\sigma$, and the $T$-distribution slowly approaches the standard normal distribution. Notice that once the degree of freedom reaches one hundred, the $T$-distribution and the standard normal distribution are effectively identical.
 \par
-If we can find areas under the $T$-distribution, then the same procedure we've been using to construct confidence intervals when the population standard deviation is known can be made to work when it's not. The only change necessary is to use the $T$-distribution in place of the standard normal distribution, and the sample standard deviation in place of the population standard deviation.
-\par
+If we can find areas under the $T$-distribution, then the same procedure we've been using to construct confidence intervals with the population standard deviation can be modified to work with the sample standard deviation.
 \begin{prop}Let $T$ be a random variable whose distribution is the $T$ distribution with $n-1$ degrees of freedom, and take $t^*$ so that $P(-t^* < T < t^*) = C$.
 \par
 \noindent If we define $E = t^*\frac{S}{\sqrt{n}}$, then $P(\mu \in (\xbar - E, \xbar + E)) = C$, where $\xbar$ is the mean of a SRS drawn from a normal distribution with mean $\mu$.
 \end{prop}
 \begin{pf}
-By definition of $t^*$, with a probability of $C$ we have
+By definition of $t^*$, with probability $C$ we have
 \begin{gather*}
 -t^* < T < t^* \\
 -t^* < \textstyle\frac{\overline{X}- \mu}{\frac{S}{\sqrt{n}}} < t^* \\
 -t^* \textstyle\frac{S}{\sqrt{n}} < \overline{X}- \mu < t^* \frac{S}{\sqrt{n}} \\[0.2ex]
 -\overline{X}-t^* \textstyle\frac{S}{\sqrt{n}} < - \mu < -\overline{X}+t^* \frac{S}{\sqrt{n}} \\[0.3ex]
-\overline{X}-t^* \textstyle\frac{S}{\sqrt{n}} <  \mu < \overline{X}+t^* \frac{S}{\sqrt{n}}
+\overline{X}-t^* \textstyle\frac{S}{\sqrt{n}} <  \mu < \overline{X}+t^* \frac{S}{\sqrt{n}}.
 \end{gather*}
 \end{pf}
 \par
 \begin{examp}\label{TIntExample} A sample of five values is drawn from a normal distribution with unknown mean and standard deviation. These values are $43$, $27$, $30$, $22$, and $38$. Construct a 90\% confidence interval for the mean of the normal distribution.
 \par
-\noindent Computing the mean and (Bessel corrected) standard deviation of the sample yields $\xbar = 32$ and $S = 8.456$. We can now construct a confidence interval for the population mean $\mu$ as we've already done in Section \ref{ConfIntervalMeanSec}, but using $s$ in place of $\sigma$ and the $T$-distribution in place of the standard normal distribution.
+\noindent Computing the mean and (Bessel corrected) standard deviation of the sample yields $\xbar = 32$ and $S = 8.456$. We can now construct a confidence interval for the population mean $\mu$ just as we've done before in Section \ref{ConfIntervalMeanSec}, but using $s$ in place of $\sigma$ and the $T$-distribution in place of the standard normal distribution.
 \begin{center}
    \begin{tikzpicture}[scale = 0.6]
        \begin{axis}[unit vector ratio=1 6 1, ymin=0,ymax=0.5,xmin=-2.9, xmax = 2.9, xtick = {-2.13,0,2.13}, xticklabels = {$-2.13$,$0$,$2.13$}, ytick = {0.1,0.2,0.3,0.4,0.5}]
@@ -611,7 +632,7 @@ $$32 - 3.60 < \mu < 32 + 3.60 \ \ \rightarrow \ \ 28.40 < \mu < 35.60$$
 \end{examp}
 
 \subsection*{Robustness}
-Notice that the $T$-distribution is defined as the distribution of $T$-scores of random samples drawn from a normal distribution. In practice, however, we would rarely know enough about the population we're studying to be able to determine whether the distribution of the trait we're interested in is normal.
+Notice that the $T$-distribution is defined as the distribution of $T$-scores of random samples drawn from a normal distribution. In practice, however, we would rarely know enough about the population we are studying to be able to determine whether the distribution of the random variable we are interested in is normal.
 \par
 Fortunately, whenever the hypotheses of the central limit theorem hold, the distribution of $T$-scores of random samples drawn from any distribution will, in fact, eventually converge to the $T$-distribution \cite{AsymptoticTDist}. 
 \par
@@ -628,7 +649,7 @@ $$21.3-1.343 < \mu < 21.3+1.343 \ \ \rightarrow \ \ 19.957 < \mu < 22.643.$$
 Therefore, with $90\%$ confidence, the mean height of all mature trees of this species in the park is between $19.9$ and $22.7$ metres.
 \end{examp}
 \par
-In examples like the one above, where the distribution our sample is drawn from is almost certainly normal-ish (think about what kind of shape the distribution of heights of mature trees might have), confidence intervals constructed using this procedure should be accurate for all but very small sample sizes.
+In examples like the one above, where the distribution our sample is drawn from is somewhat bell-shaped, without fat tails (think about what kind of shape the distribution of heights of mature trees might have), confidence intervals constructed using the T-distribution are typically very accurate for all but extremely small sample sizes.
 
 
 
