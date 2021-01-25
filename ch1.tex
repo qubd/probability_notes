@@ -341,7 +341,7 @@ The last fact we'll derive is the extremely useful \emx{inclusion-exclusion prin
 \par
 Though the argument above is fairly opaque, the inclusion-exclusion principle itself is quite intuitive. To illustrate, suppose we draw a card from a standard deck, let $H =$ `the card is a heart' and $F =$ `the card is a face card'. Then to determine the probability that the card drawn is either a heart or a face card (that is, $H \cup F$ occurs), we should count up all of the hearts, of which there are 13, and count up all the face cards, of which there are 12. 
 \par
-However, the three cards in $H \cap F = \{J\heartsuit, Q\heartsuit, K\heartsuit \}$ were counted twice. If we correct for this, the number of cards in $H \cup F$ is $13 + 12 - 3 = 22$, and therefore we have $P(H \cup F) = \frac{22}{52} = \frac{13}{52} + \frac{12}{52} - \frac{3}{52} = P(H) + P(F) + P(H \cap F)$.
+However, the three cards in $H \cap F = \{J\heartsuit, Q\heartsuit, K\heartsuit \}$ were counted twice. If we correct for this, the number of cards in $H \cup F$ is $13 + 12 - 3 = 22$, and therefore we have $P(H \cup F) = \frac{22}{52} = \frac{13}{52} + \frac{12}{52} - \frac{3}{52} = P(H) + P(F) - P(H \cap F)$.
 \par
 \begin{example}
 Suppose that we toss a pair of dice. What is the probability that a two appears on the face of a die, or the sum of the values on both dice is 6?
