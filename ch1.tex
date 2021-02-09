@@ -844,11 +844,14 @@ Events $A$ and $B$ are called independent\index{Events!independent}\index{Indepe
 Consider two cards drawn from a shuffled deck. Let $S_1 =$ `a spade is drawn on the first draw' and $S_2 =$ `a spade is drawn on the second draw'. Then $S_1$ and $S_2$ are independent provided the draws are done with replacement, but not independent if the draws are done without replacement. In this second case, $P(S_2 \given S_1) = \frac{12}{51}$, but using the law of total probability, $P(S_2) = \frac{1}{4}$.
 \end{examp}
 \par
-Using the definition of $P(A \given B)$, we can state what it means for two events to be independent in a different way, and in the process derive a new probability law.
+Using the definition of $P(A \given B)$, we can state what it means for two events to be independent in a different way. The result is equivalent to, and sometimes used in place of, Definition \ref{independentevents} above.
 $$P(A) = P(A \given B) \biimp P(A) = \frac{P(A \cap B)}{P(B)} \biimp P(A)P(B) = P(A \cap B)$$
-$$\text{If }A\text{ and }B\text{ are independent events, }P(A \cap B) = P(A)P(B).$$
 
-\rmk From this law, we could also isolate $P(B)$ to obtain $P(B) = P(B \given A)$. Independence is a symmetric relation. You should interpret Definition \ref{independentevents} as `the probability of one event occurring is not influenced by the occurrence of the other' without worrying about memorizing which symbol goes where.
+\index{Events!independent}
+\begin{thm}If $A$ and $B$ are independent events, $P(A \cap B) = P(A)P(B)$.
+\end{thm}
+
+\rmk In the equation above, we could isolate $P(B)$ to obtain $P(B) = P(B \given A)$. Independence is a symmetric relation. You should interpret Definition \ref{independentevents} as `the probability of one event occurring is not influenced by the occurrence of the other' without worrying about memorizing which symbol goes where.
 \begin{thm}\label{compindependent}
 If $A$ and $B$ are independent, then $A$ and $B^c$ are independent.
 \end{thm}
