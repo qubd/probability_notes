@@ -844,14 +844,11 @@ Events $A$ and $B$ are called independent\index{Events!independent}\index{Indepe
 Consider two cards drawn from a shuffled deck. Let $S_1 =$ `a spade is drawn on the first draw' and $S_2 =$ `a spade is drawn on the second draw'. Then $S_1$ and $S_2$ are independent provided the draws are done with replacement, but not independent if the draws are done without replacement. In this second case, $P(S_2 \given S_1) = \frac{12}{51}$, but using the law of total probability, $P(S_2) = \frac{1}{4}$.
 \end{examp}
 \par
-Using the definition of $P(A \given B)$, we can state what it means for two events to be independent in a different way. The result is equivalent to, and sometimes used in place of, Definition \ref{independentevents} above.
+Using the definition of the conditional probability $P(A \given B)$, we can state what it means for two events to be independent in a different way. 
 $$P(A) = P(A \given B) \biimp P(A) = \frac{P(A \cap B)}{P(B)} \biimp P(A)P(B) = P(A \cap B)$$
+Thus, when $A$ and $B$ are independent events, $P(A \cap B) = P(A)P(B)$. This relation is often used as the definition of independence. As we just saw, it's equivalent to the definition we gave earlier but also applies when $P(A) = 0$ or $P(B) = 0$ (in these cases $P(A\given B)$ or $P(B \given A)$ would be undefined).
 
-\index{Events!independent}
-\begin{thm}If $A$ and $B$ are independent events, $P(A \cap B) = P(A)P(B)$.
-\end{thm}
-
-\rmk In the equation above, we could isolate $P(B)$ to obtain $P(B) = P(B \given A)$. Independence is a symmetric relation. You should interpret Definition \ref{independentevents} as `the probability of one event occurring is not influenced by the occurrence of the other' without worrying about memorizing which symbol goes where.
+\rmk Independence is a symmetric relation, which you can interpret intuitively as saying `the probability of one event occurring is not influenced by the occurrence of the other' without worrying about which event comes first. This revised definition shows that intuition is correct, as exchanging the letters $A$ and $B$ gives yields the same equation.
 \begin{thm}\label{compindependent}
 If $A$ and $B$ are independent, then $A$ and $B^c$ are independent.
 \end{thm}
@@ -860,9 +857,7 @@ Note that $A = (A \cap B) \cup (A \cap B^c)$ and hence $P(A) = P(A \cap B) + P(A
 \eqns{P(A \cap B^c) &= P(A) - P(A \cap B) \\
 &= P(A) - P(A)P(B) \\
 &=P(A)(1-P(B)) \\
-&= P(A)P(B^c)}
-\par
-\noindent As we showed above while deriving the intersection law for independent events, this is equivalent to $P(A) = P(A \given B^c)$.
+&= P(A)P(B^c).}
 \end{pf}
 \begin{cor}
 If $A$ and $B$ are independent, then $A^c$ and $B^c$ are independent.
@@ -871,7 +866,7 @@ If $A$ and $B$ are independent, then $A^c$ and $B^c$ are independent.
 If $A$ and $B$ are independent, then $A$ and $B^c$ are independent by Theorem \ref{compindependent}, but independence is symmetric, so applying Theorem \ref{compindependent} again, this time to $B^c$ and $A$, we conclude $B^c$ and $A^c$ are independent.
 \end{pf}
 \par
-Given a sequence of events $\{A_1, A_2, \, ... \, , A_n\}$, we say this sequence is independent if the occurrence of any collection of these events does not influence the chance that any other event in the sequence occurs. Formally, it's easiest to state this by extending the intersection law for independent sequences we derived above.
+Given a sequence of events $\{A_1, A_2, \, ... \, , A_n\}$, we say this sequence is independent if the occurrence of any collection of these events does not influence the chance that any other event in the sequence occurs. Formally, it's easiest to state this by extending the relation $P(A \cap B) = P(A)P(B)$ to arbitrary subsets of the sequence.
 \begin{defn}\index{Independence!of a sequence of events}
 The sequence of events $\{A_i\}_{i=1}^{n}$ is independent if for any collection $\{A_{i_1}, A_{i_2}, \, ... \, , A_{i_k}\}$ of events taken from the sequence,
 \eqnsgap{P(A_{i_1} \cap A_{i_2} \cap \, ... \, \cap A_{i_k}) = P(A_{i_1})P(A_{i_2}) \, ... \, P(A_{i_k})}
