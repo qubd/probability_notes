@@ -24,9 +24,9 @@ The player's payout in this game is an example of a \emph{random variable}, whic
 \noindent If all values in the range of this function can be listed one-by-one (whether that list is finite or infinite), the random variable is called discrete. In this section, we'll deal only with discrete random variables.
 \end{defn}
 \par
-Recall that a sample space represents the set of all outcomes of some experiment, so a random variable associates a real number with each possible outcome. In other words, a random variable is simply a variable whose value depends on the outcome of an experiment.
+Recall that a sample space is used to represent the possible outcomes of some experiment, so a random variable associates a real number with each possible outcome. In other words, a random variable is a variable whose value is determined outcome of an experiment involving some element of chance.
 \par
-Random variables are typically denoted using capital letters at the end of the alphabet, such as $X$, $Y$, or $Z$, and the probability the random variable $X$ takes the value $a$ is denoted $P(X = a)$. This probability can be determined by computing the probability of an event in the sample space on which $X$ was defined.
+Random variables are typically denoted using capital letters at the end of the alphabet, such as $X$, $Y$, or $Z$, and the probability the random variable $X$ takes the real number value $x$ is denoted $P(X = x)$. Notice that $x$ is the usual kind of real number variable you're used to dealing with in algebra and calculus, while $X$ is a random variable with an associated sample space $\Omega$ and a potentially very limited range of possible values.
 
 \begin{examp} Let $X$ denote the outcome of single die roll. Then $X$ is a random variable defined on the sample space $\Omega = \{1,2,3,4,5,6\}$.
 \par
@@ -34,9 +34,7 @@ Random variables are typically denoted using capital letters at the end of the a
 \end{examp}
 
 \par
-Notice that any equation or inequality involving a random variable determines some subset of outcomes (an event) in $\Omega$, and so the probability of the equation or inequality holding is the probability that this event occurs.
-\par
-In fact, for any event $E \subseteq \Omega$, we can define an indicator variable $I_{E}$, which takes the value $1$ if $E$ occurs and $0$ if $E^c$ occurs. 
+Equations or inequalities involving a random variable (like those in the example directly above) correspond to events in the sample space $\Omega$ on which that random variable is defined, and the probability of the equation or inequality holding is the probability this event occurs. Conversely, for any event $E \subseteq \Omega$, we can define an indicator variable, denoted $I_{E}$, which takes the value $1$ if $E$ occurs and $0$ if not.
 
 \begin{examp}Consider rolling a pair of dice and define $S =$ `a sum of seven was rolled', find $P(I_S = 1)$ and $P(I_S = 0)$.
 \par
@@ -45,7 +43,7 @@ In fact, for any event $E \subseteq \Omega$, we can define an indicator variable
 
 \begin{examp} Let $X$ denote the number of hearts in three draws, with replacement, from a shuffled deck. What is $P(X > 1)$?
 \par
-\noindent We are asking for the probability that more than one heart is drawn in three draws, with replacement. Using the law of total probability or a tree diagram,
+\noindent We need the probability more than one heart appears in three draws, performed with replacement. Using the law of total probability / a tree diagram, we can calculate
 \eqnsgap{P(X > 1) = \frac{1}{64}+ \frac{3}{64}+ \frac{3}{64}+ \frac{3}{64} = \frac{10}{64}\simeq 0.156.}
 \end{examp}
 \par
@@ -53,13 +51,11 @@ In fact, for any event $E \subseteq \Omega$, we can define an indicator variable
 \begin{rmk} Note that random variables must take real number values. If we let $X$ denote the number of heads in a single flip of a coin, then $X$ is a random variable, but if we let $X$ denote the outcome (Heads or Tails) of a single flip of a coin, then $X$ is not a random variable.
 \end{rmk}
 
-We can summarize a random variable by listing every possible value it can take, and writing the probability it takes each of those values. To do so is to give the probability distribution of the random variable $X$. 
-
 \begin{defn}\index{Random Variable! distribution of}
 The probability distribution of a random variable $X$ associates to every possible value of $X$ the probability that it occurs.
 \end{defn}
 
-Often we'll drop the word probability from the definition and refer simply to `the distribution of $X$'. The simplest way to present the distribution of a discrete random variable is through a table.
+Often we'll drop the word probability and refer simply to `the distribution of $X$'. There many ways to present the distribution of a discrete random variable. One way is to simply list the possible values of $X$ and their probabilities in a table.
 
 \begin{examp} Suppose that a fair coin is flipped twice, and let $X$ be the number of heads observed. Write the distribution of $X$ using a table.
 \par
@@ -78,7 +74,7 @@ $2$ & $\frac{1}{4}$ \\
 \renewcommand*{\arraystretch}{1}
 \end{examp}
 
-\rmk Notice that capital letters are used to denote random variables while lower case letters are used to denoted possible values that random variables may take.
+\rmk Notice the notation $P(X = x)$ here. We will use a capital letter like $X$ to represent a random variable, which is a function from $\Omega$ to $\mathbb{R}$, while a lower case letter like $x$ will represent a numerical value that $X$ may or may not take.
 
 \subsection*{Probability Mass Functions}
 \par
@@ -144,7 +140,7 @@ Find the value of $k$ so that the function $h$ below is a pmf.
 \noindent Of course, only the first few values can be shown, since the graph continues off to the right indefinitely.
 \renewcommand*{\arraystretch}{1}
 \begin{center}
-\begin{tikzpicture}[scale = 0.75]
+\begin{tikzpicture}[scale = 0.725]
 \begin{axis}[ymin = 0, ymax = 0.3,
 		y tick label style={
         /pgf/number format/.cd,
@@ -165,7 +161,7 @@ If $X$ is a discrete random variable, and $g: \mathbb{R} \to \mathbb{R}$ is any 
 \begin{examp}\label{FunctionRVEx}
 Let $X$ be the random variable whose pmf is given below, and let $Y = 1 + X^2$. Find the pmf of $Y$.
 \begin{center}
-\begin{tikzpicture}[scale = 0.6]
+\begin{tikzpicture}[scale = 0.725]
 \begin{axis}[ymin = 0, ymax = 0.4,
 		y tick label style={
         /pgf/number format/.cd,
