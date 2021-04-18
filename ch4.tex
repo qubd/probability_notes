@@ -807,6 +807,7 @@ P(X > 15) &= 1 - P(X \leq 15) = 1 - (1 - e^{-\frac{1}{10} \cdot 15}) = e^{-\frac
 \noindent The probability the monitor will last at least five more years is $e^{-\frac{1}{2}} \simeq 0.607$, and the memoryless property states that we'll obtain the same result by simply calculating 
 \eqns{P(X>5) = 1 - P(X \leq 5) = 1 - (1 - e^{-\frac{1}{10} \cdot 5}) = e^{-\frac{1}{2}}.}
 \end{examp}
+\color{red}
 
 \section{The Pareto Distribution}
 
@@ -829,9 +830,9 @@ P(X > 15) &= 1 - P(X \leq 15) = 1 - (1 - e^{-\frac{1}{10} \cdot 15}) = e^{-\frac
         \centering
 \begin{tikzpicture}[scale = 0.6]
        \begin{axis}[title = {$X \sim Pareto(3,2)$}, unit vector ratio=1 4 1, ymin=-0.005,ymax=0.75,xmin=1.5, xmax = 7.5, xtick = {2,3,4,5,6,7}, ytick = {0.2,0.4,0.6}]
-       \addplot[very thick,domain=3:8,blue] {(18)/x^3};
-       \draw[very thick, blue, -] (axis cs:3,0) -- (axis cs:3,18/27);
-       \draw[very thick, blue, -] (axis cs:1.5,0) -- (axis cs:3,0);
+       \addplot[very thick,domain=3:8,red] {(18)/x^3};
+       \draw[very thick, red, -] (axis cs:3,0) -- (axis cs:3,18/27);
+       \draw[very thick, red, -] (axis cs:1.5,0) -- (axis cs:3,0);
     \end{axis}
     \end{tikzpicture}
 \end{minipage}
@@ -876,6 +877,7 @@ We can determine $E(X^2)$ by a very similar calculation. Applying the formula $\
 \eqns{4 = \frac{m \cdot 4}{3}  \ \ \rightarrow \ \ m = 3.}
 
 \end{examp}
+\color{black}
 
 %\begin{examp} If $X \sim Exponential(\lambda)$, show that $Y = e^{X}$ is Pareto distributed. What are the parameters of $Y$?
 %\par
