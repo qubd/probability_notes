@@ -350,6 +350,8 @@ Var(\widehat{\theta}_1) &= \textstyle\frac{55}{64}.}
 \noindent Since $\widehat{\theta}_2$ is unbiased, $\text{MSE}(\widehat{\theta}_2) = Var(\widehat{\theta}_2)$ by Theorem \ref{BiasVarianceDecomp}, so $Var(\widehat{\theta}_2) = \frac{40}{16}$. Note that $\widehat{\theta}_1$ is the estimator with the lower $\text{MSE}$ despite the fact that it's biased.
 \end{examp}
 
+\color{red}
+
 \section{Maximum Likelihood Estimation}
 
 One strategy for estimating a parameter from sample data is to determine the value that makes the observed sample as likely as possible to occur. If I told you that in a sample of $50$ flips of a biased coin, $40$ heads and $10$ tails occurred, then $\frac{40}{50} = 0.8$ clearly seems like the best guess you could make for the probability of heads on a single flip of that coin. This value is called a maximum likelihood estimate\index{Maximum Likelihood Estimator}.
@@ -482,5 +484,7 @@ Another useful fact concerning maximum likelihood estimation is that if one para
 \end{examp}
 \par
 \noindent\rmk The log-likelihood above is undefined when $p = 0$ or $p=1$, but these are possible values for the parameter $p$ if $X \sim Bernoulli(p)$. Despite this, note that the maximum likelihood estimator for $p$ will estimate $\widehat{p} = 0$ if no successes are observed in the sample, and will estimate $\widehat{p} = 1$ if every sample value is a success.
+
+\color{black}
 
 
