@@ -479,6 +479,8 @@ Notice that as the confidence level becomes larger, the corresponding critical v
 \begin{prop} To reduce the margin of error, $E$ and produce tighter bounds on $\mu$, we can either decrease the confidence level, $C$, or increase the sample size, $n$.
 \end{prop}
 
+\color{red}
+
 \section{Confidence Interval for a Proportion}
 
 What if we're interested in estimating the proportion of individuals in a population that have some property of interest? For example, a pollster might want to estimate the proportion of all voters in some area that intend to vote for a particular political party. We can produce a confidence interval for such a proportion from a random sample using the ideas we developed in the last section.
@@ -522,8 +524,8 @@ We can use this result to construct confidence intervals for a population propor
 \begin{center}
    \begin{tikzpicture}[scale = 0.6]
        \begin{axis}[unit vector ratio=1 6 1, ymin=0,ymax=0.5,xmin=-2.9, xmax = 2.9, xtick = {-1.75,0,1.75}, xticklabels = {$-1.75$,$0$,$1.75$}, ytick = {0.1,0.2,0.3,0.4,0.5}]
-       \addplot[fill = blue, very thick,domain=-1.75:1.75,blue!50, samples=100] {0.3989*e^(-x^2/2)}\closedcycle;
-       \addplot[very thick,domain=-3:3,blue, samples=100] {0.3989*e^(-x^2/2)};
+       \addplot[fill = red, very thick,domain=-1.75:1.75,red!50, samples=100] {0.3989*e^(-x^2/2)}\closedcycle;
+       \addplot[very thick,domain=-3:3,red, samples=100] {0.3989*e^(-x^2/2)};
        \addplot[domain=-3:3] {0};
        \node at (axis cs: 0,0.2) {\Large{$0.92$}};
     \end{axis}
@@ -536,6 +538,8 @@ $$0.278-0.031 < p < 0.278+0.031 \ \ \rightarrow \ \ 0.247 < p < 0.309.$$
 \par
 Note that if you look up the margin of error formula for estimating a proportion in other sources you'll likely encounter the formula $$E = z^*\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}.$$
 This is the same error bound we derived at the beginning of this section, but the unknown population proportion $p$ has been replaced by the sample proportion $\widehat{p}$. As the sample size increases, we know $\widehat{p} \rightarrow p$ by the law of large numbers, but for any fixed $n$, they will differ, so to properly justify this error bound requires more work, as this difference introduces a new source of uncertainty we have not quantified.
+
+\color{black}
 
 \section{Confidence Interval for a Mean ($\sigma$ Unknown)}
 
