@@ -39,13 +39,13 @@ In other words, for any interval containing $\mu$, no matter how tiny it might b
 \noindent
 Thus, the mean of $\xbar$ is $\mu$, and the standard deviation of $\xbar$ is $\sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}$.
 \par
-\noindent Our goal is to show that $\xbar$ can't stray too far from it's mean, $\mu$, and we have a tool for bounding the values a random variable can take, Chebyshev's Inequality (Theorem \ref{ChebyshevsInequality}). Applying the inequality to $\xbar$,
+\noindent Our goal is to show that $\xbar$ can't stray too far from it's mean, $\mu$, and we have a tool for bounding the values a random variable can take, Chebyshev's Inequality (Theorem \ref{ChebyshevsInequality}). Applying the inequality to $\xbar$, we have that for any $k > 0$,
 
 \eqns{P\bigr(\xbar \in (\mu - k\textstyle\frac{\sigma}{\sqrt{n}}, \, \mu + k\frac{\sigma}{\sqrt{n}})\bigr) &\geq 1 - \frac{1}{k^2} \\
 P\bigr(\xbar \not\in (\mu - k\textstyle\frac{\sigma}{\sqrt{n}}, \, \mu + k\frac{\sigma}{\sqrt{n}})\bigr) &\leq \frac{1}{k^2}.}
 \vspace{0.5em}
 \par
-\noindent Let $\epsilon = k\frac{\sigma}{\sqrt{n}}$, so we have $k = \frac{\epsilon\sqrt{n}}{\sigma}$ and $\frac{1}{k^2} = \frac{\sigma^2}{\epsilon^2n}$. We can rewrite the inequality above as
+\noindent Now given any $\epsilon > 0$, take $k = \frac{\epsilon\sqrt{n}}{\sigma}$. Isolating $\frac{1}{k^2}$ in this equation yields $\frac{1}{k^2} = \frac{\sigma^2}{\epsilon^2n}$, and isolating $\epsilon$ gives $\epsilon = k\frac{\sigma}{\sqrt{n}}$, so we can rewrite the inequality above as
 \eqns{P\bigr(\xbar \not\in (\mu - \epsilon, \, \mu + \epsilon)\bigr) &\leq \frac{\sigma^2}{\epsilon^2n} \\
 P\left(\left|\frac{X_1 + X_2 + \, ... \, + X_n}{n} - \mu \right| \geq \epsilon \right) &\leq \frac{\sigma^2}{\epsilon^2n}.}
 \par
