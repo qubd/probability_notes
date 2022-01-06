@@ -59,8 +59,6 @@ The results concerning the mean and standard deviation of $\overline{X}$ we obta
 \par
 The strong law of large numbers, given below, is also a statement that the mean of a SRS will converge to the population mean as the sample size approaches infinity, but the notion of convergence is slightly different. This alternate formulation is more difficult to prove, but can be easier to apply.
 
-\color{red}
-
 \begin{thm} (Strong Law of Large Numbers) Suppose that $X$ is a random variable with mean $\mu$. If $X_1, X_2, ... \, , X_n$ is a SRS of values of $X$ taken with replacement, then
 \eqnsgap{P\left( \lim_{n \to \infty} \frac{X_1+X_2+\,...\,+X_n}{n} = \mu \right) = 1}
 \end{thm}
@@ -86,7 +84,6 @@ One of the more entertaining consequences of the strong law of large numbers is 
 \par
 \noindent Note that $\left(\frac{1}{k}\right)^N \neq 0$, so with probability one, $\lim_{n \to \infty} \frac{X_1+X_2+\,...\,+X_n}{n}$ is not zero. This means that the sum $X_1+X_2+\,...\,+X_n \to \infty$ as $n \to \infty$, since if this sum was bounded by some constant $c$, then $\frac{X_1+X_2+\,...\,+X_n}{n} \leq \frac{c}{n} \to 0$. Therefore, we have $X_i = 1$ for infinitely many $i$, so with probability one, not only will the monkey produce the complete works of Shakespeare, it will do so infinitely many times!
 \end{examp}
-\color{black}
 \par
 The law of large numbers is frequently misunderstood. Consider a scenario in which a fair coin is repeatedly flipped. The law of large numbers states that as the number of flips grows larger and larger, the proportion of heads will converge to $\frac{1}{2}$ with probability one.
 \par
@@ -479,8 +476,6 @@ Notice that as the confidence level becomes larger, the corresponding critical v
 \begin{prop} To reduce the margin of error, $E$ and produce tighter bounds on $\mu$, we can either decrease the confidence level, $C$, or increase the sample size, $n$.
 \end{prop}
 
-\color{red}
-
 \section{Confidence Interval for a Proportion}
 
 What if we're interested in estimating the proportion of individuals in a population that have some property of interest? For example, a pollster might want to estimate the proportion of all voters in some area that intend to vote for a particular political party. We can produce a confidence interval for such a proportion from a random sample using the ideas we developed in the last section.
@@ -538,8 +533,6 @@ $$0.278-0.031 < p < 0.278+0.031 \ \ \rightarrow \ \ 0.247 < p < 0.309.$$
 \par
 Note that if you look up the margin of error formula for estimating a proportion in other sources you'll likely encounter the formula $$E = z^*\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}.$$
 This is the same error bound we derived at the beginning of this section, but the unknown population proportion $p$ has been replaced by the sample proportion $\widehat{p}$. As the sample size increases, we know $\widehat{p} \rightarrow p$ by the law of large numbers, but for any fixed $n$, they will differ, so to properly justify this error bound requires more work, as this difference introduces a new source of uncertainty we have not quantified.
-
-\color{black}
 
 \section{Confidence Interval for a Mean ($\sigma$ Unknown)}
 
@@ -639,11 +632,11 @@ $$32 - 8.05 < \mu < 32 + 8.05 \ \ \rightarrow \ \ 23.95 < \mu < 40.05$$
 \end{examp}
 
 \subsection*{Robustness}
-Notice that the $T$-distribution is defined as the distribution of $T$-scores of random samples drawn from a normal distribution. In practice, however, we would rarely know enough about the population we are studying to be able to determine whether the distribution of the random variable we are interested in is normal.
+Notice that the $T$-distribution is defined as the distribution of $T$-scores of random samples drawn from a normal distribution. In practice though, we would rarely know enough about the population we are studying to be able to determine if the random variable whose mean we want to estimate is normally distributed.
 \par
-Fortunately, whenever the hypotheses of the central limit theorem hold, the distribution of $T$-scores of random samples drawn from any distribution will, in fact, eventually converge to the $T$-distribution \cite{AsymptoticTDist}. 
+Fortunately, whenever the hypotheses of the central limit theorem hold, the distribution of $T$-scores of random samples drawn from any distribution will, in fact, eventually converge to the $T$-distribution \cite{AsymptoticTDist} as the sample size grows larger. 
 \par
-Even with smaller sample sizes, statisticians like to say that the procedure illustrated above in Example \ref{TIntExample} is `robust to non-normality'. This means that the assumption that we're sampling from a normal distribution is necessary for strict correctness, but that breaking this assumption will typically introduce only a small source of error. We also know this error can be completely eliminated by having a sufficiently large sample size. With small samples though, one can be justifiably suspicious, especially if there's reason to believe the distribution of the population being studied is fat-tailed or very asymmetric.
+Even with smaller sample sizes, statisticians like to say that the confidence interval procedure above in Example \ref{TIntExample} is `robust to non-normality'. This means that although the assumption that we're sampling from a normal distribution is necessary for strict correctness of the procedure, bending the rules on this assumption will typically introduce only a small source of error. However, with small samples from a population whose distribution is not known to be bell-shaped, one can be justifiably suspicious, especially if there's reason to believe the distribution of the population could be fat-tailed or very asymmetric.
 \par
 \begin{examp}
 In a study of a particular species of maple in a provincial park, the height of every tree in a random sample of 38 mature trees was measured. If the sample mean and sample standard deviation for the heights of the trees were $21.3$ metres and $4.9$ metres respectively, construct a $90\%$ confidence interval for the mean height of all trees of this species in the park.
@@ -651,12 +644,12 @@ In a study of a particular species of maple in a provincial park, the height of 
 \noindent We have $\xbar = 21.3$, $S = 4.9$, and $n = 38$. Using the $T$-table, we can see that in a $T$-distribution with 37 degrees of freedom, $P(-1.69 < T < 1.69) = 0.9$, so the critical value is $t^* = 1.69$.
 \par
 \noindent
-We can then compute the margin of error $E = t^* \frac{s}{\sqrt{n}} = 1.69 \frac{4.9}{\sqrt{38}} = 1.343$. We can then write the confidence interval
+We can then compute the margin of error $E = t^* \frac{s}{\sqrt{n}} = 1.69 \frac{4.9}{\sqrt{38}} = 1.343$, and write the confidence interval
 $$21.3-1.343 < \mu < 21.3+1.343 \ \ \rightarrow \ \ 19.957 < \mu < 22.643.$$
 Therefore, with $90\%$ confidence, the mean height of all mature trees of this species in the park is between $19.9$ and $22.7$ metres.
 \end{examp}
 \par
-In examples like the one above, where the distribution our sample is drawn from is somewhat bell-shaped, without fat tails (think about what kind of shape the distribution of heights of mature trees might have), confidence intervals constructed using the T-distribution are typically very accurate for all but extremely small sample sizes.
+In examples like the one above, where the distribution our sample is drawn from is somewhat bell-shaped, without fat tails (think about what kind of shape the distribution of heights of mature trees might have), confidence intervals constructed using the $T$-distribution are typically very accurate for all but extremely small sample sizes.
 
 
 
