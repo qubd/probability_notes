@@ -52,7 +52,7 @@ pdf: $(pdffiles)
 .PHONY : clean cleanall
 clean:     # only removes temporary files
 	latexmk -silent -c
-	rm -f *.deps *~ *.comments *.brf
+	rm -f *.deps *~ *.comments *.brf *.bbl *.gnuplot *.table
 
 cleanall:  clean # also removes pdf-files
 	latexmk -silent -C
