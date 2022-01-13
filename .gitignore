@@ -8,3 +8,12 @@
 *.ilg
 *.ind
 *.toc
+*.deps
+*.fls
+*.brf
+*.out
+*.fdb_latexmk
+.auctex-auto
+*.gnuplot
+*.table
+BUILD
