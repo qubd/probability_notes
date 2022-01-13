@@ -24,9 +24,9 @@ The player's payout in this game is an example of a \emph{random variable}, whic
 \noindent If all values in the range of this function can be listed one-by-one (whether that list is finite or infinite), the random variable is called discrete. In this section, we'll deal only with discrete random variables.
 \end{defn}
 \par
-Recall that a sample space represents the set of all outcomes of some experiment, so a random variable associates a real number with each possible outcome. In other words, a random variable is simply a variable whose value depends on the outcome of an experiment.
+Recall that a sample space is used to represent the possible outcomes of some experiment, so a random variable associates a real number with each possible outcome. In other words, a random variable is a variable whose value is determined outcome of an experiment involving some element of chance.
 \par
-Random variables are typically denoted using capital letters at the end of the alphabet, such as $X$, $Y$, or $Z$, and the probability the random variable $X$ takes the value $a$ is denoted $P(X = a)$. This probability can be determined by computing the probability of an event in the sample space on which $X$ was defined.
+Random variables are typically denoted using capital letters at the end of the alphabet, such as $X$, $Y$, or $Z$, and the probability the random variable $X$ takes the real number value $x$ is denoted $P(X = x)$. Notice that $x$ is the usual kind of real number variable you're used to dealing with in algebra and calculus, while $X$ is a random variable with an associated sample space $\Omega$ and a potentially very limited range of possible values.
 
 \begin{examp} Let $X$ denote the outcome of single die roll. Then $X$ is a random variable defined on the sample space $\Omega = \{1,2,3,4,5,6\}$.
 \par
@@ -34,9 +34,7 @@ Random variables are typically denoted using capital letters at the end of the a
 \end{examp}
 
 \par
-Notice that any equation or inequality involving a random variable determines some subset of outcomes (an event) in $\Omega$, and so the probability of the equation or inequality holding is the probability that this event occurs.
-\par
-In fact, for any event $E \subseteq \Omega$, we can define an indicator variable $I_{E}$, which takes the value $1$ if $E$ occurs and $0$ if $E^c$ occurs. 
+Equations or inequalities involving a random variable (like those in the example directly above) correspond to events in the sample space $\Omega$ on which that random variable is defined, and the probability of the equation or inequality holding is the probability this event occurs. Conversely, for any event $E \subseteq \Omega$, we can define an indicator variable, denoted $I_{E}$, which takes the value $1$ if $E$ occurs and $0$ if not.
 
 \begin{examp}Consider rolling a pair of dice and define $S =$ `a sum of seven was rolled', find $P(I_S = 1)$ and $P(I_S = 0)$.
 \par
@@ -45,7 +43,7 @@ In fact, for any event $E \subseteq \Omega$, we can define an indicator variable
 
 \begin{examp} Let $X$ denote the number of hearts in three draws, with replacement, from a shuffled deck. What is $P(X > 1)$?
 \par
-\noindent We are asking for the probability that more than one heart is drawn in three draws, with replacement. Using the law of total probability or a tree diagram,
+\noindent We need the probability more than one heart appears in three draws, performed with replacement. Using the law of total probability / a tree diagram, we can calculate
 \eqnsgap{P(X > 1) = \frac{1}{64}+ \frac{3}{64}+ \frac{3}{64}+ \frac{3}{64} = \frac{10}{64}\simeq 0.156.}
 \end{examp}
 \par
@@ -53,13 +51,11 @@ In fact, for any event $E \subseteq \Omega$, we can define an indicator variable
 \begin{rmk} Note that random variables must take real number values. If we let $X$ denote the number of heads in a single flip of a coin, then $X$ is a random variable, but if we let $X$ denote the outcome (Heads or Tails) of a single flip of a coin, then $X$ is not a random variable.
 \end{rmk}
 
-We can summarize a random variable by listing every possible value it can take, and writing the probability it takes each of those values. To do so is to give the probability distribution of the random variable $X$. 
-
 \begin{defn}\index{Random Variable! distribution of}
 The probability distribution of a random variable $X$ associates to every possible value of $X$ the probability that it occurs.
 \end{defn}
 
-Often we'll drop the word probability from the definition and refer simply to `the distribution of $X$'. The simplest way to present the distribution of a discrete random variable is through a table.
+Often we'll drop the word probability and refer simply to `the distribution of $X$'. There many ways to present the distribution of a discrete random variable. One way is to simply list the possible values of $X$ and their probabilities in a table.
 
 \begin{examp} Suppose that a fair coin is flipped twice, and let $X$ be the number of heads observed. Write the distribution of $X$ using a table.
 \par
@@ -78,7 +74,7 @@ $2$ & $\frac{1}{4}$ \\
 \renewcommand*{\arraystretch}{1}
 \end{examp}
 
-\rmk Notice that capital letters are used to denote random variables while lower case letters are used to denoted possible values that random variables may take.
+\rmk Notice the notation $P(X = x)$ here. We will use a capital letter like $X$ to represent a random variable, which is a function from $\Omega$ to $\mathbb{R}$, while a lower case letter like $x$ will represent a numerical value that $X$ may or may not take.
 
 \subsection*{Probability Mass Functions}
 \par
@@ -144,7 +140,7 @@ Find the value of $k$ so that the function $h$ below is a pmf.
 \noindent Of course, only the first few values can be shown, since the graph continues off to the right indefinitely.
 \renewcommand*{\arraystretch}{1}
 \begin{center}
-\begin{tikzpicture}[scale = 0.75]
+\begin{tikzpicture}[scale = 0.725]
 \begin{axis}[ymin = 0, ymax = 0.3,
 		y tick label style={
         /pgf/number format/.cd,
@@ -165,7 +161,7 @@ If $X$ is a discrete random variable, and $g: \mathbb{R} \to \mathbb{R}$ is any 
 \begin{examp}\label{FunctionRVEx}
 Let $X$ be the random variable whose pmf is given below, and let $Y = 1 + X^2$. Find the pmf of $Y$.
 \begin{center}
-\begin{tikzpicture}[scale = 0.6]
+\begin{tikzpicture}[scale = 0.725]
 \begin{axis}[ymin = 0, ymax = 0.4,
 		y tick label style={
         /pgf/number format/.cd,
@@ -462,15 +458,13 @@ This is a very strange result, since it implies that even if you're required to 
 \par
 Notice that this is not a game one could actually play, as there's only a finite amount of money in the world. If this example is redone with an upper limit on the payout, the expected value will exist and give the average payout in the game. Using the current global GDP as the payout limit, the result is around \$45.
 \par
-It's also worth considering that someone with \$\,$2 \times 10^{100}$ has twice as much money as someone with \$\,$1 \times 10^{100}$ in a literal sense, but both could spend the rest of their lives throwing briefcases of money into a fire and neither would make a dent in their net worth. In practice, twice as much money doesn't have twice as much value.
-\par
-Regardless, if one were actually able to play this game as stated, and play it as many times as one desires, it would be rational do so even if every play cost \$1\,000\,000, since one would \emph{eventually} win an amount so large that the sum of all prior losses would be rendered insignificant. 
+It's also worth considering that someone with \$\,$2 \times 10^{100}$ has twice as much money as someone with \$\,$1 \times 10^{100}$ in a literal sense, but both could spend the rest of their lives throwing briefcases of money into a fire and neither would make a dent in their net worth. In practice, twice as much money doesn't have twice as much value. Regardless, if one were actually able to play this game as stated, and play it as many times as one desires, it would be rational do so even if every play cost \$1\,000\,000, since one would \emph{eventually} win an amount so large that the sum of all prior losses would be rendered insignificant. 
 
 \subsection*{Properties of the Expected Value}
 
 \begin{thm}\label{LawUnconsciousStatistician}\index{Law of the Unconscious Statistician}
 (Law of the Unconscious Statistician) If $X$ is a discrete random variable that takes values in the set $A = \{x_1, x_2, x_3, ...\}$ and $g: \mathbb{R} \to \mathbb{R}$, the random variable $Y = g(X)$ has 
-\eqns{E(Y) = \sum_{x \in A} g(x)f_X(x).}
+\eqns{\boxed{E(Y) = \sum_{x \in A}^{\ } g(x)f_X(x).}}
 \end{thm}
 \par
 Notice that the pmf in the sum is the pmf for $X$. We're finding the expected value of $Y$ so we would imagine the pmf of $Y$ would be involved here, but it isn't, and hence the name of the theorem. Using this result, we can calculate the expected value of $Y$ without knowing its pmf, which saves a lot of work.
@@ -570,7 +564,7 @@ If we roll six dice and sum the results, what is the expected value of the sum?
 \begin{examp}
 Suppose that Bob draws four marbles, with replacement, from an urn containing one blue, one green, one yellow, and one red marble. What is the expected number of different colours that will appear among Bob's selections?
 \par
-\noindent Let $I_b$ be an indicator variable for the event `at least one blue marble is drawn', so $I_b$ takes the value $1$ if a blue marble is drawn and $0$ if not. Define $I_g$, $I_y$, and $I_r$ similarly, so we have an indicator variable for each colour.
+\noindent We'll solve this problem using a clever idea known as the method of indicators. Let $I_b$ be an indicator variable for the event `at least one blue marble is drawn', so $I_b$ takes the value $1$ if a blue marble is drawn and $0$ if not. Define $I_g$, $I_y$, and $I_r$ similarly, so we have an indicator variable for each colour.
 \par
 \noindent The expected value of $I_b$ is easy to calculate, since $I_b = 0$ when no blue marbles are drawn, so $P(I_b = 0) = (\frac{3}{4})^4 = \frac{81}{256}$, and hence $P(I_b = 1) = 1 - \frac{81}{256} = \frac{175}{256}$. Therefore, $E(I_b) = 0 \cdot \frac{81}{256} + 1 \cdot \frac{175}{256} =\frac{175}{256}$. The same is true for $I_g$, $I_y$, and $I_r$.
 \par
@@ -580,9 +574,33 @@ Suppose that Bob draws four marbles, with replacement, from an urn containing on
 &= 4\left(\frac{175}{256}\right) = \frac{700}{256} \simeq 2.73.}
 \end{examp}
 \par
-Linearity of expectation is a surprisingly powerful principle. Seemingly difficult sounding averaging problems like the one above can be solved quite nicely by cleverly expressing a random variable as a sum, and using linearity.
+Notice that in the example above, though $I_b$, $I_y$, $I_g$, and $I_r$ are indicators for events that are not independent, linearity of expectation allows us to compute the expected value of their sum without thinking about how the value of one affects any of the others.
+\par
+Now consider a discrete random variable $X$ whose range is $\{1,2,\,...\,,n\}$ for some positive integer $n$, and notice that if we define an indicator $I_k$ for the event $X \geq k$ for each $k$ from $1$ to $n$, then $X = I_1 + I_2 + ... + I_n.$
+\par
+To illustrate, say for example that $X$ takes the value $2$. Then $I_1$ and $I_2$ both take the value one, and all $I_k$ for $k > 2$ are zero, so $X = I_1 + I_2 + I_3 + ... + I_n = 1 + 1 + 0 + ... + 0 = 2$. Using linearity of expectation, we have $$E(X) = E(I_1 + I_2 + ... + I_n) = E(I_1) + E(I_2) + ... + E(I_n).$$
+What is $E(I_k)$ for each $k \in \{1,2,\,...\,,n\}$? By definition, $I_k = 1$ if $X \geq k$ and $I_k = 0$ if $X < k$, hence $E(I_k) = 1\cdot P(X \geq k) + 0\cdot P(X<k) = P(X \geq k)$. Thus, $E(X) = E(I_1) + E(I_2) + ... + E(I_n) = P(X\geq 1) +P(X\geq 2) + ... + P(X\geq n)$.
 
-\section{Variance \& Moments}
+\begin{prop}\label{Discrete Tail Sum Formula}\index{Tail Sum Formula}\index{Expected Value!tail sum formula for}(Tail Sum Formula)
+Given a discrete random variable $X$ which takes values in $\{1,2,\,...\,,n\}$,
+\eqnsgap{\boxed{E(X) = \sum_{k=1}^{n} P(X\geq k).}}
+In fact, the assumption that there is an upper bound, $n$, on the values $X$ can take turns out to be unnecessary, and we can sum over all positive integers.
+\end{prop}
+\par
+Typically we compute expected values directly using Definition \ref{expectedvaluedef}, but there are some cases where the method of indicators or this tail sum formula make calculations substantially faster.
+\begin{examp}
+For fair dice are rolled. What is the expected value of the smallest of the four resulting numbers?
+\par
+\noindent Let $X$ be a random variable representing the smallest of the four resulting numbers. Then $X$ takes values in the set $\{1,2,3,4,5,6\}$, but writing the distribution of $X$ involves doing a lot of combinatorics. 
+\par
+\noindent On the other hand, finding $P(X \geq k)$ for each $k \in \{1,2,3,4,5,6\}$ is quite easy. For example, the event $X \geq 2$ occurs when every die shows a result higher than or equal to 2. Since the die rolls are independent, we have $P(X\geq2) = \frac{5}{6}\cdot\frac{5}{6}\cdot\frac{5}{6}\cdot \frac{5}{6} = (\frac{5}{6})^4$. Using the tail sum formula yields
+\eqnsgap{E(X) &= \sum_{k=1}^{6}P(X \geq k) \\
+&= P(X \geq 1) + P(X \geq 2) + ... + P(X \geq 6) \\
+&= 1 + \left(\frac{5}{6}\right)^4+\left(\frac{4}{6}\right)^4+\left(\frac{3}{6}\right)^4+\left(\frac{2}{6}\right)^4+\left(\frac{1}{6}\right)^4 \\ 
+&\approx 1.76}
+\end{examp}
+
+\section{Variance}
 
 The expected value of a random variable gives us a way quantifying what's meant by the center of a distribution. 
 \par
@@ -599,9 +617,9 @@ In fact, if the vertical lines in the graph of the pmf $f_X$ each represent lite
     }]
 \addplot+[ycomb] plot coordinates {(2,1/7) (3,2/7) (5,1/7) (6,3/7)}; 
 \end{axis} 
-\node (a) at (3.85,-0.5) {};
+\node (a) at (3.85,-0.3) {};
 \node (b) at (4.05,0) {};
-\node (c) at (4.3,-0.5) {};
+\node (c) at (4.25,-0.3) {};
 \node (d) at (4.05,-1) {};
 \draw (a.center)--(b.center)--(c.center);
 \draw (b.center)--(d.center);
@@ -663,9 +681,9 @@ Thus, we can quantify the dispersion of a random variable $X$ by calculating the
 \noindent First, $E(X) = 1 \cdot \frac{2}{8} + 3 \cdot \frac{1}{8} + 5 \cdot \frac{3}{8} + 6 \cdot \frac{2}{8} = 4$, that is, $\mu_X = 4$. Then we can calculate the variance below.
 \eqnsgap{\Var(X)&=E[(X-\mu_x)^2] \\
 &=(1-4)^2 \cdot \frac{2}{8} + (3-4)^2 \cdot \frac{1}{8} + (5-4)^2 \cdot \frac{3}{8} + (6-4)^2 \cdot \frac{2}{8} \\
-&=9 \cdot \frac{2}{8} + 1 \cdot \frac{1}{8} + 1 \cdot \frac{3}{8} + 4 \cdot \frac{2}{8} = \frac{31}{8}}
+&=9 \cdot \frac{2}{8} + 1 \cdot \frac{1}{8} + 1 \cdot \frac{3}{8} + 4 \cdot \frac{2}{8} = \frac{30}{8}}
 \par
-\noindent Thus, the standard deviation of $X$ is $\sigma_X = \sqrt{\frac{31}{8}} \simeq 1.968$.
+\noindent Thus, the standard deviation of $X$ is $\sigma_X = \sqrt{\frac{30}{8}} \simeq 1.936$.
 \end{examp}
 
 \begin{examp} In Big Win Bob's game, each player pays $\$1$ to place a bet on a number between 1 and 100, a winning number is selected at random, and the prize for a correct bet is $\$75$. In Conservative Charles' game, each player pays $\$1$ to bet on a number between 1 and 4, a winning number is selected at random, and the prize for a correct bet is $\$3$. Which game would you rather play?
@@ -684,7 +702,7 @@ E(Y) &= 2 \cdot \frac{1}{4} + (-1) \cdot \frac{3}{4} = -0.25}
 
 \par Calculating the variance by hand is a tedious process, and in practice, one would essentially always use a computer. In simple examples like those above, the following formula can make the calculation significantly faster.
 
-\begin{thm}$\Var(X) = E[X^2] - (E[X])^2$
+\begin{thm}$\boxed{\Var(X) = E[X^2] - (E[X])^2}$
 \end{thm}
 
 \begin{pf} Starting from the definition of $\Var(X)$, expanding $(X-\mu_X)^2$ and using linearity of expectation, we have
@@ -717,7 +735,7 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 \noindent Every term in the sum on the right is non-negative since squares are non-negative, and $f_X(x) \geq 0$ by definition of a pmf. Furthermore, at least one term is nonzero since $k_1$ and $k_2$ are distinct, so either $k_1  - \mu_X \neq 0$ or $k_2 - \mu_x \neq 0$. Thus, the sum must be positive, so we conclude that if $X$ takes more than one distinct value with nonzero probability, $\Var(X) \neq 0$.
 \end{pf}
 
-\begin{thm}\label{VarianceLinearity} For any constants $a, b \in \mathbb{R}$, $\Var(aX+b) = a^2\Var(X)$.
+\begin{thm}\label{VarianceLinearity} For any constants $a, b \in \mathbb{R}$, $\boxed{\Var(aX+b) = a^2\Var(X)}$.
 \end{thm}
 \begin{pf} This result follows from the definition of variance, using linearity of expectation.
 \eqns{\Var(aX+b) &= E[((aX+b) - \mu_{aX+b})^2] \\
@@ -743,24 +761,24 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 
 \subsection*{Independent Random Variables}
 
-We've seen in Section \ref{IndependenceOfEvents} that two events $A \subseteq \Omega$ and $B \subseteq \Omega$ are independent if $P(A \given B) = P(A)$, or equivalently, if $P(A \cap B) = P(A)P(B)$. This definition can be extended to random variables.
+We've seen in Section \ref{IndependenceOfEvents} that two events $A \subseteq \Omega$ and $B \subseteq \Omega$ are independent if $P(A \given B) = P(A)$, or equivalently, if $P(A \cap B) = P(A)P(B)$. This definition can be extended to discrete random variables in a natural way.
 
 \begin{defn}\label{IndependenceOfRVs}\index{Independence!of discrete random variables}
-Two random variables $X$ and $Y$ defined on the same sample space $\Omega$ are independent if $P(X = x \text{ and } Y = y) = P(X = x)P(Y = y)$ for all $x$ and $y$.\end{defn}
+Two random variables $X$ and $Y$ defined on the same sample space $\Omega$ are independent if $P(X = x \,\cap\, Y = y) = P(X = x)P(Y = y)$ for all $x$ and $y$.\end{defn}
 
-\begin{examp}Suppose a fair die is rolled twice. Let $X$ be the result of the first roll and $Y$ be the result of the second. Then $X$ and $Y$ are independent random variables, since for any $x$ and $y$ in $\{1,2,3,4,5,6\}$, we have $P(X = x \text{ and } Y = y) = \frac{1}{36}$, while $P(X = x) = \frac{1}{6}$ and $P(Y=y) = \frac{1}{6}$.
+\begin{examp}Suppose a fair die is rolled twice. Let $X$ be the result of the first roll and $Y$ be the result of the second. Then $X$ and $Y$ are independent random variables, since for any $x$ and $y$ in $\{1,2,3,4,5,6\}$, we have $P(X = x \,\cap\, Y = y) = \frac{1}{36}$, while $P(X = x) = \frac{1}{6}$ and $P(Y=y) = \frac{1}{6}$.
 \end{examp}
 
-\begin{examp}Let X be a number chosen at random from the set \{1,2,3,4,5,6\}, and let $Y$ be the remainder when $X$ is divided by 3. Then $X$ and $Y$ are not independent random variables, since, for instance, $P(X = 3 \text{ and } Y = 1) = 0$, because if $X = 3$ then we must have $Y = 0$, while $P(X = 3)P(Y = 1) = \frac{1}{6}\cdot\frac{2}{6}$.
+\begin{examp}Let X be a number chosen at random from the set $\{1,2,3,4,5,6\}$, and let $Y$ be the remainder when $X$ is divided by 3. Then $X$ and $Y$ are not independent random variables, since, for instance, $P(X = 3 \,\cap\, Y = 1) = 0$, because if $X = 3$ then we must have $Y = 0$, while $P(X = 3)P(Y = 1) = \frac{1}{6}\cdot\frac{2}{6}$.
 \end{examp}
 
-In the last section we saw that $E(X+Y) = E(X) + E(Y)$ for any random variables $X$ and $Y$. The relationship between $\Var(X)$, $\Var(Y)$, and $\Var(X+Y)$ is generally more complicated. However, in the case where $X$ and $Y$ are independent, it is indeed true that $\Var(X+Y) = \Var(X) + \Var(Y)$. To prove this, we need to establish the technical lemma below.
+In the last section we saw that $E(X+Y) = E(X) + E(Y)$ for any random variables $X$ and $Y$. The relationship between $\Var(X)$, $\Var(Y)$, and $\Var(X+Y)$ is generally more complicated. The details require defining the joint distribution of two random variables and an extensive discussion. If you're interested see \cite{Bertsekas} or \cite{Ghahramani}. In the case where $X$ and $Y$ are independent though, $\Var(X+Y) = \Var(X) + \Var(Y)$. To prove this, we need to establish the lemma below.
 
 \begin{lem}\label{ExpectationIndependentProduct} If $X$ and $Y$ are independent random variables, $E(XY) = E(X)E(Y)$.
 \end{lem}
-\begin{pf} Let $A$ denote the set of possible values of $X$ and $B$ denote the set of possible values of $Y$. To calculate $E(XY)$, we need to multiply every possible value of $XY$ by the probability it occurs.
-$$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \text{ and } Y= y)$$
-\noindent Now $P(X = x \text{ and } Y= y) = P(X = x)P(Y=y) = f_X(x)f_Y(y)$ since $X$ and $Y$ are independent. We can finish the argument by arranging the order of summation nicely and factoring. 
+\begin{pf} Let $A$ denote the range $X$ and $B$ denote the range of $Y$. To calculate $E(XY)$, we need to multiply every possible value of $XY$ by the probability it occurs.
+$$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \,\cap\, Y= y)$$
+\noindent Now $P(X = x \,\cap\, Y= y) = P(X = x)P(Y=y) = f_X(x)f_Y(y)$ since $X$ and $Y$ are independent. We can finish the argument by arranging the order of summation nicely and factoring. 
 \eqns{E(XY) &= \sum_{(x, y) \,\in\, A \times B} xy f_X(x)f_Y(y) = \sum_{x \in A} \sum_{y \in B} \, xy f_X(x)f_Y(y) \\
 & = \sum_{x \in A} x f_X(x) \, \sum_{y \in B} yf_Y(y) = E(X)E(Y) }
 \end{pf}
@@ -782,7 +800,7 @@ $$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \text{ and } Y= y)$$
 Though we've only dealt with sums of two random variables, the arguments given above can be extended to finite sums of any length.
 
 \begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, ... , $X_n$ is a sequence of independent random variables,
-$$\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).$$
+$$\boxed{\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).}$$
 \end{cor}
 
 \begin{examp}Let X be the result of single roll of a die, and let Y be the average of the results of four rolls. Which random variable has the larger variance?
@@ -819,14 +837,14 @@ With this terminology, the second central moment is the variance of $X$. Many ot
 
 \section{The Uniform Distribution}
 
-\begin{defn}\index{Uniform Distribution!discrete}\index{Distribution!Uniform}\index{Uniform Distribution} If $X$ is a discrete random variable with a finite set of possible values $A = \{x_1, x_2, \, ... \, , x_n\}$, and $X$ takes each value with equal probability, we say that $X$ is uniformly distributed on $A$. \end{defn}
+\begin{defn}\index{Uniform Distribution!discrete}\index{Distribution!Uniform}\index{Uniform Distribution} If $X$ is a discrete random variable that takes a value in a finite set of consecutive integers $A = \{a, a+1, a+2, \, ... \, , a+n\}$, and $X$ takes each value with equal probability, we say that $X$ is uniformly distributed on $A$. \end{defn}
 
 \begin{examp} Suppose that $X$ represents the roll of a single fair die, then $X$ is uniformly distributed on $A = \{1,2,3,4,5,6\}$, since $P(X = x) = \frac{1}{6}$ for all $x \in A$.
 \end{examp}
 
-If $A = \{1,2,3, \, .. \,, n\}$, we can write $X \sim Uniform(n)$ to indicate $X$ is uniformly distributed on $\{1,2,3, \, .. \,, n\}$. Note however, that for a general uniform distribution, $A$ can be any finite set, there is no requirement that the values in $A$ be consecutive, or have any sort of nice structure at all. We can define a random variable $Y$ which is uniformly distributed on the set $A = \{-500, 1, \pi\}$, by letting $P(Y = -500) = \frac{1}{3}$, $P(Y = 1) = \frac{1}{3}$, and $P(Y = \pi) = \frac{1}{3}$.
+The notation $X \sim Uniform(n)$ indicates $X$ is a discrete random variable which is uniformly distributed on $A = \{1,2,3, \, .. \,, n\}$. We could write $X \sim Uniform(6)$ to describe the distribution of the random variable in the example of a die roll above. However, note that for a general uniform distribution, $A$ could be any set of consecutive integers, which need not begin with 1.
 \par
-If $X$ is uniformly distributed on the set $A = \{x_1, x_2, \, .. \, , x_n\}$, then its pmf is
+If $X$ is uniformly distributed on the set $A$, then its pmf has the form
 \renewcommand*{\arraystretch}{1.35}
 \eqns{f_X(x) = \left\{
 \begin{array}{cl}
@@ -835,25 +853,27 @@ If $X$ is uniformly distributed on the set $A = \{x_1, x_2, \, .. \, , x_n\}$, t
 \right.}
 \renewcommand*{\arraystretch}{1}
 \par
-\noindent which yields a graph with several bars of the same height. For example, the graph below is the pmf of a random variable uniformly distributed on $A = \{-4,2,5,7\}$.
+\noindent which yields a graph with several bars of the same height. For example, the graph below is the pmf of a random variable uniformly distributed on $A = \{-1,0,1,2\}$.
 
 \begin{center}
 \begin{tikzpicture}[scale = 0.7]
-\begin{axis} [ymin = 0, ymax = 0.35,
+\begin{axis} [ymin = 0, ymax = 0.35, xmin = -1.5, xmax = 2.5,
 		y tick label style={
         /pgf/number format/.cd,
             fixed,
             precision=2,
         /tikz/.cd
     }]
-\addplot+[ycomb] plot coordinates {(-4, 0.25) (2, 0.25) (5, 0.25) (7, 0.25)}; 
+\addplot+[ycomb] plot coordinates {(-1, 0.25) (0, 0.25) (1, 0.25) (2, 0.25)}; 
 \end{axis}
 \end{tikzpicture}
 \end{center}
 
-It's not hard to show that the expected value of a uniformly distributed variable on the set $A$ is simply the average of the values in $A$\index{Uniform Distribution!expected value of}, in the usual sense.
+The expected value of a uniformly distributed variable on the set $A$ is simply the average of the values in $A$\index{Uniform Distribution!expected value of}. Formally, if $X$ is uniformly distributed on the set $A = \{a_1, a_2,\, ... \, , a_n\}$, then
+$$E(X) = a_1 \cdot \textstyle\frac{1}{n} + a_2 \cdot \frac{1}{n} + ... + a_n \cdot \frac{1}{n} = \frac{a_1 + a_2 + ... + a_n}{n}.$$
+In particular, if $X \sim Uniform(n)$, then $E(X) = \frac{1+2+3+...+n}{n} = \frac{\frac{n(n+1)}{2}}{n} = \frac{n+1}{2}$.
 \par
-\rmk If you wish to indicate that a number is being chosen from some set, and each value in that set has the same probability of being selected, you can say the number is chosen \emph{uniformly at random}. The term \emph{uniformly} indicates the number selected is a uniformly distributed random variable on that set, i.e. that each value is equally likely.
+\rmk In general, if you wish to indicate that an item is being chosen from some set, and each item in that set has the same probability of being selected, you can say the item is chosen \emph{uniformly at random} from the set. The term \emph{uniformly} indicates that each item is equally likely.
 
 \section{The Bernoulli Distribution}\label{BernoulliDist}
 
@@ -912,7 +932,7 @@ Suppose we perform a fixed number of Bernoulli trials (call this number $n$). Ea
 \renewcommand*{\arraystretch}{1}
 \end{defn}
 \par
-On the left is the pmf of a binomial distribution with $n = 5$, $p = 0.5$, and on the right, the pmf of a binomial distribution with $n = 9$, $p = 0.85$.
+Below on the left is the pmf of a binomial distribution with $n = 5$, $p = 0.5$, and on the right, the pmf of a binomial distribution with $n = 9$, $p = 0.85$.
 
 \begin{center}
 \begin{tikzpicture}[scale = 0.7]
@@ -947,7 +967,7 @@ In total then, there are $\binom{n}{x}$ sequences of outcomes with $x$ successes
 \par
 The number of heads in $n$ flips of a coin is the example that should immediately come to mind when you think of a binomial distribution, but binomial distributions also appear in many practical contexts involving samples.
 
-\begin{examp}Suppose that in a certain country's election, $56\%$ of the voting population will vote for a particular candidate, Bob. If you select seven members of the voting population uniformly at random, and ask them who they'll vote for (assume they'll answer honestly), what is the probability your poll will conclude that Bob will not win a majority of the vote?
+\begin{examp}Suppose that in a certain country's election, $56\%$ of the voting population will vote for a particular candidate, Bob. If you select seven members of the voting population uniformly at random, and ask them who they'll vote for (assume they'll answer honestly), what is the probability your poll will incorrectly conclude that Bob will not win a majority of the vote?
 \par
 \noindent Let $X$ represent the number of people who respond by saying that they'll vote for Bob. If we regard such a response as a success, and each interview is done without knowledge of the results of any of the others, then $X \sim Binomial(7, 0.56)$.
 \par
@@ -1106,7 +1126,7 @@ If $X \sim Geometric(p)$, then $E(X) = \frac{1}{p}$ and $\Var(X) = \frac{1-p}{p^
 \par
 We'll omit the argument for the variance. In fact, the same trick involving the derivative can be used twice to evaluate the infinite sum that defines $E[X^2]$, and we can obtain the variance with $\Var(X) = E[X^2] - (E[X])^2$.
 \par
-There is one step here that's suspect, the point where we factor the derivative out of the sum (marked with !). This works for finite sums, beacuse the sum rule in calculus tells us $\frac{d}{dp}(f(p) + g(p)) = \frac{d}{dp} f(p) + \frac{d}{dp} g(p)$. Does this same principle apply for infinite sums? Sometimes. The subtleties of this issue are beyond the scope of this course, but this instance turns out to be one where this move is justified.
+There is one step here that's suspect, the point where we factor the derivative out of the sum (marked with !). This works for finite sums, beacuse the sum rule in calculus tells us $\frac{d}{dp}(f(p) + g(p)) = \frac{d}{dp} f(p) + \frac{d}{dp} g(p)$. Does this same principle apply for infinite sums? Sometimes. The subtleties of this issue are beyond the scope of this course, but this instance turns out to be one where the move is justified.
 
 \begin{examp} 
 Consider a noisy communications channel. There is a $71\%$ chance that a message sent over this channel will become garbled and be unintelligible on the receiving end. Suppose that a message is sent until it's received intact without having become garbled, and each attempt takes 2 minutes. What is the probability the message will be correctly received in eight minutes or fewer? What is the average amount of time required before the message is received intact?

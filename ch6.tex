@@ -138,7 +138,7 @@ In Example \ref{MeanAgeEx} above, consider the distribution of age in the popula
 \par
 In a SRS (with replacement) of two individuals taken from this population, the first individual chosen must be equally likely to be Alice, Bob, or Charles, the second individual chosen must also be equally likely to be Alice, Bob, or Charles, and so on. If $X_i$ represents the age of the $i^{th}$ individual in our sample, then $X_i$ must have the distribution given above, and moreover, knowledge of the value of $X_i$ should not influence our beliefs about any $X_j$ for $i \neq j$.
 \par
-\begin{defn}\label{FormalSRSDef}\index{Simple Random Sample} (SRS Formally) Given a population distribution $X$, a simple random sample taken without replacement from $X$ is a sequence $X_1, X_2, ... \,, X_n$ of independent, identically distributed random variables, each of which has the same distribution as $X$.
+\begin{defn}\label{FormalSRSDef}\index{Simple Random Sample} (SRS Formally) Given a distribution $X$, a simple random sample taken with replacement from $X$ is a sequence $X_1, X_2, ... \,, X_n$ of independent, identically distributed random variables, each of which has the same distribution as $X$.
 \end{defn}
 
 \begin{examp} Consider a population of four individuals, one has shoe size 7, one has shoe size 10, and the other two have shoe size 11. If a SRS of two individuals is taken with replacement from this population, what is the probability the second individual chosen has shoe size 11? If the first individual chosen has shoe size 10, what is the probability the second individual chosen has shoe size 11?
@@ -154,7 +154,7 @@ When a statistic is being used to estimate a parameter, we call it an estimator\
 
 \begin{examp}Suppose that in the context of Example \ref{MeanAgeEx}, the mean age in a SRS of size two is used to estimate the mean age in the population. The SRS selected consists of Alice and Charles. What are $\mu$ and $\widehat{\mu}$?
 \par
-\noindent The greek letter $\mu$ is typically used to denote a population mean, so in this scenario, we have the parameter $\mu = \frac{50}{3} \simeq 16.67$ and the estimator $\widehat{\mu} = \frac{1}{2}(X_1+X_2)$ which for our sample has the value $\widehat{\mu} = \frac{1}{2}(12+22) = 17$.
+\noindent The greek letter $\mu$ is typically used to denote a population mean, so in this scenario, we have the parameter $\mu = \frac{50}{3} \simeq 16.67$ and the estimator $\widehat{\mu} = \frac{1}{2}(X_1+X_2)$ which with our sample, gives the estimate $\widehat{\mu} = \frac{1}{2}(12+22) = 17$.
 \end{examp}
 \par
 In this case, the value of our estimator ended up very close to $\mu$, which is exactly what we're hoping for. In practice though, we don't know the value of the parameter being estimated, or we wouldn't have been estimating it in the first place! Without this knowledge, how can we begin to evaluate the usefulness of an estimator?
@@ -164,10 +164,11 @@ Notice that the sampling distribution of the sample mean $\overline{X}$ that we 
 \par
 \noindent the result is precisely equal to the population mean $\mu$. Thus, if we use the estimator $\widehat\mu = \overline{X} = \frac{1}{n}(X_1+X_2)$ to estimate the population mean, then the average value of our estimator is equal to the parameter $\mu$ being estimated. We say that $\widehat\mu = \overline{X}$ is an unbiased estimator of $\mu$.
 
-\begin{defn}\label{Unbiased Estimator}\index{Unbiased Estimator}\index{Estimator!bias of} The \index{Estimator!bias of}bias of the estimator $\widehat{\theta}$ is given by $Bias(\widehat{\theta}) = E(\widehat{\theta}) - \theta$. 
+\begin{defn}\label{Unbiased Estimator}\index{Unbiased Estimator}\index{Estimator!bias of} The \index{Estimator!bias of}bias of an estimator is the difference between its expected value and the actual value of the parameter being estimated.
+$$\boxed{Bias(\widehat{\theta}) = E(\widehat{\theta}) - \theta}$$ 
 \end{defn}
 \par
-If $Bias(\widehat{\theta}) > 0$, the average value of $\widehat{\theta}$ is an overestimate of $\theta$, if $Bias(\widehat{\theta}) < 0$, the average value of $\widehat{\theta}$ is an underestimate of $\theta$, and if $Bias(\widehat{\theta}) = 0$ then $E(\widehat{\theta}) = \theta$ and $\widehat{\theta}$ is an unbiased estimator of $\theta$.
+If $Bias(\widehat{\theta}) > 0$, the mean value of $\widehat{\theta}$ is an overestimate of $\theta$, if $Bias(\widehat{\theta}) < 0$, the mean value of $\widehat{\theta}$ is an underestimate of $\theta$, and if $Bias(\widehat{\theta}) = 0$ then $E(\widehat{\theta}) = \theta$ and $\widehat{\theta}$ is an unbiased estimator of $\theta$.
 \par
 The concept of bias is fairly intuitive. Suppose you estimate the average age of all students in a classroom by finding the oldest student in the class and reporting their age. This estimator will have positive bias. Similarly, if you estimate the average age of all students in a classroom by finding the youngest student in the class and reporting their age, that estimator will have negative bias.
 
@@ -427,9 +428,9 @@ We've seen a concrete example involving this estimator already, Example \ref{Min
 
 Aside from the logic that lead us to consider the maximum likelihood estimator in the first place (our best guess for $\theta$ should be the value that makes the data we've actually observed as likely as possible), the maximum likelihood estimator also has some nice properties that give it additional appeal.
 \par
-Although the maximum likelihood estimator is not unbiased, it is asymptotically unbiased. As the sample size $n \to \infty$, the bias of the maximum likelihood estimator converges to zero. Moreover, it also has asymptotically minimal variance. Denoting the maximum likelihood estimator of $\theta$ by $\widehat{\theta}_{MLE}$, this means that as the sample size $n \to \infty$, the value $\Var(\widehat{\theta}_{MLE})$ converges to will be smaller than or equal to the value $\Var(\widehat{\theta})$ converges to for any other estimator $\widehat{\theta}$ of $\theta$.
+Although the maximum likelihood estimator is not unbiased, it is asymptotically unbiased, meaning that as the sample size grows very large, its bias converges to zero. In addition, it also has asymptotically minimal variance, which means that as the sample size grows very large, its variance will eventually be smaller than or equal to the variance of any other unbiased estimator.
 
-\begin{prop} As the sample size $n \to \infty$, $\text{Bias}(\widehat{\theta}_{MLE}) \to 0$ and $\Var(\widehat{\theta}_{MLE})$ converges to a value which is minimal among all estimators of $\theta$.
+\begin{prop} As the sample size $n \to \infty$, $\text{Bias}(\widehat{\theta}_{MLE}) \to 0$ and if $\widehat{\theta}_{U}$ is any other unbiased estimator of $\theta$, then $\Var(\widehat{\theta}_{MLE}) \leq \Var(\widehat{\theta}_{U}) + \epsilon$ where $\epsilon \to 0$.
 \end{prop}
 
 This proposition gives us confidence that the maximum likelihood estimator will do a better and better job of estimating a parameter as the amount of sample data we acquire grows larger and larger. The proof is beyond the scope of this course, but the idea of asymptotic unbiasedness is illustrated in the example below.

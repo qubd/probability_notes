@@ -241,7 +241,7 @@ The saying goes `you can't get something for nothing', and so it is in mathemati
 The first two axioms should be simple enough to understand at first glance, though the third, called the \emx{axiom of countable additivity}, is not so clear. It states that in any mutually exclusive sequence of events, the probability that one (or more) of the events will occur can be obtained by adding up their probabilities.
 \par
 \begin{examp}\label{flipuntiltailsumoutcomes}
-Suppose we flip a coin until the first head appears, as in Example \ref{FlipUntilTail}, and consider the events $A_1 = \{T\}$, $A_2 = \{HT\}$, $A_3 = \{HHT\}$, and so on. In general, $A_i =$ `the first tail appears on the i$^{th}$ flip'. Then the sequence $\{A_i\}_{i=1}^{\infty}$ is mutually exclusive since only one of the $A_i$ can occur when the experiment is performed. In fact, the sequence $\{A_i\}_{i=1}^{\infty}$ is just the list of all possible outcomes, $\Omega$, with each outcome considered a distinct event.
+Suppose we flip a coin until the first tail appears, as in Example \ref{FlipUntilTail}, and consider the events $A_1 = \{T\}$, $A_2 = \{HT\}$, $A_3 = \{HHT\}$, and so on. In general, $A_i =$ `the first tail appears on the i$^{th}$ flip'. Then the sequence $\{A_i\}_{i=1}^{\infty}$ is mutually exclusive since only one of the $A_i$ can occur when the experiment is performed. In fact, the sequence $\{A_i\}_{i=1}^{\infty}$ is just the list of all possible outcomes, $\Omega$, with each outcome considered a distinct event.
 \par
 \noindent Thus, $\bigcup_{i=1}^{\infty}A_i = \Omega$. The third axiom then states that $P(\Omega)$ will be the result of adding up $P(A_1) + P(A_2) + P(A_3) + ...\,$, and by the second axiom, $P(\Omega) = 1$, so we can conclude, unsurprisingly, that the probabilities of all the individual outcomes in the sample space sum to one.
 \end{examp}
@@ -341,7 +341,7 @@ The last fact we'll derive is the extremely useful \emx{inclusion-exclusion prin
 \par
 Though the argument above is fairly opaque, the inclusion-exclusion principle itself is quite intuitive. To illustrate, suppose we draw a card from a standard deck, let $H =$ `the card is a heart' and $F =$ `the card is a face card'. Then to determine the probability that the card drawn is either a heart or a face card (that is, $H \cup F$ occurs), we should count up all of the hearts, of which there are 13, and count up all the face cards, of which there are 12. 
 \par
-However, the three cards in $H \cap F = \{J\heartsuit, Q\heartsuit, K\heartsuit \}$ were counted twice. If we correct for this, the number of cards in $H \cup F$ is $13 + 12 - 3 = 22$, and therefore we have $P(H \cup F) = \frac{22}{52} = \frac{13}{52} + \frac{12}{52} - \frac{3}{52} = P(H) + P(F) + P(H \cap F)$.
+However, the three cards in $H \cap F = \{J\heartsuit, Q\heartsuit, K\heartsuit \}$ were counted twice. If we correct for this, the number of cards in $H \cup F$ is $13 + 12 - 3 = 22$, and therefore we have $P(H \cup F) = \frac{22}{52} = \frac{13}{52} + \frac{12}{52} - \frac{3}{52} = P(H) + P(F) - P(H \cap F)$.
 \par
 \begin{example}
 Suppose that we toss a pair of dice. What is the probability that a two appears on the face of a die, or the sum of the values on both dice is 6?
@@ -387,9 +387,9 @@ This pattern continues. In the case of four events $A$, $B$, $C$, and $D$, to de
 Three of the results we've derived above are such fundamental ingredients in most of the probability calculations we'll do that it's worth having them written down in one place. Let's call these the \emx{Basic Probability Laws}\index{Basic Probability Laws}\index{Complement Law}\index{Inclusion-Exclusion Law}.
 \par
 \begin{itemize}
-\item $P(A \cup B) = P(A) + P(B) \text{ if $A$ and $B$ are mutually exclusive.}$
-\item $P(A^c) = 1- P(A) \text{ for any event $A$.}$
-\item $P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{ for any events $A$ and $B$.}$
+\item $\boxed{P(A \cup B) = P(A) + P(B) \text{ if $A$ and $B$ are mutually exclusive.}}$
+\item $\boxed{P(A^c) = 1- P(A) \text{ for any event $A$.}}$
+\item $\boxed{P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{ for any events $A$ and $B$.}}$
 \end{itemize}
 
 \section{What is a Probability?}\label{ProbInterpretationSection}
@@ -406,7 +406,7 @@ This is a concise and simple definition, but using it means assuming in advance,
 \noindent{\emx{The Frequentist Interpretation}}:\index{Probability! frequentist interpretation} If we perform exactly the same experiment $n$ times, and $R_n$ is the ratio of the number of times $A$ occurred to the total number of trials, then $P(A)= \lim_{n \to \infty} R_n$.
 }
 \par
-This interpretation defines probability as long term behaviour in a repeatable experiment. We make no assumptions about the likelihood of any outcome. The gripe with this definition is that some experiments cannot be performed repeatedly under the same conditions (an election or a sports match for example), and even in an experiment that can be, it's not possible to do actually perform infinitely many trials and determine $\lim_{n \to \infty} R_n$. The interpretation is conceptually nice, but not immediately helpful for calculations.
+This interpretation defines probability as long term behaviour in a repeatable experiment. We make no assumptions about the likelihood of any outcome. The gripe with this definition is that some experiments cannot be performed repeatedly under the same conditions (an election or a sports match for example), and even in an experiment that can be, it's not possible to actually perform infinitely many trials and determine $\lim_{n \to \infty} R_n$. The interpretation is conceptually nice, but not immediately helpful for calculations.
 \par
 \inbox{
 \noindent{\emx{The Bayesian Interpretation}}:\index{Probability! Bayesian interpretation} Probability represents a degree of confidence in the correctness of a proposition, subject to a set of basic logical laws and to the current state of knowledge of the individual assigning the probabilities.
@@ -501,7 +501,7 @@ We'll use this idea to formally define conditional probability, but it's often m
 \par
 \begin{defn}\label{conditionalprob}
 Given two events $E$ and $F$ in some sample space $\Omega$, the conditional probability of $E$ given $F$\index{Conditional Probability} is denoted $P(E \given F)$, and defined by
-\eqns{P(E \given F) = \frac{P(E \cap F)}{P(F)}}
+\eqns{\boxed{P(E \given F) = \frac{P(E \cap F)}{P(F)}.}}
 \end{defn}
 Note that division by zero could be problematic here, so we'll only define the conditional probability of $E$ given $F$ when $P(F) \neq 0$.
 
@@ -510,9 +510,10 @@ Note that division by zero could be problematic here, so we'll only define the c
 This definition can be used either to compute $P(E \given F)$ when $P(E \cap F)$ and $P(F)$ are known, or to compute $P(E \cap F)$ when $P(E \given F)$ and $P(F)$ are known. In fact, we'll often use it in this second way, so it's worth renaming some variables and moving terms around to make it easier to use in that direction.
 \eqns{P(B \given A) &= \frac{P(B \cap A)}{P(A)} \\
 P(B \given A) P(A) &= P(B \cap A) \\
-P(A \cap B) &= P(A) P(B \given A)}
+P(B \given A) P(A) &= P(A \cap B)}
+$$\boxed{P(A \cap B) = P(A) P(B \given A)}$$
 \par
-Intuitively, if $A$ and $B$ both occur, then $A$ must occur and $B$ must occur in this new setting where the event $A$ has already happened. The example below illustrates this idea well.
+Intuitively, if $A$ and $B$ both occur, then $A$ must occur and $B$ must occur in this new setting where the event $A$ has already happened.
 \begin{examp}
 Suppose we draw two cards from a shuffled deck without replacement. What is the probability that both are hearts? 
 \par
@@ -627,7 +628,7 @@ However, recalling the frequentist interpretation, the question above is perfect
 \par
 \begin{thm}\label{lawtotalprob}\index{Law of Total Probability}
 (Law of Total Probability) If $\{A_i\}_{i=1}^{n}$ is any mutually exclusive sequence of events with $\bigcup_{i=1}^{n}A_i = \Omega$, then for any event $B$,
-$$P(B) = P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)+ \, ... \, + P(B \given A_n)P(A_n).$$
+$$\boxed{P(B) = P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)+ \, ... \, + P(B \given A_n)P(A_n).}$$
 \noindent Note that we require $P(A_i) > 0$ for each $A_i$, so that the conditional probabilities on the right are defined.
 \end{thm}
 \par
@@ -650,7 +651,7 @@ When a sequence $\{A_i\}_{i=1}^{n}$ is mutually exclusive and has $\bigcup_{i=1}
 \end{center}
 
 \begin{cor} If $A$ is an event with $0 < P(A) < 1$, then for any event $B$, 
-\eqnsgap{P(B) = P(B \given A)P(A) + P(B \given A^c)P(A^c)}
+\eqnsgap{\boxed{P(B) = P(B \given A)P(A) + P(B \given A^c)P(A^c).}}
 \end{cor}
 \begin{pf} Apply Theorem \ref{lawtotalprob} to the sequence $\{A, A^c\}$, which always partitions $\Omega$.
 \end{pf}
@@ -843,11 +844,11 @@ Events $A$ and $B$ are called independent\index{Events!independent}\index{Indepe
 Consider two cards drawn from a shuffled deck. Let $S_1 =$ `a spade is drawn on the first draw' and $S_2 =$ `a spade is drawn on the second draw'. Then $S_1$ and $S_2$ are independent provided the draws are done with replacement, but not independent if the draws are done without replacement. In this second case, $P(S_2 \given S_1) = \frac{12}{51}$, but using the law of total probability, $P(S_2) = \frac{1}{4}$.
 \end{examp}
 \par
-Using the definition of $P(A \given B)$, we can state what it means for two events to be independent in a different way, and in the process derive a new probability law.
+Using the definition of the conditional probability $P(A \given B)$, we can state what it means for two events to be independent in a different way. 
 $$P(A) = P(A \given B) \biimp P(A) = \frac{P(A \cap B)}{P(B)} \biimp P(A)P(B) = P(A \cap B)$$
-$$\text{If }A\text{ and }B\text{ are independent events, }P(A \cap B) = P(A)P(B).$$
+Thus, when $A$ and $B$ are independent events, $P(A \cap B) = P(A)P(B)$. This relation is often used as the definition of independence. As we just saw, it's equivalent to the definition we gave earlier but also applies when $P(A) = 0$ or $P(B) = 0$ (in these cases $P(A\given B)$ or $P(B \given A)$ would be undefined).
 
-\rmk From this law, we could also isolate $P(B)$ to obtain $P(B) = P(B \given A)$. Independence is a symmetric relation. You should interpret Definition \ref{independentevents} as `the probability of one event occurring is not influenced by the occurrence of the other' without worrying about memorizing which symbol goes where.
+\rmk Independence is a symmetric relation, which you can interpret intuitively as saying `the probability of one event occurring is not influenced by the occurrence of the other' without worrying about which event comes first. This revised definition confirms that intuition, as swapping the roles of $A$ and $B$ yields the same equation.
 \begin{thm}\label{compindependent}
 If $A$ and $B$ are independent, then $A$ and $B^c$ are independent.
 \end{thm}
@@ -856,9 +857,7 @@ Note that $A = (A \cap B) \cup (A \cap B^c)$ and hence $P(A) = P(A \cap B) + P(A
 \eqns{P(A \cap B^c) &= P(A) - P(A \cap B) \\
 &= P(A) - P(A)P(B) \\
 &=P(A)(1-P(B)) \\
-&= P(A)P(B^c)}
-\par
-\noindent As we showed above while deriving the intersection law for independent events, this is equivalent to $P(A) = P(A \given B^c)$.
+&= P(A)P(B^c).}
 \end{pf}
 \begin{cor}
 If $A$ and $B$ are independent, then $A^c$ and $B^c$ are independent.
@@ -867,7 +866,7 @@ If $A$ and $B$ are independent, then $A^c$ and $B^c$ are independent.
 If $A$ and $B$ are independent, then $A$ and $B^c$ are independent by Theorem \ref{compindependent}, but independence is symmetric, so applying Theorem \ref{compindependent} again, this time to $B^c$ and $A$, we conclude $B^c$ and $A^c$ are independent.
 \end{pf}
 \par
-Given a sequence of events $\{A_1, A_2, \, ... \, , A_n\}$, we say this sequence is independent if the occurrence of any collection of these events does not influence the chance that any other event in the sequence occurs. Formally, it's easiest to state this by extending the intersection law for independent sequences we derived above.
+Given a sequence of events $\{A_1, A_2, \, ... \, , A_n\}$, we say this sequence is independent if the occurrence of any collection of these events does not influence the chance that any other event in the sequence occurs. Formally, it's easiest to state this by extending the relation $P(A \cap B) = P(A)P(B)$ to arbitrary subsets of the sequence.
 \begin{defn}\index{Independence!of a sequence of events}
 The sequence of events $\{A_i\}_{i=1}^{n}$ is independent if for any collection $\{A_{i_1}, A_{i_2}, \, ... \, , A_{i_k}\}$ of events taken from the sequence,
 \eqnsgap{P(A_{i_1} \cap A_{i_2} \cap \, ... \, \cap A_{i_k}) = P(A_{i_1})P(A_{i_2}) \, ... \, P(A_{i_k})}
@@ -893,7 +892,7 @@ Suppose that a 64 bit sequence (a sequence of 64 zeros and ones) is sent over an
 \section{Bayes' Rule}
 
 The tools of conditional probability have so far been used to find the probability of observing a particular outcome under some assumptions about the experiment being performed. In practice though, the problem is often the other way around. We observe a particular outcome, and we'd like to use that information as evidence to evaluate or update our assumptions about the internal workings of the experiment.
-\begin{examp}
+\begin{examp}\label{BayesUrn}
 Two balls are drawn with replacement from an urn which contains either only red balls, or an equal number of red and green balls. The choice of how to load the urn is made by flipping a fair coin. If the experiment is performed, and both balls drawn are red, what is the probability the urn contains only red balls?
 \noindent Consider the tree diagram given below, where every possible outcome is illustrated.
 \begin{center}
@@ -1007,37 +1006,45 @@ Initially, the chance the all red urn was selected was $\frac{1}{2}$. This belie
 The facts we used to justify our conclusion were all derived from the Kolmogorov probability axioms, so the correctness of this approach, which is formalized in Bayes' rule below, is not in question. The fact that we can formalize the process of learning from new information is remarkable, and utility of this result is clear. From automated movie recommendations that change based on your ratings, to self-driving cars that get better at recognizing dangerous situations every time a crash happens, if you want to formalize the process of learning from new data, Bayes' rule is the fundamental tool.
 \par
 \begin{thm}\label{BayesRule}\index{Bayes' Rule}
-(Bayes' Rule) If $\{A_i\}_{i=1}^n$ is a sequence of events which partitions the sample space $\Omega$, and $B$ is an event,
-\eqnsgap{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, ... \, + P(B \given A_n)P(A_n)}}
+(Bayes' Rule) For any events $A$ and $B$ in some sample space $\Omega$,
+\eqnsgap{\boxed{P(A \given B) = \frac{P(B \given A)P(A)}{P(B)}}}
 \end{thm}
 \par
-\begin{pf} Starting with the definition of conditional probability, using the intersection rule in the numerator, and the law of total probability in the denominator,
-\eqns{P(A_i \given B) &= \frac{P(A_i \cap B)}{P(B)} \\
-&= \frac{P(A_i)P(B \given A_i)}{P(B)} = \frac{P(B \given A_i)P(A_i)}{P(B)}   \\
-&= \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) +  \, ... \, + P(B \given A_n)P(A_n)}}
+\begin{pf} We can derive Bayes' rule from the definition of conditional probability by applying the intersection rule in the numerator.
+\eqns{P(A \given B) &= \frac{P(A\cap B)}{P(B)} = \frac{P(A)P(B \given A)}{P(B)}} 
 \end{pf}
 \par
-\rmk There are many ways to rewrite Bayes' rule. The reason it's shown in the longer form above is that in many applications, this form is most immediately applicable, as we'll see in examples below. Intuitively, the numerator includes only branches of the tree diagram where both $A_i$ and $B$ occur, while the denominator includes all branches where $B$ occurs.
-\begin{cor}
-(Bayes' Rule, Complement Case) If $A$ and $B$ are any events,
-\eqnsgap{P(A \given B) = \frac{P(B \given A)P(A)}{P(B \given A)P(A) + P(B \given A^c)P(A^c)}}
+It's worth noting that Bayes' rule, the intersection law, and the definition of conditional probability are essentially three different rearrangements of the same statement. These three different ways of thinking about one idea (the concept of conditional probability) lend themselves more naturally to different applications.
+\par
+Bayes' rule is shown in a compact form above. However in many applications, we will end up splitting the denominator into cases using the law of total probability.
+\begin{cor}If $\{A_i\}_{i=1}^n$ is a sequence of events which partitions the sample space $\Omega$, and $B$ is an event,
+\eqnsgap{\boxed{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, ... \, + P(B \given A_n)P(A_n)}}}
 \end{cor}
 \begin{pf}
-The sequence $\{A, A^c\}$ partitions $\Omega$ for any event $A$.
+Apply Bayes' rule as presented in Theorem \ref{BayesRule} to the events $A_i$ and $B$, then expand the denominator using the law of total probability.
 \end{pf}
+\par
+This expanded form of Bayes' rule closely matches the reasoning we did with tree diagrams in Example \ref{BayesUrn} above. In the numerator, we have the probability of the branch on which both the event we're assessing the probability of and the evidence we've observed occur, while in the denominator we have the sum of the probabilities of all the branches where the evidence we've observed occurs.
 \begin{examp}
 Suppose that a rare disease affects $0.5\%$ of the population. There is a test for this disease which is $99\%$ accurate, in the sense that the probability of a positive test for someone who carries the disease (a true positive) is $99\%$, and probability of a positive test for someone who does not carry the disease (a false positive) is 1\%. If an individual is randomly selected from the population and tests positive, what is the probability they have the disease?
 \par
-\noindent Let $D =$ `the randomly selected individual tested carries the disease', and $P =$ `the result of the test is positive'. Using Bayes' rule, we compute $P(D \given P)$.
+\noindent Let $D =$ `the randomly selected individual tested carries the disease', and $P =$ `the result of the test is positive'. Using Bayes' rule, we compute
 \eqns{P(D \given P) &= \frac{P(P \given D)P(D)}{P(P \given D)P(D) + P(P \given D^c)P(D^c)} \\
-&= \frac{0.99 \cdot 0.005}{0.99 \cdot 0.005 + 0.01 \cdot 0.995} \simeq 0.33}
+&= \frac{0.99 \cdot 0.005}{0.99 \cdot 0.005 + 0.01 \cdot 0.995} \simeq 0.33.}
 \par
-\noindent Thus, if a randomly selected individual tests positive, there's only a $33\%$ chance they carry the disease. Despite the positive test result, it's still more likely that they don't carry the disease. 
+\noindent Thus, if a randomly selected individual tests positive, there's a $33\%$ chance that they carry the disease. Despite the positive test result, the scenario where this individual does not carry the disease is still the more likely one. 
 \end{examp}
 \par
-This example illustrates the problem of over-testing. If data from medical tests is to be useful, they should be applied carefully, often only in cases where there's some reason to believe the patient has an elevated risk of carrying the disease. As the test is more widely applied, the disease becomes more unusual in the group being tested and false positives become more likely. To illustrate this point, consider the most extreme case, where we're testing for a disease which has no cases in the group being tested. Every positive test will be a false positive, regardless of how accurate the test might be.
+This example illustrates the problem of over-testing. If data from medical tests is to be useful, they should be applied carefully, often only in cases where there's some reason to believe the patient has an elevated risk of carrying the disease. As the test is more widely applied, the disease becomes more unusual in the group being tested and false positives become more likely. To illustrate this point, consider the most extreme case, where we're testing for a disease which has no cases in the group being tested. Every positive test will be a false positive, regardless of how well-designed the test might be. The utility of any test is a function of not just the intrinsic properties of the test, but also of the nature of the environment in which the test is being applied. 
 \par
-It's tempting to assess the usefulness of the test by considering only the cited 99\% accuracy and ignoring the context in which the test is applied (the frequency with which the disease occurs in the population being tested). This is known as the \emx{base rate fallacy}\index{Base Rate Fallacy} and is a very common reasoning error. As we saw above, even an extremely accurate test will be nearly useless when applied to a population where the disease almost never occurs.
+Assessing the usefulness of a procedure by examining only its intrinsic properties and ignoring the context in which it's being applied is known as the \emx{base rate fallacy}\index{Base Rate Fallacy} and is a very common reasoning error.
+\par
+Bayes' rule is frequently written using the letters $H$ and $E$, as below. This is because when employing Bayes' rule, it's often useful to think of $E$ as some evidence which we're using to reassess the probability of a hypothesis $H$. 
+\eqns{P(H \given E) = \frac{P(E \given H)P(H)}{P(E)}}
+\par
+The quantity $P(H)$ is called a \emx{prior probability}\index{Prior Probability} since it represents the probability of the hypothesis before observing the new evidence, while $P(H \given E)$ is known as a \emx{posterior probability}\index{Posterior Probability}.
+\par
+We're now better equipped to understand the Bayesian interpretation of probability given in Section \ref{ProbInterpretationSection}. Two individuals with the same prior degree of confidence in a hypothesis will agree on what constitutes a rational decision after observing new evidence for that hypothesis, since they will both update their beliefs using Bayes' rule with the same prior probability. However, two individuals who have different prior beliefs may still disagree. This dependence on the knowledge, assumptions, or guesses one has before an experiment occurs means that the Bayesian interpretation of probability applies in cases where neither the classical nor the frequentist interpretation apply, but leaves open the question of how one should choose to assign a prior probability to a given hypothesis when there's no clear choice.
 \begin{examp}
 Suppose my wallet contains either a \$5 bill, a \$10 bill, or a \$20 bill, with equal likelihood. At some point during the day, I add a \$5 bill. Later in the day, I reach into the wallet and extract a \$5 bill. What is the probability the remaining bill in my wallet is another \$5 bill?
 \par
@@ -1086,26 +1093,5 @@ Suppose my wallet contains either a \$5 bill, a \$10 bill, or a \$20 bill, with 
 \end{center}
 As before, $P(B_5 \given R_5) = \displaystyle\frac{1 \cdot \frac{1}{3}}{1 \cdot \frac{1}{3} + \frac{1}{2} \cdot \frac{1}{3} + \frac{1}{2} \cdot \frac{1}{3}} = \frac{1}{2}$.
 \end{examp}
-\par
-If we write Bayes' rule without using the law of total probability to expand the denominator, we obtain the variation below, which illustrates well the terminology you'll often hear associated with Bayes' rule. 
-\eqns{P(A \given B) = \frac{P(B \given A)P(A)}{P(B)}}
-\par
-When employing Bayes' rule, it's often pertinent to think of $B$ as some evidence which we're using to reassess the probability of $A$. The quantity $P(A)$ is called a \emx{prior probability}\index{Prior Probability} since it represents the probability of $A$ before observing the new evidence, while $P(A \given B)$ is known as a \emx{posterior probability}\index{Posterior Probability}.
-\par
-We're now better equipped to understand the Bayesian interpretation of probability given in Section \ref{ProbInterpretationSection}. Two individuals with the same prior beliefs who observe the same evidence should agree on what constitutes a rational decision. However, it allows for two individuals who have different priors to disagree. This dependence on the knowledge / assumptions / guesses we have before the experiment occurs allows the Bayesian interpretation to apply in cases where the event we're interested in is not part of an indefinitely repeatable procedure.
-% Do lost keys in three classes example as an exercise
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 

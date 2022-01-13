@@ -67,7 +67,7 @@ How many ways are there to choose three students from a class of twenty and arra
 \end{examp}
 \par
 \begin{definition}\label{permutationdefinition}\index{Permutations}
-If $r$ objects are taken from a larger set of $n$ distinct objects and arranged in some order, the result is called an $r$-permutation. The number of $r$-permutations of $n$ objects, denoted by $^{n}P_r$, is given by
+If an ordered list of $r$ distinct objects is selected from a set of $n$ objects, the result is called an $r$-permutation. The number of $r$-permutations of $n$ objects, denoted by $^{n}P_r$, is given by
 \eqnspar{\boxed{^nP_r = n \cdot (n-1) \cdot \, ... \, \cdot (n-r+1) = \frac{n!}{(n-r)!}}}
 \end{definition}
 \par
@@ -118,17 +118,17 @@ An urn contains four green and five red marbles, which are removed one at a time
 
 Suppose now that we are interested in the number of ways that a subset of $r$ objects can be selected from a larger set of $n$ distinct objects. The order in which the selections are made doesn't matter, we're only concerned with which objects are selected.
 \par
-Consider how many ways there are to select three children from a family with five. To do this, we can imagine lining up the children, let's say by age (the actual method of lining them up is not important). We can now specify which children are chosen using a string such as $YYNYN$, which would indicate we chose the first two children in the line as well as the fourth. In fact, every distinct five letter string made up of $Y$s and $N$s which has exactly three $Y$s will represent a different choice of three children, and every choice of three children determines such a string.
+Consider how many ways there are to select three children from a family with five. To do this, we can imagine lining up the children any fixed order, let's say by age. We can now specify which children are chosen using a string such as $YYNYN$, which would indicate we chose the first two children in the line as well as the fourth. In fact, every distinct five letter string made up of $Y$s and $N$s which has exactly three $Y$s will represent a different choice of three children, and every choice of three children determines such a string.
 \par
 Now we can use the Mississippi formula to count the number of different choices by counting strings. Each string is a rearrangement of five objects with identical groups of sizes three and two, hence there are $\frac{5!}{3!2!} = 5 \cdot 2 = 10$ possibilities.
 \par
-The general principle here is that we can count the number of ways of choosing $r$ objects from a set of $n$ distinct objects by arranging all objects in some arbitrary order, then counting strings of $Y$s and $N$s with $r$ occurrences of the symbol $Y$, which determine the $r$ objects we've chosen.
+The general principle is that once the elements of a set have been lined up in some arbitrary order, each subset is given by an \emph{ordered} list of $Y$'s and $N$'s, where $Y$ denotes membership in the subset, and $N$ denotes non-membership. We can count the number of ordered lists of $Y$'s and $N$'s by using the MISSISSIPPI formula.
 \begin{defn}\index{Combinations}\label{combinationdefinition}
-If a subset of $r$ objects is selected from a larger set of $n$ distinct objects, the result is called an $r$-combination. The number of $r$-combinations, denoted $^nC_r$, or more commonly $\binom{n}{r}$, is given by
+If a subset of $r$ objects is selected from a set of $n$ objects, the result is called an $r$-combination. The number of $r$-combinations, denoted $^nC_r$, or more commonly $\binom{n}{r}$, is given by
 \eqnsgap{\boxed{^nC_r = \binom{n}{r} = \frac{n!}{r!(n-r)!}}}
 \end{defn}
 \begin{rmk}
-Note the distinction between $^nP_r$ and $^nC_r$. The former counts the number of ways of selecting $r$ objects \emx{and rearranging them}, while the latter counts only the number of selections, with \emx{every rearrangement regarded as the same outcome}.
+Note the distinction between $^nP_r$ and $^nC_r$. The former counts the number of ways of selecting $r$ objects \emx{and arranging them}, while the latter is the number of selections possible when \emx{any rearrangement is regarded as the same outcome}.
 \end{rmk}
 \begin{examp}
 In Lotto 6/49, if you purchase a ticket you choose 6 distinct numbers between 1 and 49. The ticket wins if its numbers match 6 distinct numbers between 1 and 49 which are randomly drawn, regardless of the order they are drawn in. How many different tickets would you need to buy to guarantee a win?
@@ -375,9 +375,8 @@ The problem presented at the beginning of this chapter can be solved using the s
 \end{center}
 
 \par
-\noindent Each path can be associated with a string of $E$'s and $N$'s, representing a sequence of movements one unit east ($E$), or one unit north ($N$). The path shown above, for example, corresponds to the string $EEENNNNNNNEEEEENNNEE$. Every path yields a string of $20$ $E$'s and $N$'s, exactly 10 of which are $E$'s. Therefore, the total number of possible paths is
+\noindent Each path can be represented with a string of $E$'s and $N$'s, representing a sequence of movements one unit east ($E$), or one unit north ($N$). The path shown above, for example, corresponds to the string $EEENNNNNNNEEEEENNNEE$. Every path yields a string of $20$ $E$'s and $N$'s, exactly 10 of which are $E$'s. Therefore, the total number of possible paths is
 \eqns{\binom{20}{10} = 184\,756.}
-
 
 \end{examp}
 
