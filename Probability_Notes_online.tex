@@ -176,6 +176,10 @@
 \makeatother
 
 
+% hyperref should always be loaded last
+\usepackage[hyperindex,pagebackref,bookmarks,bookmarksnumbered,bookmarksopen,pdfpagemode={UseOutlines}]{hyperref}
+
+
 \makeindex
 \begin{document}
 \addtolength{\normalbaselineskip}{1pt}
@@ -196,9 +200,18 @@
 
 \backmatter
 
+% add Bibliography entry to Table of Contents
+\phantomsection  % necessary for hyperref numbering
+\addcontentsline{toc}{chapter}{Bibliography}
+
 \bibliographystyle{siam}
 \bibliography{Probability_Notes}{}
 
-\include{back}
+%\include{back}
+\cleardoublepage
+\phantomsection  % necessary for hyperref numbering
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
 
 \end{document}

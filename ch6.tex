@@ -296,7 +296,7 @@ MSE(\widehat{\theta}_2) &= E[(\widehat{\theta}_2 - \theta)^2] \\ &= (1-4)^2 \cdo
 \end{examp}
 \par
 
-\begin{thm}\label{BiasVarianceDecomp}\index{Bias-Variance Decomposition}$\index{Estimator!variance of}\text{MSE}(\widehat{\theta}) = \text{Bias}^2(\widehat{\theta}) + \text{Var}(\widehat{\theta})$, where $\text{Var}(\widehat{\theta}) = E[(\widehat{\theta} - E(\widehat{\theta}))^2]$ 
+\begin{thm}\label{BiasVarianceDecomp}\index{Bias-Variance Decomposition}$\index{Estimator!variance of}\text{MSE}(\widehat{\theta}) = \text{Bias}^2(\widehat{\theta}) + \Var(\widehat{\theta})$, where $\Var(\widehat{\theta}) = E[(\widehat{\theta} - E(\widehat{\theta}))^2]$ 
 \end{thm}
 \begin{pf} The result follows from a calculation using linearity of expectation.
 \eqns{\text{MSE}(\widehat{\theta}) &= E[(\widehat{\theta} - \theta)^2] \\
@@ -304,11 +304,11 @@ MSE(\widehat{\theta}_2) &= E[(\widehat{\theta}_2 - \theta)^2] \\ &= (1-4)^2 \cdo
 &= E[(\widehat{\theta} - E[\widehat{\theta}])^2 + 2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta) + (E[\widehat{\theta}] - \theta)^2] \\
 &= E[(\widehat{\theta} - E[\widehat{\theta}])^2] + E[2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta)] + E[(E[\widehat{\theta}] - \theta)^2] \\
 &= E[(\widehat{\theta} - E[\widehat{\theta}])^2] + E[2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta)] + (E[\widehat{\theta}] - \theta)^2 \\
-&= \text{Var}(\widehat{\theta}) + E[2(\widehat{\theta} - E[\widehat{\theta}]) \text{Bias}(\widehat{\theta}) ] + \text{Bias}^2(\widehat{\theta})  \\
-&=\text{Var}(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta}) \cdot E[\widehat{\theta} - E(\widehat{\theta})]+ \text{Bias}^2(\widehat{\theta})  \\
-&=\text{Var}(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[E(\widehat{\theta})]) + \text{Bias}^2(\widehat{\theta})  \\
-&=\text{Var}(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[\widehat{\theta}]) + \text{Bias}^2(\widehat{\theta})  \\
-&=\text{Bias}^2(\widehat{\theta}) + \text{Var}(\widehat{\theta})  \\}
+&= \Var(\widehat{\theta}) + E[2(\widehat{\theta} - E[\widehat{\theta}]) \text{Bias}(\widehat{\theta}) ] + \text{Bias}^2(\widehat{\theta})  \\
+&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta}) \cdot E[\widehat{\theta} - E(\widehat{\theta})]+ \text{Bias}^2(\widehat{\theta})  \\
+&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[E(\widehat{\theta})]) + \text{Bias}^2(\widehat{\theta})  \\
+&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[\widehat{\theta}]) + \text{Bias}^2(\widehat{\theta})  \\
+&=\text{Bias}^2(\widehat{\theta}) + \Var(\widehat{\theta})  \\}
 \end{pf}
 \par
 The bias of an estimator measures the distance between the mean of the sampling distribution and the parameter being estimated, while the variance measures the dispersion in the sampling distribution.
@@ -343,11 +343,11 @@ The best estimators are those whose values centre around the parameter being est
 \begin{examp} Consider the Mini German Tank Problem in Example \ref{MiniGermanTank}. Find the mean-squared error, bias, and variance of the estimators $\widehat{\theta}_1$ and $\widehat{\theta}_2$ whose sampling distributions we calculated.
 \par
 \noindent We already have $MSE(\widehat{\theta}_1) =\frac{26}{26}$ and $\text{Bias}(\widehat{\theta}_1) =-\frac{7}{8}$ from our earlier calculations, so by Theorem \ref{BiasVarianceDecomp}, we have
-\eqns{\text{MSE}(\widehat{\theta}_1) &= Bias^2(\widehat{\theta}_1) + Var(\widehat{\theta}_1)\\
-\textstyle\frac{26}{16} &= (-\textstyle\frac{7}{8})^2 + Var(\widehat{\theta}_1) \\
+\eqns{\text{MSE}(\widehat{\theta}_1) &= Bias^2(\widehat{\theta}_1) + \Var(\widehat{\theta}_1)\\
+\textstyle\frac{26}{16} &= (-\textstyle\frac{7}{8})^2 + \Var(\widehat{\theta}_1) \\
 Var(\widehat{\theta}_1) &= \textstyle\frac{55}{64}.}
 \par
-\noindent Since $\widehat{\theta}_2$ is unbiased, $\text{MSE}(\widehat{\theta}_2) = Var(\widehat{\theta}_2)$ by Theorem \ref{BiasVarianceDecomp}, so $Var(\widehat{\theta}_2) = \frac{40}{16}$. Note that $\widehat{\theta}_1$ is the estimator with the lower $\text{MSE}$ despite the fact that it's biased.
+\noindent Since $\widehat{\theta}_2$ is unbiased, $\text{MSE}(\widehat{\theta}_2) = \Var(\widehat{\theta}_2)$ by Theorem \ref{BiasVarianceDecomp}, so $\Var(\widehat{\theta}_2) = \frac{40}{16}$. Note that $\widehat{\theta}_1$ is the estimator with the lower $\text{MSE}$ despite the fact that it's biased.
 \end{examp}
 
 \section{Maximum Likelihood Estimation}
