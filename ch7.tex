@@ -241,12 +241,12 @@ Moreover, there is a striking trend in the shapes of the sampling distributions.
 \par
 It's not a coincidence that this occurred in our particular example. In fact, this occurs for almost \emph{any} population! This is a hugely important result, and it's why the normal distribution plays such a central role in statistics. If some quantity is obtained by averaging a random sample, and the sample size is large enough, then we know that the sampling distribution it was drawn from must be approximately normal \emph{regardless of the shape of the population distribution!}
 \par
-\begin{thm} (Central Limit Theorem)\index{Central Limit Theorem}\label{CLT} Let $X$ be a random variable with mean $\mu$ and standard deviation $\sigma$, and let $\xbar$ denote the mean of a simple random sample of $n$ values drawn from the distribution of $X$. Then as the sample size $n$ grows larger, the sampling distribution of $\xbar$ becomes better approximated by $Normal(\muxbar,\sigmaxbar)$.
+\begin{thm} (Central Limit Theorem)\index{Central Limit Theorem}\label{CLT} Let $X$ be a random variable with a well-defined mean $\mu$ and standard deviation $\sigma$, and let $\xbar$ denote the mean of a simple random sample of $n$ values drawn from the distribution of $X$. Then as the sample size $n$ grows larger, the sampling distribution of $\xbar$ becomes better approximated by $Normal(\muxbar,\sigmaxbar)$.
 \end{thm}
 \par
-The conclusion of this theorem is written here in very informal language, which is sufficient for our purposes. To make it more precise, we would need to decide on a way to measure the difference between two random variables, so the theorem above could state that this difference vanishes as $n \to \infty$. For details see \cite{Bertsekas} or \cite{DevoreBerk}.
+The conclusion of this theorem is written here in very informal language. To make it more precise, we would need to decide on a way to measure the difference between two random variables, so the theorem above could state that this difference vanishes as $n \to \infty$. For details see \cite{Bertsekas} or \cite{DevoreBerk}.
 
-\begin{examp}\label{CLTExamp}Suppose twenty numbers in the interval $[0,1]$ are chosen uniformly at random. What is the probability their sum is higher than eight?
+\begin{examp}\label{CLTExamp}Twenty numbers in the interval $[0,1]$ are independently chosen uniformly at random. What is the probability their sum is higher than eight?
 \par
 \noindent In order to use the central limit theorem, we need to formulate this question in terms of the mean of a sample. In this case, we have a sample of $n=20$ values drawn from $X \sim Uniform([0,1])$. Observe that
 \eqnspar{X_1 + X_2 + ... + X_{20} > 8 \ \ \rightarrow \ \  \frac{X_1 + X_2 + ... + X_{20} }{20} > \frac{8}{20} = \frac{2}{5}.}
@@ -289,14 +289,14 @@ If the two distributions match well, then we'll know that our answer above is fa
 \end{axis}
 \end{tikzpicture}
 \end{center}
-The distribution of $\xbar$ for samples of size twenty drawn from $X \sim Uniform([0,1])$ is extremely well approximated by a normal distribution, so we can be sure our answer is quite accurate.
+The distribution of $\xbar$ for samples of size twenty drawn from $X \sim Uniform([0,1])$ is extremely well approximated by a normal distribution, so we can be sure our answer is reasonably accurate.
 \end{examp}
 
-\subsection*{How Close is Close Enough?}
+\subsection*{Sample Size}
 
-The central limit theorem states that the sampling distribution of $\xbar$ will converge to a normal distribution as the sample size $n \to \infty$, but how fast does this convergence occur? How large must the sample size be so we can simply use a normal distribution for calculations and have accurate results?
+The central limit theorem states that the sampling distribution of $\xbar$ will eventually become well approximated by a normal distribution once the sample size is large enough, but how large must our sample be so that when we use a normal distribution for calculations, as in the example above, our probability estimates will be accurate?
 \par
-The answer varies with the population distribution. Symmetric population distributions with thin tails (tails which decay exponentially) usually yield sampling distributions for $\xbar$ which are very close to normal even with a very small sample size, while asymmetric population distributions with fat tails (tails which decay polynomially) can give sampling distributions for $\xbar$ which don't look normal until the sample size becomes extremely large.
+The answer varies with the population distribution. Symmetric population distributions with thin tails (which decay exponentially) often yield sampling distributions for $\xbar$ which are very close to normal even for single digit sample sizes, while asymmetric population distributions with fat tails (which decay polynomially) can result in sampling distributions for $\xbar$ which don't look normal until the sample size becomes extremely large.
 \par
 As a rule of thumb, we'll use the guidelines below to determine if the sampling distribution of $\xbar$ is sufficiently close to normal that we can justify approximating it by a normal distribution.
 \vspace{-0.5em}
@@ -306,7 +306,7 @@ As a rule of thumb, we'll use the guidelines below to determine if the sampling 
 \item If the population distribution is significantly skewed or fat-tailed, $n \geq 50$.
 \end{enumerate}
 \par
-There is nothing mathematically important about these values, or similar values you'll find in other textbooks. We're simply establishing a clear baseline. 
+There is nothing mathematically significant about these values, or similar values you'll find in other texts. We're simply establishing a clear (yet arbitrary) baseline. 
 \par
 In actual practice, to ensure the sampling distribution of $\xbar$ is sufficiently close to a normal distribution, statisticians either rigorously derive error bounds from some assumptions on the form of the population distribution, or use statistical software to take large numbers of samples from an educated guess at the population distribution and approximate the sampling distribution empirically, as was done to generate the graphics at the beginning of this section.
 \begin{examp}
@@ -338,7 +338,7 @@ If a biased coin with a 55\% probability of heads is flipped thirty times, what 
     \end{tikzpicture}
 \end{minipage}
 \end{center}
-Therefore, there is a $29\%$ chance out sample will have more tails than heads. What do you expect will happen if we take a larger sample, say $n=100$ flips? Try redoing the problem in that case.
+Therefore, there is a $29\%$ chance our sample will have more tails than heads. What do you expect will happen if we take a larger sample, say $n=100$ flips? Try redoing the problem in that case.
 \end{examp}
 
 \par
