@@ -302,7 +302,7 @@ Take any $a \in \mathbb{R}$, and consider a decreasing sequence of real numbers 
 \eqnspar{F_X(a) = \lim_{i \to \infty}F_X(x_i).}
 \par
 \noindent Since $\{x_i\}_{i=1}^{\infty}$ was an arbitrary decreasing sequence that converges to $a$, the limits $\lim_{i \to \infty}F_X(x_i)$ and $\lim_{x \to a^+}F_X(x)$ are equal (in both cases we are approaching $a$ from the right) so we have the desired equality.
-\eqnspar{F_X(a) = \lim_{x \to a^{+}}F_X(a).}
+\eqnspar{F_X(a) = \lim_{x \to a^{+}}F_X(x).}
 \end{pf}
 
 \par
@@ -325,7 +325,7 @@ $a \leq X \leq b$  & $F_X(b) - F_X(a-)$ \\
 Of particular interest is that fact that $P(X=a) = F_X(a) - F_X(a-)$. This is a formal statement of the observation that the possible values of a discrete random variable $X$ are the values where $F_X$ has a discontinuity, and the distance the graph jumps at $a$ is $P(X = a)$.
 
 \begin{examp}
-Consider the function whose graph is given below. Check that this function a cdf for some random variable. If we call the random variable with this cdf $Z$, find $P(1 < Z < 2)$, $P(Z = 4)$, and $P(Z > 1)$.
+Consider the function whose graph is given below. Check that this function is a cdf for some random variable. If we call the random variable with this cdf $Z$, find $P(1 < Z < 2)$, $P(Z = 4)$, and $P(Z > 1)$.
 
 \begin{center}
 \begin{tikzpicture}[scale = 0.7]
@@ -1016,7 +1016,7 @@ If $X$ is binomial with parameters $n$ and $p$, then $X$ is the number of succes
 \noindent Therefore, $Y$ is larger on average. The second question is somewhat ambiguous, but if we use the variance as our measure, $Y$ is a little more variable then $X$.
 \end{examp}
 
-\begin{examp}Edward lives in a country with very unreliable mail system. Only 7\% of parcels sent in the mail make it to their destination. He wants to send two \$20 books to his brother. If he sends them in one parcel, the postage is \$5.20, and if he sends them separately, the postage is \$3.30 for each book. To minimize the expected value of his expenses from a single attempt (loss + postage), which method is preferable?
+\begin{examp}Edward lives in a country with an unreliable mail system, where 7\% of parcels do not make it to their destination. He wants to send two books to his brother, each with a value of \$20. If he sends them in one parcel, the postage is \$5.20, and if he sends them separately, the postage is \$3.30 for each book. To minimize his expected losses, which method is preferable?
 \par
 \noindent Let $X \sim Bernoulli(0.07)$, then sending both books in one parcel, the \$5.20 postage charge always applies, and \$40 is lost if $X = 1$. If $L$ represents Edward's loss, then $L = 5.20 + 40X$, and therefore $E(L) = 5.20 + 40E(X) = 5.20 + 40 \cdot 0.07 = 8$.
 \par
