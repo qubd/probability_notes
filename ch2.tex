@@ -165,7 +165,7 @@ $$\frac{\binom{8}{4}\binom{4}{4}}{2!} = 35$$
 
 In many variations of the gambling game poker, five cards are drawn from a shuffled deck to form a hand. The order of these cards is irrelevant, each player may freely rearrange his or her hand. We can use the counting techniques we've developed to compute the probabilities of drawing various hands.
 
-\begin{examp}What is the probability of drawing a full house? In this hand, three of the five cards share a rank, and the remaining two also share a rank, for example, the three cards could be $7 \spadesuit \, 7\heartsuit \, 7 \clubsuit \, Q \diamondsuit \, Q \heartsuit$.
+\begin{examp}What is the probability of drawing a full house? In this hand, three of the five cards share a rank, and the remaining two also share a rank, for example, the cards could be $7 \spadesuit \, 7\heartsuit \, 7 \clubsuit \, Q \diamondsuit \, Q \heartsuit$.
 \par
 \noindent There are 13 possible ranks for the group of three cards and we must choose one. Once that's done, there is a pool of 12 remaining ranks for the other two, from which we must choose one. Thus, to fill in the ranks, we have $\binom{13}{1}\binom{12}{1}$ possibilities. If we choose, for example, $7$ for the group of three and $Q$ for the remaining two, we've determined the ranks as shown below.
 
@@ -186,7 +186,7 @@ In many variations of the gambling game poker, five cards are drawn from a shuff
 \end{center}
 \vspace{-1em}
 
-\noindent Note that if we instead choose $Q$ for the group of three and $7$ for the remaining two, we would produce a different hand, which has three queens and two sevens. This is good. We need distinct sequences of choices to produce distinct hands. If not, we would double count certain hands.
+\noindent Note that if we instead choose $Q$ for the group of three and $7$ for the remaining two, we would produce a different hand, which has three queens and two sevens. This is good. We want distinct sequences of choices to produce distinct hands. If not, we would be double counting certain hands.
 \par
 \noindent To determine the suits, notice that we have four choices for each card, but within each group of identical ranks, suits cannot be repeated (there is only one 7 of hearts in a deck), and order does not matter since we can freely reorder the hand. Thus, there are $\binom{4}{3}$ options for the suits in the group of three cards of equal rank, and $\binom{4}{2}$ options for the suits in the group of two. Since both choices need to be made, we have a total of $\binom{4}{3}\binom{4}{2}$ options when determining the suits. After filling in the suits, we have completely determined the hand.
 
