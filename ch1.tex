@@ -36,11 +36,11 @@ Suppose that the outcome of some experiment is uncertain, but we can write down 
 \end{examp}
 \begin{examp}\label{breakingstrength}Consider measuring the breaking strength (in Newtons) of a plank of wood. If we have no information about the size or shape of the plank, or about the precision with which the breaking strength will be measured, we should allow any positive value. Thus, $\Omega = \{x \in \mathbb{R} \, | \, x \geq 0\}$.\end{examp}
 \begin{examp}Suppose that a coin is flipped, and then a marble is drawn from an urn which contains black, white, and grey marbles. In this scenario, we could take $\Omega = \{HB,HW,HG,TB,TW,TG\}$, using $HB$ to represent flipping a head and drawing a black marble, $HW$ to represent flipping a head and drawing a white marble, and so on. \end{examp}
-\begin{examp}\label{FlipUntilTail}Suppose you play a game where a coin is flipped repeatedly until the first tail appears. We could take $\Omega = \{T, HT, HHT, HHHT, HHHHT, \, ...\, \}$. \end{examp}
+\begin{examp}\label{FlipUntilTail}Suppose you play a game where a coin is flipped repeatedly until the first tail appears. We could take $\Omega = \{T, HT, HHT, HHHT, HHHHT, \, \dots\, \}$. \end{examp}
 \par
 If the outcomes in a sample space can be listed (whether that list is finite or infinite) it is \emx{discrete}\index{Sample Space!discrete}, and if the set of all outcomes forms a continuum, as in the case of Example \ref{breakingstrength}, then the sample space is \emx{continuous}\index{Sample Space!continuous}.
 \par
-The choice of sample space depends on the experiment and on what question we as experimenters are trying to answer. If we roll a pair of dice, we might use the sample space $\Omega = \{2,3,4,\,...\,,11,12\}$ to count the sum of the two resulting values, or $\Omega = \{(1,1),(1,2),(2,1),(2,2),\,...\,,(5,6),(6,5),(6,6)\}$ to distinguish the dice and represent the values on each, so situations such as rolling doubles can be noted.
+The choice of sample space depends on the experiment and on what question we as experimenters are trying to answer. If we roll a pair of dice, we might use the sample space $\Omega = \{2,3,4,\,\dots\,,11,12\}$ to count the sum of the two resulting values, or $\Omega = \{(1,1),(1,2),(2,1),(2,2),\,\dots\,,(5,6),(6,5),(6,6)\}$ to distinguish the dice and represent the values on each, so situations such as rolling doubles can be noted.
 \par
 Another advantage of the larger sample space is that each of the outcomes is \emx{equally likely}. Imagine one die is red and the other is blue (changing the colours of the dice certainly won't influence the results of the experiment). If neither die has any bias, then when the pair is rolled, each die is equally likely to land with any of its faces up. The red die showing 2 and blue showing 5 is as likely as the red die showing 6 and blue showing 6, and so on. Each ordered pair of outcomes $(m,n)$ for $1 \leq m \leq 6$ and $1 \leq n \leq 6$ is as likely as any other.
 \par
@@ -59,7 +59,7 @@ $_{B} \setminus ^R$ & 1 & 2 & 3 & 4 & 5 & 6 \\
 \end{tabular}
 \end{center}
 }
-Note that outcomes in the sample space $\Omega = \{2,3,4,\,...\,,11,12\}$ are \emx{not equally likely}. There are six ordered pairs $(1,6)$, $(2,5)$, $(3,4)$, $(4,3)$, $(5,2)$, and $(6,1)$ which yield a sum of seven, while only the single pair $(1,1)$ gives a sum of two.
+Note that outcomes in the sample space $\Omega = \{2,3,4,\,\dots\,,11,12\}$ are \emx{not equally likely}. There are six ordered pairs $(1,6)$, $(2,5)$, $(3,4)$, $(4,3)$, $(5,2)$, and $(6,1)$ which yield a sum of seven, while only the single pair $(1,1)$ gives a sum of two.
 \subsection*{Events in a Sample Space}
 \begin{definition}
 Events\index{Event} are certain subsets of a sample space in which we might be interested, and are denoted by capital letters. We can describe an event using words or with more formal set notation.
@@ -151,17 +151,17 @@ One can interpret $\cap$ as `and', $\cup$ as `or', and $^{c}$ as `not', but reme
 The set operations described above satisfy many laws, which together make up the \emx{algebra of sets}. Many of these laws are natural enough that there's likely no need for you to review them, for example $A \cup B = B \cup A$, or $(A^{c})^{c} = A$. However, it's probably worth reviewing \emx{DeMorgan's laws}\index{DeMorgan's Laws}. 
 \eqnspar{(A \cap B)^{c} = A^{c} \cup B^{c} \text{ \ and \ } (A \cup B)^{c} = A^{c} \cap B^{c}}
 \par 
-We'll sometimes be dealing with long finite sequences of events $\{A_1, A_2, ...\,, A_n\}$ or infinite sequences $\{A_1, A_2, A_3, ...\}$ (also denoted $\{A_i\}_{i=1}^{\infty}$), so it's helpful to have some notation for abbreviating unions and intersections. We'll write large unions as below, and use similar notation for large intersections.
-\eqns{\bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup  ... \cup  A_n \text{\ \ and \ \ } \bigcup_{i=1}^{\infty} A_i = A_1 \cup  A_2 \cup  A_3 \cup  ... }
+We'll sometimes be dealing with long finite sequences of events $\{A_1, A_2, \dots\,, A_n\}$ or infinite sequences $\{A_1, A_2, A_3, \dots\}$ (also denoted $\{A_i\}_{i=1}^{\infty}$), so it's helpful to have some notation for abbreviating unions and intersections. We'll write large unions as below, and use similar notation for large intersections.
+\eqns{\bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup  \dots \cup  A_n \text{\ \ and \ \ } \bigcup_{i=1}^{\infty} A_i = A_1 \cup  A_2 \cup  A_3 \cup  \dots }
 \par
 \begin{examp}
-In Example \ref{FlipUntilTail}, a coin is flipped until the first tail appears. If $A_k$ is the event `exactly $k$ heads are flipped', and $E$ is the event `a positive even number of heads are flipped', then $E = A_2 \cup A_4 \cup A_6 \cup ... = \bigcup_{i=1}^{\infty} A_{2i}$.
+In Example \ref{FlipUntilTail}, a coin is flipped until the first tail appears. If $A_k$ is the event `exactly $k$ heads are flipped', and $E$ is the event `a positive even number of heads are flipped', then $E = A_2 \cup A_4 \cup A_6 \cup \dots = \bigcup_{i=1}^{\infty} A_{2i}$.
 \end{examp}
 \begin{examp}
-Suppose that cards are drawn repeatedly from a deck until the first heart appears. Let $H_i$ denote the event `the i$^{th}$ card drawn is a heart', and let $T$ denote the event `at least ten cards are drawn before the first heart appears'. Then we have $T = {H_1}^c \cap {H_2}^c \cap ... \cap {H_{10}}^c = \bigcap_{i=1}^{10} {H_i}^c$. 
+Suppose that cards are drawn repeatedly from a deck until the first heart appears. Let $H_i$ denote the event `the i$^{th}$ card drawn is a heart', and let $T$ denote the event `at least ten cards are drawn before the first heart appears'. Then we have $T = {H_1}^c \cap {H_2}^c \cap \dots \cap {H_{10}}^c = \bigcap_{i=1}^{10} {H_i}^c$.
 \end{examp}
 \rmk DeMorgan's laws apply to sequences as well. This means we could rewrite the event $T$ in the example above as
-\eqns{T = \bigcap_{i=1}^{10} {H_i}^c = {H_1}^c \cap {H_2}^c \cap ... \cap {H_{10}}^c = (H_1 \cup H_2 \cup ... \cup H_{10})^c = \left(\bigcup_{i=1}^{10} {H_i}\right)^{c}.}
+\eqns{T = \bigcap_{i=1}^{10} {H_i}^c = {H_1}^c \cap {H_2}^c \cap \dots \cap {H_{10}}^c = (H_1 \cup H_2 \cup \dots \cup H_{10})^c = \left(\bigcup_{i=1}^{10} {H_i}\right)^{c}.}
 \par
 \noindent Note $\bigcup_{i=1}^{10}H_i$ is the event `at least one of the first ten cards drawn is a heart', so it's complement is `none of the first ten cards drawn is a heart', which is $T$.
 \par
@@ -176,9 +176,9 @@ Consider an experiment where a coin is flipped, and then a die is rolled, and le
 Suppose you're waiting for a bus, and you measure the number of seconds it takes for the bus to arrive. Let $E =$ `the bus arrives in under 3 minutes' and $F =$ `the bus takes more than 5 minutes to arrive'. Then $E$ and $F$ are mutually exclusive. Formally, let $\Omega = \{ x \in \mathbb{R} \, | \, x \geq 0\}$. In interval notation, we can write $E = [0,180)$ and $F = (300,\infty)$, then clearly $E \cap F = \emptyset$.
 \end{examp}
 \par
-Extending the notion of mutually exclusive events given above in Definition \ref{mutuallyexclusive}, we call a finite or infinite sequence of events $\{A_1, A_2, A_3, ...\}$ mutually exclusive if for any pair of events $A_i$ and $A_j$ in the sequence, $A_i \cap A_j = \emptyset$.
+Extending the notion of mutually exclusive events given above in Definition \ref{mutuallyexclusive}, we call a finite or infinite sequence of events $\{A_1, A_2, A_3, \dots\}$ mutually exclusive if for any pair of events $A_i$ and $A_j$ in the sequence, $A_i \cap A_j = \emptyset$.
 \begin{examp}
-In Example \ref{FlipUntilTail}, a coin is flipped until the first tail appears. If $A_k$ is the event `exactly $k$ heads are flipped', and $B_k$ is the event `at least $k$ heads are flipped', then $\{A_1, A_2, A_3, ...\}$ is a sequence of mutually exclusive events, while $\{B_1, B_2, B_3, ...\}$ is not since, for example, $B_2 \cap B_3 = \{HHHT, HHHHT, ...\}$.
+In Example \ref{FlipUntilTail}, a coin is flipped until the first tail appears. If $A_k$ is the event `exactly $k$ heads are flipped', and $B_k$ is the event `at least $k$ heads are flipped', then $\{A_1, A_2, A_3, \dots\}$ is a sequence of mutually exclusive events, while $\{B_1, B_2, B_3, \dots\}$ is not since, for example, $B_2 \cap B_3 = \{HHHT, HHHHT, \dots\}$.
 \end{examp}
 
 %\exercises
@@ -219,9 +219,9 @@ In Example \ref{FlipUntilTail}, a coin is flipped until the first tail appears. 
 %\i\label{exer 1.1.9} Write an expression with indices which abbreviates each of the following.
 
 %\begin{enumrate}
-%\item $A_4 \cap A_5 \cap A_6 \cap ... \cap A_{21} \cap A_{22}$
-%\item $A_1 \cup A_4 \cup A_7 \cup A_{10} \cup ... $
-%\item $A_2 \cup A_4 \cup A_8 \cup ... \cup A_{128} \cup A_{256}$
+%\item $A_4 \cap A_5 \cap A_6 \cap \dots \cap A_{21} \cap A_{22}$
+%\item $A_1 \cup A_4 \cup A_7 \cup A_{10} \cup \dots $
+%\item $A_2 \cup A_4 \cup A_8 \cup \dots \cup A_{128} \cup A_{256}$
 %\end{enumrate}
 
 %\i Let $\{A_i\}_{i=1}^{\infty}$ be an infinite sequence of events. Express the event `infinitely many of the $A_i$ occur' in terms of the events $A_i$. (\emx{Hint}: If finitely many occurred, then there must be a largest index $i$ for which $A_i$ occurred)
@@ -243,7 +243,7 @@ The first two axioms should be simple enough to understand at first glance, thou
 \begin{examp}\label{flipuntiltailsumoutcomes}
 Suppose we flip a coin until the first tail appears, as in Example \ref{FlipUntilTail}, and consider the events $A_1 = \{T\}$, $A_2 = \{HT\}$, $A_3 = \{HHT\}$, and so on. In general, $A_i =$ `the first tail appears on the i$^{th}$ flip'. Then the sequence $\{A_i\}_{i=1}^{\infty}$ is mutually exclusive since only one of the $A_i$ can occur when the experiment is performed. In fact, the sequence $\{A_i\}_{i=1}^{\infty}$ is just the list of all possible outcomes, $\Omega$, with each outcome considered a distinct event.
 \par
-\noindent Thus, $\bigcup_{i=1}^{\infty}A_i = \Omega$. The third axiom then states that $P(\Omega)$ will be the result of adding up $P(A_1) + P(A_2) + P(A_3) + ...\,$, and by the second axiom, $P(\Omega) = 1$, so we can conclude, unsurprisingly, that the probabilities of all the individual outcomes in the sample space sum to one.
+\noindent Thus, $\bigcup_{i=1}^{\infty}A_i = \Omega$. The third axiom then states that $P(\Omega)$ will be the result of adding up $P(A_1) + P(A_2) + P(A_3) + \dots\,$, and by the second axiom, $P(\Omega) = 1$, so we can conclude, unsurprisingly, that the probabilities of all the individual outcomes in the sample space sum to one.
 \end{examp}
 \par
 \subsection*{Consequences of the Axioms}
@@ -420,7 +420,7 @@ Throughout the rest of this chapter, the frequentist interpretation will give yo
 
 \subsection*{Continuity \& Events with Probability Zero}
 
-A finite or infinite sequence of events is called \emx{increasing} \index{Events!increasing sequence of} when $A_1 \subseteq A_2 \subseteq A_3 \subseteq ...$\,, and \emx{decreasing} \index{Events!decreasing sequence of} when $A_1 \supseteq A_2 \supseteq A_3 \supseteq ...$\,. Informally, each step along an increasing sequence adds zero or more outcomes, and each step along a decreasing sequence removes zero or more outcomes.
+A finite or infinite sequence of events is called \emx{increasing} \index{Events!increasing sequence of} when $A_1 \subseteq A_2 \subseteq A_3 \subseteq \dots$\,, and \emx{decreasing} \index{Events!decreasing sequence of} when $A_1 \supseteq A_2 \supseteq A_3 \supseteq \dots$\,. Informally, each step along an increasing sequence adds zero or more outcomes, and each step along a decreasing sequence removes zero or more outcomes.
 \begin{examp} Suppose we flip a coin five times, and define $A_i =$ `the first $i$ flips are all heads'. Then $\{A_i\}_{i=1}^{5}$ is a decreasing sequence since $A_1$ includes all outcomes where the first flip is a head, $A_2$ includes only outcomes where both of the first two flips are heads, and so on, with fewer outcomes at each step, until $A_5$ includes only the single outcome where every flip is a head.
 \end{examp}
 \begin{examp} Consider a dart being thrown at a dartboard, and let $D_i$ denote the event `the dart lands within $i$ millimeters of the center', then the sequence $\{D_i\}_{i=1}^{\infty}$ is an increasing sequence of events.
@@ -460,8 +460,8 @@ Note that the second equality is justified by axiom (iii), the third is the defi
 \begin{examp}
 Suppose we pick a real number in the $[0,1]$ by choosing each of its decimal digits at random. What is the probability the number selected is $\frac{2}{9}$\,?
 \par
-If we let $T_i$ be the event  `the first $i$ digits are all twos', then the sequence $\{T_i\}_{i=1}^{\infty}$ is a decreasing sequence, and the event $\cap_{i=1}^{\infty}T_i$ occurs when all the $T_i$'s occur, i.e. when the number selected is $0.2222222... = \frac{2}{9}$\,. 
-\eqns{P(T_1) = \frac{1}{10}, \ \ \ P(T_2) = \frac{1}{100} = \frac{1}{10^2}, \ \ \ P(T_3) = \frac{1}{1000} = \frac{1}{10^3}, \ \ \  ...}
+If we let $T_i$ be the event  `the first $i$ digits are all twos', then the sequence $\{T_i\}_{i=1}^{\infty}$ is a decreasing sequence, and the event $\cap_{i=1}^{\infty}T_i$ occurs when all the $T_i$'s occur, i.e. when the number selected is $0.2222222\dots = \frac{2}{9}$\,.
+\eqns{P(T_1) = \frac{1}{10}, \ \ \ P(T_2) = \frac{1}{100} = \frac{1}{10^2}, \ \ \ P(T_3) = \frac{1}{1000} = \frac{1}{10^3}, \ \ \  \dots}
 \par
 In general, $P(T_n) = \frac{1}{10^n}$, so by Theorem \ref{continuity} above (for decreasing sequences), the probability that the chosen number is $\frac{2}{9}$ is
 \eqnsgap{P(\bigcap_{i=1}^{\infty} T_i) = \lim_{n \to \infty}P(T_n) = \lim_{n \to \infty} \frac{1}{10^n} = 0.}
@@ -578,7 +578,7 @@ The moral of the story is that we need to specify the experiment being performed
 \subsection*{Extending the Intersection Law}
 
 We've derived the intersection law $P(A \cap B) = P(A) P(B \given A)$ from the definition of conditional probability. It's worth noting that this law generalizes to intersections of any number of events,
-\eqnspar{P(A_1 \cap A_2 \cap A_3 \cap ...) = P(A_1) P(A_2 \given A_1) P(A_3 \given A_1 \cap A_2)\, ... }
+\eqnspar{P(A_1 \cap A_2 \cap A_3 \cap \dots) = P(A_1) P(A_2 \given A_1) P(A_3 \given A_1 \cap A_2)\, \cdots }
 \par
 \noindent where each factor on the right is the conditional probability of $A_i$ calculated under the assumption that all prior events in the sequence have occurred.
 \begin{examp}
@@ -628,7 +628,7 @@ However, recalling the frequentist interpretation, the question above is perfect
 \par
 \begin{thm}\label{lawtotalprob}\index{Law of Total Probability}
 (Law of Total Probability) If $\{A_i\}_{i=1}^{n}$ is any mutually exclusive sequence of events with $\bigcup_{i=1}^{n}A_i = \Omega$, then for any event $B$,
-$$\boxed{P(B) = P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)+ \, ... \, + P(B \given A_n)P(A_n).}$$
+$$\boxed{P(B) = P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)+ \, \cdots \, + P(B \given A_n)P(A_n).}$$
 \noindent Note that we require $P(A_i) > 0$ for each $A_i$, so that the conditional probabilities on the right are defined.
 \end{thm}
 \par
@@ -665,10 +665,10 @@ If two cards are drawn from a shuffled deck, what is the probability the second 
 \noindent This result makes intuitive sense. We're computing $P(H_2)$ in the absence of any information about the first card, so we may as well have drawn that card and put it on the bottom of the deck without looking at it.
 \end{examp}
 \begin{pf} (of Theorem \ref{lawtotalprob}) If the sequence $\{A_i\}_{i=1}^n$ partitions $\Omega$, and $B \subseteq \Omega$,
-\eqns{\Omega &= A _1 \cup A_2 \cup \, ... \, \cup A_n \\ B \cap \Omega &= B \cap (A_1 \cup A_2 \cup \, ... \, \cup A_n) \\ B &= (B \cap A_1) \cup (B \cap A_2) \cup \, ... \, \cup (B \cap A_n).}
+\eqns{\Omega &= A _1 \cup A_2 \cup \, \dots \, \cup A_n \\ B \cap \Omega &= B \cap (A_1 \cup A_2 \cup \, \dots \, \cup A_n) \\ B &= (B \cap A_1) \cup (B \cap A_2) \cup \, \dots \, \cup (B \cap A_n).}
 \par
-\noindent The sequence of events $B \cap A_1, B \cap A_2, \, ... \,, B \cap A_n$ is mutually exclusive because $\{A_i\}_{i=1}^{n}$ was mutually exclusive, and this new sequence is obtained by reducing the number of outcomes in each event. The events had empty intersections initially, so removing outcomes will keep the intersections empty.
-\eqns{P(B) &= P((B \cap A_1) \cup (B \cap A_2) \cup \, ... \, \cup (B \cap A_n)) \\ &= P(B \cap A_1) + P(B \cap A_2) + \, ... \, + P(B \cap A_n) \\ &= P(A_1 \cap B) + P(A_2 \cap B) + \, ... \, + P(A_n \cap B) \\ &= P(A_1)P(B \given A_1) + P(A_2) P(B \given A_2) + \, ... \, + P(A_n) P(B \given A_n)\\ &= P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)  + \, ... \, + P(B \given A_n)P(A_n)}
+\noindent The sequence of events $B \cap A_1, B \cap A_2, \, \dots \,, B \cap A_n$ is mutually exclusive because $\{A_i\}_{i=1}^{n}$ was mutually exclusive, and this new sequence is obtained by reducing the number of outcomes in each event. The events had empty intersections initially, so removing outcomes will keep the intersections empty.
+\eqns{P(B) &= P((B \cap A_1) \cup (B \cap A_2) \cup \, \dots \, \cup (B \cap A_n)) \\ &= P(B \cap A_1) + P(B \cap A_2) + \, \cdots \, + P(B \cap A_n) \\ &= P(A_1 \cap B) + P(A_2 \cap B) + \, \cdots \, + P(A_n \cap B) \\ &= P(A_1)P(B \given A_1) + P(A_2) P(B \given A_2) + \, \cdots \, + P(A_n) P(B \given A_n)\\ &= P(B \given A_1)P(A_1) + P(B \given A_2)P(A_2)  + \, \cdots \, + P(B \given A_n)P(A_n)}
 \end{pf}
 
 \subsection*{Tree Diagrams}\index{Tree Diagram}
@@ -786,7 +786,7 @@ Suppose we draw cards with replacement from a shuffled deck until the first ace 
             child {
                 node[bag]{BNA}
                     child {
-                     node[bag]{$...$}
+                     node[bag]{$\dots$}
                      edge from parent
                      node[below]  {$\frac{24}{52}$}
                     }
@@ -816,13 +816,13 @@ Suppose we draw cards with replacement from a shuffled deck until the first ace 
 \end{center}
 \par
 \noindent Here $BA$ denotes `black ace' and $BNA$ denotes `black non-ace'. There's no limit to the number of draws that could occur before the first black ace appears, so the tree diagram is infinite. However, we can still sum the products along each branch. Let $OB = $ `only black cards are drawn', then
-\eqnsgap{P(OB) &= \frac{2}{52} + \frac{24}{52}\cdot\frac{2}{52} + \frac{24}{52}\cdot\frac{24}{52}\cdot\frac{2}{52} +  \frac{24}{52}\cdot\frac{24}{52}\cdot\frac{24}{52}\cdot\frac{2}{52} + \ ... \\ 
-&= \frac{2}{52}\left(1 + \frac{24}{52} + \left(\frac{24}{52}\right)^2 + \left(\frac{24}{52}\right)^3 + \ ...\right) \\
+\eqnsgap{P(OB) &= \frac{2}{52} + \frac{24}{52}\cdot\frac{2}{52} + \frac{24}{52}\cdot\frac{24}{52}\cdot\frac{2}{52} +  \frac{24}{52}\cdot\frac{24}{52}\cdot\frac{24}{52}\cdot\frac{2}{52} + \ \dots \\
+&= \frac{2}{52}\left(1 + \frac{24}{52} + \left(\frac{24}{52}\right)^2 + \left(\frac{24}{52}\right)^3 + \ \dots\right) \\
 &= \frac{2}{52}\left(\sum_{i=0}^{\infty} \left(\frac{24}{52}\right)^n\right) \\
 &= \frac{2}{52} \cdot \frac{1}{1-(\frac{24}{52})} = \frac{1}{14} \simeq 7.1\%}
 \end{examp}
 \par
-Note that the sum of the infinite series above was evaluated with the geometric series sum formula, $a+ar+ar^2+ ... = \frac{a}{1-r}$ when $-1 < r < 1$.
+Note that the sum of the infinite series above was evaluated with the geometric series sum formula, $a+ar+ar^2+ \dots = \frac{a}{1-r}$ when $-1 < r < 1$.
 
 \section{Independence}\index{Independence}\label{IndependenceOfEvents}
 
@@ -866,10 +866,10 @@ If $A$ and $B$ are independent, then $A^c$ and $B^c$ are independent.
 If $A$ and $B$ are independent, then $A$ and $B^c$ are independent by Theorem \ref{compindependent}, but independence is symmetric, so applying Theorem \ref{compindependent} again, this time to $B^c$ and $A$, we conclude $B^c$ and $A^c$ are independent.
 \end{pf}
 \par
-Given a sequence of events $\{A_1, A_2, \, ... \, , A_n\}$, we say this sequence is independent if the occurrence of any collection of these events does not influence the chance that any other event in the sequence occurs. Formally, it's easiest to state this by extending the relation $P(A \cap B) = P(A)P(B)$ to arbitrary subsets of the sequence.
+Given a sequence of events $\{A_1, A_2, \, \dots \, , A_n\}$, we say this sequence is independent if the occurrence of any collection of these events does not influence the chance that any other event in the sequence occurs. Formally, it's easiest to state this by extending the relation $P(A \cap B) = P(A)P(B)$ to arbitrary subsets of the sequence.
 \begin{defn}\index{Independence!of a sequence of events}
-The sequence of events $\{A_i\}_{i=1}^{n}$ is independent if for any collection $\{A_{i_1}, A_{i_2}, \, ... \, , A_{i_k}\}$ of events taken from the sequence,
-\eqnsgap{P(A_{i_1} \cap A_{i_2} \cap \, ... \, \cap A_{i_k}) = P(A_{i_1})P(A_{i_2}) \, ... \, P(A_{i_k})}
+The sequence of events $\{A_i\}_{i=1}^{n}$ is independent if for any collection $\{A_{i_1}, A_{i_2}, \, \dots \, , A_{i_k}\}$ of events taken from the sequence,
+\eqnsgap{P(A_{i_1} \cap A_{i_2} \cap \, \dots \, \cap A_{i_k}) = P(A_{i_1})P(A_{i_2}) \, \cdots \, P(A_{i_k})}
 \end{defn}
 \begin{examp}
 Suppose we toss a fair coin twice. Let $H_1 =$ `The first toss is heads', $H_2 =$ `The second toss is heads', and $E =$ `Exactly one toss results in heads'. As we already observed, $H_1$ and $H_2$ are independent. Moreover, $P(E) = \frac{1}{2}$ since exactly one head is flipped in two of the four equally likely outcomes, and $P(E \given H_1) = \frac{1}{2}$ since assuming $H_1$ occurs, $E$ occurs when the second flip is a tail. Thus, $H_1$ and $E$ are independent, and essentially the same argument shows $H_2$ and $E$ are independent.
@@ -883,9 +883,9 @@ The example above illustrates that even if every pair of events in a sequence is
 Suppose that a 64 bit sequence (a sequence of 64 zeros and ones) is sent over an unreliable channel. The probability that each bit gets flipped is 0.005 independent of what happens to the other bits. What is the probability that the entire sequence is received without errors?
 \par
 \noindent Let $F_i = $ `the $i^{th}$ bit gets flipped', then $P(F_i) = 0.005$, and the probability that the $i^{th}$ bit is received correctly is $P({F_i}^c) = 1-0.005 = 0.995$. If $E =$ `the entire string is received without any flipped bits' then
-\eqnsgap{P(E) &= P({F_1}^c \cap {F_2}^c \cap \, ... \, \cap {F_{64}}^c) \\
-&= P({F_1}^c)P({F_2}^c) \, ... \, P({F_{64}}^c) \\
-&= 0.995 \cdot 0.995 \cdot \, ... \, \cdot 0.995 \\
+\eqnsgap{P(E) &= P({F_1}^c \cap {F_2}^c \cap \, \dots \, \cap {F_{64}}^c) \\
+&= P({F_1}^c)P({F_2}^c) \, \cdots \, P({F_{64}}^c) \\
+&= 0.995 \cdot 0.995 \cdot \, \cdots \, \cdot 0.995 \\
 &\simeq 0.72556 \simeq 72.6\% } 
 \end{examp}
 
@@ -1018,7 +1018,7 @@ It's worth noting that Bayes' rule, the intersection law, and the definition of 
 \par
 Bayes' rule is shown in a compact form above. However in many applications, we will end up splitting the denominator into cases using the law of total probability.
 \begin{cor}If $\{A_i\}_{i=1}^n$ is a sequence of events which partitions the sample space $\Omega$, and $B$ is an event,
-\eqnsgap{\boxed{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, ... \, + P(B \given A_n)P(A_n)}}}
+\eqnsgap{\boxed{P(A_i \given B) = \frac{P(B \given A_i)P(A_i)}{P(B \given A_1)P(A_1) + \, \cdots \, + P(B \given A_n)P(A_n)}}}
 \end{cor}
 \begin{pf}
 Apply Bayes' rule as presented in Theorem \ref{BayesRule} to the events $A_i$ and $B$, then expand the denominator using the law of total probability.
