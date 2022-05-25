@@ -53,7 +53,7 @@ P\left(\left|\frac{X_1 + X_2 + \, ... \, + X_n}{n} - \mu \right| \geq \epsilon \
 \end{pf}
 \par
 The results concerning the mean and standard deviation of $\overline{X}$ we obtained before applying Chebyshev's Inequality are significant in their own right, so we'll restate them below.
-\begin{cor}\label{StandardErrorOfMean} Suppose $X_1, X_2, ...\, , X_n$ is a SRS drawn from a population with mean $\mu$ and standard deviation $\sigma$, and let $\xbar = \frac{X_1, X_2, ...\, , X_n}{n}$. The mean and standard deviation of the sampling distribution of $\xbar$ are given by
+\begin{cor}\label{StandardErrorOfMean} Suppose $X_1, X_2, ...\, , X_n$ is a SRS drawn from a population with mean $\mu$ and standard deviation $\sigma$, and let $\xbar = \frac{X_1+ X_2+ ... + X_n}{n}$. The mean and standard deviation of the sampling distribution of $\xbar$ are given by
 \eqnsgap{\boxed{\ \muxbar = \mu \qquad \sigmaxbar = \frac{\sigma}{\sqrt{n}}\ }}
 \end{cor}
 \par
@@ -262,7 +262,7 @@ The conclusion of this theorem is written here in very informal language. To mak
 \begin{center}
     \begin{minipage}{.5\textwidth}
         \centering
-  \eqns{P(\xbar > \textstyle\frac{2}{5}) &= P(Z > -1.55) \\ &= 1 - P(Z \leq 1.55) \\ &= 1 - 0.0603 \\ &= 0.9397 \simeq 94\%}
+  \eqns{P(\xbar > \textstyle\frac{2}{5}) &= P(Z > -1.55) \\ &= 1 - P(Z \leq -1.55) \\ &= 1 - 0.0603 \\ &= 0.9397 \simeq 94\%}
   \vspace{1.25em}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
