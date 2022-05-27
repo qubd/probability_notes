@@ -3,7 +3,7 @@ Probability & Statistics (201-BLE) Course Notes
 
 These are notes used to teach a one semester introduction to probability, random variables, and statistical inference at the CEGEP (roughly second-year university) level, with differential and integral calculus as prerequisites.
 
-The course emphasizes the nuts and bolts of working rigorously with probability, random variables, and sampling distributions, with less focus on developing a statisical toolbox built upon the central limit theorem. Instead, students spend a lot of time on discrete probability problems, manipulating probability mass / density functions, and investigating the properties of point estimators.
+The course emphasizes the nuts and bolts of working rigorously with probability, random variables, and sampling distributions, with less focus on developing a statisical toolbox built upon the central limit theorem. Instead, students spend a lot of time on discrete probability problems, manipulating probability mass / density functions, and investigating the sampling distributions of point estimators.
 
 To work with continuous sample spaces and to develop the weak law of large numbers in a rigorous way, at an appropriate level and subject to the time constraints of a single term course, here are some decisions I made:
 
