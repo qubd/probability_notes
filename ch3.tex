@@ -101,7 +101,7 @@ From the table in Section \ref{sec 1.1}, we know $Y$ can take any integer value 
 \par
 The vertical lines under each point are not technically part of the graph of $f_Y$, but are often drawn to make the graph easier to construct and interpret. One can also think about the pmf as a bar graph displaying the number of outcomes for each possible value of $X$ when we take a very large number of samples.
 \par
-\begin{prop}\label{pmfproperties} Suppose that $X$ is a discrete random variable which takes values in the set $A = \{x_1, x_2, x_3, \, ...\}$. Then the probability mass function $f_X$ satisfies the following properties.
+\begin{prop}\label{pmfproperties} Suppose that $X$ is a discrete random variable which takes values in the set $A = \{x_1, x_2, x_3, \, \dots\}$. Then the probability mass function $f_X$ satisfies the following properties.
 \vspace{-0.5em}
 \begin{enumerate}[(i)]
 \item $f_X(x) \geq 0$ for all $x \in \mathbb{R}$.
@@ -117,19 +117,19 @@ Find the value of $k$ so that the function $h$ below is a pmf.
 \renewcommand*{\arraystretch}{1.35}
 \eqns{h(x) = \left\{
 \begin{array}{cl}
-      \left(\frac{1}{3k}\right)^x & \text{ if \ } x = 1, 2, 3, ... \\
+      \left(\frac{1}{3k}\right)^x & \text{ if \ } x = 1, 2, 3, \dots \\
       0 & \text{otherwise} \\ \end{array} 
 \right.}
 \renewcommand*{\arraystretch}{1}
 \par
 \noindent As long as $k$ is positive, $h$ will satisfy properties $(i)$ and $(ii)$ above. The last property allows us to determine $k$ uniquely.
-\eqns{\sum_{x \in A} h(x) =  \sum_{x = 1}^{\infty} \left(\frac{1}{3k}\right)^x = \frac{1}{3k} +  \left(\frac{1}{3k}\right)^2 +  \left(\frac{1}{3k}\right)^3 + ... = \frac{\frac{1}{3k}}{1-\frac{1}{3k}} = \frac{1}{3k - 1} }
+\eqns{\sum_{x \in A} h(x) =  \sum_{x = 1}^{\infty} \left(\frac{1}{3k}\right)^x = \frac{1}{3k} +  \left(\frac{1}{3k}\right)^2 +  \left(\frac{1}{3k}\right)^3 + \cdots = \frac{\frac{1}{3k}}{1-\frac{1}{3k}} = \frac{1}{3k - 1} }
 \par
 \noindent The geometric series sum formulas was used to evaluate the infinite sum. Setting the last expression equal to 1 gives $3k - 1 = 1$, and hence $k = \frac{2}{3}$. Using this value of $k$ gives the function $h$ below, which we can graph as a pmf.
 \renewcommand*{\arraystretch}{1.35}
 \eqns{h(x) = \left\{
 \begin{array}{cl}
-      \left(\frac{1}{2}\right)^x & \text{ if \ } x = 1, 2, 3, ... \\
+      \left(\frac{1}{2}\right)^x & \text{ if \ } x = 1, 2, 3, \dots \\
       0 & \text{otherwise} \\ \end{array} 
 \right.}
 \par
@@ -384,7 +384,7 @@ If we perform the experiment many times, then we should expect to observe no hea
 So not surprisingly we should, on average, obtain 1.5 heads in every three flips of a fair coin. This notion of the average value of a random variable is formalized in the definition below.
 
 \begin{defn}\label{expectedvaluedef}
-Given a discrete random variable $X$ which takes values in the set $A = \{x_1, x_2, x_3, ...\}$, the expected value of $X$, also called the mean of X, is denoted $E(X)$ or $\mu_X$, and is given by multiplying each possible value of X by its probability.
+Given a discrete random variable $X$ which takes values in the set $A = \{x_1, x_2, x_3, \dots\}$, the expected value of $X$, also called the mean of X, is denoted $E(X)$ or $\mu_X$, and is given by multiplying each possible value of X by its probability.
 \eqnsgap{\boxed{E(X) = \sum_{x \in A}^{\ } x \cdot P(X = x) = \sum_{x \in A} x \cdot f_X(x)}}
 \end{defn}
 
@@ -441,11 +441,11 @@ On a roulette wheel, there are 18 black numbers, 18 red numbers, and 2 green num
 \begin{examp}
 (St-Petersburg lottery) A coin is flipped until the first tail appears. You are initially given \$1 before the coin is flipped for the first time, and every time a head appears, the prize doubles. When the first tail appears, you receive the prize. If the sequence of flips that appears is $HHHT$, for example, you would receive \$8. What is the expected value of the prize?
 \par
-\noindent If we define a random variable $X$ on the sample space $\Omega = \{T, HT, HHT, ...\}$ whose value is the prize, then $X$ can take any value in $A = \{1,2,4,8,16, \,...\}$, i.e., any value of the form $2^k$ for $k \in \mathbb{N}$. Furthermore, $X = 2^k$ when the outcome is a sequence with $k$ heads followed by a tail. Thus, $P(X = 2^k) = \left(\frac{1}{2}\right)^{k+1}$.
+\noindent If we define a random variable $X$ on the sample space $\Omega = \{T, HT, HHT, \dots\}$ whose value is the prize, then $X$ can take any value in $A = \{1,2,4,8,16, \,\dots\}$, i.e., any value of the form $2^k$ for $k \in \mathbb{N}$. Furthermore, $X = 2^k$ when the outcome is a sequence with $k$ heads followed by a tail. Thus, $P(X = 2^k) = \left(\frac{1}{2}\right)^{k+1}$.
 \eqns{E(X) &= \sum_{x \in A} x P(X = x) \\
 &= \sum_{k = 0}^{\infty} 2^k P(X = 2^k) \\
-&= 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{4} + 4 \cdot \frac{1}{8} + 8 \cdot \frac{1}{16}  + ... \\
-&= \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + ... \rightarrow \infty}
+&= 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{4} + 4 \cdot \frac{1}{8} + 8 \cdot \frac{1}{16}  + \cdots \\
+&= \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \cdots \rightarrow \infty}
 \par
 \noindent The expected value is undefined, since the sum diverges by growing arbitrarily large. 
 \end{examp}
@@ -459,7 +459,7 @@ It's also worth considering that someone with \$\,$2 \times 10^{100}$ has twice 
 \subsection*{Properties of the Expected Value}
 
 \begin{thm}\label{LawUnconsciousStatistician}\index{Law of the Unconscious Statistician}
-(Law of the Unconscious Statistician) If $X$ is a discrete random variable that takes values in the set $A = \{x_1, x_2, x_3, ...\}$ and $g: \mathbb{R} \to \mathbb{R}$, the random variable $Y = g(X)$ has 
+(Law of the Unconscious Statistician) If $X$ is a discrete random variable that takes values in the set $A = \{x_1, x_2, x_3, \dots\}$ and $g: \mathbb{R} \to \mathbb{R}$, the random variable $Y = g(X)$ has
 \eqns{\boxed{E(Y) = \sum_{x \in A}^{\ } g(x)f_X(x).}}
 \end{thm}
 \par
@@ -467,7 +467,7 @@ Notice that the pmf in the sum is the pmf for $X$. We're finding the expected va
 \par
 \vspace{0.5em}
 \begin{pf}
-Consider $g(A) = \{g(x_1), g(x_2), g(x_3), ...\}$, the set of possible values for $Y$. From the definition of expected value, we have
+Consider $g(A) = \{g(x_1), g(x_2), g(x_3), \dots\}$, the set of possible values for $Y$. From the definition of expected value, we have
 \eqnspar{E(Y) = \sum_{y \in g(A)} y \cdot f_Y(y).}
 \par
 \noindent Let $g^{-1}(y) = \{x \, | \, g(x) = y\}$, the set of all $x \in A$ that are sent to $y$ by the function $g$. By definition, $f_Y(y)$ is equal to $P(Y=y)$, which is the sum of the probabilities of all values of $X$ which $g$ sends to $y$ (we saw this in Example \ref{FunctionRVEx}). Formally, 
@@ -507,8 +507,8 @@ With a clever application of this result, we can resolve the problem posed at th
 \begin{examp}
 In a certain game, a coin is flipped until the first tail appears. If $n$ heads occurred before this first tail which ends the game, the payout is $\$n$. What is the expected value of the payout?
 \par
-\noindent Let $X$ be a random variable defined over the sample space $\Omega = \{T, HT, HHT, ...\}$ which gives the value of the payout. Then we have $P(X = 0) = \frac{1}{2}$, $P(X = 1) = \frac{1}{4}$, $P(X = 2) = \frac{1}{8}$, and in general $P(X = k) = \frac{1}{2^k}$. Thus, $f_X(k) = \frac{1}{2^{k+1}}$ for $k \in \mathbb{N}$, and hence
-\eqns{E(X) = \sum_{x \in A}x f_X(x) = \sum_{k = 1}^{\infty}k \cdot \frac{1}{2^{k+1}} = \frac{1}{4} + \frac{2}{8} + \frac{3}{16} + \frac{4}{32} + \frac{5}{64} + ...}
+\noindent Let $X$ be a random variable defined over the sample space $\Omega = \{T, HT, HHT, \dots\}$ which gives the value of the payout. Then we have $P(X = 0) = \frac{1}{2}$, $P(X = 1) = \frac{1}{4}$, $P(X = 2) = \frac{1}{8}$, and in general $P(X = k) = \frac{1}{2^k}$. Thus, $f_X(k) = \frac{1}{2^{k+1}}$ for $k \in \mathbb{N}$, and hence
+\eqns{E(X) = \sum_{x \in A}x f_X(x) = \sum_{k = 1}^{\infty}k \cdot \frac{1}{2^{k+1}} = \frac{1}{4} + \frac{2}{8} + \frac{3}{16} + \frac{4}{32} + \frac{5}{64} + \cdots}
 \par
 \noindent In the St-Petersburg lottery, the infinite sum was clearly divergent, but this time it's not so easy to evaluate, in fact it's quite difficult.
 \par
@@ -572,13 +572,13 @@ Suppose that Bob draws four marbles, with replacement, from an urn containing on
 \par
 Notice that in the example above, though $I_b$, $I_y$, $I_g$, and $I_r$ are indicators for events that are not independent, linearity of expectation allows us to compute the expected value of their sum without thinking about how the value of one affects any of the others.
 \par
-Now consider a discrete random variable $X$ whose range is $\{1,2,\,...\,,n\}$ for some positive integer $n$, and notice that if we define an indicator $I_k$ for the event $X \geq k$ for each $k$ from $1$ to $n$, then $X = I_1 + I_2 + ... + I_n.$
+Now consider a discrete random variable $X$ whose range is $\{1,2,\,\dots\,,n\}$ for some positive integer $n$, and notice that if we define an indicator $I_k$ for the event $X \geq k$ for each $k$ from $1$ to $n$, then $X = I_1 + I_2 + \dots + I_n.$
 \par
-To illustrate, say for example that $X$ takes the value $2$. Then $I_1$ and $I_2$ both take the value one, and all $I_k$ for $k > 2$ are zero, so $X = I_1 + I_2 + I_3 + ... + I_n = 1 + 1 + 0 + ... + 0 = 2$. Using linearity of expectation, we have $$E(X) = E(I_1 + I_2 + ... + I_n) = E(I_1) + E(I_2) + ... + E(I_n).$$
-What is $E(I_k)$ for each $k \in \{1,2,\,...\,,n\}$? By definition, $I_k = 1$ if $X \geq k$ and $I_k = 0$ if $X < k$, hence $E(I_k) = 1\cdot P(X \geq k) + 0\cdot P(X<k) = P(X \geq k)$. Thus, $E(X) = E(I_1) + E(I_2) + ... + E(I_n) = P(X\geq 1) +P(X\geq 2) + ... + P(X\geq n)$.
+To illustrate, say for example that $X$ takes the value $2$. Then $I_1$ and $I_2$ both take the value one, and all $I_k$ for $k > 2$ are zero, so $X = I_1 + I_2 + I_3 + \cdots + I_n = 1 + 1 + 0 + \dots + 0 = 2$. Using linearity of expectation, we have $$E(X) = E(I_1 + I_2 + \dots + I_n) = E(I_1) + E(I_2) + \dots + E(I_n).$$
+What is $E(I_k)$ for each $k \in \{1,2,\,\dots\,,n\}$? By definition, $I_k = 1$ if $X \geq k$ and $I_k = 0$ if $X < k$, hence $E(I_k) = 1\cdot P(X \geq k) + 0\cdot P(X<k) = P(X \geq k)$. Thus, $E(X) = E(I_1) + E(I_2) + \dots + E(I_n) = P(X\geq 1) +P(X\geq 2) + \dots + P(X\geq n)$.
 
 \begin{prop}\label{Discrete Tail Sum Formula}\index{Tail Sum Formula}\index{Expected Value!tail sum formula for}(Tail Sum Formula)
-Given a discrete random variable $X$ which takes values in $\{1,2,\,...\,,n\}$,
+Given a discrete random variable $X$ which takes values in $\{1,2,\,\dots\,,n\}$,
 \eqnsgap{\boxed{E(X) = \sum_{k=1}^{n} P(X\geq k).}}
 In fact, the assumption that there is an upper bound, $n$, on the values $X$ can take turns out to be unnecessary, and we can sum over all positive integers.
 \end{prop}
@@ -591,7 +591,7 @@ For fair dice are rolled. What is the expected value of the smallest of the four
 \par
 \noindent On the other hand, finding $P(X \geq k)$ for each $k \in \{1,2,3,4,5,6\}$ is quite easy. For example, the event $X \geq 2$ occurs when every die shows a result higher than or equal to 2. Since the die rolls are independent, we have $P(X\geq2) = \frac{5}{6}\cdot\frac{5}{6}\cdot\frac{5}{6}\cdot \frac{5}{6} = (\frac{5}{6})^4$. Using the tail sum formula yields
 \eqnsgap{E(X) &= \sum_{k=1}^{6}P(X \geq k) \\
-&= P(X \geq 1) + P(X \geq 2) + ... + P(X \geq 6) \\
+&= P(X \geq 1) + P(X \geq 2) + \cdots + P(X \geq 6) \\
 &= 1 + \left(\frac{5}{6}\right)^4+\left(\frac{4}{6}\right)^4+\left(\frac{3}{6}\right)^4+\left(\frac{2}{6}\right)^4+\left(\frac{1}{6}\right)^4 \\ 
 &\approx 1.76}
 \end{examp}
@@ -795,8 +795,8 @@ $$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \,\cap\, Y= y)$$
 
 Though we've only dealt with sums of two random variables, the arguments given above can be extended to finite sums of any length.
 
-\begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, ... , $X_n$ is a sequence of independent random variables,
-$$\boxed{\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).}$$
+\begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, \dots , $X_n$ is a sequence of independent random variables,
+$$\boxed{\Var(X_1 + X_2 + \, \cdots \, + X_n) = \Var(X_1) + \Var(X_2) + \, \dots \, + \Var(X_n).}$$
 \end{cor}
 
 \begin{examp}Let X be the result of single roll of a die, and let Y be the average of the results of four rolls. Which random variable has the larger variance?
@@ -833,7 +833,7 @@ With this terminology, the second central moment is the variance of $X$. Many ot
 
 \section{The Uniform Distribution}
 
-\begin{defn}\index{Uniform Distribution!discrete}\index{Distribution!Uniform}\index{Uniform Distribution} If $X$ is a discrete random variable that takes a value in a finite set of consecutive integers $A = \{a, a+1, a+2, \, ... \, , a+n\}$, and $X$ takes each value with equal probability, we say that $X$ is uniformly distributed on $A$. \end{defn}
+\begin{defn}\index{Uniform Distribution!discrete}\index{Distribution!Uniform}\index{Uniform Distribution} If $X$ is a discrete random variable that takes a value in a finite set of consecutive integers $A = \{a, a+1, a+2, \, \dots \, , a+n\}$, and $X$ takes each value with equal probability, we say that $X$ is uniformly distributed on $A$. \end{defn}
 
 \begin{examp} Suppose that $X$ represents the roll of a single fair die, then $X$ is uniformly distributed on $A = \{1,2,3,4,5,6\}$, since $P(X = x) = \frac{1}{6}$ for all $x \in A$.
 \end{examp}
@@ -865,9 +865,9 @@ If $X$ is uniformly distributed on the set $A$, then its pmf has the form
 \end{tikzpicture}
 \end{center}
 
-The expected value of a uniformly distributed variable on the set $A$ is simply the average of the values in $A$\index{Uniform Distribution!expected value of}. Formally, if $X$ is uniformly distributed on the set $A = \{a_1, a_2,\, ... \, , a_n\}$, then
-$$E(X) = a_1 \cdot \textstyle\frac{1}{n} + a_2 \cdot \frac{1}{n} + ... + a_n \cdot \frac{1}{n} = \frac{a_1 + a_2 + ... + a_n}{n}.$$
-In particular, if $X \sim Uniform(n)$, then $E(X) = \frac{1+2+3+...+n}{n} = \frac{\frac{n(n+1)}{2}}{n} = \frac{n+1}{2}$.
+The expected value of a uniformly distributed variable on the set $A$ is simply the average of the values in $A$\index{Uniform Distribution!expected value of}. Formally, if $X$ is uniformly distributed on the set $A = \{a_1, a_2,\, \dots \, , a_n\}$, then
+$$E(X) = a_1 \cdot \textstyle\frac{1}{n} + a_2 \cdot \frac{1}{n} + \cdots + a_n \cdot \frac{1}{n} = \frac{a_1 + a_2 + \dots + a_n}{n}.$$
+In particular, if $X \sim Uniform(n)$, then $E(X) = \frac{1+2+3+\cdots+n}{n} = \frac{\frac{n(n+1)}{2}}{n} = \frac{n+1}{2}$.
 \par
 \rmk In general, if you wish to indicate that an item is being chosen from some set, and each item in that set has the same probability of being selected, you can say the item is chosen \emph{uniformly at random} from the set. The term \emph{uniformly} indicates that each item is equally likely.
 
@@ -922,7 +922,7 @@ Suppose we perform a fixed number of Bernoulli trials (call this number $n$). Ea
 \renewcommand*{\arraystretch}{1.35}
 \eqns{f_X(x) = \left\{
 \begin{array}{cl}
-      \displaystyle\binom{n}{x}(p)^x(1-p)^{n-x} & \text{ if \ } x = 0, 1, 2, ... \, , n \\
+      \displaystyle\binom{n}{x}(p)^x(1-p)^{n-x} & \text{ if \ } x = 0, 1, 2, \dots \, , n \\
       0 & \text{ otherwise } \\ \end{array}.
 \right.}
 \renewcommand*{\arraystretch}{1}
@@ -984,15 +984,15 @@ When we get into statistics later in the course, we'll show that as our sample o
 \begin{thm}\index{Binomial Distribution!expected value of}\index{Binomial Distribution!variance of}If $X \sim Binomial(n,p)$, then $E(X) = np$ and $\Var(X) = np(1-p)$.
 \end{thm}
 \begin{pf}
-If $X$ is binomial with parameters $n$ and $p$, then $X$ is the number of successes in $n$ independent Bernoulli trials, which means $X = X_1 + X_2 + ... + X_n$, where each $X_i \sim Bernoulli(p)$. The expected value of each $X_i$ is $p$ by Theorem \ref{BernoulliExpectation}, so by linearity of expectation,
-\eqns{E(X) &= E(X_1 + X_2 + ... + X_n) \\
-&=E(X_1) + E(X_2) + ... + E(X_n) \\
-&= p+p+ ... +p = np}
+If $X$ is binomial with parameters $n$ and $p$, then $X$ is the number of successes in $n$ independent Bernoulli trials, which means $X = X_1 + X_2 + \cdots + X_n$, where each $X_i \sim Bernoulli(p)$. The expected value of each $X_i$ is $p$ by Theorem \ref{BernoulliExpectation}, so by linearity of expectation,
+\eqns{E(X) &= E(X_1 + X_2 + \cdots + X_n) \\
+&=E(X_1) + E(X_2) + \cdots + E(X_n) \\
+&= p+p+ \cdots +p = np}
 \par
 \noindent The variance can be derived similarly with the aid of Corollary \ref{expectationandvarianceofindependentsum}.
-\eqns{\Var(X) &= \Var(X_1 + X_2 + ... + X_n) \\
-&=\Var(X_1) + \Var(X_2) + ... + \Var(X_n) \\
-&= p(1-p)+p(1-p)+ ... +p(1-p) = np(1-p)}
+\eqns{\Var(X) &= \Var(X_1 + X_2 + \cdots + X_n) \\
+&=\Var(X_1) + \Var(X_2) + \cdots + \Var(X_n) \\
+&= p(1-p)+p(1-p)+ \cdots +p(1-p) = np(1-p)}
 \end{pf}
 %\eqns{E(X^2) &= \sum_{x = 0}^{n} x^2 \binom{n}{x}p^x(1-p)^{n-x} = \sum_{x = 0}^{n} xn \binom{n-1}{x-1}p^x(1-p)^{n-x}  \\ &= np \sum_{x = 1}^{n} x\binom{n-1}{x-1}p^{x-1}(1-p)^{(n-1)-(x-1)} \\ &= np\sum_{y = 0}^{m} (y+1) \binom{m}{y}p^y(1-p)^{m-y} \text{\ \ where $y = x-1$ and $m = n-1$} \\
 %&= np \left(\sum_{y = 0}^{m} y \binom{m}{y}p^y(1-p)^{m-y} + \sum_{y = 0}^{m} \binom{m}{y}p^y(1-p)^{m-y} \right) \\
@@ -1029,7 +1029,7 @@ Binomial random variables result from performing independent Bernoulli trials a 
 \renewcommand*{\arraystretch}{1.35}
 \eqns{f_X(x) = \left\{
 \begin{array}{cl}
-      (1-p)^{x-1}p & \text{ if \ } x = 1, 2, 3, ... \\
+      (1-p)^{x-1}p & \text{ if \ } x = 1, 2, 3, \dots \\
       0 & \text{ otherwise } \\ \end{array}.
 \right.}
 \renewcommand*{\arraystretch}{1}
@@ -1089,10 +1089,10 @@ If $X \sim Geometric(p)$, the cdf of $X$ is given by the expression below, where
 \end{prop}
 
 %\begin{pf} Suppose that $x$ is a positive integer, then
-%\eqns{P(X \leq x) = \sum_{k=0}^{x} P(X = k) = p + (1-p)p + (1-p)^2p + ... + (1-p)^{k-1}p.}
+%\eqns{P(X \leq x) = \sum_{k=0}^{x} P(X = k) = p + (1-p)p + (1-p)^2p + \cdots + (1-p)^{k-1}p.}
 %\par
 %\noindent If we multiply both sides by $1-p$, we obtain the expression
-%\eqnspar{(1-p)P(X \leq x) &= (1-p)p + (1-p)^2p + (1-p)^3p +  ... + (1-p)^{k}p.}
+%\eqnspar{(1-p)P(X \leq x) &= (1-p)p + (1-p)^2p + (1-p)^3p +  \cdots + (1-p)^{k}p.}
 %\par
 %\noindent Notice that the right hand side is now missing the initial term, $p$, that was present above, and has an extra $(1-p)^kp$ term on the end. Therefore, we have
 %\eqns{(1-p)P(X \leq x) &= P(X \leq x) - p + (1-p)^{k}p \\

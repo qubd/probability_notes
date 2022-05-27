@@ -33,7 +33,7 @@ $$(S,S)\ \ (S,M)\ \ (S,L)\ \ (L,S)\ \ (L,M)\ \ (L,L)$$
 \indent If there's only enough change in your pocket to pay for a single item (any size), then you have the five options given below.
 $$(S, \, - \, )\ \ (L, \, - \, )\ \ (\, - \, , S) \ \ (\, - \, , M) \ \ (\, - \, , L)$$
 \par
-\begin{prop}(Fundamental Counting Principle) \label{FundamentalCountingPrinciple}\index{Fundamental Counting Principle} In a sequence of $k$ choices, if the first choice can be made in $n_1$ ways, the second choice can be made in $n_2$ ways, and so on, the number of ways of making all choices is the product $n_1 n_2 \,...\, n_k$, while the number of ways of selecting one of the choices and making it is the sum $n_1 + n_2 + \,...\, + n_k$.
+\begin{prop}(Fundamental Counting Principle) \label{FundamentalCountingPrinciple}\index{Fundamental Counting Principle} In a sequence of $k$ choices, if the first choice can be made in $n_1$ ways, the second choice can be made in $n_2$ ways, and so on, the number of ways of making all choices is the product $n_1 n_2 \,\cdots\, n_k$, while the number of ways of selecting one of the choices and making it is the sum $n_1 + n_2 + \,\dots\, + n_k$.
 \end{prop}
 \begin{examp}
 How many ways are there to select three students to be class representatives in three different classes, one with twenty students and two with thirty?
@@ -51,7 +51,7 @@ How many four letter sequences can be made with only the first four letters of t
 \par
 \begin{defn}\index{Factorial}
 Given $n \in \mathbb{N}$, the factorial of $n$, denoted $n!$, is the number of ways of arranging $n$ distinct objects in a line, and is defined by
-$$n! = n \cdot (n-1) \cdot (n-2) \cdot \, ... \, \cdot 2 \cdot 1$$
+$$n! = n \cdot (n-1) \cdot (n-2) \cdot \, \cdots \, \cdot 2 \cdot 1$$
 \end{defn}
 \begin{rmk} Though the interpretation of the factorial as counting arrangements no longer applies, we define $0!=1$ for convenience.
 \end{rmk}
@@ -68,7 +68,7 @@ How many ways are there to choose three students from a class of twenty and arra
 \par
 \begin{definition}\label{permutationdefinition}\index{Permutations}
 If an ordered list of $r$ distinct objects is selected from a set of $n$ objects, the result is called an $r$-permutation. The number of $r$-permutations of $n$ objects, denoted by $^{n}P_r$, is given by
-\eqnspar{\boxed{^nP_r = n \cdot (n-1) \cdot \, ... \, \cdot (n-r+1) = \frac{n!}{(n-r)!}}}
+\eqnspar{\boxed{^nP_r = n \cdot (n-1) \cdot \, \cdots \, \cdot (n-r+1) = \frac{n!}{(n-r)!}}}
 \end{definition}
 \par
 \begin{examp}
@@ -97,8 +97,8 @@ Notice that rearranging the labels will result in a string which is identical on
 \par
 The key point is that we can count the number of unlabeled strings by dividing the number of labeled strings by the number of ways of rearranging the labels, in this case, $4! / 3! = 4$. The same principle applies if there are many different kinds of indistinguishable objects.
 \par
-\begin{prop}\index{Mississippi Formula} (Mississippi Formula) The number of ways of rearranging $n$ objects, with indistinguishable groups of sizes $k_1, k_2, ...\, ,k_m$, is given by
-\eqnsgap{\boxed{\frac{n!}{k_{1}! \cdot k_{2}! \cdot \, ... \, \cdot k_{m}!}}}
+\begin{prop}\index{Mississippi Formula} (Mississippi Formula) The number of ways of rearranging $n$ objects, with indistinguishable groups of sizes $k_1, k_2, \dots\, ,k_m$, is given by
+\eqnsgap{\boxed{\frac{n!}{k_{1}! \cdot k_{2}! \cdot \, \cdots \, \cdot k_{m}!}}}
 \end{prop}
 \par
 \begin{examp}
@@ -273,7 +273,7 @@ Consider the $3x^2y$ term in the expression $x^3 + 3x^2y + 3xy^2 + y^3$. It was 
 This idea is often stated in the form of the theorem given below, and values of the form $\binom{n}{k}$ for some $n$ and $k$ are often referred to as binomial coefficients \index{Binomial Coefficients} because of this connection.
 \par
 \begin{thm}\index{Binomial Theorem}(Binomial Theorem) 
-\eqnsgap{\boxed{(x+y)^n =\sum_{i=0}^{n} \binom{n}{i}x^{n-i}y^i = \binom{n}{0}x^n + \binom{n}{1}x^{n-1}y + \binom{n}{2}x^{n-2}y^2 + ... + \binom{n}{n}y^n}}
+\eqnsgap{\boxed{(x+y)^n =\sum_{i=0}^{n} \binom{n}{i}x^{n-i}y^i = \binom{n}{0}x^n + \binom{n}{1}x^{n-1}y + \binom{n}{2}x^{n-2}y^2 + \cdots + \binom{n}{n}y^n}}
 \end{thm}
 \par
 \rmk The first and last coefficients in the expansion are both one. This provides some motivation for defining $0! = 1$; it makes $\binom{n}{0}$ and $\binom{n}{n}$ both defined and equal to one, so the binomial theorem is simpler to state.
@@ -281,7 +281,7 @@ This idea is often stated in the form of the theorem given below, and values of 
 What is the last digit of the number $109^{2717}$?
 \par
 \noindent This number is much too large to actually write down digit by digit, but with clever use of the binomial theorem, we can determine the last digit without knowing any of the others. Notice that $109^{2717} = (110 - 1)^{2717}$, and by the binomial theorem,
-\eqns{(110-1)^{2717} = \binom{2717}{0}110^{2717} + \binom{2717}{1}110^{2716} \cdot (-1)^1 +...+ \binom{2717}{2717}(-1)^{2717}}
+\eqns{(110-1)^{2717} = \binom{2717}{0}110^{2717} + \binom{2717}{1}110^{2716} \cdot (-1)^1 +\cdots+ \binom{2717}{2717}(-1)^{2717}}
 \par
 \noindent Each term is a product of integers, and $110$ is a multiple of ten, hence so is $110^k$ for any integer $k$. Therefore, every term in the expansion is a multiple of ten except the last. This final term is $(-1)^{2717} = -1$. Therefore, $109^{2717}$ is one less than a multiple of ten, hence its last digit is a 9.
 \par

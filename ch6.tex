@@ -138,7 +138,7 @@ In Example \ref{MeanAgeEx} above, consider the distribution of age in the popula
 \par
 In a SRS (with replacement) of two individuals taken from this population, the first individual chosen must be equally likely to be Alice, Bob, or Charles, the second individual chosen must also be equally likely to be Alice, Bob, or Charles, and so on. If $X_i$ represents the age of the $i^{th}$ individual in our sample, then $X_i$ must have the distribution given above, and moreover, knowledge of the value of $X_i$ should not influence our beliefs about any $X_j$ for $i \neq j$.
 \par
-\begin{defn}\label{FormalSRSDef}\index{Simple Random Sample} (SRS Formally) Given a distribution $X$, a simple random sample taken with replacement from $X$ is a sequence $X_1, X_2, ... \,, X_n$ of independent, identically distributed random variables, each of which has the same distribution as $X$.
+\begin{defn}\label{FormalSRSDef}\index{Simple Random Sample} (SRS Formally) Given a distribution $X$, a simple random sample taken with replacement from $X$ is a sequence $X_1, X_2, \dots \,, X_n$ of independent, identically distributed random variables, each of which has the same distribution as $X$.
 \end{defn}
 
 \begin{examp} Consider a population of four individuals, one has shoe size 7, one has shoe size 10, and the other two have shoe size 11. If a SRS of two individuals is taken with replacement from this population, what is the probability the second individual chosen has shoe size 11? If the first individual chosen has shoe size 10, what is the probability the second individual chosen has shoe size 11?
@@ -174,13 +174,13 @@ The concept of bias is fairly intuitive. Suppose you estimate the average age of
 
 \begin{thm} In any population, the mean of a SRS taken with replacement is an unbiased estimator of the population mean $\mu$.
 \end{thm}
-\begin{pf} Let $\widehat{\mu} = \overline{X} = \frac{1}{n}(X_1 + X_2 + ... + X_n)$, where $X_i$ is the $i^{th}$ value in our sample.
+\begin{pf} Let $\widehat{\mu} = \overline{X} = \frac{1}{n}(X_1 + X_2 + \cdots + X_n)$, where $X_i$ is the $i^{th}$ value in our sample.
 \par
 \noindent If our sample is a SRS taken with replacement, the distribution of each $X_i$ is the same as the population distribution. Therefore, $E(X_i) = E(X) = \mu$, the population mean, and by linearity of expectation,
-\eqns{E(\widehat{\mu}) &= E(\textstyle\frac{1}{n}(X_1 + X_2 + ... + X_n)) \\
-&= \textstyle\frac{1}{n}E(X_1 + X_2 + ... + X_n) \\
-&= \textstyle\frac{1}{n}(E(X_1) + E(X_2) + ... + E(X_n)) \\ 
-&= \textstyle\frac{1}{n}(\mu + \mu + ... + \mu) \\
+\eqns{E(\widehat{\mu}) &= E(\textstyle\frac{1}{n}(X_1 + X_2 + \cdots + X_n)) \\
+&= \textstyle\frac{1}{n}E(X_1 + X_2 + \cdots + X_n) \\
+&= \textstyle\frac{1}{n}(E(X_1) + E(X_2) + \cdots + E(X_n)) \\
+&= \textstyle\frac{1}{n}(\mu + \mu + \cdots + \mu) \\
 & = \textstyle\frac{1}{n}(n \mu)\\
 & = \mu.}
 \end{pf}
@@ -292,7 +292,7 @@ What determines whether an estimator produces useful estimates of a parameter, a
 \par
 \noindent In both cases, the parameter being estimated is $\theta = 4$, and from the sampling distributions of $\widehat{\theta}_1$ and $\widehat{\theta}_2$, we can compute 
 \eqnsgap{MSE(\widehat{\theta}_1) &= E[(\widehat{\theta}_1 - \theta)^2] \\ &= (1-4)^2 \cdot \textstyle\frac{1}{16} + (2-4)^2 \cdot \textstyle\frac{3}{16} + (3-4)^2 \cdot \textstyle\frac{5}{16} + (4-4)^2 \cdot \textstyle\frac{7}{16} \\ &=9 \cdot \textstyle\frac{1}{16} + 4 \cdot \textstyle\frac{3}{16} + 1 \cdot \textstyle\frac{5}{16} + 0 \cdot \textstyle\frac{7}{16} = \frac{26}{16} \\
-MSE(\widehat{\theta}_2) &= E[(\widehat{\theta}_2 - \theta)^2] \\ &= (1-4)^2 \cdot \textstyle\frac{1}{16} + (2-4)^2 \cdot \textstyle\frac{2}{16} + (3-4)^2 \cdot \textstyle\frac{3}{16} + \ ... \ + (7-4)^2 \cdot \textstyle\frac{1}{16} \\ &=9 \cdot \textstyle\frac{1}{16} + 4 \cdot \textstyle\frac{2}{16} + 1 \cdot \textstyle\frac{3}{16} + 0 \cdot \textstyle\frac{4}{16} + 1 \cdot \textstyle\frac{3}{16} + 4 \cdot \textstyle\frac{2}{16} + 9 \cdot \textstyle\frac{1}{16} = \frac{40}{16}}
+MSE(\widehat{\theta}_2) &= E[(\widehat{\theta}_2 - \theta)^2] \\ &= (1-4)^2 \cdot \textstyle\frac{1}{16} + (2-4)^2 \cdot \textstyle\frac{2}{16} + (3-4)^2 \cdot \textstyle\frac{3}{16} + \ \cdots \ + (7-4)^2 \cdot \textstyle\frac{1}{16} \\ &=9 \cdot \textstyle\frac{1}{16} + 4 \cdot \textstyle\frac{2}{16} + 1 \cdot \textstyle\frac{3}{16} + 0 \cdot \textstyle\frac{4}{16} + 1 \cdot \textstyle\frac{3}{16} + 4 \cdot \textstyle\frac{2}{16} + 9 \cdot \textstyle\frac{1}{16} = \frac{40}{16}}
 \end{examp}
 \par
 
@@ -354,14 +354,14 @@ Var(\widehat{\theta}_1) &= \textstyle\frac{55}{64}.}
 
 One strategy for estimating a parameter from sample data is to determine the value that makes the observed sample as likely as possible to occur. If I told you that in a sample of $50$ flips of a biased coin, $40$ heads and $10$ tails occurred, then $\frac{40}{50} = 0.8$ clearly seems like the best guess you could make for the probability of heads on a single flip of that coin. This value is called a maximum likelihood estimate\index{Maximum Likelihood Estimator}.
 
-\begin{defn}\index{Likelihood Function}Suppose we have a SRS taken with replacement $x_1, x_2, ... \,,x_n$ from a population distribution $X$ with an unknown parameter $\theta$. The likelihood function for this sample is denoted $\mathcal{L}(x_1,x_2,...\,,x_n \given \theta)$ and defined by
-\eqnsgap{\boxed{\mathcal{L}(x_1,x_2,...\,,x_n \given \theta) = f_X(x_1)f_X(x_2)...f_X(x_n) = \prod_{i=1}^{n}f_X(x_i)}}
+\begin{defn}\index{Likelihood Function}Suppose we have a SRS taken with replacement $x_1, x_2, \dots \,,x_n$ from a population distribution $X$ with an unknown parameter $\theta$. The likelihood function for this sample is denoted $\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta)$ and defined by
+\eqnsgap{\boxed{\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta) = f_X(x_1)f_X(x_2)\cdots f_X(x_n) = \prod_{i=1}^{n}f_X(x_i)}}
 \end{defn}
 \par
-Since our sample is a SRS, $f_X(x_1)f_X(x_2)...f_X(x_n)$ is the probability (or probability density) of observing the sample values $X_1 = x_1, X_2  = x_2, ...\,, X_n = x_n$. The maximum likelihood estimate is the value of $\theta$ that maximizes $\mathcal{L}(x_1,x_2,...\,,x_n \given \theta)$.
+Since our sample is a SRS, $f_X(x_1)f_X(x_2)\cdots f_X(x_n)$ is the probability (or probability density) of observing the sample values $X_1 = x_1, X_2  = x_2, \dots\,, X_n = x_n$. The maximum likelihood estimate is the value of $\theta$ that maximizes $\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta)$.
 \par
-We can use familiar techniques from differential calculus to find the maximum. One useful trick to recall is that because $\ln(x)$ is an increasing function, the value of $\theta$ that maximizes $\mathcal{L}(x_1,x_2,...\,,x_n \given \theta)$ will also maximize $\ln(\mathcal{L}(x_1,x_2,...\,,x_n \given \theta))$. This will greatly simplify calculations since the logarithm of a product can be written as a sum of logarithms, and derivatives of sums are much easier to deal with. To take advantage of this, let's denote the log-likelihood with $\ell(x_1,x_2,...\,,x_n \given \theta)$\index{Log-Likelihood Function}.
-\eqns{\boxed{\ell(x_1,x_2,...\,,x_n \given \theta) = \ln\left(f_X(x_1)f_X(x_2)...f_X(x_n)\right) = \sum_{i=1}^{n}\ln\left(f_X(x_i)\right)}}
+We can use familiar techniques from differential calculus to find the maximum. One useful trick to recall is that because $\ln(x)$ is an increasing function, the value of $\theta$ that maximizes $\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta)$ will also maximize $\ln(\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta))$. This will greatly simplify calculations since the logarithm of a product can be written as a sum of logarithms, and derivatives of sums are much easier to deal with. To take advantage of this, let's denote the log-likelihood with $\ell(x_1,x_2,\dots\,,x_n \given \theta)$\index{Log-Likelihood Function}.
+\eqns{\boxed{\ell(x_1,x_2,\dots\,,x_n \given \theta) = \ln\left(f_X(x_1)f_X(x_2)\cdots f_X(x_n)\right) = \sum_{i=1}^{n}\ln\left(f_X(x_i)\right)}}
 
 \begin{examp}
 Let $X \sim Exponential(\lambda)$, and suppose we observe a SRS of three values from this distribution with $X_1 = 1, X_2 = 3, X_3 = 4$. Find the maximum likelihood estimate of $\lambda$.
@@ -386,17 +386,17 @@ Let $X \sim Exponential(\lambda)$, and suppose we observe a SRS of three values 
 \par Note that we can easily generalize this result for any sample values. The key point is that the observed sample values $x_1, x_2, .. \,, x_n$ can be treated as constants in the derivative calculation. 
 
 \begin{examp}
-Let $X \sim Exponential(\lambda)$. Suppose we observe a SRS of $n$ values $X_1 = x_1, X_2 = x_2, ... \,, X_n = x_n$. Find the maximum likelihood estimator for $\lambda$.
+Let $X \sim Exponential(\lambda)$. Suppose we observe a SRS of $n$ values $X_1 = x_1, X_2 = x_2, \dots \,, X_n = x_n$. Find the maximum likelihood estimator for $\lambda$.
 \par
 \noindent As above, note $\lambda \in (0,\infty)$, and we can simplify the log-likelihood as below.
-\eqns{\ell(x_1,x_2,...\,,x_n \given \lambda) &= \ln\left(f_X(x_1)f_X(x_2)\,...\,f_X(x_n)\right) \\
-&= \ln\left(f_X(x_1)\right)+ \ln\left(f_X(x_2)\right) + \, ... \, +\ln\left(f_X(x_n)\right) \\
-&= \ln(\lambda e^{-\lambda x_1}) + \ln(\lambda e^{-\lambda x_2})  + \,...\, +  \ln(\lambda e^{-\lambda x_n}) \\
-&= \ln(\lambda) + \ln(e^{-\lambda x_1})  + \ln(\lambda)  + \ln(e^{-\lambda x_2}) + \ln(\lambda)  + \, ... \,\ln(e^{-\lambda x_n}) \\
-&= n\ln(\lambda) - (\lambda x_1 + \lambda x_2 + \, ... \, + \lambda x_n)}
+\eqns{\ell(x_1,x_2,\dots\,,x_n \given \lambda) &= \ln\left(f_X(x_1)f_X(x_2)\,\cdots\,f_X(x_n)\right) \\
+&= \ln\left(f_X(x_1)\right)+ \ln\left(f_X(x_2)\right) + \, \cdots \, +\ln\left(f_X(x_n)\right) \\
+&= \ln(\lambda e^{-\lambda x_1}) + \ln(\lambda e^{-\lambda x_2})  + \,\cdots\, +  \ln(\lambda e^{-\lambda x_n}) \\
+&= \ln(\lambda) + \ln(e^{-\lambda x_1})  + \ln(\lambda)  + \ln(e^{-\lambda x_2}) + \ln(\lambda)  + \, \cdots \,\ln(e^{-\lambda x_n}) \\
+&= n\ln(\lambda) - (\lambda x_1 + \lambda x_2 + \, \cdots \, + \lambda x_n)}
 \par
 \noindent Now we compute $\frac{d\ell}{d\lambda}$ and find the critical points.
-\eqns{\frac{d\ell}{d\lambda} &= \frac{n}{\lambda} - (x_1 + x_2 + \, ... \, + x_n) \ \ \rightarrow \ \
+\eqns{\frac{d\ell}{d\lambda} &= \frac{n}{\lambda} - (x_1 + x_2 + \, \cdots \, + x_n) \ \ \rightarrow \ \
 0 = \frac{n}{\lambda} - \sum_{i=1}^{n} x_i \ \ \rightarrow \ \
 \lambda = \frac{n}{\sum_{i=1}^{n} x_i}}
 \par
@@ -404,22 +404,22 @@ Let $X \sim Exponential(\lambda)$. Suppose we observe a SRS of $n$ values $X_1 =
 \end{examp}
 
 \begin{examp}\label{TankProblemMLE}
-If $X \sim Uniform(m)$, find the maximum likelihood estimator of $m$ from a SRS $X_1 = x_1, X_2 = x_2, \, ... \,, X_n = x_n$ taken with replacement.
+If $X \sim Uniform(m)$, find the maximum likelihood estimator of $m$ from a SRS $X_1 = x_1, X_2 = x_2, \, \dots \,, X_n = x_n$ taken with replacement.
 \par
 \noindent In this case the likelihood function is easy to deal with because the pmf for a uniform distribution is very simple. Any possible sample of $n$ values has the same likelihood.
-\eqns{\mathcal{L}(x_1,x_2,...\,,x_n \given m) &= f_X(x_1)f_X(x_2)\,...\,f_X(x_n) \\
-&= \frac{1}{m}\cdot\frac{1}{m}\cdot \, ... \, \cdot\frac{1}{m} = \frac{1}{m^n}}
+\eqns{\mathcal{L}(x_1,x_2,\dots\,,x_n \given m) &= f_X(x_1)f_X(x_2)\,\cdots\,f_X(x_n) \\
+&= \frac{1}{m}\cdot\frac{1}{m}\cdot \, \cdots \, \cdot\frac{1}{m} = \frac{1}{m^n}}
 \par
 \noindent Note that we are assuming each $x_i \leq m$ in the calculation above. If $x_i > m$ then $f_X(x_i) = 0$ since such an $x_i$ will never appear in any sample. Thus, the likelihood function has the form below.
 \renewcommand*{\arraystretch}{1.35}
-\eqns{\mathcal{L}(x_1,x_2,...\,,x_n \given m)  = \left\{
+\eqns{\mathcal{L}(x_1,x_2,\dots\,,x_n \given m)  = \left\{
 \begin{array}{cl}
       \frac{1}{m^n} & \text{ if \ } m \geq x_i \text{ for } 1 \leq i \leq n \\
       0 & \text{ otherwise }  \end{array}
 \right.}
 \renewcommand*{\arraystretch}{1}
 \par
-\noindent Since the sample size $n$ is fixed, to maximize this function we need $m$ to be as small as possible, while obeying the constraint that $m \geq x_i$ for $1 \leq i \leq n$. In other words, the maximum likelihood estimator is the smallest value for $m$ which is larger than or equal to each of the observed sample values. Thus, $\widehat{m} = max(X_1,X_2, ...\,, X_n)$.
+\noindent Since the sample size $n$ is fixed, to maximize this function we need $m$ to be as small as possible, while obeying the constraint that $m \geq x_i$ for $1 \leq i \leq n$. In other words, the maximum likelihood estimator is the smallest value for $m$ which is larger than or equal to each of the observed sample values. Thus, $\widehat{m} = max(X_1,X_2, \dots\,, X_n)$.
 \end{examp}
 \par
 We've seen a concrete example involving this estimator already, Example \ref{MiniGermanTank}. In that context, $\widehat{\theta_1}$ was the maximum likelihood estimator of $\theta = 4$. The bias of $\widehat{\theta_1}$ was nonzero, and this demonstrates that the maximum likelihood estimator is not, in general, unbiased.
@@ -434,16 +434,16 @@ Although the maximum likelihood estimator is not unbiased, it is asymptotically 
 \end{prop}
 
 This proposition gives us confidence that the maximum likelihood estimator will do a better and better job of estimating a parameter as the amount of sample data we acquire grows larger and larger. The proof is beyond the scope of this course, but the idea of asymptotic unbiasedness is illustrated in the example below.
-\begin{examp} Let $X \sim Uniform(m)$. In Example \ref{TankProblemMLE}, we saw the maximum likelihood estimator for the parameter $m$ is $\widehat{m} = max(X_1,X_2,...\,,X_n)$. Show that $\widehat{m}$ is asymptotically unbiased.
+\begin{examp} Let $X \sim Uniform(m)$. In Example \ref{TankProblemMLE}, we saw the maximum likelihood estimator for the parameter $m$ is $\widehat{m} = max(X_1,X_2,\dots\,,X_n)$. Show that $\widehat{m}$ is asymptotically unbiased.
 \par
 \noindent Consider the expected value of the estimator $\widehat{m}$,
-\eqnspar{E(\widehat{m}) = 1 \cdot P(\widehat{m} = 1) + 2 \cdot P(\widehat{m} = 2) + \, ... \, + m \cdot P(\widehat{m} = m).}
+\eqnspar{E(\widehat{m}) = 1 \cdot P(\widehat{m} = 1) + 2 \cdot P(\widehat{m} = 2) + \, \cdots \, + m \cdot P(\widehat{m} = m).}
 \par
 \noindent Observe that $\widehat{m} =  m$ iff the value $m$ appears in our sample. In an SRS taken with replacement from $X \sim Uniform(m)$, each sample value $X_i$ has $P(X_i = m) = \frac{1}{m}$.
-\eqns{P(\widehat{m} = m) &= P((X_1 = m) \cup (X_2 = m) \cup ... \cup (X_n = m)) \\ 
-&= 1 - P((X_1 \neq m) \cap (X_2 \neq m) \cap ... \cap (X_n \neq m)) \\ 
-&= 1 - (P(X_1 \neq m)\cdot P(X_2 \neq m)\cdot \, ... \, \cdot P(X_n \neq m)) \\
-&= 1 - \textstyle\frac{m-1}{m}\cdot \frac{m-1}{m}\cdot \, ... \, \cdot \frac{m-1}{m} \\
+\eqns{P(\widehat{m} = m) &= P((X_1 = m) \cup (X_2 = m) \cup \dots \cup (X_n = m)) \\
+&= 1 - P((X_1 \neq m) \cap (X_2 \neq m) \cap \dots \cap (X_n \neq m)) \\
+&= 1 - (P(X_1 \neq m)\cdot P(X_2 \neq m)\cdot \, \cdots \, \cdot P(X_n \neq m)) \\
+&= 1 - \textstyle\frac{m-1}{m}\cdot \frac{m-1}{m}\cdot \, \cdots \, \cdot \frac{m-1}{m} \\
 &= 1 - (\textstyle\frac{m-1}{m})^n}
 \par
 \noindent Thus, $P(\widehat{m} = m) \to 1$ as $n \to \infty$, because $\frac{m-1}{m} < 1$. Therefore $E(\widehat{m}) \to m \cdot 1 = m$. We conclude that $\widehat{m}$ is asymptotically unbiased since $\text{Bias}(\widehat{m}) = E(\widehat{m}) - m  \to m - m = 0$ as $n \to \infty$.
@@ -456,17 +456,17 @@ Another useful fact concerning maximum likelihood estimation is that if one para
 
 \begin{examp}Let $X \sim Uniform(m)$, and let $\mu$ denote the mean of $X$. Find the maximum likelihood estimator for $\mu$.
 \par
-\noindent In Example \ref{TankProblemMLE}, we found that $\widehat{m}_{MLE} = max(X_1,X_2, ... \,,X_n)$. Since $\mu = \frac{m+1}{2}$ in a discrete uniform distribution, we have $\widehat{\mu}_{MLE} = \frac{\widehat{m}_{MLE}+1}{2} = \frac{max(X_1,X_2, ... \,,X_n)+1}{2}$.
+\noindent In Example \ref{TankProblemMLE}, we found that $\widehat{m}_{MLE} = max(X_1,X_2, \dots \,,X_n)$. Since $\mu = \frac{m+1}{2}$ in a discrete uniform distribution, we have $\widehat{\mu}_{MLE} = \frac{\widehat{m}_{MLE}+1}{2} = \frac{max(X_1,X_2, \dots \,,X_n)+1}{2}$.
 \end{examp}
 
 \begin{examp}Find the maximum likelihood estimator for the standard deviation $\sigma$ of $X \sim Bernoulli(p)$.
 \par
 \noindent For a Bernoulli distribution, $\sigma = \sqrt{p(1-p)}$ by Theorem \ref{BernoulliExpectation}, so if we can find the maximum likelihood estimator for $p$, then $\widehat{\sigma}_{MLE} = \sqrt{\widehat{p}_{MLE}(1-\widehat{p}_{MLE})}$. 
 \par
-\noindent Note that in a SRS with values $x_1, x_2, ...\,,x_n$ drawn from a Bernoulli distribution, every value is either zero (with probability $1-p$) or one (with probability $p$). Let $k$ denote the number of ones in our sample, then
-\eqns{&\ell(x_1,x_2,...\,,x_n \given p) = \ln(f_X(x_1)) + \,...\, + \ln(f_X(x_n)) \\
-&= \ln(p^{x_1}({1-p})^{1-x_1})+\,...\,+\ln(p^{x_n}({1-p})^{1-x_n})) \\
-&= x_1 \ln(p) + (1-x_1)\ln(1-p) + ... + x_n \ln(p) + (1-x_n)\ln(1-p) \\
+\noindent Note that in a SRS with values $x_1, x_2, \dots\,,x_n$ drawn from a Bernoulli distribution, every value is either zero (with probability $1-p$) or one (with probability $p$). Let $k$ denote the number of ones in our sample, then
+\eqns{&\ell(x_1,x_2,\dots\,,x_n \given p) = \ln(f_X(x_1)) + \,\cdots\, + \ln(f_X(x_n)) \\
+&= \ln(p^{x_1}({1-p})^{1-x_1})+\,\cdots\,+\ln(p^{x_n}({1-p})^{1-x_n})) \\
+&= x_1 \ln(p) + (1-x_1)\ln(1-p) + \cdots + x_n \ln(p) + (1-x_n)\ln(1-p) \\
 &= \ln(p) \sum_{i=1}^{n} x_i + \ln(1-p) \sum_{i=1}^{n} (1-x_i)}
 \par
 \noindent The log-likelihood is well-defined and differentiable for $p \in (0,1)$, so we can maximize it by computing $\frac{d\ell}{dp}$ and identifying the critical points. Since $\lim_{x \to 0^{+}} \ln(x) = -\infty$ and $\ln(1) = 0$, the log-likelihood tends to $-\infty$ as $p$ approaches either endpoint of $(0,1)$. Thus, if there's a single critical point on $(0,1)$, it must be a max.

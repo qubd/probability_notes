@@ -18,22 +18,22 @@ When providing an estimate of an unknown parameter, we would like to be able to 
 
 The law of large numbers is one of the cornerstones of statistical inference. This is a mathematically precise statement of the fairly intuitive principle that if we take a larger and larger SRS of values, the mean in our sample tends to become closer and closer to the mean in the population. This principle is often informally referred to as `regression to the mean'.
 
-\begin{thm} (Weak Law of Large Numbers)\index{Law of Large Numbers} Suppose that $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$. If $X_1, X_2, ... \, , X_n$ is a SRS of values of $X$ taken with replacement, then for any $\epsilon > 0$,
-\eqnsgap{\lim_{n \to \infty} P\left(\left|\frac{X_1+X_2+\,...\,+X_n}{n} - \mu \right| \geq \epsilon \right) = 0}
+\begin{thm} (Weak Law of Large Numbers)\index{Law of Large Numbers} Suppose that $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$. If $X_1, X_2, \dots \, , X_n$ is a SRS of values of $X$ taken with replacement, then for any $\epsilon > 0$,
+\eqnsgap{\lim_{n \to \infty} P\left(\left|\frac{X_1+X_2+\,\cdots\,+X_n}{n} - \mu \right| \geq \epsilon \right) = 0}
 \end{thm}
 \par
 In other words, for any interval containing $\mu$, no matter how tiny it might be, the probability of obtaining a sample whose mean is outside that interval approaches zero as the sample size approaches infinity. This result holds for any population distribution whose expected value and standard deviation are defined.
 \par
 \vspace{1em}
-\begin{pf} Let $\xbar = \frac{X_1+X_2+\,...\,+X_n}{n}$. Our sample $X_1, X_2, ... \,, X_n$ is a SRS, so each $X_i$ has the same distribution as $X$, hence $E(X_i) = E(X) = \mu$. By linearity of expectation,
-\eqnspar{E(\xbar) &= E\left(\frac{X_1+X_2+\,...\,+X_n}{n}\right) \\
-&= \frac{1}{n}(E(X_1)+E(X_2)+\,...\,+E(X_n))  \\
+\begin{pf} Let $\xbar = \frac{X_1+X_2+\,\cdots\,+X_n}{n}$. Our sample $X_1, X_2, \dots \,, X_n$ is a SRS, so each $X_i$ has the same distribution as $X$, hence $E(X_i) = E(X) = \mu$. By linearity of expectation,
+\eqnspar{E(\xbar) &= E\left(\frac{X_1+X_2+\,\cdots\,+X_n}{n}\right) \\
+&= \frac{1}{n}(E(X_1)+E(X_2)+\,\cdots\,+E(X_n))  \\
 &= \frac{1}{n}(n\mu) = \mu.}
 \par
 \noindent We can also obtain a simple expression for the variance of $\xbar$ by making use of the properties of variance we demonstrated in Theorem \ref{VarianceIndependentSum} and \ref{VarianceLinearity}.
-\eqns{\Var(\xbar) &= \Var\left(\frac{X_1+X_2+\,...\,+X_n}{n}\right) \\
-&= \frac{1}{n^2}\Var(X_1 + X_2 + \, ... \, + X_n) \\
-&=\frac{1}{n^2}(\Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n)) \\
+\eqns{\Var(\xbar) &= \Var\left(\frac{X_1+X_2+\,\cdots\,+X_n}{n}\right) \\
+&= \frac{1}{n^2}\Var(X_1 + X_2 + \, \cdots \, + X_n) \\
+&=\frac{1}{n^2}(\Var(X_1) + \Var(X_2) + \, \cdots \, + \Var(X_n)) \\
 &=\frac{1}{n^2}(n\sigma^2) = \frac{\sigma^2}{n}}
 \par
 \noindent
@@ -47,20 +47,20 @@ P\bigr(\xbar \not\in (\mu - k\textstyle\frac{\sigma}{\sqrt{n}}, \, \mu + k\frac{
 \par
 \noindent Now given any $\epsilon > 0$, take $k = \frac{\epsilon\sqrt{n}}{\sigma}$. Isolating $\frac{1}{k^2}$ in this equation yields $\frac{1}{k^2} = \frac{\sigma^2}{\epsilon^2n}$, and isolating $\epsilon$ gives $\epsilon = k\frac{\sigma}{\sqrt{n}}$, so we can rewrite the inequality above as
 \eqns{P\bigr(\xbar \not\in (\mu - \epsilon, \, \mu + \epsilon)\bigr) &\leq \frac{\sigma^2}{\epsilon^2n} \\
-P\left(\left|\frac{X_1 + X_2 + \, ... \, + X_n}{n} - \mu \right| \geq \epsilon \right) &\leq \frac{\sigma^2}{\epsilon^2n}.}
+P\left(\left|\frac{X_1 + X_2 + \, \cdots \, + X_n}{n} - \mu \right| \geq \epsilon \right) &\leq \frac{\sigma^2}{\epsilon^2n}.}
 \par
 \noindent To complete the argument, observe that $\frac{\sigma^2}{\epsilon^2n}$ approaches zero as $n \to \infty$.
 \end{pf}
 \par
 The results concerning the mean and standard deviation of $\overline{X}$ we obtained before applying Chebyshev's Inequality are significant in their own right, so we'll restate them below.
-\begin{cor}\label{StandardErrorOfMean} Suppose $X_1, X_2, ...\, , X_n$ is a SRS drawn from a population with mean $\mu$ and standard deviation $\sigma$, and let $\xbar = \frac{X_1, X_2, ...\, , X_n}{n}$. The mean and standard deviation of the sampling distribution of $\xbar$ are given by
+\begin{cor}\label{StandardErrorOfMean} Suppose $X_1, X_2, \dots\, , X_n$ is a SRS drawn from a population with mean $\mu$ and standard deviation $\sigma$, and let $\xbar = \frac{X_1+ X_2+ \cdots + X_n}{n}$. The mean and standard deviation of the sampling distribution of $\xbar$ are given by
 \eqnsgap{\boxed{\ \muxbar = \mu \qquad \sigmaxbar = \frac{\sigma}{\sqrt{n}}\ }}
 \end{cor}
 \par
 The strong law of large numbers, given below, is also a statement that the mean of a SRS will converge to the population mean as the sample size approaches infinity, but the notion of convergence is slightly different. This alternate formulation is more difficult to prove, but can be easier to apply.
 
-\begin{thm} (Strong Law of Large Numbers) Suppose that $X$ is a random variable with mean $\mu$. If $X_1, X_2, ... \, , X_n$ is a SRS of values of $X$ taken with replacement, then
-\eqnsgap{P\left( \lim_{n \to \infty} \frac{X_1+X_2+\,...\,+X_n}{n} = \mu \right) = 1}
+\begin{thm} (Strong Law of Large Numbers) Suppose that $X$ is a random variable with mean $\mu$. If $X_1, X_2, \dots \, , X_n$ is a SRS of values of $X$ taken with replacement, then
+\eqnsgap{P\left( \lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n} = \mu \right) = 1}
 \end{thm}
 
 \par
@@ -75,14 +75,14 @@ One of the more entertaining consequences of the strong law of large numbers is 
       0 & \text{if } A_i \text{\ doesn't occur} \\ \end{array}
 \right.}
 \par
-\noindent Assuming the monkey selects each key uniformly at random, without any regard to previous choices, we have $P(X_i = 1) = (\frac{1}{k})^N$ and $P(X_i = 0) = 1 - (\frac{1}{k})^N$, where $k$ is the number of keys on the typewriter. Furthermore, the events $A_1, A_2, ... \,, A_n$ form an independent sequence since the blocks of length $N$ do not overlap.
+\noindent Assuming the monkey selects each key uniformly at random, without any regard to previous choices, we have $P(X_i = 1) = (\frac{1}{k})^N$ and $P(X_i = 0) = 1 - (\frac{1}{k})^N$, where $k$ is the number of keys on the typewriter. Furthermore, the events $A_1, A_2, \dots \,, A_n$ form an independent sequence since the blocks of length $N$ do not overlap.
 \par
 \noindent Therefore, the random variables $X_i$ are independent and identically distributed. In other words, they form a SRS of $n$ values from a random variable $X$ which takes value one with probability $(\frac{1}{k})^N$ and zero with probability $1 - (\frac{1}{k})^N$.
 \par
 \noindent The expected value of $X$ is $\mu = E(X) = 1 \cdot (\frac{1}{k})^N + 0 \cdot (1- (\frac{1}{k})^N) = (\frac{1}{k})^N$. Thus, by the strong law of large numbers,
-\eqns{P\left(\lim_{n \to \infty} \frac{X_1+X_2+\,...\,+X_n}{n} = \left(\frac{1}{k}\right)^N \right) = 1}
+\eqns{P\left(\lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n} = \left(\frac{1}{k}\right)^N \right) = 1}
 \par
-\noindent Note that $\left(\frac{1}{k}\right)^N \neq 0$, so with probability one, $\lim_{n \to \infty} \frac{X_1+X_2+\,...\,+X_n}{n}$ is not zero. This means that the sum $X_1+X_2+\,...\,+X_n \to \infty$ as $n \to \infty$, since if this sum was bounded by some constant $c$, then $\frac{X_1+X_2+\,...\,+X_n}{n} \leq \frac{c}{n} \to 0$. Therefore, we have $X_i = 1$ for infinitely many $i$, so with probability one, not only will the monkey produce the complete works of Shakespeare, it will do so infinitely many times!
+\noindent Note that $\left(\frac{1}{k}\right)^N \neq 0$, so with probability one, $\lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n}$ is not zero. This means that the sum $X_1+X_2+\,\cdots\,+X_n \to \infty$ as $n \to \infty$, since if this sum was bounded by some constant $c$, then $\frac{X_1+X_2+\,\cdots\,+X_n}{n} \leq \frac{c}{n} \to 0$. Therefore, we have $X_i = 1$ for infinitely many $i$, so with probability one, not only will the monkey produce the complete works of Shakespeare, it will do so infinitely many times!
 \end{examp}
 \par
 The law of large numbers is frequently misunderstood. Consider a scenario in which a fair coin is repeatedly flipped. The law of large numbers states that as the number of flips grows larger and larger, the proportion of heads will converge to $\frac{1}{2}$ with probability one.
@@ -121,7 +121,7 @@ The key point is that as the number of flips grows very large, the influence of 
 %
 %\end{examp}
 
-%Formally, if $X_1, X_2, ..., X_n$ are the $n$ sample values, let $S_n$ be a random variable whose value is given by uniformly selecting an integer $i$ between $1$ and $n$ inclusive, and letting $S_n = X_i$, so that $S_n$ represents a randomly selected value in our sample.
+%Formally, if $X_1, X_2, \dots, X_n$ are the $n$ sample values, let $S_n$ be a random variable whose value is given by uniformly selecting an integer $i$ between $1$ and $n$ inclusive, and letting $S_n = X_i$, so that $S_n$ represents a randomly selected value in our sample.
 
 \section{The Central Limit Theorem}
 
@@ -249,7 +249,7 @@ The conclusion of this theorem is written here in very informal language. To mak
 \begin{examp}\label{CLTExamp}Twenty numbers in the interval $[0,1]$ are independently chosen uniformly at random. What is the probability their sum is higher than eight?
 \par
 \noindent In order to use the central limit theorem, we need to formulate this question in terms of the mean of a sample. In this case, we have a sample of $n=20$ values drawn from $X \sim Uniform([0,1])$. Observe that
-\eqnspar{X_1 + X_2 + ... + X_{20} > 8 \ \ \rightarrow \ \  \frac{X_1 + X_2 + ... + X_{20} }{20} > \frac{8}{20} = \frac{2}{5}.}
+\eqnspar{X_1 + X_2 + \cdots + X_{20} > 8 \ \ \rightarrow \ \  \frac{X_1 + X_2 + \cdots + X_{20} }{20} > \frac{8}{20} = \frac{2}{5}.}
 \par
 \noindent Thus, to answer this question, we need to find the probability of obtaining a sample of twenty values with a mean $\xbar$ higher than $\frac{2}{5}$. Using Corollary \ref{StandardErrorOfMean} and Proposition \ref{UniformVariance} The mean and standard deviation of $\xbar$ are given by
 \eqns{\muxbar = \mu = \frac{1}{2} \ \  \text{and} \ \  \sigmaxbar = \frac{\sigma}{\sqrt{n}} = \frac{\sqrt{\frac{1}{12}(1-0)^2}}{\sqrt{20}} = \frac{1}{\sqrt{240}} \simeq 0.0645}
@@ -262,7 +262,7 @@ The conclusion of this theorem is written here in very informal language. To mak
 \begin{center}
     \begin{minipage}{.5\textwidth}
         \centering
-  \eqns{P(\xbar > \textstyle\frac{2}{5}) &= P(Z > -1.55) \\ &= 1 - P(Z \leq 1.55) \\ &= 1 - 0.0603 \\ &= 0.9397 \simeq 94\%}
+  \eqns{P(\xbar > \textstyle\frac{2}{5}) &= P(Z > -1.55) \\ &= 1 - P(Z \leq -1.55) \\ &= 1 - 0.0603 \\ &= 0.9397 \simeq 94\%}
   \vspace{1.25em}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
@@ -312,7 +312,7 @@ In actual practice, to ensure the sampling distribution of $\xbar$ is sufficient
 \begin{examp}
 If a biased coin with a 55\% probability of heads is flipped thirty times, what is the probability that the number of heads observed in this sample is less than the number of tails?
 \par
-\noindent If we call a head a success, then we have a sample of 30 values $X_1,X_2\,...\,,X_{30}$ from $X \sim Bernoulli(0.55)$. If more tails than heads were observed, this means that more than half of the $X_i$ are zeros, so $\xbar = \frac{X_1 + X_2 + ... + X_{30}}{30} < \frac{15}{30} =0.5$.
+\noindent If we call a head a success, then we have a sample of 30 values $X_1,X_2\,\dots\,,X_{30}$ from $X \sim Bernoulli(0.55)$. If more tails than heads were observed, this means that more than half of the $X_i$ are zeros, so $\xbar = \frac{X_1 + X_2 + \cdots + X_{30}}{30} < \frac{15}{30} =0.5$.
 \par
 \noindent Note $X \sim Bernoulli(0.55)$ is roughly symmetric, so by the central limit theorem, the distribution of $\xbar$ is approximately normal for samples of $n = 30$ observations. The mean and standard deviation of the sampling distribution are given by 
 \eqns{\muxbar = \mu = 0.55 \ \ \text{and} \ \  \sigmaxbar = \frac{\sigma}{\sqrt{n}} = \frac{\sqrt{p(1-p)}}{\sqrt{n}} = \frac{\sqrt{0.2475}}{\sqrt{30}} \simeq 0.091}
@@ -484,7 +484,7 @@ What if we're interested in estimating the proportion of individuals in a popula
 \par
 Each individual in the population either has the desired property or does not, so if the proportion of individuals in the population with the desired property is $p \in [0,1]$ (and hence the proportion without is $1-p$), the population distribution we're interested in is $X \sim Bernoulli(p)$ for some unknown parameter $p$. We'll call $p$ the population proportion. The expected value of its distribution is $E(X) = p$, hence the population mean is also $\mu = p$, as we saw in Section \ref{BernoulliDist}.
 \par
-Notice that if we sample from a Bernoulli distribution, then the sample mean $\xbar = \frac{1}{n}(X_1+X_2+...+X_n)$ is actually the proportion of individuals in our sample with the desired property (since $X_i$ was drawn from a Bernoulli distribution, so it take the value $1$ when the $i^{th}$ individual has the property, and $0$ if not). Thus, we're counting the number of individuals in our sample with the property and dividing by the sample size, so the sample mean $\xbar$ is in fact equal to the sample proportion in this context. To remind ourselves it's a proportion we can write $\widehat{p} = \xbar$.
+Notice that if we sample from a Bernoulli distribution, then the sample mean $\xbar = \frac{1}{n}(X_1+X_2+\cdots+X_n)$ is actually the proportion of individuals in our sample with the desired property (since $X_i$ was drawn from a Bernoulli distribution, so it take the value $1$ when the $i^{th}$ individual has the property, and $0$ if not). Thus, we're counting the number of individuals in our sample with the property and dividing by the sample size, so the sample mean $\xbar$ is in fact equal to the sample proportion in this context. To remind ourselves it's a proportion we can write $\widehat{p} = \xbar$.
 \par
 In summary, if our population distribution is $X \sim Bernoulli(p)$, then the population mean and sample mean are equal to the population proportion and sample proportion respectively, that is, $p = \mu$, and $\widehat{p}=\xbar$. This means we can construct confidence intervals for a proportion in exactly the same way we made confidence intervals for the mean in the last section.
 \par
@@ -578,7 +578,7 @@ If we use the sample standard deviation, $s$, to estimate the standard deviation
 $$\frac{\overline{X} - \muxbar}{\sigmaxbar} = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}, \ \ \text{we'll have the estimate} \ \ \frac{\overline{X} - \muxbar}{\sigmaxbar} \simeq \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}.$$
 Our construction of a confidence interval for the population mean $\mu$ was justified by the Central Limit Theorem, which tells us the distribution of the quantity on the left approaches $Z \sim Normal(0,1)$ as the sample size $n$ grows (and is exactly equal to $Z \sim Normal(0,1)$ when the population distribution is normal). But what about our estimate on the right? If we repeatedly draw samples and calculate this value, what kind of distribution will we obtain?
 \par
-\begin{defn}\label{TDistDef}\index{T-distribution} Suppose we draw a SRS $X_1, X_2, \, ... \, , X_n$ from a normally distributed population with mean $\mu$, and define the $T$-score of the sample as
+\begin{defn}\label{TDistDef}\index{T-distribution} Suppose we draw a SRS $X_1, X_2, \, \dots \, , X_n$ from a normally distributed population with mean $\mu$, and define the $T$-score of the sample as
 $$T = \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}$$
 where $S$ is the sample standard deviation, as in Definition \ref{SampleStdDev}. Then $T$ is a continuous random variable whose distribution is called Student's $T$-distribution (or simply the $T$-distribution) with $n-1$ degrees of freedom.
 \end{defn}

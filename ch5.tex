@@ -182,7 +182,7 @@ $6$ & $\frac{1}{384}$ & $\frac{63}{384}$ \\
 \end{center}
 \end{example}
 \par
-Any finite sequence of discrete random variables $X_1, X_2, \, ... \, , X_n$ determines a joint pmf $f_{X_1, X_2, \, ... \, , X_n}$, and $f_{X_1, X_2, \, ... \, , X_n}(x_1,x_2,\,...\, ,x_n)$ denotes the probability of the event $X_1 = x_1 \cap X_2 = x_2 \cap \, ... \, \cap X_n = x_n$.
+Any finite sequence of discrete random variables $X_1, X_2, \, \dots \, , X_n$ determines a joint pmf $f_{X_1, X_2, \, \dots \, , X_n}$, and $f_{X_1, X_2, \, \dots \, , X_n}(x_1,x_2,\,\dots\, ,x_n)$ denotes the probability of the event $X_1 = x_1 \cap X_2 = x_2 \cap \, \dots \, \cap X_n = x_n$.
 \par
 Our method of visualizing a joint pmf no longer applies for sequences of more than two random variables, as we run out of spatial dimensions. Nonetheless, the probability calculations involved should look familiar.
 \begin{example}
@@ -410,7 +410,7 @@ Note that in the last example, we would expect $X$ and $Y$ are not independent, 
 \par
 This kind of reasoning about independence is formalized in Theorem \ref{independenceinfo}, but be warned that incorrectly concluding independence based on informal reasoning is a very common error. The definition of independence makes no reference to any real-world connection or lack thereof between the quantities in question.
 \par
-The definition of independence above extends immediately to sequences of more than two random variables. The sequence $X_1, X_2,\,...\,, X_n$ is said to be independent\index{Independence!of a sequence of random variables} when $f_{X_1, X_2, \,...\, , X_n}(x_1, x_2, \,...\, , x_n) = f_{X_1}(x_1)f_{X_2}(x_2) \,...\, f_{X_n}(x_n)$, that is, when the joint pmf is the product of the marginal distributions.
+The definition of independence above extends immediately to sequences of more than two random variables. The sequence $X_1, X_2,\,\dots\,, X_n$ is said to be independent\index{Independence!of a sequence of random variables} when $f_{X_1, X_2, \,\dots\, , X_n}(x_1, x_2, \,\dots\, , x_n) = f_{X_1}(x_1)f_{X_2}(x_2) \,\dots\, f_{X_n}(x_n)$, that is, when the joint pmf is the product of the marginal distributions.
 
 \subsection*{Sums of Independent Random Variables}
 
@@ -534,10 +534,10 @@ $$E(XY) = \sum_{(x, y) \,\in\, A \times B} xy P(X = x \cap Y= y) \ = \sum_{(x, y
 
 Though we've only dealt with sums of two random variables, these arguments can be easily extended to finite sums of any length.
 
-\begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, ... , $X_n$ is any sequence of random variables,
-$$E(X_1 + X_2 + \, ... \, + X_n) = E(X_1) + E(X_2) + \, ... \, + E(X_n).$$
+\begin{cor}\label{expectationandvarianceofindependentsum}\index{Expected Value!of a sum of random variables}If $X_1$, $X_2$, \dots , $X_n$ is any sequence of random variables,
+$$E(X_1 + X_2 + \, \cdots \, + X_n) = E(X_1) + E(X_2) + \, \dots \, + E(X_n).$$
 Furthermore, if this sequence is independent,
-$$\Var(X_1 + X_2 + \, ... \, + X_n) = \Var(X_1) + \Var(X_2) + \, ... \, + \Var(X_n).$$
+$$\Var(X_1 + X_2 + \, \cdots \, + X_n) = \Var(X_1) + \Var(X_2) + \, \dots \, + \Var(X_n).$$
 \end{cor}
 
 

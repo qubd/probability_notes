@@ -777,7 +777,7 @@ Quantities that are typically modelled by exponential random variables include t
 \begin{pf} To obtain the cdf $F_X$, let's find an antiderivative for $f_X$ on $[0, \infty)$ using the substitution $u  = - \lambda x$, so $du = - \lambda dx$, and $dx = \frac{-1}{\lambda} du$.
 \eqns{\int f_X(x) \, dx &= \int \lambda e^{-\lambda x} \, dx \\ &= \int \lambda e^{u} \, \frac{-1}{\lambda} \, du \text{ \ where \ } u = -\lambda x  \\ &= - \int e^{u} \, du \\ &= -e^u + C \\ &=  -e^{-\lambda x} + C}
 \par
-\noindent Thus, $F_X(x) = -e^{-\lambda x} + C$ on $[0,\infty)$, and since $F_X(0) = P(X \leq 0) = 0$, we have $e^{0} + C = 0$, hence $C = 1$ and $F_X(x) = 1 - \lambda e^{-\lambda x}$ as desired. Now, using the tail sum formula,
+\noindent Thus, $F_X(x) = -e^{-\lambda x} + C$ on $[0,\infty)$, and since $F_X(0) = P(X \leq 0) = 0$, we have $e^{0} + C = 0$, hence $C = 1$ and $F_X(x) = 1 - e^{-\lambda x}$ as desired. Now, using the tail sum formula,
 \eqnspar{E(X) &= \int_{0}^{\infty} 1 - F_X(x) \, dx \\ &= \int_{0}^{\infty} 1 - (1-e^{-\lambda x}) \, dx \\ &= \int_{0}^{\infty} e^{-\lambda x}\, dx  \\ &= \int_{0}^{-\infty} e^{u} \frac{-1}{\lambda}\, du  \text{ \ where \ } u = -\lambda x  \\ &= \frac{-1}{\lambda}\int_{0}^{-\infty} e^{u} \, du \\ &= \frac{-1}{\lambda}\left(\lim_{u \to -\infty} e^u - e^{0}\right) \\ &= \frac{-1}{\lambda}\left(0 - 1\right) = \frac{1}{\lambda}.}
 \end{pf}
 \begin{examp}At a certain intersection, there is an average of three car accidents per day. Assuming the time between crashes is exponentially distributed, what is the probability that the next two accidents will occur at least five hours apart?
