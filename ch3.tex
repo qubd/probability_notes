@@ -585,7 +585,7 @@ In fact, the assumption that there is an upper bound, $n$, on the values $X$ can
 \par
 Typically we compute expected values directly using Definition \ref{expectedvaluedef}, but there are some cases where the method of indicators or this tail sum formula make calculations substantially faster.
 \begin{examp}
-For fair dice are rolled. What is the expected value of the smallest of the four resulting numbers?
+Four fair dice are rolled. What is the expected value of the smallest of the four resulting numbers?
 \par
 \noindent Let $X$ be a random variable representing the smallest of the four resulting numbers. Then $X$ takes values in the set $\{1,2,3,4,5,6\}$, but writing the distribution of $X$ involves doing a lot of combinatorics. 
 \par
@@ -728,7 +728,7 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 \begin{pf} Let $A$ be the set of possible values of $X$, and suppose that $k_1, k_2 \in A$ such that $f_X(k_1) \neq 0$ and $f_X (k_2) \neq 0$, i.e. $X$ can take either value with nonzero probability.
 \eqnspar{\Var(X) = E[(X - \mu_X)^2] = \sum_{x \in A} (x - \mu_X)^2f_X(x)}
 \par
-\noindent Every term in the sum on the right is non-negative since squares are non-negative, and $f_X(x) \geq 0$ by definition of a pmf. Furthermore, at least one term is nonzero since $k_1$ and $k_2$ are distinct, so either $k_1  - \mu_X \neq 0$ or $k_2 - \mu_x \neq 0$. Thus, the sum must be positive, so we conclude that if $X$ takes more than one distinct value with nonzero probability, $\Var(X) \neq 0$.
+\noindent Every term in the sum on the right is non-negative since squares are non-negative, and $f_X(x) \geq 0$ by definition of a pmf. Furthermore, at least one term is nonzero since $k_1$ and $k_2$ are distinct, so either $k_1  - \mu_X \neq 0$ or $k_2 - \mu_X \neq 0$. Thus, the sum must be positive, so we conclude that if $X$ takes more than one distinct value with nonzero probability, $\Var(X) \neq 0$.
 \end{pf}
 
 \begin{thm}\label{VarianceLinearity} For any constants $a, b \in \mathbb{R}$, $\boxed{\Var(aX+b) = a^2\Var(X)}$.
