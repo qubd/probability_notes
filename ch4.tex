@@ -347,7 +347,7 @@ If $X$ is any random variable and $g: \mathbb{R} \to \mathbb{R}$ is a function, 
 \end{center}
 \par
 \noindent Now that we have the cdf of $X$, we can use it to determine the cdf of $Y$ as below.
-\eqnspar{F_Y(y) = P(Y \leq y) = P(X^2+1 \leq y) = P(X \leq \sqrt{y-1}) = F_X(\sqrt{y-1})}
+\eqns{F_Y(y) = P(Y \leq y) = P(X^2+1 \leq y) = P(X \leq \sqrt{y-1}) = F_X(\sqrt{y-1})}
 \par
 \noindent Hence if we replace $x$ by $\sqrt{y-1}$ in the cdf of $X$, we obtain the cdf of $Y$. Note that the range of the function $g(x) = x^2+1$ on the interval $[0,2]$ is $[1,5]$, and hence the cdf of $Y$ is given below.
 \renewcommand*{\arraystretch}{1.35}
@@ -367,10 +367,10 @@ The method of distribution functions is very natural, but its disadvantage is th
 \begin{examp}\index{Method of Substitution}Let $X$ be a random variable with pdf $f_X(x) = \frac{2}{x^2}$ on $[1,2]$. Find the pdf of $Y = \ln(X)$ by the method of substitution.
 \par
 \noindent The method of substitution works just like integration by substitution, so it should look familiar. We'll begin with the relationship $y = \ln(x)$, and differentiate to obtain a relationship between the differentials $dy$ and $dx$.
-\eqnspar{y = \ln(x) \ \ \rightarrow \ \  dy = \frac{1}{x} \, dx \ \ \rightarrow \ \ dx = x dy \ \ \rightarrow \ \ dx = e^y dy}
+\eqns{y = \ln(x) \ \ \rightarrow \ \  dy = \frac{1}{x} \, dx \ \ \rightarrow \ \ dx = x dy \ \ \rightarrow \ \ dx = e^y dy}
 \par
 \noindent Next, we rewrite $f_X(x) \, dx$ in terms of the variable $y$ and the differential $dy$.
-\eqnspar{f_X(x)\, dx = \frac{2}{x^2} \, dx = \frac{2}{({e^y})^2} \, e^y dy = \frac{2}{e^y} \, dy = f_Y(y) \, dy}
+\eqns{f_X(x)\, dx = \frac{2}{x^2} \, dx = \frac{2}{({e^y})^2} \, e^y dy = \frac{2}{e^y} \, dy = f_Y(y) \, dy}
 \par
 \noindent Therefore, $f_Y(y) = \frac{2}{e^y}$ on $[0,\ln(2)]$. As with the last example, we can determine the set of values where $Y$ is nonzero by taking the range of the function $g(x) = \ln(x)$ on the interval $[1,2]$.
 \end{examp}
@@ -617,7 +617,7 @@ The variance measures the dispersion of a random variable, and so allows to us t
 \begin{examp}\label{ChebyshevEx}On a fishing trip, a fisherman catches ten fish and claims three of them weigh over $10\,kg$. If the average weight of the ten fish is $5.2\,kg$, and the standard deviation is $2.4\,kg$, show that the claim must be false.
 \par
 \noindent Let $X$ represent the weight of a randomly selected fish in the group of ten, and note that $10 = 5.2+2(2.4)$, so a weight of $10\,kg$ is exactly two standard deviations above the mean. We can use Chebyshev's inequality to determine the minimum number of fish whose weights are within two standard deviations of the mean.
-\eqnspar{P\left(X \in (5.2 - 2(2.4),\,5.2+2(2.4)\right) \geq 1 - \frac{1}{2^2} = \frac{3}{4}}
+\eqns{P\left(X \in (5.2 - 2(2.4),\,5.2+2(2.4)\right) \geq 1 - \frac{1}{2^2} = \frac{3}{4}}
 \par
 \noindent Thus, at least $75\%$ of the fish must be between $5.2 - 2(2.4) = 0.4\,kg$ and $5.2 + 2(2.4) = 10\,kg$, which means that at most $25\%$ can weigh over $10\,kg$. Three fish over $10\,kg$ would represent a proportion of $30\%$, contradicting Chebyshev's Inequality. Therefore, the claim is false.
 \end{examp}
@@ -645,7 +645,7 @@ Chebyshev's Inequality plays an important role in the theoretical foundations of
 \par
 \noindent To find $F_X$, we have $F_X(x) = \int f_X(x) \,dx = \int \frac{1}{4}\,dx = \frac{1}{4}x + C$ on $[3,7]$, and since $F_X(7) = P(X \leq 7) = 1$, we have $\frac{1}{4}(7) + C = 1$, so $C = -\frac{3}{4}$.
 \renewcommand*{\arraystretch}{1.35}
-\eqns{F_X(x) = \left\{
+\eqnsgap{F_X(x) = \left\{
 \begin{array}{cl}
       0 & \text{ if \ } x < 3 \\
       \frac{1}{4}x - \frac{3}{4} & \text{ if \ } 3 \leq x \leq 7 \\
@@ -660,8 +660,8 @@ Chebyshev's Inequality plays an important role in the theoretical foundations of
 \begin{prop}\index{Uniform Distribution!expected value of}\index{Uniform Distribution!variance of}\label{UniformVariance}If $I$ is an interval with endpoints $a$ and $b$, and $X \sim Uniform(I)$, then $E(X) = \frac{a+b}{2}$ and $\Var(X) = \frac{1}{12}(b-a)^2$. 
 \end{prop}
 \begin{pf} We observed above that $f_X(x) = \frac{1}{b-a}$ on $I$, so we calculate $E(X)$ and $E(X^2)$.
-\eqns{E(X) = \int_{a}^{b} x f_X(x) \, dx = \int_{a}^{b} x \, \textstyle\frac{1}{b-a} \, dx = \frac{1}{b-a} \displaystyle\int_{a}^{b} x \, dx = \textstyle\frac{1}{b-a}\left(\frac{1}{2}x^2 \bigr|_{a}^{b}\right) = \frac{a+b}{2}}
-\eqns{E(X^2) = \int_{a}^{b} x^2 f_X(x) \, dx = \int_{a}^{b} x^2 \, \textstyle\frac{1}{b-a} \, dx = \frac{1}{b-a} \displaystyle\int_{a}^{b} x^2 \, dx = \textstyle\frac{1}{b-a}\left(\frac{1}{3}x^3 \bigr|_{a}^{b}\right) = \frac{a^2+ab+b^2}{3}}
+\eqnsgap{E(X) = \int_{a}^{b} x f_X(x) \, dx = \int_{a}^{b} x \, \textstyle\frac{1}{b-a} \, dx = \frac{1}{b-a} \displaystyle\int_{a}^{b} x \, dx = \textstyle\frac{1}{b-a}\left(\frac{1}{2}x^2 \bigr|_{a}^{b}\right) = \frac{a+b}{2}}
+\eqnsgap{E(X^2) = \int_{a}^{b} x^2 f_X(x) \, dx = \int_{a}^{b} x^2 \, \textstyle\frac{1}{b-a} \, dx = \frac{1}{b-a} \displaystyle\int_{a}^{b} x^2 \, dx = \textstyle\frac{1}{b-a}\left(\frac{1}{3}x^3 \bigr|_{a}^{b}\right) = \frac{a^2+ab+b^2}{3}}
 \par
 \noindent Note that the difference of squares and difference of cubes identities were used above to simplify the results.
 \eqns{\Var(X) = E[X^2] - (E[X])^2 = \textstyle\frac{a^2+ab+b^2}{3} - \frac{a^2+2ab+b^2}{4} = \frac{a^2-2ab+b^2}{12} = \frac{1}{12}(b-a)^2}
@@ -778,7 +778,7 @@ Quantities that are typically modelled by exponential random variables include t
 \eqns{\int f_X(x) \, dx &= \int \lambda e^{-\lambda x} \, dx \\ &= \int \lambda e^{u} \, \frac{-1}{\lambda} \, du \text{ \ where \ } u = -\lambda x  \\ &= - \int e^{u} \, du \\ &= -e^u + C \\ &=  -e^{-\lambda x} + C}
 \par
 \noindent Thus, $F_X(x) = -e^{-\lambda x} + C$ on $[0,\infty)$, and since $F_X(0) = P(X \leq 0) = 0$, we have $e^{0} + C = 0$, hence $C = 1$ and $F_X(x) = 1 - e^{-\lambda x}$ as desired. Now, using the tail sum formula,
-\eqnspar{E(X) &= \int_{0}^{\infty} 1 - F_X(x) \, dx \\ &= \int_{0}^{\infty} 1 - (1-e^{-\lambda x}) \, dx \\ &= \int_{0}^{\infty} e^{-\lambda x}\, dx  \\ &= \int_{0}^{-\infty} e^{u} \frac{-1}{\lambda}\, du  \text{ \ where \ } u = -\lambda x  \\ &= \frac{-1}{\lambda}\int_{0}^{-\infty} e^{u} \, du \\ &= \frac{-1}{\lambda}\left(\lim_{u \to -\infty} e^u - e^{0}\right) \\ &= \frac{-1}{\lambda}\left(0 - 1\right) = \frac{1}{\lambda}.}
+\eqns{E(X) &= \int_{0}^{\infty} 1 - F_X(x) \, dx \\ &= \int_{0}^{\infty} 1 - (1-e^{-\lambda x}) \, dx \\ &= \int_{0}^{\infty} e^{-\lambda x}\, dx  \\ &= \int_{0}^{-\infty} e^{u} \frac{-1}{\lambda}\, du  \text{ \ where \ } u = -\lambda x  \\ &= \frac{-1}{\lambda}\int_{0}^{-\infty} e^{u} \, du \\ &= \frac{-1}{\lambda}\left(\lim_{u \to -\infty} e^u - e^{0}\right) \\ &= \frac{-1}{\lambda}\left(0 - 1\right) = \frac{1}{\lambda}.}
 \end{pf}
 \begin{examp}At a certain intersection, there is an average of three car accidents per day. Assuming the time between crashes is exponentially distributed, what is the probability that the next two accidents will occur at least five hours apart?
 \par
@@ -813,7 +813,7 @@ P(X > 15) &= 1 - P(X \leq 15) = 1 - (1 - e^{-\frac{1}{10} \cdot 15}) = e^{-\frac
     \begin{minipage}{.5\textwidth}
         \centering
       \renewcommand*{\arraystretch}{1.35}
-\eqnspar{f_X(x) = \left\{
+\eqns{f_X(x) = \left\{
 \begin{array}{cl}
       \frac{cm^c}{x^{c+1}} & \text{ if \ } x \geq m \\
       0 & \text{ otherwise }  \end{array}
@@ -881,11 +881,13 @@ We can determine $E(X^2)$ by a very similar calculation. Applying the formula $\
 %\noindent If $x \in [0,\infty)$, then $y \in [1,\infty)$, so $f_Y(y) = \frac{\lambda (1)^{\lambda}}{y^{\lambda + 1}}$ on $[1,\infty)$. Therefore, $Y$ is pareto distributed with $m = 1$ and $c = \lambda$.
 %\end{examp}
 
+\newpage
+
 \section{The Normal Distribution}
 
 \begin{defn}\index{Distribution!Normal}\index{Distribution!Gaussian}\index{Normal Distribution}\index{Gaussian Distribution}The random variable $X$ is normally distributed with parameters $\mu$ (the mean) and $\sigma > 0$ (the standard deviation) if its pdf is given by the function below on the interval $(-\infty,\infty)$.
 \renewcommand*{\arraystretch}{1.35}
-\eqnspar{f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}}}
+\eqns{f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}}}
 \renewcommand*{\arraystretch}{1}
 
 \begin{center}

@@ -114,7 +114,7 @@ In Example \ref{MeanAgeEx} above, consider the distribution of age in the popula
     \begin{minipage}{.45\textwidth}
        \centering
       \renewcommand*{\arraystretch}{1.35}
-\eqnspar{f_X(x) = \left\{
+\eqns{f_X(x) = \left\{
 \begin{array}{cl}
       \frac{1}{3} & \text{ if \ } x = 12 \\
 			\frac{1}{3} & \text{ if \ } x = 16 \\
@@ -160,7 +160,7 @@ When a statistic is being used to estimate a parameter, we call it an estimator\
 In this case, the value of our estimator ended up very close to $\mu$, which is exactly what we're hoping for. In practice though, we don't know the value of the parameter being estimated, or we wouldn't have been estimating it in the first place! Without this knowledge, how can we begin to evaluate the usefulness of an estimator?
 \par
 Notice that the sampling distribution of the sample mean $\overline{X}$ that we constructed in Example \ref{MeanAgeEx} has a very nice property. If we compute its expected value 
-\eqnspar{E(\overline{X}) = 12\cdot \textstyle\frac{1}{9} +14\cdot \frac{2}{9} + 16\cdot \frac{1}{9} + 17\cdot \frac{2}{9} + 19\cdot \frac{2}{9} + 22\cdot \frac{1}{9} = \frac{150}{9} = \frac{50}{3}}
+\eqns{E(\overline{X}) = 12\cdot \textstyle\frac{1}{9} +14\cdot \frac{2}{9} + 16\cdot \frac{1}{9} + 17\cdot \frac{2}{9} + 19\cdot \frac{2}{9} + 22\cdot \frac{1}{9} = \frac{150}{9} = \frac{50}{3}}
 \par
 \noindent the result is precisely equal to the population mean $\mu$. Thus, if we use the estimator $\widehat\mu = \overline{X} = \frac{1}{n}(X_1+X_2)$ to estimate the population mean, then the average value of our estimator is equal to the parameter $\mu$ being estimated. We say that $\widehat\mu = \overline{X}$ is an unbiased estimator of $\mu$.
 
@@ -361,7 +361,7 @@ One strategy for estimating a parameter from sample data is to determine the val
 Since our sample is a SRS, $f_X(x_1)f_X(x_2)\cdots f_X(x_n)$ is the probability (or probability density) of observing the sample values $X_1 = x_1, X_2  = x_2, \dots\,, X_n = x_n$. The maximum likelihood estimate is the value of $\theta$ that maximizes $\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta)$.
 \par
 We can use familiar techniques from differential calculus to find the maximum. One useful trick to recall is that because $\ln(x)$ is an increasing function, the value of $\theta$ that maximizes $\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta)$ will also maximize $\ln(\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta))$. This will greatly simplify calculations since the logarithm of a product can be written as a sum of logarithms, and derivatives of sums are much easier to deal with. To take advantage of this, let's denote the log-likelihood with $\ell(x_1,x_2,\dots\,,x_n \given \theta)$\index{Log-Likelihood Function}.
-\eqns{\boxed{\ell(x_1,x_2,\dots\,,x_n \given \theta) = \ln\left(f_X(x_1)f_X(x_2)\cdots f_X(x_n)\right) = \sum_{i=1}^{n}\ln\left(f_X(x_i)\right)}}
+\eqnsgap{\boxed{\ell(x_1,x_2,\dots\,,x_n \given \theta) = \ln\left(f_X(x_1)f_X(x_2)\cdots f_X(x_n)\right) = \sum_{i=1}^{n}\ln\left(f_X(x_i)\right)}}
 
 \begin{examp}
 Let $X \sim Exponential(\lambda)$, and suppose we observe a SRS of three values from this distribution with $X_1 = 1, X_2 = 3, X_3 = 4$. Find the maximum likelihood estimate of $\lambda$.
@@ -437,7 +437,7 @@ This proposition gives us confidence that the maximum likelihood estimator will 
 \begin{examp} Let $X \sim Uniform(m)$. In Example \ref{TankProblemMLE}, we saw the maximum likelihood estimator for the parameter $m$ is $\widehat{m} = max(X_1,X_2,\dots\,,X_n)$. Show that $\widehat{m}$ is asymptotically unbiased.
 \par
 \noindent Consider the expected value of the estimator $\widehat{m}$,
-\eqnspar{E(\widehat{m}) = 1 \cdot P(\widehat{m} = 1) + 2 \cdot P(\widehat{m} = 2) + \, \cdots \, + m \cdot P(\widehat{m} = m).}
+\eqns{E(\widehat{m}) = 1 \cdot P(\widehat{m} = 1) + 2 \cdot P(\widehat{m} = 2) + \, \cdots \, + m \cdot P(\widehat{m} = m).}
 \par
 \noindent Observe that $\widehat{m} =  m$ iff the value $m$ appears in our sample. In an SRS taken with replacement from $X \sim Uniform(m)$, each sample value $X_i$ has $P(X_i = m) = \frac{1}{m}$.
 \eqns{P(\widehat{m} = m) &= P((X_1 = m) \cup (X_2 = m) \cup \dots \cup (X_n = m)) \\

@@ -26,7 +26,7 @@ In other words, for any interval containing $\mu$, no matter how tiny it might b
 \par
 \vspace{1em}
 \begin{pf} Let $\xbar = \frac{X_1+X_2+\,\cdots\,+X_n}{n}$. Our sample $X_1, X_2, \dots \,, X_n$ is a SRS, so each $X_i$ has the same distribution as $X$, hence $E(X_i) = E(X) = \mu$. By linearity of expectation,
-\eqnspar{E(\xbar) &= E\left(\frac{X_1+X_2+\,\cdots\,+X_n}{n}\right) \\
+\eqns{E(\xbar) &= E\left(\frac{X_1+X_2+\,\cdots\,+X_n}{n}\right) \\
 &= \frac{1}{n}(E(X_1)+E(X_2)+\,\cdots\,+E(X_n))  \\
 &= \frac{1}{n}(n\mu) = \mu.}
 \par
@@ -249,7 +249,7 @@ The conclusion of this theorem is written here in very informal language. To mak
 \begin{examp}\label{CLTExamp}Twenty numbers in the interval $[0,1]$ are independently chosen uniformly at random. What is the probability their sum is higher than eight?
 \par
 \noindent In order to use the central limit theorem, we need to formulate this question in terms of the mean of a sample. In this case, we have a sample of $n=20$ values drawn from $X \sim Uniform([0,1])$. Observe that
-\eqnspar{X_1 + X_2 + \cdots + X_{20} > 8 \ \ \rightarrow \ \  \frac{X_1 + X_2 + \cdots + X_{20} }{20} > \frac{8}{20} = \frac{2}{5}.}
+\eqns{X_1 + X_2 + \cdots + X_{20} > 8 \ \ \rightarrow \ \  \frac{X_1 + X_2 + \cdots + X_{20} }{20} > \frac{8}{20} = \frac{2}{5}.}
 \par
 \noindent Thus, to answer this question, we need to find the probability of obtaining a sample of twenty values with a mean $\xbar$ higher than $\frac{2}{5}$. Using Corollary \ref{StandardErrorOfMean} and Proposition \ref{UniformVariance} The mean and standard deviation of $\xbar$ are given by
 \eqns{\muxbar = \mu = \frac{1}{2} \ \  \text{and} \ \  \sigmaxbar = \frac{\sigma}{\sqrt{n}} = \frac{\sqrt{\frac{1}{12}(1-0)^2}}{\sqrt{20}} = \frac{1}{\sqrt{240}} \simeq 0.0645}
@@ -308,7 +308,7 @@ As a rule of thumb, we'll use the guidelines below to determine if the sampling 
 \par
 There is nothing mathematically significant about these values, or similar values you'll find in other texts. We're simply establishing a clear (yet arbitrary) baseline. 
 \par
-In actual practice, to ensure the sampling distribution of $\xbar$ is sufficiently close to a normal distribution, statisticians either rigorously derive error bounds from some assumptions on the form of the population distribution, or use statistical software to take large numbers of samples from an educated guess at the population distribution and approximate the sampling distribution empirically, as was done to generate the graphics at the beginning of this section.
+In practice, to convince themselves the sampling distribution of $\xbar$ is sufficiently close to a normal distribution for a given sample size $n$, statisticians could either rigorously derive error bounds from some assumptions on the form of the population distribution, or use statistical software to take large numbers of samples from an educated guess at the population distribution and approximate the sampling distribution empirically, as was done to generate the graphics at the beginning of this section.
 \begin{examp}
 If a biased coin with a 55\% probability of heads is flipped thirty times, what is the probability that the number of heads observed in this sample is less than the number of tails?
 \par

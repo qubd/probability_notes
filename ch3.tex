@@ -289,16 +289,16 @@ If $X$ is any random variable, then its distribution function $F_X$ is right-con
 Take any $a \in \mathbb{R}$, and consider a decreasing sequence of real numbers $\{x_i\}_{i=1}^{\infty}$ that converges to $a$. If you'd like a concrete example to think about, consider the sequence $a+1$, $a+\frac{1}{2}$, $a+\frac{1}{4}$, $a+\frac{1}{8}$, and so on.
 \par
 \noindent Define events $\{A_i\}_{i=1}^{\infty}$ from this sequence by letting $A_i$ be the event `$X$ is less than $x_i$'. Since the sequence $\{x_i\}_{i=1}^{\infty}$ is decreasing, $\{A_i\}_{i=1}^{\infty}$ is a decreasing sequence of events, so by Theorem \ref{continuity},
-\eqnspar{P(\cap_{i=1}^{\infty}A_i) = \lim_{i \to \infty}P(A_i).}
+\eqns{P(\cap_{i=1}^{\infty}A_i) = \lim_{i \to \infty}P(A_i).}
 \par
 \noindent But the event $\cap_{i=1}^{\infty}A_i$ occurs when all $A_i$ occur, which means that $X$ is smaller than any element of the sequence $\{x_i\}_{i=1}^{\infty}$, and this means $X \leq a$. Therefore we have
-\eqnspar{P(X \leq a) = \lim_{i \to \infty}P(A_i).}
+\eqns{P(X \leq a) = \lim_{i \to \infty}P(A_i).}
 \par
 \noindent Now $P(X \leq a) = F_X(a)$ by definition of the cdf of X, and since $A_i$ occurs when $X \leq x_i$, we have $P(A_i) = P(X \leq x_i) = F_X(x_i)$ as well. Thus,
-\eqnspar{F_X(a) = \lim_{i \to \infty}F_X(x_i).}
+\eqns{F_X(a) = \lim_{i \to \infty}F_X(x_i).}
 \par
 \noindent Since $\{x_i\}_{i=1}^{\infty}$ was an arbitrary decreasing sequence that converges to $a$, the limits $\lim_{i \to \infty}F_X(x_i)$ and $\lim_{x \to a^+}F_X(x)$ are equal (in both cases we are approaching $a$ from the right) so we have the desired equality.
-\eqnspar{F_X(a) = \lim_{x \to a^{+}}F_X(x).}
+\eqns{F_X(a) = \lim_{x \to a^{+}}F_X(x).}
 \end{pf}
 
 \par
@@ -379,7 +379,7 @@ $3$ & $\frac{1}{8}$
 \renewcommand*{\arraystretch}{1}
 \par
 If we perform the experiment many times, then we should expect to observe no heads about $12.5\%$ of the time, one head $37.5\%$ of the time, and so on (this is the frequentist interpretation of probability). If we weight each possible number of heads by the probability it occurs, we obtain
-\eqnspar{0 \cdot \frac{1}{8} + 1 \cdot \frac{3}{8} + 2 \cdot \frac{3}{8} + 3 \cdot \frac{1}{8} = \frac{12}{8} = 1.5.}
+\eqns{0 \cdot \frac{1}{8} + 1 \cdot \frac{3}{8} + 2 \cdot \frac{3}{8} + 3 \cdot \frac{1}{8} = \frac{12}{8} = 1.5.}
 \par
 So not surprisingly we should, on average, obtain 1.5 heads in every three flips of a fair coin. This notion of the average value of a random variable is formalized in the definition below.
 
@@ -394,7 +394,7 @@ Given a discrete random variable $X$ which takes values in the set $A = \{x_1, x
 Alice needs to decide whether to buy individual metro tickets at \$3.25 each, or an unlimited weekend pass at \$13.75. If she knows she'll take the metro either three, four, or five times this weekend with equal probability, what is the best decision?
 \par
 \noindent Let $X$ represent the amount of money Alice will spend if she buys individual tickets. Then $X$ is equally likely to take the three values $9.75$, $13$, and $16.25$. Therefore,
-\eqnspar{E(X) = 9.75 \cdot \frac{1}{3} + 13 \cdot \frac{1}{3} + 16.25 \cdot \frac{1}{3} = 13.}
+\eqns{E(X) = 9.75 \cdot \frac{1}{3} + 13 \cdot \frac{1}{3} + 16.25 \cdot \frac{1}{3} = 13.}
 \par
 \noindent On the other hand, if she purchases the unlimited pass, she'll pay $\$13.75$. Thus, if Alice is interested in saving money, she should opt for the individual tickets.
 \end{examp}
@@ -442,7 +442,7 @@ On a roulette wheel, there are 18 black numbers, 18 red numbers, and 2 green num
 (St-Petersburg lottery) A coin is flipped until the first tail appears. You are initially given \$1 before the coin is flipped for the first time, and every time a head appears, the prize doubles. When the first tail appears, you receive the prize. If the sequence of flips that appears is $HHHT$, for example, you would receive \$8. What is the expected value of the prize?
 \par
 \noindent If we define a random variable $X$ on the sample space $\Omega = \{T, HT, HHT, \dots\}$ whose value is the prize, then $X$ can take any value in $A = \{1,2,4,8,16, \,\dots\}$, i.e., any value of the form $2^k$ for $k \in \mathbb{N}$. Furthermore, $X = 2^k$ when the outcome is a sequence with $k$ heads followed by a tail. Thus, $P(X = 2^k) = \left(\frac{1}{2}\right)^{k+1}$.
-\eqns{E(X) &= \sum_{x \in A} x P(X = x) \\
+\eqnsgap{E(X) &= \sum_{x \in A} x P(X = x) \\
 &= \sum_{k = 0}^{\infty} 2^k P(X = 2^k) \\
 &= 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{4} + 4 \cdot \frac{1}{8} + 8 \cdot \frac{1}{16}  + \cdots \\
 &= \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \cdots \rightarrow \infty}
@@ -468,10 +468,10 @@ Notice that the pmf in the sum is the pmf for $X$. We're finding the expected va
 \vspace{0.5em}
 \begin{pf}
 Consider $g(A) = \{g(x_1), g(x_2), g(x_3), \dots\}$, the set of possible values for $Y$. From the definition of expected value, we have
-\eqnspar{E(Y) = \sum_{y \in g(A)} y \cdot f_Y(y).}
+\eqns{E(Y) = \sum_{y \in g(A)} y \cdot f_Y(y).}
 \par
 \noindent Let $g^{-1}(y) = \{x \, | \, g(x) = y\}$, the set of all $x \in A$ that are sent to $y$ by the function $g$. By definition, $f_Y(y)$ is equal to $P(Y=y)$, which is the sum of the probabilities of all values of $X$ which $g$ sends to $y$ (we saw this in Example \ref{FunctionRVEx}). Formally, 
-\eqnspar{f_Y(y) = P(Y = y) = P(g(X) = y) = P(X \in g^{-1}(y)) = \sum_{x \in g^{-1}(y)} P(X = x).}
+\eqns{f_Y(y) = P(Y = y) = P(g(X) = y) = P(X \in g^{-1}(y)) = \sum_{x \in g^{-1}(y)} P(X = x).}
 \par
 \noindent Therefore, we have
 \eqns{E(Y) &= \sum_{y \in g(A)} y \cdot f_Y(y) = \sum_{y \in g(A)} y \cdot \sum_{x \in g^{-1}(y)} P(X = x) \\
@@ -524,13 +524,13 @@ E(X) &= 1}
 \noindent Corollary \ref{LinearityI} was used to pass from the first to the second line, and from there on we simply isolated $E(X)$.
 \end{examp}
 \par
-Notice that we can also obtain the expected value of any discrete random variable by summing over all possible outcomes $\omega \in \Omega$, instead of all possible values of $X$. This approach is sometimes more natural and sometimes more difficult.
+Notice that we can also obtain the expected value of any discrete random variable by summing over all possible outcomes $\omega \in \Omega$, instead of all possible values of $X$. This approach is sometimes more natural and sometimes more awkward.
 \par
 Consider for example a random variable $X$ that counts the number of heads in two flips of a fair coin. Using Definition \ref{expectedvaluedef}, and letting $A = \{0,1,2\}$ denote the possible values of $X$, we have
-\eqnspar{E(X) = \sum_{x \in A} x f_X(x) = 0 \cdot \frac{1}{4} + 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{4} = 1.}
+\eqns{E(X) = \sum_{x \in A} x f_X(x) = 0 \cdot \frac{1}{4} + 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{4} = 1.}
 \par
 On the other hand, we could let $X(\omega)$ denote the value of $X$ when the outcome $\omega$ occurs, and sum over all outcomes in the sample space $\Omega = \{HH, HT, TH, TT\}$.
-\eqns{E(X) = \sum_{\omega \in \Omega} X(\omega) P(\omega) &= X(HH) \cdot \frac{1}{4} + X(HT) \cdot \frac{1}{4} + X(TH) \cdot \frac{1}{4} + X(TT) \cdot \frac{1}{4} \\
+\eqnsgap{E(X) = \sum_{\omega \in \Omega} X(\omega) P(\omega) &= X(HH) \cdot \frac{1}{4} + X(HT) \cdot \frac{1}{4} + X(TH) \cdot \frac{1}{4} + X(TT) \cdot \frac{1}{4} \\
 & = 2 \cdot \frac{1}{4} +1 \cdot \frac{1}{4} +1 \cdot \frac{1}{4} +0 \cdot \frac{1}{4} = 1.}
 \par
 \begin{prop} For a discrete random variable $X$ defined on the sample space $\Omega$, 
@@ -551,7 +551,7 @@ If we roll six dice and sum the results, what is the expected value of the sum?
 \par
 \noindent Let $X_i$ denote the result of the $i^{th}$ roll, and let $Y = X_1 + X_2 + X_3 + X_4+ X_5 + X_6$. Every $X_i$ has the same expected value, which we calculate below.
 \vspace{0.5em}
-\eqns{E(X_i) = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6}+ 3 \cdot \frac{1}{6}+ 4 \cdot \frac{1}{6}+ 5 \cdot \frac{1}{6}+ 6 \cdot \frac{1}{6} = \frac{21}{6} = 3.5}
+\eqnsgap{E(X_i) = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6}+ 3 \cdot \frac{1}{6}+ 4 \cdot \frac{1}{6}+ 5 \cdot \frac{1}{6}+ 6 \cdot \frac{1}{6} = \frac{21}{6} = 3.5}
 \par
 \noindent Thus, $E(Y) = 3.5 + 3.5 + 3.5 + 3.5 + 3.5 + 3.5 = 21$.
 \end{examp}
@@ -726,7 +726,7 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 \end{prop}
 
 \begin{pf} Let $A$ be the set of possible values of $X$, and suppose that $k_1, k_2 \in A$ such that $f_X(k_1) \neq 0$ and $f_X (k_2) \neq 0$, i.e. $X$ can take either value with nonzero probability.
-\eqnspar{\Var(X) = E[(X - \mu_X)^2] = \sum_{x \in A} (x - \mu_X)^2f_X(x)}
+\eqns{\Var(X) = E[(X - \mu_X)^2] = \sum_{x \in A} (x - \mu_X)^2f_X(x)}
 \par
 \noindent Every term in the sum on the right is non-negative since squares are non-negative, and $f_X(x) \geq 0$ by definition of a pmf. Furthermore, at least one term is nonzero since $k_1$ and $k_2$ are distinct, so either $k_1  - \mu_X \neq 0$ or $k_2 - \mu_X \neq 0$. Thus, the sum must be positive, so we conclude that if $X$ takes more than one distinct value with nonzero probability, $\Var(X) \neq 0$.
 \end{pf}
@@ -747,10 +747,10 @@ If $X$ represents the outcome of a roll of a fair die, find $\sigma_X$.
 \begin{examp} If $X$ is a random variable with $E(X) = 2$ and $E[X(X-4)]=7$, what is the standard deviation of $Y = 2X+2$?
 \par
 \noindent Using linearity of expectation,
-\eqnspar{E[X(X-4)] = E[X^2 - 4X] = E[X^2] - 4E[X] = E[X^2] - 8.}
+\eqns{E[X(X-4)] = E[X^2 - 4X] = E[X^2] - 4E[X] = E[X^2] - 8.}
 \par
 \noindent Thus, $E[X^2] - 8 = 7$, so $E[X^2] = 15$, and hence 
-\eqnspar{\Var(X) = E[X^2] - (E[X])^2 = 15-4 = 11.}
+\eqns{\Var(X) = E[X^2] - (E[X])^2 = 15-4 = 11.}
 \par
 \noindent Applying the result above, $\Var(Y) = \Var(2X+2) = 4\Var(X) = 44$, so $\sigma_Y = \sqrt{44}$.
 \end{examp}
@@ -1092,7 +1092,7 @@ If $X \sim Geometric(p)$, the cdf of $X$ is given by the expression below, where
 %\eqns{P(X \leq x) = \sum_{k=0}^{x} P(X = k) = p + (1-p)p + (1-p)^2p + \cdots + (1-p)^{k-1}p.}
 %\par
 %\noindent If we multiply both sides by $1-p$, we obtain the expression
-%\eqnspar{(1-p)P(X \leq x) &= (1-p)p + (1-p)^2p + (1-p)^3p +  \cdots + (1-p)^{k}p.}
+%\eqns{(1-p)P(X \leq x) &= (1-p)p + (1-p)^2p + (1-p)^3p +  \cdots + (1-p)^{k}p.}
 %\par
 %\noindent Notice that the right hand side is now missing the initial term, $p$, that was present above, and has an extra $(1-p)^kp$ term on the end. Therefore, we have
 %\eqns{(1-p)P(X \leq x) &= P(X \leq x) - p + (1-p)^{k}p \\
@@ -1104,7 +1104,7 @@ If $X \sim Geometric(p)$, the cdf of $X$ is given by the expression below, where
 %\end{pf}
 
 \par In Example \ref{GeoCards} above, $X \sim Geometric(\frac{12}{52})$, so $F_X(x) = 1 - (1-\frac{12}{52})^{x}$ for all integers $x > 1$. We could obtain the result in that example via
-\eqnspar{P(X > 3) = 1 - P(X \leq 3) = 1 - F_X(3) =1 - \left( 1 - \left(1 - \left(\textstyle\frac{12}{52}\right)\right)^3\right) \simeq 0.455.}
+\eqns{P(X > 3) = 1 - P(X \leq 3) = 1 - F_X(3) =1 - \left( 1 - \left(1 - \left(\textstyle\frac{12}{52}\right)\right)^3\right) \simeq 0.455.}
 
 \begin{thm}\label{GeometricExpectation}\index{Geometric Distribution!expected value of}\index{Geometric Distribution!variance of}
 If $X \sim Geometric(p)$, then $E(X) = \frac{1}{p}$ and $\Var(X) = \frac{1-p}{p^2}$.
@@ -1128,7 +1128,7 @@ There is one step here that's suspect, the point where we factor the derivative 
 Consider a noisy communications channel. There is a $71\%$ chance that a message sent over this channel will become garbled and be unintelligible on the receiving end. Suppose that a message is sent until it's received intact without having become garbled, and each attempt takes 2 minutes. What is the probability the message will be correctly received in eight minutes or fewer? What is the average amount of time required before the message is received intact?
 \par
 \noindent If $X$ represents the number of attempts required to receive the message intact, then $X \sim Geometric(0.29)$, since there is an $29\%$ chance of a successful transmission, and $Y = 2X$ is the amount of time required to receive the message intact. We can then easily calculate $P(Y \leq 8)$ and $E(Y)$ from the results in this section.
-\eqnspar{P(Y \leq 8) &= P(X \leq 4) & E(Y) &= E(2X) \\
+\eqns{P(Y \leq 8) &= P(X \leq 4) & E(Y) &= E(2X) \\
 &= 1 - (1-0.29)^4 & &= 2E(X) \\
 &\simeq 1 - 0.254 = 0.746 & &=2 \cdot \textstyle\frac{1}{0.29}  \simeq 6.90}
 \par

@@ -56,7 +56,7 @@ $$n! = n \cdot (n-1) \cdot (n-2) \cdot \, \cdots \, \cdot 2 \cdot 1$$
 \begin{rmk} Though the interpretation of the factorial as counting arrangements no longer applies, we define $0!=1$ for convenience.
 \end{rmk}
 \par Factorials have some very nice algebraic properties that make them easy to work with, in particular, ratios of factorials can be simplified easily.
-\eqns{\frac{8!}{6!} = \frac{8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1}{6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1}= \frac{8 \cdot 7 \cdot \cancel{6} \cdot \cancel{5} \cdot \cancel{4} \cdot \cancel{3} \cdot \cancel{2} \cdot \cancel{1}}{\cancel{6} \cdot \cancel{5} \cdot \cancel{4} \cdot \cancel{3} \cdot \cancel{2} \cdot \cancel{1}} = 56}
+\eqnsgap{\frac{8!}{6!} = \frac{8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1}{6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1}= \frac{8 \cdot 7 \cdot \cancel{6} \cdot \cancel{5} \cdot \cancel{4} \cdot \cancel{3} \cdot \cancel{2} \cdot \cancel{1}}{\cancel{6} \cdot \cancel{5} \cdot \cancel{4} \cdot \cancel{3} \cdot \cancel{2} \cdot \cancel{1}} = 56}
 \par
 \begin{examp}
 How many ways are there to choose three students from a class of twenty and arrange them in a line?
@@ -68,7 +68,7 @@ How many ways are there to choose three students from a class of twenty and arra
 \par
 \begin{definition}\label{permutationdefinition}\index{Permutations}
 If an ordered list of $r$ distinct objects is selected from a set of $n$ objects, the result is called an $r$-permutation. The number of $r$-permutations of $n$ objects, denoted by $^{n}P_r$, is given by
-\eqnspar{\boxed{^nP_r = n \cdot (n-1) \cdot \, \cdots \, \cdot (n-r+1) = \frac{n!}{(n-r)!}}}
+\eqnsgap{\boxed{^nP_r = n \cdot (n-1) \cdot \, \cdots \, \cdot (n-r+1) = \frac{n!}{(n-r)!}}}
 \end{definition}
 \par
 \begin{examp}
@@ -141,7 +141,7 @@ How many ways are there to choose a president, a treasurer, and an organizing co
 \noindent There are 25 choices for president, then 24 for treasurer, then $\binom{23}{3}$ for the organizing committee. Note that when choosing the organizing committee, the order in which members are chosen is irrelevant. The committee consisting of Alice, Bob, and Chelsea and the committee consisting of Chelsea, Alice, and Bob are the same.
 \par
 \noindent Since we must make all three choices, by the fundamental counting principle the number of possibilities is
-\eqnspar{25 \cdot 24 \cdot \binom{23}{3} = 1\,062\,600.}
+\eqns{25 \cdot 24 \cdot \binom{23}{3} = 1\,062\,600.}
 \par
 \noindent Notice that we could just as well have proceeded in the opposite order in our analysis, that is, first chosen the organizing committee, then the treasurer, then the president, and still obtained
 \eqnsgap{\binom{25}{3} \cdot 22 \cdot 21 = 1\,062\,600.}
@@ -260,7 +260,7 @@ Consider the expression $(x+y)^n$, where $n \in \mathbb{N}$. Let's take the firs
 Once the exponent gets much larger, it becomes a real headache to go through the ordeal of expanding everything out. Wouldn't it be nice if there was a clever way to get straight to the result without having to go through all the work of expanding and collecting like terms?
 \par
 To expand $(x+y)(x+y)(x+y)$, we need to select a term from each of the three copies of the binomial expression $x+y$, either the left term, or the right term. We do this in each possible way one time to obtain the expansion. For instance, if we take the left term in the first two factors, and the right in the last,
-\eqnspar{(\underline{x}+y)(\underline{x}+y)(x+\underline{y}) \ \rightarrow \ xxy.}
+\eqns{(\underline{x}+y)(\underline{x}+y)(x+\underline{y}) \ \rightarrow \ xxy.}
 \par
 In this way, we can associate strings of three $L$'s and $R$'s to terms in the expansion. Every such string will yield a distinct term in the expansion, simply by identifying $L$ with $x$ and $R$ with $y$.
 \eqns{LLR \ \rightarrow \ (\underline{x}+y)(\underline{x}+y)(x+\underline{y}) \ \rightarrow \ xxy \\
@@ -310,7 +310,7 @@ This unending arrangement of numbers is commonly known as Pascal's triangle, in 
 Observe that the second, third, and fourth rows are exactly the coefficients that appeared in the expansions of $(x+y)^1$, $(x+y)^2$, and $(x+y)^3$. Could this be true in general? Why?
 \par
 Amazingly enough, it's true! The numbers that appear in the $(n+1)^{th}$ row of Pascal's triangle are exactly the coefficients in the expansion of $(x+y)^n$. This can be a neat shortcut when we apply the binomial theorem. To expand $(a+x)^6$, for example, write the first seven rows of Pascal's triangle. From the seventh row,
-\eqnspar{(a+x)^6 = a^6 + 6a^5x + 15a^4x^2 + 20a^3x^3 + 15a^2x^4 + 6ax^5 + x^6.}
+\eqns{(a+x)^6 = a^6 + 6a^5x + 15a^4x^2 + 20a^3x^3 + 15a^2x^4 + 6ax^5 + x^6.}
 \par
 To understand how this can be, let's play with Pascal's triangle a little. Consider a sequence of steps, starting from the top of the triangle, each step moving either down \& left, or down \& right. Let's call such a sequence of steps a path. Take, for example, the highlighted path below which ends in the sixth row.
 

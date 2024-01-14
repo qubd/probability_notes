@@ -149,11 +149,12 @@ One can interpret $\cap$ as `and', $\cup$ as `or', and $^{c}$ as `not', but reme
 
 \par
 The set operations described above satisfy many laws, which together make up the \emx{algebra of sets}. Many of these laws are natural enough that there's likely no need for you to review them, for example $A \cup B = B \cup A$, or $(A^{c})^{c} = A$. However, it's probably worth reviewing \emx{DeMorgan's laws}\index{DeMorgan's Laws}. 
-\eqnspar{(A \cap B)^{c} = A^{c} \cup B^{c} \text{ \ and \ } (A \cup B)^{c} = A^{c} \cap B^{c}}
+\eqns{(A \cap B)^{c} = A^{c} \cup B^{c} \text{ \ and \ } (A \cup B)^{c} = A^{c} \cap B^{c}}
 \par 
 We'll sometimes be dealing with long finite sequences of events $\{A_1, A_2, \dots\,, A_n\}$ or infinite sequences $\{A_1, A_2, A_3, \dots\}$ (also denoted $\{A_i\}_{i=1}^{\infty}$), so it's helpful to have some notation for abbreviating unions and intersections. We'll write large unions as below, and use similar notation for large intersections.
-\eqns{\bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup  \dots \cup  A_n \text{\ \ and \ \ } \bigcup_{i=1}^{\infty} A_i = A_1 \cup  A_2 \cup  A_3 \cup  \dots }
+\eqns{\bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup  \dots \cup  A_n \text{\ \ and \ \ } \bigcap_{i=1}^{\infty} A_i = A_1 \cap  A_2 \cap  A_3 \cap  \dots }
 \par
+This notation works the same way as the usual notation for sums (sigma notation), which should be familiar from calculus.
 \begin{examp}
 In Example \ref{FlipUntilTail}, a coin is flipped until the first tail appears. If $A_k$ is the event `exactly $k$ heads are flipped', and $E$ is the event `a positive even number of heads are flipped', then $E = A_2 \cup A_4 \cup A_6 \cup \dots = \bigcup_{i=1}^{\infty} A_{2i}$.
 \end{examp}
@@ -165,7 +166,7 @@ Suppose that cards are drawn repeatedly from a deck until the first heart appear
 \par
 \noindent Note $\bigcup_{i=1}^{10}H_i$ is the event `at least one of the first ten cards drawn is a heart', so it's complement is `none of the first ten cards drawn is a heart', which is $T$.
 \par
-Let's return for a moment to rolling a pair of dice. Consider the events $N =$ `the sum of the two values showing is nine', $F =$ `one of the two dice shows a five', and $T = $ `one of the two dice shows a two'. Suppose that we roll the dice and $N$ occurs. Is it possible that $F$ also occurred? Yes. If one die shows a five and the other shows a four, then both events have occurred. What about $T$? If $N$ has occurred, it is possible that $T$ also occurred? This time the answer is no. If one of the dice shows two, the largest possible result would be eight. Thus, $N$ and $T$ cannot both occur when a pair of dice are rolled.
+Let's return for a moment to rolling a pair of dice. Consider the events $N =$ `the sum of the two values showing is nine', $F =$ `one of the two dice shows a five', and $T = $ `one of the two dice shows a two'. Suppose that we roll the dice and $N$ occurs. Is it possible that $F$ also occurred? Yes. If one die shows a five and the other shows a four, then both events have occurred. If $N$ has occurred, it is possible that $T$ also occurred? This time the answer is no. If one of the dice shows two, the largest possible result would be eight.
 \begin{definition}\label{mutuallyexclusive}\index{Mutually Exclusive Events}\index{Events!mutually exclusive}
 Two events $A$ and $B$ in a sample space $\Omega$ are mutually exclusive if $A \cap B = \emptyset$, that is, if there are no outcomes in $\Omega$ where both events occur.
 \end{definition}
@@ -253,10 +254,10 @@ In this section, we'll derive some fundamental rules of probability. It's remark
 $P(\emptyset) = 0$.
 \end{thm}
 \begin{pf} Consider $\{E_i\}_{i=1}^{\infty}$ with $E_1 = \Omega$ and $E_k = \emptyset$ for $k > 1$. This sequence is mutually exclusive, since the intersection of any set with $\emptyset$ is $\emptyset$, so by the third axiom,
-\eqnspar{P\left(\bigcup_{i=1}^{\infty}E_i \right) &= \sum_{i=1}^{\infty}P(E_i) \\
+\eqns{P\left(\bigcup_{i=1}^{\infty}E_i \right) &= \sum_{i=1}^{\infty}P(E_i) \\
 P(\Omega) &= P(\Omega) + \sum_{i=2}^{\infty} P(\emptyset) \\
 1 &= 1 + \sum_{i=2}^{\infty} P(\emptyset) \\
-0 &= \sum_{i=2}^{\infty} P(\emptyset)}
+0 &= P(\emptyset) + P(\emptyset) + P(\emptyset) + \dots} 
 \par
 \noindent Since $P(\emptyset) \geq 0$ by the first axiom, we have a sum of nonnegative terms adding up to zero. Therefore, every term in the sum must be zero, i.e. $P(\emptyset) = 0$.
 \end{pf}
@@ -394,7 +395,7 @@ Three of the results we've derived above are such fundamental ingredients in mos
 
 \section{What is a Probability?}\label{ProbInterpretationSection}
 
-The Kolmogorov axioms and the algebra of sets provide us with a mathematical model we can use to reason about the probability of various events in the world occurring. However, we never explicitly defined what is meant by stating that the probability of some event is equal to some number. What does this number really mean? In fact, there are many points of view on this philisophical question, three of the most common are described below.
+The Kolmogorov axioms and the algebra of sets provide us with a mathematical model we can use to reason about the probability of various events in the world occurring. However, we never explicitly defined what is meant by stating that the probability of some event is equal to some number. What does this number really mean? In fact, there are many points of view on this philosophical question, three of the most common are described below.
 \par
 \inbox{
 \noindent{\emx{The Classical Interpretation}}:\index{Probability! classical interpretation} In an experiment having $n$ equally likely outcomes, stating that $P(A) = \frac{k}{n}$ means simply that $A$ occurs in $k$ of these outcomes.
@@ -412,7 +413,7 @@ This interpretation defines probability as long term behaviour in a repeatable e
 \noindent{\emx{The Bayesian Interpretation}}:\index{Probability! Bayesian interpretation} Probability represents a degree of confidence in the correctness of a proposition, subject to a set of basic logical laws and to the current state of knowledge of the individual assigning the probabilities.
 }
 \par
-This is often referred to as the subjectivist interpretation, since two individuals with different states of knowledge can calculate different probabilities of the same event occurring. This may sound strange, but if one individual knows that a certain die is loaded so that rolling a six is less likely, and another doesn't, then they \emx{should} calculate different probabilities of a six being rolled. 
+This is often referred to as the subjectivist interpretation, since two individuals with different states of knowledge can assign different probabilities to the same event. This may sound strange at first, but if one individual knows that a certain die is loaded so that rolling a six is less likely, and another doesn't, then they \emx{should} be assigning that event different probabilities.
 \par
 As it turns out, this dependence on the state of knowledge of an agent can be a very desirable feature in practice, but it makes the Bayesian interpretation more conceptually complicated and subtle than the other two above.
 \par
@@ -518,7 +519,7 @@ Intuitively, if $A$ and $B$ both occur, then $A$ must occur and $B$ must occur i
 Suppose we draw two cards from a shuffled deck without replacement. What is the probability that both are hearts? 
 \par
 \noindent Let $H_1 =$ `the first card drawn is a heart' and $H_2 =$ `the second card drawn is a heart'. Then both cards are hearts when $H_1 \cap H_2$ occurs.
-\eqnspar{P(H_1 \cap H_2) = P(H_1)P(H_2 \given H_1) = \frac{13}{52}\cdot\frac{12}{51} = \frac{156}{2652} \simeq 0.059}
+\eqns{P(H_1 \cap H_2) = P(H_1)P(H_2 \given H_1) = \frac{13}{52}\cdot\frac{12}{51} = \frac{156}{2652} \simeq 0.059}
 \par
 \noindent The key point is that if $H_1$ has occurred, a heart has been removed from the deck. There are then 51 cards remaining, 12 of which are hearts, so $P(H_2 \given H_1) = \frac{12}{51}$.
 \end{examp}
@@ -561,39 +562,38 @@ As an application of these ideas, let's analyze a classic puzzle presented by Ma
 \end{enumerate}
 \par
 Answering the first question is relatively straightforward. Consider the sample space $\Omega = \{bb, bg, gb, gg\}$, the first letter representing the gender of the elder child, and the second letter representing the gender of the younger. Given no information about Mr.\,Jones' family, each outcome in this sample space is equally likely. If we let $E =$ `the elder child is a girl' and $Y =$ `the younger child is a girl', then
-\eqnspar{P(Y \given E) = \frac{P(Y \cap E)}{P(E)} = \frac{\frac{1}{4}}{\frac{1}{2}} = \frac{1}{2}.}
+\eqns{P(Y \given E) = \frac{P(Y \cap E)}{P(E)} = \frac{\frac{1}{4}}{\frac{1}{2}} = \frac{1}{2}.}
 \par
 Which agrees with intuition. The second question involving Mr.\,Smith's family is more problematic. On the one hand, we could let $A =$ `at least one child is a girl' and $B =$ `both children are girls', and calculate
-\eqnspar{P(B \given A) = \frac{P(B \cap A)}{P(A)} = \frac{\frac{1}{4}}{\frac{3}{4}} = \frac{1}{3}.}
+\eqns{P(B \given A) = \frac{P(B \cap A)}{P(A)} = \frac{\frac{1}{4}}{\frac{3}{4}} = \frac{1}{3}.}
 \par
 On the other hand, without any information, a given child is equally likely to be a boy or girl, and the fact that one child is a girl gives us no information about Mr. Smith's  \emph{other child}, so the chance that second child is a girl should still be $\frac{1}{2}$.
 \par
 Which is correct, $\frac{1}{3}$ or $\frac{1}{2}$? The key to resolving the paradox is to clarify what experiment is actually being performed. If we \emx{choose at random a family} with two children, one of which is a girl, the three possibilities $bg$, $gb$, and $gg$ are equally likely, and our calculation of $P(B \given A)$ above is correct. 
 \par
 However, if we \emx{choose at random a girl} from a family with two children, a $bg$ or $gb$ family is half as likely to be chosen as a $gg$ family, since the latter has twice as many girls! Thus, $P(\{bg\}) = P(\{gb\}) = \frac{1}{4}$, and $P(\{gg\}) = \frac{1}{2}$. In this context, the event $A =$ `at least one child is a girl' always occurs, and we can calculate
-\eqnspar{P(B \given A) = \frac{P(B \cap A)}{P(A)}  = \frac{\frac{1}{2}}{1}= \frac{1}{2}.}
+\eqns{P(B \given A) = \frac{P(B \cap A)}{P(A)}  = \frac{\frac{1}{2}}{1}= \frac{1}{2}.}
 \par
 The moral of the story is that we need to specify the experiment being performed and the source of uncertainty; in this case, the process by which Mr.\,Smith's family was chosen. When you read `Mr.\,Smith has two children', you should immediately ask who Mr.\,Smith is and how he was chosen. Without this information, the second question is ambiguous.
 
 \subsection*{Extending the Intersection Law}
 
 We've derived the intersection law $P(A \cap B) = P(A) P(B \given A)$ from the definition of conditional probability. It's worth noting that this law generalizes to intersections of any number of events,
-\eqnspar{P(A_1 \cap A_2 \cap A_3 \cap \dots) = P(A_1) P(A_2 \given A_1) P(A_3 \given A_1 \cap A_2)\, \cdots }
+\eqns{P(A_1 \cap A_2 \cap A_3 \cap \dots) = P(A_1) P(A_2 \given A_1) P(A_3 \given A_1 \cap A_2)\, \cdots }
 \par
 \noindent where each factor on the right is the conditional probability of $A_i$ calculated under the assumption that all prior events in the sequence have occurred.
 \begin{examp}
 What is the probability that when we draw four cards from a deck without replacement, all four cards are different suits?
 \par
 \noindent Let $D_i =$ `the $i^{th}$ card is a different suit from all those cards the came before', then $P(D_1) = 1$, since no cards were drawn before the first, and we calculate
-\eqns{P(D_1 \cap D_2 \cap D_3 \cap D_4) &= P(D_1)P(D_2 \given D_1)P(D_3 \given D_1 \cap D_2)P(D_4 \given D_1 \cap D_2 \cap D_3) \\
+\eqnsgap{P(D_1 \cap D_2 \cap D_3 \cap D_4) &= P(D_1)P(D_2 \given D_1)P(D_3 \given D_1 \cap D_2)P(D_4 \given D_1 \cap D_2 \cap D_3) \\
 &= 1 \cdot \frac{39}{51} \cdot \frac{26}{50} \cdot \frac{13}{49} \simeq 0.1055}
-
 \end{examp}
 \begin{examp}
 Suppose that seven lightbulbs are in a box, but only two work. Bob will randomly select lightbulbs one at a time and test them. What is the probability he'll find both working lightbulbs after exactly three tests?
 \par
 \noindent Let $W_i =$ `the $i^{th}$ lightbulb tested works'. Then we need $W_3$ to occur, and one of $W_1$ and $W_2$. If $W_1$ and $W_2$ both occur then Bob will be finished after only two tests.
-\eqns{&P((W_1 \cap {W_2}^c \cap W_3) \cup ({W_1}^c \cap W_2 \cap W_3)) \\
+\eqnsgap{&P((W_1 \cap {W_2}^c \cap W_3) \cup ({W_1}^c \cap W_2 \cap W_3)) \\
 &= P(W_1 \cap {W_2}^c \cap W_3) + P({W_1}^c \cap W_2 \cap W_3) \\
 &= P(W_1)P({W_2}^c \given W_1)P(W_3 \given W_1 \cap {W_2}^c) + P({W_1}^c)P(W_2 \given {W_1}^c)P(W_3 \given {W_1}^c \cap W_2) \\
 &= \frac{2}{7}\cdot\frac{5}{6}\cdot\frac{1}{5} + \frac{5}{7}\cdot\frac{2}{6}\cdot\frac{1}{5} = \frac{10}{210} + \frac{10}{210} \simeq 0.095}
