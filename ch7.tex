@@ -52,42 +52,42 @@ P\left(\left|\frac{X_1 + X_2 + \, \cdots \, + X_n}{n} - \mu \right| \geq \epsilo
 \noindent To complete the argument, observe that $\frac{\sigma^2}{\epsilon^2n}$ approaches zero as $n \to \infty$.
 \end{pf}
 \par
-The results concerning the mean and standard deviation of $\overline{X}$ we obtained before applying Chebyshev's Inequality are significant in their own right, so we'll restate them below.
+The results concerning the mean and standard deviation of $\overline{X}$ we obtained before applying Chebyshev's Inequality are significant and useful in their own right, so we'll restate them below.
 \begin{cor}\label{StandardErrorOfMean} Suppose $X_1, X_2, \dots\, , X_n$ is a SRS drawn from a population with mean $\mu$ and standard deviation $\sigma$, and let $\xbar = \frac{X_1+ X_2+ \cdots + X_n}{n}$. The mean and standard deviation of the sampling distribution of $\xbar$ are given by
 \eqnsgap{\boxed{\ \muxbar = \mu \qquad \sigmaxbar = \frac{\sigma}{\sqrt{n}}\ }}
 \end{cor}
 \par
-The strong law of large numbers, given below, is also a statement that the mean of a SRS will converge to the population mean as the sample size approaches infinity, but the notion of convergence is slightly different. This alternate formulation is more difficult to prove, but can be easier to apply.
+%The strong law of large numbers, given below, is also a statement that the mean of a SRS will converge to the population mean as the sample size approaches infinity, but the notion of convergence is slightly different. This alternate formulation is more difficult to prove, but can be easier to apply.
 
-\begin{thm} (Strong Law of Large Numbers) Suppose that $X$ is a random variable with mean $\mu$. If $X_1, X_2, \dots \, , X_n$ is a SRS of values of $X$ taken with replacement, then
-\eqnsgap{P\left( \lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n} = \mu \right) = 1}
-\end{thm}
+%\begin{thm} (Strong Law of Large Numbers) Suppose that $X$ is a random variable with mean $\mu$. If $X_1, X_2, \dots \, , X_n$ is a SRS of values of $X$ taken with replacement, then
+%\eqnsgap{P\left( \lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n} = \mu \right) = 1}
+%\end{thm}
 
-\par
-One of the more entertaining consequences of the strong law of large numbers is the classic result below.
+%\par
+%One of the more entertaining consequences of the strong law of large numbers is the classic result below.
 
-\begin{examp} (Infinite Monkey Theorem) If an immortal monkey at a typewriter presses keys at random for eternity, show that the monkey will eventually produce the complete works of Shakespeare.
+%\begin{examp} (Infinite Monkey Theorem) If an immortal monkey at a typewriter presses keys at random for eternity, show that the monkey will eventually produce the complete works of Shakespeare.
+%\par
+%\noindent Consider the infinite sequence of keys the monkey types. Break that sequence up into infinitely many disjoint blocks of length $N$, where $N$ is the number of key presses required to produce the complete works of Shakespeare. Let $A_i$ be the event `the $i^{th}$ block of length $N$ is an exact reproduction of the complete works of Shakespeare', and let $X_i$ be a random variable defined by
+%\eqns{X_i = \left\{
+%\begin{array}{cl}
+%      1 & \text{if } A_i \text{\ occurs}  \\
+%      0 & \text{if } A_i \text{\ doesn't occur} \\ \end{array}
+%\right.}
+%\par
+%\noindent Assuming the monkey selects each key uniformly at random, without any regard to previous choices, we have $P(X_i = 1) = (\frac{1}{k})^N$ and $P(X_i = 0) = 1 - (\frac{1}{k})^N$, where $k$ is the number of keys on the typewriter. Furthermore, the events $A_1, A_2, \dots \,, A_n$ form an independent sequence since the blocks of length $N$ do not overlap.
+%\par
+%\noindent Therefore, the random variables $X_i$ are independent and identically distributed. In other words, they form a SRS of $n$ values from a random variable $X$ which takes value one with probability $(\frac{1}{k})^N$ and zero with probability $1 - (\frac{1}{k})^N$.
+%\par
+%\noindent The expected value of $X$ is $\mu = E(X) = 1 \cdot (\frac{1}{k})^N + 0 \cdot (1- (\frac{1}{k})^N) = (\frac{1}{k})^N$. Thus, by the strong law of large numbers,
+%\eqns{P\left(\lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n} = \left(\frac{1}{k}\right)^N \right) = 1}
+%\par
+%\noindent Note that $\left(\frac{1}{k}\right)^N \neq 0$, so with probability one, $\lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n}$ is not zero. This means that the sum $X_1+X_2+\,\cdots\,+X_n \to \infty$ as $n \to \infty$, since if this sum was bounded by some constant $c$, then $\frac{X_1+X_2+\,\cdots\,+X_n}{n} \leq \frac{c}{n} \to 0$. Therefore, we have $X_i = 1$ for infinitely many $i$, so with probability one, not only will the monkey produce the complete works of Shakespeare, it will do so infinitely many times!
+%\end{examp}
 \par
-\noindent Consider the infinite sequence of keys the monkey types. Break that sequence up into infinitely many disjoint blocks of length $N$, where $N$ is the number of key presses required to produce the complete works of Shakespeare. Let $A_i$ be the event `the $i^{th}$ block of length $N$ is an exact reproduction of the complete works of Shakespeare', and let $X_i$ be a random variable defined by
-\eqns{X_i = \left\{
-\begin{array}{cl}
-      1 & \text{if } A_i \text{\ occurs}  \\
-      0 & \text{if } A_i \text{\ doesn't occur} \\ \end{array}
-\right.}
+The law of large numbers is frequently misunderstood. Consider a scenario in which a fair coin is repeatedly flipped. The law of large numbers implies that as the number of flips grows larger and larger, the proportion of heads will converge to $\frac{1}{2}$. Explicitly, for any fixed positive value $\epsilon$, no matter how small, the probability that a sample of $n$ flips has a proportion of heads outside the interval $(\frac{1}{2}-\epsilon, \frac{1}{2}+\epsilon)$ approaches zero as $n$ grows larger and larger.
 \par
-\noindent Assuming the monkey selects each key uniformly at random, without any regard to previous choices, we have $P(X_i = 1) = (\frac{1}{k})^N$ and $P(X_i = 0) = 1 - (\frac{1}{k})^N$, where $k$ is the number of keys on the typewriter. Furthermore, the events $A_1, A_2, \dots \,, A_n$ form an independent sequence since the blocks of length $N$ do not overlap.
-\par
-\noindent Therefore, the random variables $X_i$ are independent and identically distributed. In other words, they form a SRS of $n$ values from a random variable $X$ which takes value one with probability $(\frac{1}{k})^N$ and zero with probability $1 - (\frac{1}{k})^N$.
-\par
-\noindent The expected value of $X$ is $\mu = E(X) = 1 \cdot (\frac{1}{k})^N + 0 \cdot (1- (\frac{1}{k})^N) = (\frac{1}{k})^N$. Thus, by the strong law of large numbers,
-\eqns{P\left(\lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n} = \left(\frac{1}{k}\right)^N \right) = 1}
-\par
-\noindent Note that $\left(\frac{1}{k}\right)^N \neq 0$, so with probability one, $\lim_{n \to \infty} \frac{X_1+X_2+\,\cdots\,+X_n}{n}$ is not zero. This means that the sum $X_1+X_2+\,\cdots\,+X_n \to \infty$ as $n \to \infty$, since if this sum was bounded by some constant $c$, then $\frac{X_1+X_2+\,\cdots\,+X_n}{n} \leq \frac{c}{n} \to 0$. Therefore, we have $X_i = 1$ for infinitely many $i$, so with probability one, not only will the monkey produce the complete works of Shakespeare, it will do so infinitely many times!
-\end{examp}
-\par
-The law of large numbers is frequently misunderstood. Consider a scenario in which a fair coin is repeatedly flipped. The law of large numbers states that as the number of flips grows larger and larger, the proportion of heads will converge to $\frac{1}{2}$ with probability one.
-\par
-If the first five flips all result in tails, it might seem reasonable to use the law of large numbers to argue that the coin is `due for heads', and so heads must now be more likely than tails, since the proportion of heads must converge to $\frac{1}{2}$. This is known as the gambler's fallacy\index{Gambler's Fallacy}.
+If the first five flips all result in tails, it might seem reasonable to use the law of large numbers to argue that the coin is `due for heads', and so heads must now be more likely than tails, since the proportion of heads is approaching $\frac{1}{2}$. This is known as the \emph{gambler's fallacy}\index{Gambler's Fallacy}.
 \par
 The key point is that as the number of flips grows very large, the influence of the first five flips on the proportion of heads becomes less and less significant. Suppose that after the first five flips, all of which are tails, heads and tails simply alternate, beginning with heads. After ten flips, the proportion of heads is $\frac{3}{10} = 30\%$, after one hundred flips, it's $\frac{48}{100} = 48\%$, and after one thousand flips, it's $\frac{498}{1000} = 49.8\%$. The coin does not need to become biased towards heads to bring the proportion of heads closer to $\frac{1}{2}$. After many flips, the initial streak of five tails simply becomes less and less significant.
 
@@ -245,19 +245,21 @@ It's not a coincidence that this occurred in our particular example. In fact, th
 \end{thm}
 \par
 The conclusion of this theorem is written here in very informal language. To make it more precise, we would need to decide on a way to measure the difference between two random variables, so the theorem above could state that this difference vanishes as $n \to \infty$. For details see \cite{Bertsekas} or \cite{DevoreBerk}.
+\par
+We will write $Y \sim AN(\mu,\sigma)$ to indicate a random variable $Y$ has a distribution which is approximately normal with mean $\mu$ and standard deviation $\sigma$. This way, the conclusion of the central limit theorem can be written simply as $\xbar \sim AN(\mu,\frac{\sigma}{\sqrt{n}})$, where $\mu$ and $\sigma$ are the mean and standard deviation of the distribution our sample was drawn from.
 
 \begin{examp}\label{CLTExamp}Twenty numbers in the interval $[0,1]$ are independently chosen uniformly at random. What is the probability their sum is higher than eight?
 \par
 \noindent In order to use the central limit theorem, we need to formulate this question in terms of the mean of a sample. In this case, we have a sample of $n=20$ values drawn from $X \sim Uniform([0,1])$. Observe that
-\eqns{X_1 + X_2 + \cdots + X_{20} > 8 \ \ \rightarrow \ \  \frac{X_1 + X_2 + \cdots + X_{20} }{20} > \frac{8}{20} = \frac{2}{5}.}
+\eqnsgap{X_1 + X_2 + \cdots + X_{20} > 8 \ \ \rightarrow \ \  \frac{X_1 + X_2 + \cdots + X_{20} }{20} > \frac{8}{20} = \frac{2}{5}.}
 \par
 \noindent Thus, to answer this question, we need to find the probability of obtaining a sample of twenty values with a mean $\xbar$ higher than $\frac{2}{5}$. Using Corollary \ref{StandardErrorOfMean} and Proposition \ref{UniformVariance} The mean and standard deviation of $\xbar$ are given by
-\eqns{\muxbar = \mu = \frac{1}{2} \ \  \text{and} \ \  \sigmaxbar = \frac{\sigma}{\sqrt{n}} = \frac{\sqrt{\frac{1}{12}(1-0)^2}}{\sqrt{20}} = \frac{1}{\sqrt{240}} \simeq 0.0645}
+\eqnsgap{\muxbar = \mu = \frac{1}{2} \ \  \text{and} \ \  \sigmaxbar = \frac{\sigma}{\sqrt{n}} = \frac{\sqrt{\frac{1}{12}(1-0)^2}}{\sqrt{20}} = \frac{1}{\sqrt{240}}}
 \par
-\noindent The central limit theorem states that the distribution of $\xbar$ can be approximated by $Normal(0.5, 0.0645)$, so the probability of obtaining a sample with $\xbar$ higher than $\frac{2}{5} = 0.4$ can be calculated as follows.
-
-\eqns{z = \frac{\xbar - \muxbar}{\sigmaxbar} = \frac{0.4 - 0.5}{0.0645} = \frac{-0.1}{0.0645} \simeq -1.55}
-
+\noindent The central limit theorem states that the distribution of $\xbar$ can be approximated by $Normal(\frac{1}{2}, \frac{1}{\sqrt{240}})$, or more concisely, $\xbar \sim AN(\frac{1}{2}, \frac{1}{\sqrt{240}})$.
+\par
+\noindent Now the probability of obtaining a sample with $\xbar$ higher than $\frac{2}{5}$ can be calculated (approximately) using a normal distribution by standardizing and using a $Z$-table.
+\eqns{z = \frac{\xbar - \muxbar}{\sigmaxbar} = \frac{\frac{2}{4} - \frac{1}{2}}{\frac{1}{\sqrt{240}}} \simeq -1.55}
 \vspace{-1em}
 \begin{center}
     \begin{minipage}{.5\textwidth}
@@ -277,7 +279,7 @@ The conclusion of this theorem is written here in very informal language. To mak
 \end{minipage}
 \end{center}
 \par
-\noindent Note that the central limit theorem does not tell us how closely the distribution of $\xbar$ is approximated by $Normal(0.5,0.0645)$. Let's take ten thousand samples and plot the resulting sampling distribution for $\xbar$, along with the normal distribution given by the central limit theorem.
+\noindent Note that the central limit theorem does not tell us how accurate the approximation of the distribution of $\xbar$ by a normal distribution is, just that it will be more accurate for larger sample sizes. Let's take ten thousand samples and plot the resulting sampling distribution for $\xbar$, along with the approximating normal distribution given by the central limit theorem.
 \par
 \noindent
 If the two distributions match well, then we'll know that our answer above is fairly accurate. If the sampling distribution is still far from being normal, then we'll have to disregard our answer.
@@ -294,13 +296,14 @@ The distribution of $\xbar$ for samples of size twenty drawn from $X \sim Unifor
 
 \subsection*{Sample Size}
 
-The central limit theorem states that the sampling distribution of $\xbar$ will eventually become well approximated by a normal distribution once the sample size is large enough, but how large must our sample be so that when we use a normal distribution for calculations, as in the example above, our probability estimates will be accurate?
+The central limit theorem states that the sampling distribution of $\xbar$ will eventually become well approximated by a normal distribution once the sample size is large enough. How large must our sample be so that when we use a normal distribution for calculations, as in the example above, our probability estimates will be accurate?
 \par
 The answer varies with the population distribution. Symmetric population distributions with thin tails (which decay exponentially) often yield sampling distributions for $\xbar$ which are very close to normal even for single digit sample sizes, while asymmetric population distributions with fat tails (which decay polynomially) can result in sampling distributions for $\xbar$ which don't look normal until the sample size becomes extremely large.
 \par
 As a rule of thumb, we'll use the guidelines below to determine if the sampling distribution of $\xbar$ is sufficiently close to normal that we can justify approximating it by a normal distribution.
 \vspace{-0.5em}
 \begin{enumerate}[(i)]
+\setlength{\itemsep}{0pt}
 \item If the population distribution is normal, any sample size is fine.
 \item If the population distribution is roughly symmetric and not fat-tailed, $n \geq 30$.
 \item If the population distribution is significantly skewed or fat-tailed, $n \geq 50$.
@@ -308,16 +311,16 @@ As a rule of thumb, we'll use the guidelines below to determine if the sampling 
 \par
 There is nothing mathematically significant about these values, or similar values you'll find in other texts. We're simply establishing a clear (yet arbitrary) baseline. 
 \par
-In practice, to convince themselves the sampling distribution of $\xbar$ is sufficiently close to a normal distribution for a given sample size $n$, statisticians could either rigorously derive error bounds from some assumptions on the form of the population distribution, or use statistical software to take large numbers of samples from an educated guess at the population distribution and approximate the sampling distribution empirically, as was done to generate the graphics at the beginning of this section.
+In practice, to convince themselves the sampling distribution of $\xbar$ is sufficiently close to a normal distribution for a given sample size $n$, statisticians could either rigorously derive error bounds from some known properties of the population distribution, or use statistical software to take many samples from an educated guess at the population distribution and approximate the sampling distribution empirically, as was done to generate the graphics at the beginning of this section.
 \begin{examp}
 If a biased coin with a 55\% probability of heads is flipped thirty times, what is the probability that the number of heads observed in this sample is less than the number of tails?
 \par
 \noindent If we call a head a success, then we have a sample of 30 values $X_1,X_2\,\dots\,,X_{30}$ from $X \sim Bernoulli(0.55)$. If more tails than heads were observed, this means that more than half of the $X_i$ are zeros, so $\xbar = \frac{X_1 + X_2 + \cdots + X_{30}}{30} < \frac{15}{30} =0.5$.
 \par
-\noindent Note $X \sim Bernoulli(0.55)$ is roughly symmetric, so by the central limit theorem, the distribution of $\xbar$ is approximately normal for samples of $n = 30$ observations. The mean and standard deviation of the sampling distribution are given by 
+\noindent The mean and standard deviation of the sampling distribution of $\xbar$ are given by 
 \eqns{\muxbar = \mu = 0.55 \ \ \text{and} \ \  \sigmaxbar = \frac{\sigma}{\sqrt{n}} = \frac{\sqrt{p(1-p)}}{\sqrt{n}} = \frac{\sqrt{0.2475}}{\sqrt{30}} \simeq 0.091}
 \par
-\noindent Now we can calculate the probability of obtaining a sample mean $\xbar < 0.5$.
+\noindent Note $X \sim Bernoulli(0.55)$ is roughly symmetric, and our sample size is $n = 30$, so by the central limit theorem, $\xbar \sim AN(0.55,0.091)$. Now we can calculate (approximately) the probability of obtaining a sample mean $\xbar < 0.5$.
 
 \eqns{z = \frac{\xbar - \muxbar}{\sigmaxbar} = \frac{0.5 - 0.55}{0.091} = \frac{-0.05}{0.091} \simeq -0.549}
 
@@ -342,18 +345,18 @@ Therefore, there is a $29\%$ chance our sample will have more tails than heads. 
 \end{examp}
 
 \par
-Note that in the example above, if we let $Y$ be the number of heads in 30 flips, then $Y \sim Binomial(30,0.55)$, so we can obtain a more accurate answer (in a more elementary but more tedious way) by evaluating
+Note that in the example above, if we let $Y$ be the number of heads in 30 flips, then $Y \sim Binomial(30,0.55)$, so we can obtain a more accurate answer (in a more elementary but very tedious way) by evaluating
 \eqns{P(0 \leq Y \leq 14) = \sum_{k=0}^{14}P(Y = k) = \sum_{k=0}^{14}\binom{30}{k}(0.55)^{k}(0.45)^{30-k} \simeq 0.23.}
 \par
-So our answer above is off by about $6\%$. The vast majority of this error is not in fact due to the use of a normal distribution as an approximation, but simply to the translation from discrete to continuous values of $\xbar$. We used the central limit theorem to calculate the probability $\xbar < 0.5 = \frac{15}{30}$, but values between $\xbar = \frac{14}{30}$ and $\xbar = \frac{15}{30}$ never occur since thirty flips always result in a whole number of heads. In the former case, there are more tails than heads, and in the latter case there aren't.
+So our answer above is off by about $6\%$. The vast majority of this error is not in fact due to the use of a normal distribution as an approximation, but simply to the translation from discrete to continuous values of $\xbar$. We used the central limit theorem to calculate the probability $\xbar < 0.5 = \frac{15}{30}$ using a continuous distribution (a normal distribution), but values between $\xbar = \frac{14}{30}$ and $\xbar = \frac{15}{30}$ never occur since thirty flips always result in a whole number of heads. In the former case, there are more tails than heads, and in the latter case there aren't.
 \par
-If we split the difference and use $\xbar = \frac{14.5}{30}$ in our calculations with the central limit theorem, we will in fact arrive at the same answer we obtained just above, $23\%$. This modification is often referred to as a \index{Continuity Correction}\emph{continuity correction}.
+If we split the difference and use $\xbar = \frac{14.5}{30}$ in our $z$-score calculation, we will in fact arrive at the same answer we obtained just above, $23\%$. This modification is often referred to as a \index{Continuity Correction}\emph{continuity correction}.
 
 \section{Confidence Interval for a Mean}\label{ConfIntervalMeanSec}
 
-Now let's put the Central Limit Theorem to work. We're interested in knowing the average age of students at Champlain College. To estimate this quantity, we take a random sample of 50 students and record their ages. It turns out that the mean age of students in the sample is $18.3$ years.
+Now let's put the central limit theorem to work. We're interested in knowing the average age of students at Champlain College. To estimate this quantity, we take a random sample of 50 students and record their ages. It turns out that the mean age of students in the sample is $18.3$ years.
 \par
-The sample mean, $\littlexbar = 18.3$, is a value of the random variable $\xbar$. Since the sample is a random sample of a sufficiently large size, the Central Limit Theorem tells us that the distribution of $\xbar$ is $Normal(\muxbar, \sigmaxbar)$. Standardizing the sample mean we observed yields
+The sample mean, $\littlexbar = 18.3$, is a value of the random variable $\xbar$. Since the sample is a random sample of a sufficiently large size, the central limit theorem tells us $\xbar \sim AN(\muxbar, \sigmaxbar)$. Standardizing the sample mean we observed yields
 $$z = \frac{\overline{x} - \muxbar}{\sigmaxbar} = \frac{18.3 - \muxbar}{\sigmaxbar}.$$
 Now suppose we happen to know that the standard deviation for ages of students at Champlain College is $2.7$ years. The mean and standard deviation of $\xbar$ are (by Corollary \ref{StandardErrorOfMean}) $\muxbar = \mu$ and $\sigmaxbar = \sigma / \sqrt{n} = 2.7 / \sqrt{50} \simeq 0.381$.
 $$z = \frac{\overline{x}  - \muxbar}{\sigmaxbar} = \frac{18.3 - \muxbar}{\sigmaxbar} = \frac{18.3 - \mu}{0.381}$$
@@ -365,7 +368,7 @@ We've seen that about $95\%$ of all values of $Z$ fall into the interval $(-2, 2
 17.538 < \mu < 19.062.
 \end{gather*}
 \par
-This range of values is called a \index{Confidence Interval}confidence interval for the parameter $\mu$, which in this case represents the mean age of all students at Champlain College. We can't determine the exact value of $\mu$ without collecting information from every single student. However, from a random sample of only fifty students, we can assert that $17.5 < \mu < 19.1$ with 95\% confidence.
+This range of values is called a \index{Confidence Interval}confidence interval for the parameter $\mu$, which in this case represents the mean age of all students at Champlain College. We can't determine the exact value of $\mu$ without collecting information from every single student. However, from a single random sample of fifty students, we can assert that $17.5 < \mu < 19.1$ with 95\% confidence.
 \par
 Confidence intervals are so useful and pervasive in applications of statistics, it's worth our while to set up some terminology to make constructing them as fast and simple as possible.
 \par
@@ -407,18 +410,18 @@ If we follow through the calculation we made in the introduction to this section
 \frac{\sigma}{\sqrt{n}}.
 \end{gather*}
 \par
-Note that this calculation only makes sense when $\overline{X}$ is normally distributed, but the Central Limit Theorem tells us this is indeed the case as long as our sample is a SRS of a sufficiently large size. The quantity we add to and subtract from $\overline{X}$ in the last line is called the margin of error.
+This result here is only justified when $\overline{X}$ is normally distributed, but the central limit theorem tells assures us that as long as our data comes from random sample of a sufficiently large size, we can act as if that's the case. The quantity we add to and subtract from $\overline{X}$ in the last line is called the margin of error.
 \begin{defn}\index{Margin of Error} Given a SRS of $n$ values drawn from any distribution and a confidence level $C \in (0,1)$, the margin of error for $\overline{X}$ at confidence level $C$ is 
 $$\boxed{E = z^* \frac{\sigma}{\sqrt{n}}}$$
 \end{defn}
 \par
-This value represents the largest possible gap between a sample mean $\overline{X}$ and the population mean $\mu$ that is observed at the confidence level $C$. For example, if $E = 2.2$ when $C = 0.9$, this means there is a $90\%$ probability that a SRS has a mean which differs from the true population mean by less than $2.2$.
+This value represents the largest possible gap between a sample mean $\overline{X}$ and the population mean $\mu$ that is observed at the confidence level $C$. For example, if $E = 2.2$ when $C = 0.9$, this means there is a $90\%$ probability that a SRS has a mean which differs from the population mean by less than $2.2$.
 \par
-With our definitions established, we can describe the procedure for constructing a confidence interval for a population mean $\mu$ based on any SRS of $n$ values with sample mean $\overline{X}$ in three steps.
+With these definitions established, we can describe the procedure for constructing a confidence interval for a population mean $\mu$ based on a SRS of $n$ values with mean $\overline{X}$ in three steps.
 \begin{enumerate}[(i)]
+\setlength{\itemsep}{0pt}
 \item Find the critical value $z^*$ for the desired confidence level $C$.
 \item Compute the margin of error $E$.
-\vspace*{-0.02in}
 \item The confidence interval is given by $\xbar - E < \mu < \xbar + E$.
 \end{enumerate}
 \begin{example} 
@@ -576,7 +579,7 @@ In practice, Bessel's correction is used almost universally. Try calculating the
 \par
 If we use the sample standard deviation, $s$, to estimate the standard deviation in our population, $\sigma$, then when we standardize a sample mean $\xbar$, instead of the standardized value
 $$\frac{\overline{X} - \muxbar}{\sigmaxbar} = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}, \ \ \text{we'll have the estimate} \ \ \frac{\overline{X} - \muxbar}{\sigmaxbar} \simeq \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}.$$
-Our construction of a confidence interval for the population mean $\mu$ was justified by the Central Limit Theorem, which tells us the distribution of the quantity on the left approaches $Z \sim Normal(0,1)$ as the sample size $n$ grows (and is exactly equal to $Z \sim Normal(0,1)$ when the population distribution is normal). But what about our estimate on the right? If we repeatedly draw samples and calculate this value, what kind of distribution will we obtain?
+Our construction of a confidence interval for the population mean $\mu$ was justified by the central limit theorem, which tells us the distribution of the quantity on the left approaches $Z \sim Normal(0,1)$ as the sample size $n$ grows (and is exactly equal to $Z \sim Normal(0,1)$ when the population distribution is normal). But what about our estimate on the right? If we repeatedly draw samples and calculate this value, what kind of distribution will we obtain?
 \par
 \begin{defn}\label{TDistDef}\index{T-distribution} Suppose we draw a SRS $X_1, X_2, \, \dots \, , X_n$ from a normally distributed population with mean $\mu$, and define the $T$-score of the sample as
 $$T = \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}$$
@@ -651,7 +654,7 @@ $$21.3-1.343 < \mu < 21.3+1.343 \ \ \rightarrow \ \ 19.957 < \mu < 22.643.$$
 Therefore, with $90\%$ confidence, the mean height of all mature trees of this species in the park is between $19.9$ and $22.7$ metres.
 \end{examp}
 \par
-In examples like the one above, where the distribution our sample is drawn from is somewhat bell-shaped, without fat tails (think about what kind of shape the distribution of heights of mature trees might have), confidence intervals constructed using the $T$-distribution are typically very accurate for all but extremely small sample sizes.
+In contexts like this, where we can confidently assume the distribution our sample is drawn from is somewhat bell-shaped, and without fat tails, the $T$-distribution confidence interval procedure should hit very close to its target error rate (that is, 90\% of the intervals constructed at the 90\% confidence level should contain $\mu$) for all but very small sample sizes.
 
 
 
