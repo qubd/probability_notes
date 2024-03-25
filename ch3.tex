@@ -1075,7 +1075,7 @@ The probability that none of the first three cards is a face card is $P(X > 3)$,
 \eqnsgap{P(X > 3) &= 1 - \sum_{x=1}^{3}P(X = x) = 1 - \frac{12}{52} - \frac{40}{52}\cdot\frac{12}{52} - \frac{40}{52}\cdot\frac{40}{52}\cdot\frac{12}{52} \simeq 0.455}
 \end{examp}
 \par
-In this example we could have made efficient use of the cdf to quickly calculate this probability. Let's write down the cdf for a geometric random variable so we can do this in the future. The proof is left as an exercise.
+In this example we could have made efficient use of the cdf to quickly calculate this probability. Let's write down the cdf for a geometric random variable so we can do this in the future. The proof is left as an exercise, but the idea is to note that $P(X \leq x) = 1 - P(X > x)$, and for any positive integer $x$, the event $X>x$ means that all of the first $x$ trials resulted in failure.
 
 \begin{prop}
 If $X \sim Geometric(p)$, the cdf of $X$ is given by the expression below, where $\lfloor x \rfloor$ denotes the largest integer smaller than or equal to $x$.
@@ -1103,13 +1103,13 @@ If $X \sim Geometric(p)$, the cdf of $X$ is given by the expression below, where
 %\noindent If $x$ is not an integer, but is greater than 1, then $F_X(x) = F_X(\lfloor x \rfloor)$ since the random variable $X$ can take only positive integer values.
 %\end{pf}
 
-\par In Example \ref{GeoCards} above, $X \sim Geometric(\frac{12}{52})$, so $F_X(x) = 1 - (1-\frac{12}{52})^{x}$ for all integers $x > 1$. We could obtain the result in that example via
-\eqns{P(X > 3) = 1 - P(X \leq 3) = 1 - F_X(3) =1 - \left( 1 - \left(1 - \left(\textstyle\frac{12}{52}\right)\right)^3\right) \simeq 0.455.}
+\par In Example \ref{GeoCards} above, $X \sim Geometric(\frac{12}{52})$, so $F_X(x) = 1 - (1-\frac{12}{52})^{x}$ for all integers $x \geq 1$. We could obtain the result in that example via
+\eqnsgap{P(X > 3) = 1 - P(X \leq 3) = 1 - F_X(3) =1 - \left( 1 - \left(1 - \textstyle\frac{12}{52}\right)^3\right) \simeq 0.455.}
 
 \begin{thm}\label{GeometricExpectation}\index{Geometric Distribution!expected value of}\index{Geometric Distribution!variance of}
 If $X \sim Geometric(p)$, then $E(X) = \frac{1}{p}$ and $\Var(X) = \frac{1-p}{p^2}$.
 \end{thm}
-\begin{pf} The expected value can be calculated with clever use of derivatives. From the definition of expected value and the pmf of $X$,
+\begin{pf} The expected value can be calculated with the tail sum formula, but here we'll use a clever trick with derivatives that can be applied to obtain the variance as well.
 \eqns{E(X) &= \sum_{x =1}^{\infty} x f_X(x) = \sum_{x =1}^{\infty} x(1-p)^{x-1}p = p\sum_{x =1}^{\infty} x(1-p)^{x-1}.}
 \par
 \noindent Observe that $\frac{d}{dp}(1-p)^x = x(1-p)^{x-1}(-1)$ and hence $\frac{d}{dp}(1-p)^x(-1) = x(1-p)^{x-1}$, regarding $p$ as a variable and $x$ as a constant. We can therefore rewrite the sum as
