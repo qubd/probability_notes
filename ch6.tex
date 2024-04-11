@@ -53,7 +53,7 @@ The sampling distribution of a statistic, over samples of size $n$, is the distr
 
 \begin{center}
 \begin{tabular}{c|c|c|c}
-Sample & $x_1$ & $x_2$ & $\overline{X}$ \\
+Sample & $X_1$ & $X_2$ & $\overline{X}$ \\
 \hline
 A,A & $12$ & $12$ & $12$ \\
 A,B & $12$ & $16$ & $14$ \\
@@ -194,7 +194,7 @@ The concept of bias is fairly intuitive. Suppose you estimate the average age of
 \begin{minipage}{0.5\textwidth}
 \centering
 \begin{tabular}{c|c|c|c}
-$x_1$ & $x_2$ & $\,\widehat{\theta}_1\,$ & $\,\widehat{\theta}_2\,$ \\
+$X_1$ & $X_2$ & $\,\widehat{\theta}_1\,$ & $\,\widehat{\theta}_2\,$ \\
 \hline
 $1$ & $1$ & $1$ & $1$ \\
 $1$ & $2$ & $2$ & $2$ \\
@@ -350,6 +350,24 @@ Var(\widehat{\theta}_1) &= \textstyle\frac{55}{64}.}
 \noindent Since $\widehat{\theta}_2$ is unbiased, $\text{MSE}(\widehat{\theta}_2) = \Var(\widehat{\theta}_2)$ by Theorem \ref{BiasVarianceDecomp}, so $\Var(\widehat{\theta}_2) = \frac{40}{16}$. Note that $\widehat{\theta}_1$ is the estimator with the lower $\text{MSE}$ despite the fact that it's biased.
 \end{examp}
 
+\begin{thm}\label{BiasVarianceSampleMean}\label{StandardErrorOfMean}\index{Standard Error of the Mean}
+If $\overline{X} = \frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)$ is the mean of a SRS taken from a distribution with mean $\mu$ and variance $\sigma^2$, then $E(\overline{X}) = \mu$, and $\Var(\overline{X}) = \frac{\sigma^2}{n}$.
+\end{thm}
+\begin{pf} Using linearity of expectation and properties of variance,
+\eqns{E(\xbar) &= E\left(\frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)\right) \\
+&= \frac{1}{n}(E(X_1)+E(X_2)+\,\cdots\,+E(X_n))  \\
+&= \frac{1}{n}(n\mu) = \mu}
+\par
+\eqns{\Var(\xbar) &= \Var\left(\frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)\right) \\
+&= \frac{1}{n^2}\Var(X_1 + X_2 + \, \cdots \, + X_n) \\
+&=\frac{1}{n^2}(\Var(X_1) + \Var(X_2) + \, \cdots \, + \Var(X_n)) \\
+&=\frac{1}{n^2}(n\sigma^2) = \frac{\sigma^2}{n}}
+\end{pf}
+
+Intuitively, we would expect that the mean of a random sample would give a good estimate of the mean of the population the sample was drawn from. The result above shows that indeed, this estimator is unbiased.
+\par
+Notice that as $n$ grows, $\Var(\overline{X}) = \frac{\sigma^2}{n}$ decreases. This is what we should expect. The larger the sample size, the narrower the sampling distribution of $\overline{X}$, that is, the mean of a larger sample gives a better estimate of $\mu$. We now have a precise statement that formalizes this intuition.
+
 \section{Maximum Likelihood Estimation}
 
 One strategy for estimating a parameter from sample data is to determine the value that makes the observed sample as likely as possible to occur. If I told you that in a sample of $50$ flips of a biased coin, $40$ heads and $10$ tails occurred, then $\frac{40}{50} = 0.8$ clearly seems like the best guess you could make for the probability of heads on a single flip of that coin. This value is called a maximum likelihood estimate\index{Maximum Likelihood Estimator}.
@@ -463,7 +481,7 @@ Another useful fact concerning maximum likelihood estimation is that if one para
 \par
 \noindent For a Bernoulli distribution, $\sigma = \sqrt{p(1-p)}$ by Theorem \ref{BernoulliExpectation}, so if we can find the maximum likelihood estimator for $p$, then $\widehat{\sigma}_{MLE} = \sqrt{\widehat{p}_{MLE}(1-\widehat{p}_{MLE})}$. 
 \par
-\noindent Note that in a SRS with values $x_1, x_2, \dots\,,x_n$ drawn from a Bernoulli distribution, every value is either zero (with probability $1-p$) or one (with probability $p$). Let $k$ denote the number of ones in our sample, then
+\noindent Note that in a SRS with values $x_1, x_2, \dots\,,x_n$ drawn from a Bernoulli distribution, every value is either zero (with probability $1-p$) or one (with probability $p$). 
 \eqns{&\ell(x_1,x_2,\dots\,,x_n \given p) = \ln(f_X(x_1)) + \,\cdots\, + \ln(f_X(x_n)) \\
 &= \ln(p^{x_1}({1-p})^{1-x_1})+\,\cdots\,+\ln(p^{x_n}({1-p})^{1-x_n})) \\
 &= x_1 \ln(p) + (1-x_1)\ln(1-p) + \cdots + x_n \ln(p) + (1-x_n)\ln(1-p) \\
@@ -475,7 +493,7 @@ Another useful fact concerning maximum likelihood estimation is that if one para
 \frac{n - \sum_{i=1}^{n} x_i}{1-p} &= \frac{\sum_{i=1}^{n} x_i }{p} \\
 \frac{n - S}{1-p} &= \frac{S}{p} \text{\ \ where \ } S = \sum_{i=1}^{n} x_i \\}
 \par
-\noindent Cross multiplying and solving for $p$, we obtain $np - Sp = S-Sp$ and $p = \frac{S}{n}$, which is simply the proportion of ones in our sample.
+\noindent Cross multiplying and solving for $p$, we obtain $p = \frac{S}{n} = \frac{1}{n}\sum_{i=1}^{n} x_i$, which is simply the proportion of ones in our sample.
 \par
 \noindent We conclude that $\widehat{p} = \frac{1}{n}\sum_{i=1}^{n}X_i$ is the maximum likelihood estimator for $p$, so by Proposition \ref{MLETransferability}, the maximum likelihood estimator for $\sigma$ is
 \eqnsgap{\widehat{\sigma} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}X_i\left(1 - \frac{1}{n}\sum_{i=1}^{n}X_i\right)}.}

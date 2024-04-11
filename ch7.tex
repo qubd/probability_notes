@@ -18,44 +18,23 @@ When providing an estimate of an unknown parameter, we would like to be able to 
 
 The law of large numbers is one of the cornerstones of statistical inference. This is a mathematically precise statement of the fairly intuitive principle that if we take a larger and larger SRS of values, the mean in our sample tends to become closer and closer to the mean in the population. This principle is often informally referred to as `regression to the mean'.
 
-\begin{thm} (Weak Law of Large Numbers)\index{Law of Large Numbers} Suppose that $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$. If $X_1, X_2, \dots \, , X_n$ is a SRS of values of $X$ taken with replacement, then for any $\epsilon > 0$,
-\eqnsgap{\lim_{n \to \infty} P\left(\left|\frac{X_1+X_2+\,\cdots\,+X_n}{n} - \mu \right| \geq \epsilon \right) = 0}
+\begin{thm} (Weak Law of Large Numbers)\index{Law of Large Numbers} Suppose that $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$. If $\xbar$ is the mean of a SRS of $n$ values of $X$ taken with replacement, then for any $\epsilon > 0$,
+\eqnsgap{\lim_{n \to \infty} P\left(\xbar \not\in (\mu-\epsilon,\mu+\epsilon) \right) = 0}
 \end{thm}
 \par
 In other words, for any interval containing $\mu$, no matter how tiny it might be, the probability of obtaining a sample whose mean is outside that interval approaches zero as the sample size approaches infinity. This result holds for any population distribution whose expected value and standard deviation are defined.
 \par
 \vspace{1em}
-\begin{pf} Let $\xbar = \frac{X_1+X_2+\,\cdots\,+X_n}{n}$. Our sample $X_1, X_2, \dots \,, X_n$ is a SRS, so each $X_i$ has the same distribution as $X$, hence $E(X_i) = E(X) = \mu$. By linearity of expectation,
-\eqns{E(\xbar) &= E\left(\frac{X_1+X_2+\,\cdots\,+X_n}{n}\right) \\
-&= \frac{1}{n}(E(X_1)+E(X_2)+\,\cdots\,+E(X_n))  \\
-&= \frac{1}{n}(n\mu) = \mu.}
-\par
-\noindent We can also obtain a simple expression for the variance of $\xbar$ by making use of the properties of variance we demonstrated in Theorem \ref{VarianceIndependentSum} and \ref{VarianceLinearity}.
-\eqns{\Var(\xbar) &= \Var\left(\frac{X_1+X_2+\,\cdots\,+X_n}{n}\right) \\
-&= \frac{1}{n^2}\Var(X_1 + X_2 + \, \cdots \, + X_n) \\
-&=\frac{1}{n^2}(\Var(X_1) + \Var(X_2) + \, \cdots \, + \Var(X_n)) \\
-&=\frac{1}{n^2}(n\sigma^2) = \frac{\sigma^2}{n}}
-\par
-\noindent
-Thus, the mean of $\xbar$ is $\mu$, and the standard deviation of $\xbar$ is $\sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}$.
-\par
-\noindent Our goal is to show that $\xbar$ can't stray too far from it's mean, $\mu$, and we have a tool for bounding the values a random variable can take: Chebyshev's Inequality (Theorem \ref{ChebyshevsInequality}). Applying the inequality to $\xbar$, we have that for any $k > 0$,
-
+\begin{pf} We showed $E(\overline{X})=\mu$ and $\Var(\overline{X}) = \frac{\sigma^2}{n}$ in Theorem \ref{BiasVarianceSampleMean} of the last chapter, and we have a tool for bounding the probability that a random variable is far from it's mean: Chebyshev's Inequality (Theorem \ref{ChebyshevsInequality}). Applying the inequality to the random variable $\xbar$, we have that for any $k > 0$,
 \eqns{P\bigr(\xbar \in (\mu - k\textstyle\frac{\sigma}{\sqrt{n}}, \, \mu + k\frac{\sigma}{\sqrt{n}})\bigr) &\geq 1 - \frac{1}{k^2} \\
 P\bigr(\xbar \not\in (\mu - k\textstyle\frac{\sigma}{\sqrt{n}}, \, \mu + k\frac{\sigma}{\sqrt{n}})\bigr) &\leq \frac{1}{k^2}.}
 \vspace{0.5em}
 \par
 \noindent Now given any $\epsilon > 0$, take $k = \frac{\epsilon\sqrt{n}}{\sigma}$. Isolating $\frac{1}{k^2}$ in this equation yields $\frac{1}{k^2} = \frac{\sigma^2}{\epsilon^2n}$, and isolating $\epsilon$ gives $\epsilon = k\frac{\sigma}{\sqrt{n}}$, so we can rewrite the inequality above as
-\eqns{P\bigr(\xbar \not\in (\mu - \epsilon, \, \mu + \epsilon)\bigr) &\leq \frac{\sigma^2}{\epsilon^2n} \\
-P\left(\left|\frac{X_1 + X_2 + \, \cdots \, + X_n}{n} - \mu \right| \geq \epsilon \right) &\leq \frac{\sigma^2}{\epsilon^2n}.}
+\eqns{P\bigr(\xbar \not\in (\mu - \epsilon, \, \mu + \epsilon)\bigr) &\leq \frac{\sigma^2}{\epsilon^2n}.}
 \par
-\noindent To complete the argument, observe that $\frac{\sigma^2}{\epsilon^2n}$ approaches zero as $n \to \infty$.
+\noindent To complete the argument, observe that $\frac{\sigma^2}{\epsilon^2n}\to 0$ as $n \to \infty$.
 \end{pf}
-\par
-The results concerning the mean and standard deviation of $\overline{X}$ we obtained before applying Chebyshev's Inequality are significant and useful in their own right, so we'll restate them below.
-\begin{cor}\label{StandardErrorOfMean} Suppose $X_1, X_2, \dots\, , X_n$ is a SRS drawn from a population with mean $\mu$ and standard deviation $\sigma$, and let $\xbar = \frac{X_1+ X_2+ \cdots + X_n}{n}$. The mean and standard deviation of the sampling distribution of $\xbar$ are given by
-\eqnsgap{\boxed{\ \muxbar = \mu \qquad \sigmaxbar = \frac{\sigma}{\sqrt{n}}\ }}
-\end{cor}
 \par
 %The strong law of large numbers, given below, is also a statement that the mean of a SRS will converge to the population mean as the sample size approaches infinity, but the notion of convergence is slightly different. This alternate formulation is more difficult to prove, but can be easier to apply.
 
@@ -125,9 +104,9 @@ The key point is that as the number of flips grows very large, the influence of 
 
 \section{The Central Limit Theorem}
 
-In the last section, two extremely important general results were established. We found expressions for the mean and standard deviation of the sampling distribution of $\xbar$ (given in Corollary \ref{StandardErrorOfMean}) which hold for any random variable $X$ whose mean $\mu$ and standard deviation $\sigma$ are defined, and we showed the sample mean will converge to the population mean as the sample size grows without bound.
+We've now established two key results about the sampling distribution of the sample mean, $\xbar$. We found expressions for the mean and variance of $\xbar$ in Theorem \ref{StandardErrorOfMean}, and we showed the sample mean converges to the population mean as the sample size grows without bound (this is the law of large numbers).
 \par
-In other words, the sampling distribution of $\xbar$ will cluster tighter around the population mean $\mu$ as the sample size grows larger and samples which have sample means far from $\mu$ become more and more rare. 
+Informally, the sampling distribution of $\xbar$ is centred around the population mean $\mu$ for any sample size, and larger sample sizes result in the distribution clustering tighter around $\mu$, that is, samples whose means are far from $\mu$ become less and less likely.
 \par
 What about the shape of the sampling distribution of $\xbar$? What happens as the sample size increases? Consider the population distribution $X \sim Exponential(\frac{1}{2})$. Let's approximate the sampling distribution of $\xbar$ by taking ten thousand SRSs and calculating their means. With a sample size of one, the result should look just like the population distribution, since the mean of a single observation is just that observation itself.
 
@@ -235,13 +214,13 @@ If we continue to increase the sample size, taking ten thousand random samples o
 \end{minipage}
 \end{center}
 \par
-Each of the sampling distributions has mean $\muxbar = 2$, the same as the population distribution, and the standard deviation becomes smaller and smaller as $n$ increases, as Corollary \ref{StandardErrorOfMean} assures us it will (since $\sigmaxbar = \sigma / \sqrt{n} \to 0$ as $n \to \infty$).
+Note that each of the sampling distributions has mean $2$. We already knew this would be the case, since we showed $\xbar$ is an unbiased estimator of $\mu$ in Theorem \ref{StandardErrorOfMean}. Also note the variance gets smaller and smaller as $n$ increases. Again, we knew this would happen, since $\Var(\xbar) = \frac{\sigma^2}{n}$ decreases as $n$ increases.
 \par
-Moreover, there is a striking trend in the shapes of the sampling distributions. As the sample size increases, the distribution looks less like an exponential distribution, and more like a normal distribution (albeit a narrow one).
+There is a striking trend in the shapes of the sampling distributions. As the sample size increases, the distribution looks less like an exponential distribution, and more like a normal distribution (albeit a narrow one).
 \par
 It's not a coincidence that this occurred in our particular example. In fact, this occurs for almost \emph{any} population! This is a hugely important result, and it's why the normal distribution plays such a central role in statistics. If some quantity is obtained by averaging a random sample, and the sample size is large enough, then we know that the sampling distribution it was drawn from must be approximately normal \emph{regardless of the shape of the population distribution!}
 \par
-\begin{thm} (Central Limit Theorem)\index{Central Limit Theorem}\label{CLT} Let $X$ be a random variable with a well-defined mean $\mu$ and standard deviation $\sigma$, and let $\xbar$ denote the mean of a simple random sample of $n$ values drawn from the distribution of $X$. Then as the sample size $n$ grows larger, the sampling distribution of $\xbar$ becomes better approximated by $Normal(\muxbar,\sigmaxbar)$.
+\begin{thm} (Central Limit Theorem)\index{Central Limit Theorem}\label{CLT} Let $X$ be a random variable with a well-defined mean $\mu$ and standard deviation $\sigma$, and let $\xbar$ denote the mean of a simple random sample of $n$ values drawn from the distribution of $X$. Then as the sample size $n$ grows larger, the sampling distribution of $\xbar$ becomes better approximated by $Normal(\muxbar,\sigmaxbar)$, where $\mu_{\xbar} = \mu$ and $\sigma_{\xbar} = \frac{\sigma}{\sqrt{n}}$.
 \end{thm}
 \par
 The conclusion of this theorem is written here in very informal language. To make it more precise, we would need to decide on a way to measure the difference between two random variables, so the theorem above could state that this difference vanishes as $n \to \infty$. For details see \cite{Bertsekas} or \cite{DevoreBerk}.
@@ -563,8 +542,8 @@ Note that when calculating $S^2$ and $S$, we don't divide by the sample size, $n
 \eqnsgap{E(S^2) &= E\left(\textstyle\frac{1}{n-1}\displaystyle \sum_{i} (X_i - \overline{X})^2 \right) \\
 &= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i} (X_i - \xbar)^2\right) \\
 &= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i} \left(X_i^2 - 2X_i\xbar + \xbar^2\right)\right) \\
-&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - \sum_{i}2X_i\xbar + \sum_{i}\xbar^2\right) \\}
-\eqnsgap{\hspace*{1.275in}&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - 2\xbar\sum_{i}X_i + n\xbar^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - \sum_{i}2X_i\xbar + \sum_{i}\xbar^2\right) \\
+&= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - 2\xbar\sum_{i}X_i + n\xbar^2\right) \\
 &= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - 2\xbar\cdot n\xbar + n\xbar^2\right) \\
 &= \textstyle\frac{1}{n-1}\displaystyle E\left(\sum_{i}X_i^2 - n\xbar^2\right) \\
 &= \textstyle\frac{1}{n-1}\displaystyle \left(\sum_{i}E[X_i^2] - E[n\xbar^2]\right) \\
@@ -581,7 +560,7 @@ If we use the sample standard deviation, $s$, to estimate the standard deviation
 $$\frac{\overline{X} - \muxbar}{\sigmaxbar} = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}, \ \ \text{we'll have the estimate} \ \ \frac{\overline{X} - \muxbar}{\sigmaxbar} \simeq \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}.$$
 Our construction of a confidence interval for the population mean $\mu$ was justified by the central limit theorem, which tells us the distribution of the quantity on the left approaches $Z \sim Normal(0,1)$ as the sample size $n$ grows (and is exactly equal to $Z \sim Normal(0,1)$ when the population distribution is normal). But what about our estimate on the right? If we repeatedly draw samples and calculate this value, what kind of distribution will we obtain?
 \par
-\begin{defn}\label{TDistDef}\index{T-distribution} Suppose we draw a SRS $X_1, X_2, \, \dots \, , X_n$ from a normally distributed population with mean $\mu$, and define the $T$-score of the sample as
+\begin{defn}\label{TDistDef}\index{T-distribution} Draw a SRS $X_1, X_2, \, \dots \, , X_n$ from a normally distributed population with mean $\mu$. The $T$-score of the sample is
 $$T = \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}}$$
 where $S$ is the sample standard deviation, as in Definition \ref{SampleStdDev}. Then $T$ is a continuous random variable whose distribution is called Student's $T$-distribution (or simply the $T$-distribution) with $n-1$ degrees of freedom.
 \end{defn}
