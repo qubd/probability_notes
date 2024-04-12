@@ -138,7 +138,7 @@ In Example \ref{MeanAgeEx} above, consider the distribution of age in the popula
 \par
 In a SRS (with replacement) of two individuals taken from this population, the first individual chosen must be equally likely to be Alice, Bob, or Charles, the second individual chosen must also be equally likely to be Alice, Bob, or Charles, and so on. If $X_i$ represents the age of the $i^{th}$ individual in our sample, then $X_i$ must have the distribution given above, and moreover, knowledge of the value of $X_i$ should not influence our beliefs about any $X_j$ for $i \neq j$.
 \par
-\begin{defn}\label{FormalSRSDef}\index{Simple Random Sample} (SRS Formally) Given a distribution $X$, a simple random sample taken with replacement from $X$ is a sequence $X_1, X_2, \dots \,, X_n$ of independent, identically distributed random variables, each of which has the same distribution as $X$.
+\begin{defn}\label{FormalSRSDef}\index{Simple Random Sample} (SRS Formally) A simple random sample taken with replacement from a distribution $X$ is a sequence $X_1, X_2, \dots \,, X_n$ of independent, identically distributed random variables, each of which has the same distribution as $X$.
 \end{defn}
 
 \begin{examp} Consider a population of four individuals, one has shoe size 7, one has shoe size 10, and the other two have shoe size 11. If a SRS of two individuals is taken with replacement from this population, what is the probability the second individual chosen has shoe size 11? If the first individual chosen has shoe size 10, what is the probability the second individual chosen has shoe size 11?
@@ -150,19 +150,19 @@ In a SRS (with replacement) of two individuals taken from this population, the f
 
 \subsection*{Estimators}
 
-When a statistic is being used to estimate a parameter, we call it an estimator\index{Estimator} for that parameter. Parameters are typically denoted with greek letters, such as $\theta$, and the notation $\widehat{\theta}$ is often used to denote a statistic estimating $\theta$.
+When a statistic is being used to estimate a parameter, we call it an estimator\index{Estimator} for that parameter. Parameters are typically denoted with greek letters, such as $\theta$, and the notation $\widehat{\theta}$ denotes a statistic being used as an estimator of $\theta$.
 
-\begin{examp}Suppose that in the context of Example \ref{MeanAgeEx}, the mean age in a SRS of size two is used to estimate the mean age in the population. The SRS selected consists of Alice and Charles. What are $\mu$ and $\widehat{\mu}$?
+\begin{examp}\label{MeanUnbiasedEx}Suppose that in the context of Example \ref{MeanAgeEx}, the mean age in a SRS of size two is used to estimate the mean age in the population, $\mu$. The SRS selected consists of Alice and Charles. What are $\mu$ and $\widehat{\mu}$?
 \par
-\noindent The greek letter $\mu$ is typically used to denote a population mean, so in this scenario, we have the parameter $\mu = \frac{50}{3} \simeq 16.67$ and the estimator $\widehat{\mu} = \frac{1}{2}(X_1+X_2)$ which with our sample, gives the estimate $\widehat{\mu} = \frac{1}{2}(12+22) = 17$.
+\noindent Since we have full knowledge of ages of the entire population, we can calculate the parameter $\mu = \frac{50}{3} \simeq 16.67$. The estimator we're using is $\widehat{\mu} = \frac{1}{2}(X_1+X_2)$, which with our sample, gives the estimate $\widehat{\mu} = \frac{1}{2}(12+22) = 17$.
 \end{examp}
 \par
-In this case, the value of our estimator ended up very close to $\mu$, which is exactly what we're hoping for. In practice though, we don't know the value of the parameter being estimated, or we wouldn't have been estimating it in the first place! Without this knowledge, how can we begin to evaluate the usefulness of an estimator?
+In this case, the value of our estimator ended up very close to $\mu$, which is exactly what we're hoping for. In practice though, we don't know the value of the parameter being estimated (or we wouldn't have been estimating it in the first place). Without this knowledge, how can we begin to evaluate the usefulness of an estimator?
 \par
 Notice that the sampling distribution of the sample mean $\overline{X}$ that we constructed in Example \ref{MeanAgeEx} has a very nice property. If we compute its expected value 
 \eqns{E(\overline{X}) = 12\cdot \textstyle\frac{1}{9} +14\cdot \frac{2}{9} + 16\cdot \frac{1}{9} + 17\cdot \frac{2}{9} + 19\cdot \frac{2}{9} + 22\cdot \frac{1}{9} = \frac{150}{9} = \frac{50}{3}}
 \par
-\noindent the result is precisely equal to the population mean $\mu$. Thus, if we use the estimator $\widehat\mu = \overline{X} = \frac{1}{n}(X_1+X_2)$ to estimate the population mean, then the average value of our estimator is equal to the parameter $\mu$ being estimated. We say that $\widehat\mu = \overline{X}$ is an unbiased estimator of $\mu$.
+\noindent the result is precisely equal to the population mean $\mu$. Thus, if we use the estimator $\widehat\mu = \overline{X} = \frac{1}{n}(X_1+X_2)$ to estimate the population mean, then the average value of our estimator is equal to the parameter $\mu$ being estimated.
 
 \begin{defn}\label{Unbiased Estimator}\index{Unbiased Estimator}\index{Estimator!bias of} The \index{Estimator!bias of}bias of an estimator is the difference between its expected value and the actual value of the parameter being estimated.
 $$\boxed{Bias(\widehat{\theta}) = E(\widehat{\theta}) - \theta}$$ 
@@ -170,26 +170,26 @@ $$\boxed{Bias(\widehat{\theta}) = E(\widehat{\theta}) - \theta}$$
 \par
 If $Bias(\widehat{\theta}) > 0$, the mean value of $\widehat{\theta}$ is an overestimate of $\theta$, if $Bias(\widehat{\theta}) < 0$, the mean value of $\widehat{\theta}$ is an underestimate of $\theta$, and if $Bias(\widehat{\theta}) = 0$ then $E(\widehat{\theta}) = \theta$ and $\widehat{\theta}$ is an unbiased estimator of $\theta$.
 \par
-The concept of bias is fairly intuitive. Suppose you estimate the average age of all students in a classroom by finding the oldest student in the class and reporting their age. This estimator will have positive bias. Similarly, if you estimate the average age of all students in a classroom by finding the youngest student in the class and reporting their age, that estimator will have negative bias.
+%Estimating the age of the oldest student in a class by using the age of the oldest student in a small random sample will typically give an underestimate, unless the sample happens to include the oldest student in the class, so this estimator has negative bias. Similarly, if you estimate the age of the youngest student in a class using age of the youngest student in a small random sample, that estimator has positive bias.
 
-\begin{thm} In any population, the mean of a SRS taken with replacement is an unbiased estimator of the population mean $\mu$.
-\end{thm}
-\begin{pf} Let $\widehat{\mu} = \overline{X} = \frac{1}{n}(X_1 + X_2 + \cdots + X_n)$, where $X_i$ is the $i^{th}$ value in our sample.
-\par
-\noindent If our sample is a SRS taken with replacement, the distribution of each $X_i$ is the same as the population distribution. Therefore, $E(X_i) = E(X) = \mu$, the population mean, and by linearity of expectation,
-\eqns{E(\widehat{\mu}) &= E(\textstyle\frac{1}{n}(X_1 + X_2 + \cdots + X_n)) \\
-&= \textstyle\frac{1}{n}E(X_1 + X_2 + \cdots + X_n) \\
-&= \textstyle\frac{1}{n}(E(X_1) + E(X_2) + \cdots + E(X_n)) \\
-&= \textstyle\frac{1}{n}(\mu + \mu + \cdots + \mu) \\
-& = \textstyle\frac{1}{n}(n \mu)\\
-& = \mu.}
-\end{pf}
+%\begin{thm} In any population, the mean of a SRS taken with replacement is an unbiased estimator of the population mean $\mu$.
+%\end{thm}
+%\begin{pf} Let $\widehat{\mu} = \overline{X} = \frac{1}{n}(X_1 + X_2 + \cdots + X_n)$, where $X_i$ is the $i^{th}$ value in our sample.
+%\par
+%\noindent If our sample is a SRS taken with replacement, the distribution of each $X_i$ is the same as the population distribution. Therefore, $E(X_i) = E(X) = \mu$, the population mean, and by linearity of expectation,
+%\eqns{E(\widehat{\mu}) &= E(\textstyle\frac{1}{n}(X_1 + X_2 + \cdots + X_n)) \\
+%&= \textstyle\frac{1}{n}E(X_1 + X_2 + \cdots + X_n) \\
+%&= \textstyle\frac{1}{n}(E(X_1) + E(X_2) + \cdots + E(X_n)) \\
+%&= \textstyle\frac{1}{n}(\mu + \mu + \cdots + \mu) \\
+%& = \textstyle\frac{1}{n}(n \mu)\\
+%& = \mu.}
+%\end{pf}
 
 \begin{examp}\label{MiniGermanTank}Consider a miniature version of the German Tank Problem given in the introduction to this chapter, where the population consists of only four tanks, with serial numbers 1 through 4. Let $\theta$ denote the population maximum, so $\theta = 4$. 
 \par
 \noindent If we estimate $\theta$ by taking the maximum serial number in a sample of size two, show we'll obtain a biased estimate. If we estimate $\theta$ by doubling the average serial number in a sample of size two then subtracting one, show we'll obtain an unbiased estimate.
 \par
-\noindent Define $\widehat{\theta}_1 = max(X_1,X_2)$ and \,$\widehat{\theta}_2 = 2 \cdot \frac{1}{2}(X_1 + X_2) - 1$. There are sixteen possible samples taken with replacement, so we have the samples and corresponding values of the two estimators given below.
+\noindent Define $\widehat{\theta}_1 = max(X_1,X_2)$ and \,$\widehat{\theta}_2 = 2 \cdot \frac{1}{2}(X_1 + X_2) - 1$. There are sixteen possible samples taken with replacement, so we have the samples and corresponding values of the two estimators given below. \\
 \begin{center}
 \begin{minipage}{0.5\textwidth}
 \centering
@@ -240,7 +240,10 @@ $7$ & $\frac{1}{16}$ \\
 \end{tabular}
  \renewcommand*{\arraystretch}{1}
 \end{minipage}
-\end{center}
+\end{center} 
+\vspace*{-1in}
+
+\newpage
 
 \vspace{-1em}
 \begin{center}
@@ -269,49 +272,37 @@ $7$ & $\frac{1}{16}$ \\
 \eqns{E(\widehat{\theta}_1) &= 1 \cdot \textstyle\frac{1}{16} + 2 \cdot \frac{3}{16} + 3 \cdot \frac{5}{16} + 4 \cdot \frac{7}{16} = \frac{50}{16} = \frac{25}{8} \\
 E(\widehat{\theta}_2) &= 1 \cdot \textstyle\frac{1}{16} + 2 \cdot \frac{2}{16} + 3 \cdot \frac{3}{16} + 4 \cdot \frac{4}{16} + 5 \cdot \textstyle\frac{3}{16} + 6 \cdot \frac{2}{16} + 7 \cdot \frac{1}{16}= \frac{64}{16} = 4}
 \par
-\noindent Thus, $\text{Bias}(\widehat{\theta}_1) = \frac{25}{8} - 4 = -\frac{7}{8} = -0.875$ and $\text{Bias}(\widehat{\theta}_2) = 4 - 4 = 0$.
-
+\noindent $\text{Bias}(\widehat{\theta}_1) = \frac{25}{8} - 4 = -\frac{7}{8}$ and $\text{Bias}(\widehat{\theta}_2) = 4 - 4 = 0$. Thus, $\widehat{\theta}_1$ typically underestimates its target, while $\widehat{\theta}_2$ is unbiased.
 \end{examp}
-\par
-\rmk If the population we're studying is small, we can explicitly compute the sampling distribution by writing down every possible sample, as above. Of course, this is rarely feasible in practice. 
 
-In general, the sampling distribution can be approximated by repeatedly taking random samples using a computer and recording the values of the relevant statistic. The distribution obtained will be a better and better approximation of the true sampling distribution as the number of samples grows larger and larger.
+\par
+In the examples we've seen so far, we've computed the bias of an estimator for a given fixed value of the parameter being estimated. Of course, in practice this value is not known (or we wouldn't have been estimating it in the first place). Next we'll see that sometimes we can determine the bias of an estimator without actually making any assumptions on the value of the parameter it's estimating. To do so, we'll lean on our knowledge of expected value and its properties.
 
 \section{Evaluating Estimators}
 
-What determines whether an estimator produces useful estimates of a parameter, and what makes one estimator better than another? Clearly, good estimators should take values close to the parameter being estimated, so the smaller that the typical difference between the two is, the better.
+What makes for a useful estimator? Ideally, we would like the sampling distribution of our estimator to be centred at the value we're trying to estimate, and its variance to be as low as possible.
 
-%KEY POINT: An estimator is a way of computing a number from a sample, it's a RANDOM VARIABLE, which is a FUNCTION from samples to R. Evaluting the estimtor is determining whether thats a GOOD FUNCTION!
+In Example \ref{MeanUnbiasedEx}, we studied a particular group of three individuals, and noticed that the mean of a SRS, denoted $\xbar$, gave an unbiased estimator of the population mean $\mu$. In fact, this is true for any population, and we can prove it, and obtain a simple expression for the variance of the sample mean $\xbar$, by recalling some general properties of expected value and variance.
 
-\begin{defn}\index{Mean-Squared Error}\index{Estimator!mean-squared error of} The mean-squared error of an estimator is the expected value of the squared difference between the estimator and the parameter it estimates.
-\eqnsgap{\boxed{\text{MSE}(\widehat{\theta}) = E[(\widehat{\theta} - \theta)^2]}}
-\end{defn}
-\par
-\noindent
-\begin{examp}Find the MSE of the two estimators $\widehat{\theta}_1$ and $\widehat{\theta}_2$ in Example \ref{MiniGermanTank}.
-\par
-\noindent In both cases, the parameter being estimated is $\theta = 4$, and from the sampling distributions of $\widehat{\theta}_1$ and $\widehat{\theta}_2$, we can compute 
-\eqnsgap{MSE(\widehat{\theta}_1) &= E[(\widehat{\theta}_1 - \theta)^2] \\ &= (1-4)^2 \cdot \textstyle\frac{1}{16} + (2-4)^2 \cdot \textstyle\frac{3}{16} + (3-4)^2 \cdot \textstyle\frac{5}{16} + (4-4)^2 \cdot \textstyle\frac{7}{16} \\ &=9 \cdot \textstyle\frac{1}{16} + 4 \cdot \textstyle\frac{3}{16} + 1 \cdot \textstyle\frac{5}{16} + 0 \cdot \textstyle\frac{7}{16} = \frac{26}{16} \\
-MSE(\widehat{\theta}_2) &= E[(\widehat{\theta}_2 - \theta)^2] \\ &= (1-4)^2 \cdot \textstyle\frac{1}{16} + (2-4)^2 \cdot \textstyle\frac{2}{16} + (3-4)^2 \cdot \textstyle\frac{3}{16} + \ \cdots \ + (7-4)^2 \cdot \textstyle\frac{1}{16} \\ &=9 \cdot \textstyle\frac{1}{16} + 4 \cdot \textstyle\frac{2}{16} + 1 \cdot \textstyle\frac{3}{16} + 0 \cdot \textstyle\frac{4}{16} + 1 \cdot \textstyle\frac{3}{16} + 4 \cdot \textstyle\frac{2}{16} + 9 \cdot \textstyle\frac{1}{16} = \frac{40}{16}}
-\end{examp}
-\par
-
-\begin{thm}\label{BiasVarianceDecomp}\index{Bias-Variance Decomposition}$\index{Estimator!variance of}\text{MSE}(\widehat{\theta}) = \text{Bias}^2(\widehat{\theta}) + \Var(\widehat{\theta})$, where $\Var(\widehat{\theta}) = E[(\widehat{\theta} - E(\widehat{\theta}))^2]$ 
+\begin{thm}\label{BiasVarianceSampleMean}\label{StandardErrorOfMean}\index{Standard Error of the Mean}
+If $\overline{X} = \frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)$ is the mean of a SRS taken from a distribution with mean $\mu$ and variance $\sigma^2$, then $E(\overline{X}) = \mu$ (so $\xbar$ is an unbiased estimator of $\mu$), and $\Var(\overline{X}) = \frac{\sigma^2}{n}$.
 \end{thm}
-\begin{pf} The result follows from a calculation using linearity of expectation.
-\eqns{\text{MSE}(\widehat{\theta}) &= E[(\widehat{\theta} - \theta)^2] \\
-&= E[(\widehat{\theta} - E[\widehat{\theta}] + E[\widehat{\theta}] -  \theta)^2] \\
-&= E[(\widehat{\theta} - E[\widehat{\theta}])^2 + 2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta) + (E[\widehat{\theta}] - \theta)^2] \\
-&= E[(\widehat{\theta} - E[\widehat{\theta}])^2] + E[2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta)] + E[(E[\widehat{\theta}] - \theta)^2] \\
-&= E[(\widehat{\theta} - E[\widehat{\theta}])^2] + E[2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta)] + (E[\widehat{\theta}] - \theta)^2 \\
-&= \Var(\widehat{\theta}) + E[2(\widehat{\theta} - E[\widehat{\theta}]) \text{Bias}(\widehat{\theta}) ] + \text{Bias}^2(\widehat{\theta})  \\
-&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta}) \cdot E[\widehat{\theta} - E(\widehat{\theta})]+ \text{Bias}^2(\widehat{\theta})  \\
-&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[E(\widehat{\theta})]) + \text{Bias}^2(\widehat{\theta})  \\
-&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[\widehat{\theta}]) + \text{Bias}^2(\widehat{\theta})  \\
-&=\text{Bias}^2(\widehat{\theta}) + \Var(\widehat{\theta})  \\}
-\end{pf}
+\begin{pf} Using linearity of expectation and properties of variance,
+\eqns{E(\xbar) &= E\left(\frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)\right) \\
+&= \frac{1}{n}(E(X_1)+E(X_2)+\,\cdots\,+E(X_n))  \\
+&= \frac{1}{n}(n\mu) = \mu}
 \par
-The bias of an estimator measures the distance between the mean of the sampling distribution and the parameter being estimated, while the variance measures the dispersion in the sampling distribution.
+\eqns{\Var(\xbar) &= \Var\left(\frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)\right) \\
+&= \frac{1}{n^2}\Var(X_1 + X_2 + \, \cdots \, + X_n) \\
+&=\frac{1}{n^2}(\Var(X_1) + \Var(X_2) + \, \cdots \, + \Var(X_n)) \\
+&=\frac{1}{n^2}(n\sigma^2) = \frac{\sigma^2}{n}}
+\end{pf}
+
+\par
+Notice that as the sample size $n$ grows, $\Var(\overline{X}) = \frac{\sigma^2}{n}$ decreases. This is what we should expect. The mean of any random sample is an unbiased estimator of $\mu$, and the larger the sample, the better the estimator is (the narrower the sampling distribution is). We now have a precise statement that formalizes this intuition.
+
+\par
+In general, the bias of an estimator measures how well centred the sampling distribution is around the parameter being estimated, and the variance measures how much the estimates vary across all possible samples.
 
 \begin{center}
     \begin{minipage}{0.5\textwidth}
@@ -338,7 +329,35 @@ The bias of an estimator measures the distance between the mean of the sampling 
 \par
 Consider as an analogy an archery contest in which five shots are taken by each competitor. Estimators with high bias and low variance are akin to archers whose five arrows fall very close together, but all land quite far from the target. Estimators with low bias and high variance are akin to archers whose arrows are centred around the middle of the target, but with each individual arrow potentially landing quite far from it.
 \par
-The best estimators are those whose values centre around the parameter being estimated and also vary as little as possible. That is, those with low bias and low variance. Theorem \ref{BiasVarianceDecomp} assures us that an estimator with both these properties will also have a small mean-squared error.
+The most common way to weigh these two aspects of an estimator and measure its accuracy with a single value is the mean squared error.
+\par
+\begin{defn}\index{Mean-Squared Error}\index{Estimator!mean-squared error of} The mean-squared error of an estimator is the expected value of the squared difference between the estimator and the parameter it estimates.
+\eqnsgap{\boxed{\text{MSE}(\widehat{\theta}) = E[(\widehat{\theta} - \theta)^2]}}
+\end{defn}
+\begin{examp}Find the MSE of the two estimators $\widehat{\theta}_1$ and $\widehat{\theta}_2$ in Example \ref{MiniGermanTank}.
+\par
+\noindent In both cases, the parameter being estimated is $\theta = 4$, and from the sampling distributions of $\widehat{\theta}_1$ and $\widehat{\theta}_2$, we can compute 
+\eqnsgap{MSE(\widehat{\theta}_1) &= E[(\widehat{\theta}_1 - \theta)^2] \\ &= (1-4)^2 \cdot \textstyle\frac{1}{16} + (2-4)^2 \cdot \textstyle\frac{3}{16} + (3-4)^2 \cdot \textstyle\frac{5}{16} + (4-4)^2 \cdot \textstyle\frac{7}{16} \\ &=9 \cdot \textstyle\frac{1}{16} + 4 \cdot \textstyle\frac{3}{16} + 1 \cdot \textstyle\frac{5}{16} + 0 \cdot \textstyle\frac{7}{16} = \frac{26}{16} \\
+MSE(\widehat{\theta}_2) &= E[(\widehat{\theta}_2 - \theta)^2] \\ &= (1-4)^2 \cdot \textstyle\frac{1}{16} + (2-4)^2 \cdot \textstyle\frac{2}{16} + (3-4)^2 \cdot \textstyle\frac{3}{16} + \ \cdots \ + (7-4)^2 \cdot \textstyle\frac{1}{16} \\ &=9 \cdot \textstyle\frac{1}{16} + 4 \cdot \textstyle\frac{2}{16} + 1 \cdot \textstyle\frac{3}{16} + 0 \cdot \textstyle\frac{4}{16} + 1 \cdot \textstyle\frac{3}{16} + 4 \cdot \textstyle\frac{2}{16} + 9 \cdot \textstyle\frac{1}{16} = \frac{40}{16}}
+\end{examp}
+\par
+
+\begin{thm}\label{BiasVarianceDecomp}\index{Bias-Variance Decomposition}$\index{Estimator!variance of}\text{MSE}(\widehat{\theta}) = \text{Bias}^2(\widehat{\theta}) + \Var(\widehat{\theta})$.
+\end{thm}
+\begin{pf} The result follows from a calculation using linearity of expectation.
+\eqns{\text{MSE}(\widehat{\theta}) &= E[(\widehat{\theta} - \theta)^2] \\
+&= E[(\widehat{\theta} - E[\widehat{\theta}] + E[\widehat{\theta}] -  \theta)^2] \\
+&= E[(\widehat{\theta} - E[\widehat{\theta}])^2 + 2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta) + (E[\widehat{\theta}] - \theta)^2] \\
+&= E[(\widehat{\theta} - E[\widehat{\theta}])^2] + E[2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta)] + E[(E[\widehat{\theta}] - \theta)^2] \\
+&= E[(\widehat{\theta} - E[\widehat{\theta}])^2] + E[2(\widehat{\theta} - E[\widehat{\theta}]) (E[\widehat{\theta}] - \theta)] + (E[\widehat{\theta}] - \theta)^2 \\
+&= \Var(\widehat{\theta}) + E[2(\widehat{\theta} - E[\widehat{\theta}]) \text{Bias}(\widehat{\theta}) ] + \text{Bias}^2(\widehat{\theta})  \\
+&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta}) \cdot E[\widehat{\theta} - E(\widehat{\theta})]+ \text{Bias}^2(\widehat{\theta})  \\
+&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[E(\widehat{\theta})]) + \text{Bias}^2(\widehat{\theta})  \\
+&=\Var(\widehat{\theta}) + 2\text{Bias}(\widehat{\theta})\cdot (E[\widehat{\theta}] - E[\widehat{\theta}]) + \text{Bias}^2(\widehat{\theta})  \\
+&=\text{Bias}^2(\widehat{\theta}) + \Var(\widehat{\theta})  \\}
+\end{pf}
+\par
+This theorem, known as the bias-variance decomposition, assures us that an estimator with low bias and low variance will also have a small mean-squared error, and that an increase in either bias or variance will result in the mean squared error increasing as well.
 
 \begin{examp} Consider the Mini German Tank Problem in Example \ref{MiniGermanTank}. Find the mean-squared error, bias, and variance of the estimators $\widehat{\theta}_1$ and $\widehat{\theta}_2$ whose sampling distributions we calculated.
 \par
@@ -350,27 +369,9 @@ Var(\widehat{\theta}_1) &= \textstyle\frac{55}{64}.}
 \noindent Since $\widehat{\theta}_2$ is unbiased, $\text{MSE}(\widehat{\theta}_2) = \Var(\widehat{\theta}_2)$ by Theorem \ref{BiasVarianceDecomp}, so $\Var(\widehat{\theta}_2) = \frac{40}{16}$. Note that $\widehat{\theta}_1$ is the estimator with the lower $\text{MSE}$ despite the fact that it's biased.
 \end{examp}
 
-\begin{thm}\label{BiasVarianceSampleMean}\label{StandardErrorOfMean}\index{Standard Error of the Mean}
-If $\overline{X} = \frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)$ is the mean of a SRS taken from a distribution with mean $\mu$ and variance $\sigma^2$, then $E(\overline{X}) = \mu$, and $\Var(\overline{X}) = \frac{\sigma^2}{n}$.
-\end{thm}
-\begin{pf} Using linearity of expectation and properties of variance,
-\eqns{E(\xbar) &= E\left(\frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)\right) \\
-&= \frac{1}{n}(E(X_1)+E(X_2)+\,\cdots\,+E(X_n))  \\
-&= \frac{1}{n}(n\mu) = \mu}
-\par
-\eqns{\Var(\xbar) &= \Var\left(\frac{1}{n}(X_1+X_2+\,\cdots\,+X_n)\right) \\
-&= \frac{1}{n^2}\Var(X_1 + X_2 + \, \cdots \, + X_n) \\
-&=\frac{1}{n^2}(\Var(X_1) + \Var(X_2) + \, \cdots \, + \Var(X_n)) \\
-&=\frac{1}{n^2}(n\sigma^2) = \frac{\sigma^2}{n}}
-\end{pf}
-
-Intuitively, we would expect that the mean of a random sample would give a good estimate of the mean of the population the sample was drawn from. The result above shows that indeed, this estimator is unbiased.
-\par
-Notice that as $n$ grows, $\Var(\overline{X}) = \frac{\sigma^2}{n}$ decreases. This is what we should expect. The larger the sample size, the narrower the sampling distribution of $\overline{X}$, that is, the mean of a larger sample gives a better estimate of $\mu$. We now have a precise statement that formalizes this intuition.
-
 \section{Maximum Likelihood Estimation}
 
-One strategy for estimating a parameter from sample data is to determine the value that makes the observed sample as likely as possible to occur. If I told you that in a sample of $50$ flips of a biased coin, $40$ heads and $10$ tails occurred, then $\frac{40}{50} = 0.8$ clearly seems like the best guess you could make for the probability of heads on a single flip of that coin. This value is called a maximum likelihood estimate\index{Maximum Likelihood Estimator}.
+How do we actually come up with an estimator for a parameter? There are many ideas and strategies that are used in practice. We'll focus on just one, which is to determine the value of the parameter that makes the observed sample as likely as possible to occur, and use this as an estimate. If I told you that in a sample of $50$ flips of a biased coin, $40$ heads and $10$ tails occurred, then $\frac{40}{50} = 0.8$ clearly seems like the best guess you could make for the probability of heads on a single flip of that coin. This value is called a maximum likelihood estimate\index{Maximum Likelihood Estimator}.
 
 \begin{defn}\index{Likelihood Function}Suppose we have a SRS taken with replacement $x_1, x_2, \dots \,,x_n$ from a population distribution $X$ with an unknown parameter $\theta$. The likelihood function for this sample is denoted $\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta)$ and defined by
 \eqnsgap{\boxed{\mathcal{L}(x_1,x_2,\dots\,,x_n \given \theta) = f_X(x_1)f_X(x_2)\cdots f_X(x_n) = \prod_{i=1}^{n}f_X(x_i)}}
