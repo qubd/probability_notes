@@ -283,7 +283,7 @@ Informally, any non-negative function which encloses an area of one between its 
 \renewcommand*{\arraystretch}{1}
 \par
 \noindent Since $e^{x}>0$ always, we have $xe^{-x} > 0$ when $x > 0$, and thus $f$ is non-negative when $c > 0$. We must find a positive value for $c$ such that the area under $f$ is one, so we evaluate the area under $f$.
-\eqns{\int_{\infty}^{\infty} f(x) \, dx = \int_{0}^{\infty} cxe^{-x} \, dx =c \int_{0}^{\infty} xe^{-x} \, dx =  c(-x-1)e^{-x} \biggr|_{0}^{\infty} }
+\eqns{\int_{-\infty}^{\infty} f(x) \, dx = \int_{0}^{\infty} cxe^{-x} \, dx =c \int_{0}^{\infty} xe^{-x} \, dx =  c(-x-1)e^{-x} \biggr|_{0}^{\infty} }
 \par
 \noindent The last equality comes from using integration by parts. To complete the evaluation, we can use L'H\^{o}pital's rule.
 \eqns{ c(-x-1)e^{-x} \biggr|_{0}^{\infty} &= \lim_{x \to \infty} \left(c(-x-1)e^{-x}\right) - c(-0-1)e^{0}\\
