@@ -122,8 +122,8 @@ It makes sense to ask for the probability that such a random variable falls into
       0 & \text{ if \ } x < 0  \\
       \frac{1}{2}x & \text{ if \ } 0 \leq x < 1  \\
       \frac{1}{2} & \text{ if \ } 1 \leq x < 2 \\ 
-      x - \frac{3}{2} & \text{ if \ } 2 \leq x < 3 \\ 
-      1 & \text{ if \ } x \geq 3 \\ \end{array}
+      x - \frac{3}{2} & \text{ if \ } 2 \leq x < \frac{5}{2} \\ 
+      1 & \text{ if \ } x \geq \frac{5}{2} \\ \end{array}
 \right.}
 \vspace{1.25em}
 \renewcommand*{\arraystretch}{1}
@@ -146,7 +146,7 @@ Since the events $X \in (\frac{1}{3}, 1)$ and $X \in [\frac{3}{2}, \frac{5}{2}]$
  \eqnsgap{P(X \in (\textstyle\frac{1}{3}, 1) \cup [\frac{3}{2},\frac{5}{2}]) &= P(X \in (\textstyle\frac{1}{3}, 1)) + P(X \in [\frac{3}{2},\frac{5}{2}]) \\
 &= P(X < 1) - P(X \leq \textstyle\frac{1}{3}) + P(X \leq  \frac{5}{2}) - P(X < \frac{3}{2}) \\
 &= F_X(1) - F_X(\textstyle\frac{1}{3}) + F_X( \frac{5}{2}) - F_X(\frac{3}{2}) \\
-&= \textstyle\frac{1}{2} - \frac{1}{2}\cdot\frac{1}{3} + (\frac{5}{2} - \frac{3}{2}) - \frac{1}{2} \\
+&= \textstyle\frac{1}{2} - \frac{1}{2}\cdot\frac{1}{3} + 1 - \frac{1}{2} \\
 &= \textstyle\frac{1}{2} - \frac{1}{6} + 1 - \frac{1}{2} = \frac{5}{6}.}
 \end{examp}
 
@@ -303,7 +303,7 @@ Informally, any non-negative function which encloses an area of one between its 
 
 \subsection*{Functions of a Random Variable}
 
-If $X$ is any random variable and $g: \mathbb{R} \to \mathbb{R}$ is a function, then as we've seen in the discrete case, we can define a new random variable $Y = g(X)$. Given the pdf $f_X$, how can we obtain $f_Y$? Two methods are demonstrated in the examples below, the method of distribution functions and the method of substitution.
+If $X$ is any random variable and $g: \mathbb{R} \to \mathbb{R}$ is a function, then as we've seen in the discrete case, $Y = g(X)$ is also a random variable. Given the pdf $f_X$, how can we obtain $f_Y$? There are a few ways to accomplish this, but in this course, we only cover one method, usually known as the method of distribution functions. %Two methods are demonstrated in the examples below, the method of distribution functions and the method of substitution.
 
 \begin{examp}\label{MethodDistributionEx}\index{Method of Distribution Functions}Let $X$ be a real number chosen at random in the interval $[0,2]$, that is, $f_X(x) = \frac{1}{2}$ if $x \in [0,2]$, and $f_X$ is zero otherwise. Find the pdf of $Y = X^2 + 1$ by the method of distribution functions.
 \par
@@ -360,29 +360,29 @@ If $X$ is any random variable and $g: \mathbb{R} \to \mathbb{R}$ is a function, 
 \noindent We now obtain $f_Y(y) = \frac{1}{2}\cdot \frac{1}{2\sqrt{y-1}} = \frac{1}{4\sqrt{y-1}}$ on $[1,5]$ by differentiating the cdf $F_Y$.
 \end{examp}
 \par
-The method of distribution functions is very natural, but its disadvantage is that it requires knowledge of the cdf of $X$. In the example above, it was not difficult to determine $F_X$ from $f_X$, but in general, finding an antiderivative won't always be so easy. We can avoid this issue with the method of substitution.
+%The method of distribution functions is very natural, but its disadvantage is that it requires knowledge of the cdf of $X$. In the example above, it was not difficult to determine $F_X$ from $f_X$, but in general, finding an antiderivative won't always be so easy. We can avoid this issue with the method of substitution.
 
-\begin{examp}\index{Method of Substitution}Let $X$ be a random variable with pdf $f_X(x) = \frac{2}{x^2}$ on $[1,2]$. Find the pdf of $Y = \ln(X)$ by the method of substitution.
-\par
-\noindent The method of substitution works just like integration by substitution, so it should look familiar. We'll begin with the relationship $y = \ln(x)$, and differentiate to obtain a relationship between the differentials $dy$ and $dx$.
-\eqns{y = \ln(x) \ \ \rightarrow \ \  dy = \frac{1}{x} \, dx \ \ \rightarrow \ \ dx = x dy \ \ \rightarrow \ \ dx = e^y dy}
-\par
-\noindent Next, we rewrite $f_X(x) \, dx$ in terms of the variable $y$ and the differential $dy$.
-\eqns{f_X(x)\, dx = \frac{2}{x^2} \, dx = \frac{2}{({e^y})^2} \, e^y dy = \frac{2}{e^y} \, dy = f_Y(y) \, dy}
-\par
-\noindent Therefore, $f_Y(y) = \frac{2}{e^y}$ on $[0,\ln(2)]$. As with the last example, we can determine the set of values where $Y$ is nonzero by taking the range of the function $g(x) = \ln(x)$ on the interval $[1,2]$.
-\end{examp}
-\par
-This method works whenever $g: \mathbb{R} \to \mathbb{R}$ is a differentiable one-to-one function. Why? It follows from integration by substitution. Consider random variables $X$ and $Y = g(X)$, and note that $X \in [a,b]$ exactly when $Y \in [g(a),g(b)]$ for any $a,b \in \mathbb{R}$, so
-$$\int_{a}^{b} f_X(x)\, dx= P(X \in [a,b]) = P(Y \in [g(a),g(b)]) = \int_{g(a)}^{g(b)} f_Y(y)\, dy.$$
+%\begin{examp}\index{Method of Substitution}Let $X$ be a random variable with pdf $f_X(x) = \frac{2}{x^2}$ on $[1,2]$. Find the pdf of $Y = \ln(X)$ by the method of substitution.
+%\par
+%\noindent The method of substitution works just like integration by substitution, so it should look familiar. We'll begin with the relationship $y = \ln(x)$, and differentiate to obtain a relationship between the differentials $dy$ and $dx$.
+%\eqns{y = \ln(x) \ \ \rightarrow \ \  dy = \frac{1}{x} \, dx \ \ \rightarrow \ \ dx = x dy \ \ \rightarrow \ \ dx = e^y dy}
+%\par
+%\noindent Next, we rewrite $f_X(x) \, dx$ in terms of the variable $y$ and the differential $dy$.
+%\eqns{f_X(x)\, dx = \frac{2}{x^2} \, dx = \frac{2}{({e^y})^2} \, e^y dy = \frac{2}{e^y} \, dy = f_Y(y) \, dy}
+%\par
+%\noindent Therefore, $f_Y(y) = \frac{2}{e^y}$ on $[0,\ln(2)]$. As with the last example, we can determine the set of values where $Y$ is nonzero by taking the range of the function $g(x) = \ln(x)$ on the interval $[1,2]$.
+%\end{examp}
+%\par
+%This method works whenever $g: \mathbb{R} \to \mathbb{R}$ is a differentiable one-to-one function. Why? It follows from integration by substitution. Consider random variables $X$ and $Y = g(X)$, and note that $X \in [a,b]$ exactly when $Y \in [g(a),g(b)]$ for any $a,b \in \mathbb{R}$, so
+%$$\int_{a}^{b} f_X(x)\, dx= P(X \in [a,b]) = P(Y \in [g(a),g(b)]) = \int_{g(a)}^{g(b)} f_Y(y)\, dy.$$
 
-Substituting $y = g(x)$ in the integral on the left will indeed change the limits of integration from $a$ and $b$ to $g(a)$ and $g(b)$, as desired, and the value of the integral will not change either (if it did, integration by substitution wouldn't be a correct way to evaluate integrals), so the equality will hold.
-\par
-What needs to be done then is to simply perform the substitution $y = g(x)$ and rewrite the integrand $f_X(x)\,dx$ in terms of the new variable $y$. This is exactly what we did in the example above. Whatever function appears afterwards in front of the differential $dy$ will be the pdf $f_Y(y)$ of our random variable $Y$.
-\par
-\rmk There's a detail above we need to be careful about. We assumed $g$ was an increasing function when we wrote $Y \in [g(a), g(b)]$, since we need $g(a) < g(b)$ for this interval to make sense. Any continuous one-to-one function must be either strictly increasing or strictly decreasing. If $g$ is decreasing, we'll have $g(a) > g(b)$, so the interval for $Y$ we want is in fact $[g(b), g(a)]$. However, using properties of integrals we can write
-$$\int_{g(a)}^{g(b)} f_Y(y)\, dy = -\int_{g(b)}^{g(a)} f_Y(y)\, dy = \int_{g(b)}^{g(a)} -f_Y(y)\, dy = P(Y \in [g(b),g(a)])$$
-and so if it turns out $g$ is decreasing, our resulting pdf $f_Y(y)$ will be off by a sign (hence never positive!). In this case, we can just swap the sign on $f_Y(y)$.
+%Substituting $y = g(x)$ in the integral on the left will indeed change the limits of integration from $a$ and $b$ to $g(a)$ and $g(b)$, as desired, and the value of the integral will not change either (if it did, integration by substitution wouldn't be a correct way to evaluate integrals), so the equality will hold.
+%\par
+%What needs to be done then is to simply perform the substitution $y = g(x)$ and rewrite the integrand $f_X(x)\,dx$ in terms of the new variable $y$. This is exactly what we did in the example above. Whatever function appears afterwards in front of the differential $dy$ will be the pdf $f_Y(y)$ of our random variable $Y$.
+%\par
+%\rmk There's a detail above we need to be careful about. We assumed $g$ was an increasing function when we wrote $Y \in [g(a), g(b)]$, since we need $g(a) < g(b)$ for this interval to make sense. Any continuous one-to-one function must be either strictly increasing or strictly decreasing. If $g$ is decreasing, we'll have $g(a) > g(b)$, so the interval for $Y$ we want is in fact $[g(b), g(a)]$. However, using properties of integrals we can write
+%$$\int_{g(a)}^{g(b)} f_Y(y)\, dy = -\int_{g(b)}^{g(a)} f_Y(y)\, dy = \int_{g(b)}^{g(a)} -f_Y(y)\, dy = P(Y \in [g(b),g(a)])$$
+%and so if it turns out $g$ is decreasing, our resulting pdf $f_Y(y)$ will be off by a sign (hence never positive!). In this case, we can just swap the sign on $f_Y(y)$.
 %To develop some intuition for why it does, take for example the random variable $X$ defined by the pdf $f_X(x) = \frac{1}{2}$ on $[0,2]$ and let $Y =X^2+1$, as we did in Example \ref{MethodDistributionEx}.
 %\par
 %Consider applying the function $g(x) = x^2+1$ on two different intervals on the horizontal axis. This function sends possible values of $X$ to possible values of $Y$. Let's take two intervals $I = [0.4, 0.6]$ and $J = [1.4,1.6]$ that $X$ might fall into, shown on the left, and consider their images under the function $g(x) = x^2+1$, which are shown on the right.
@@ -466,14 +466,13 @@ If $X$ is a continuous random variable, the expected value or mean of $X$ is den
 \end{tikzpicture}
 \end{minipage}
 \end{center}
-\vspace{-0.5em}
-\eqns{E(X) = \int_{-\infty}^{\infty} x f_X(x) \, dx = \int_{-\infty}^{\infty} x \frac{1}{\pi(1+x^2)} \, dx = \frac{1}{\pi}\int_{-\infty}^{\infty} \frac{x}{1+x^2} \, dx}
+\eqnsgap{E(X) = \int_{-\infty}^{\infty} x f_X(x) \, dx = \int_{-\infty}^{\infty} x \frac{1}{\pi(1+x^2)} \, dx = \frac{1}{\pi}\int_{-\infty}^{\infty} \frac{x}{1+x^2} \, dx}
 \par
 \noindent To evaluate a `doubly improper' integral like this, we must split it into two improper integrals to see if both of those converge. In the two resulting integrals, we make the substitution $u = 1+x^2$, so $du = 2x \, dx$ and hence $dx = \frac{1}{2x}du$.
 \eqns{E(X) &= \frac{1}{\pi}\int_{-\infty}^{\infty} \frac{x}{1+x^2} \, dx \\
 &= \frac{1}{\pi}\int_{-\infty}^{0} \frac{x}{1+x^2} \, dx + \frac{1}{\pi}\int_{0}^{\infty} \frac{x}{1+x^2} \, dx \\
 &= \frac{1}{\pi}\int_{\infty}^{1} \frac{x}{u} \frac{1}{2x}\, du + \frac{1}{\pi}\int_{1}^{\infty} \frac{x}{u} \frac{1}{2x}\, du \\}
-\eqns{\hspace{8.6em}&= \frac{1}{2\pi}\int_{\infty}^{1} \frac{1}{u} \, du + \frac{1}{2\pi}\int_{1}^{\infty} \frac{1}{u} \, du \\ 
+\eqnsgap{\hspace{8.6em}&= \frac{1}{2\pi}\int_{\infty}^{1} \frac{1}{u} \, du + \frac{1}{2\pi}\int_{1}^{\infty} \frac{1}{u} \, du \\ 
 &= \frac{1}{2\pi}\ln(u) \biggr|_{\infty}^{1} + \frac{1}{2\pi}\ln(u) \biggr|_{1}^{\infty} \\
 &= \frac{1}{2\pi}\left(\ln(1) - \lim_{u \to \infty}ln(u)\right) + \frac{1}{2\pi}\left(\lim_{u \to \infty}ln(u) - \ln(1)\right) \\}
 \par
@@ -773,10 +772,11 @@ Quantities that are typically modelled by exponential random variables include t
 \renewcommand*{\arraystretch}{1}
 \end{prop}
 \begin{pf} To obtain the cdf $F_X$, let's find an antiderivative for $f_X$ on $[0, \infty)$ using the substitution $u  = - \lambda x$, so $du = - \lambda dx$, and $dx = \frac{-1}{\lambda} du$.
-\eqns{\int f_X(x) \, dx &= \int \lambda e^{-\lambda x} \, dx \\ &= \int \lambda e^{u} \, \frac{-1}{\lambda} \, du \text{ \ where \ } u = -\lambda x  \\ &= - \int e^{u} \, du \\ &= -e^u + C \\ &=  -e^{-\lambda x} + C}
+
+\eqns{\int f_X(x) \, dx &= \int \lambda e^{-\lambda x} \, dx \\ &= \int \lambda e^{u} \, \frac{-1}{\lambda} \, du \text{ \ where \ } u = -\lambda x  \\ &= - \int e^{u} \, du = -e^u + C =  -e^{-\lambda x} + C}
 \par
 \noindent Thus, $F_X(x) = -e^{-\lambda x} + C$ on $[0,\infty)$, and since $F_X(0) = P(X \leq 0) = 0$, we have $e^{0} + C = 0$, hence $C = 1$ and $F_X(x) = 1 - e^{-\lambda x}$ as desired. Now, using the tail sum formula,
-\eqns{E(X) &= \int_{0}^{\infty} 1 - F_X(x) \, dx \\ &= \int_{0}^{\infty} 1 - (1-e^{-\lambda x}) \, dx \\ &= \int_{0}^{\infty} e^{-\lambda x}\, dx  \\ &= \int_{0}^{-\infty} e^{u} \frac{-1}{\lambda}\, du  \text{ \ where \ } u = -\lambda x  \\ &= \frac{-1}{\lambda}\int_{0}^{-\infty} e^{u} \, du \\ &= \frac{-1}{\lambda}\left(\lim_{u \to -\infty} e^u - e^{0}\right) \\ &= \frac{-1}{\lambda}\left(0 - 1\right) = \frac{1}{\lambda}.}
+\eqns{E(X) &= \int_{0}^{\infty} 1 - F_X(x) \, dx \\ &= \int_{0}^{\infty} 1 - (1-e^{-\lambda x}) \, dx \\ &= \int_{0}^{\infty} e^{-\lambda x}\, dx  \\ &= \int_{0}^{-\infty} e^{u} \frac{-1}{\lambda}\, du  \text{ \ where \ } u = -\lambda x  \\ &= \frac{-1}{\lambda}\int_{0}^{-\infty} e^{u} \, du \\ &= \frac{-1}{\lambda}\left(\lim_{u \to -\infty} e^u - e^{0}\right) = \frac{-1}{\lambda}\left(0 - 1\right) = \frac{1}{\lambda}.}
 \end{pf}
 \begin{examp}At a certain intersection, there is an average of three car accidents per day. Assuming the time between crashes is exponentially distributed, what is the probability that the next two accidents will occur at least five hours apart?
 \par
@@ -878,8 +878,6 @@ We can determine $E(X^2)$ by a very similar calculation. Applying the formula $\
 %\par
 %\noindent If $x \in [0,\infty)$, then $y \in [1,\infty)$, so $f_Y(y) = \frac{\lambda (1)^{\lambda}}{y^{\lambda + 1}}$ on $[1,\infty)$. Therefore, $Y$ is pareto distributed with $m = 1$ and $c = \lambda$.
 %\end{examp}
-
-\newpage
 
 \section{The Normal Distribution}
 
