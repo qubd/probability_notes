@@ -556,10 +556,11 @@ The continuous analogue of the tail sum formula (Proposition \ref{Discrete Tail 
 &= \int_{0}^{1} 1 \ dx + \int_{1}^{5} \frac{5}{4}-\frac{1}{4}x \ dx \\
 &= x \,\biggr|_{0}^{1} + \left(\frac{5}{4}x-\frac{1}{8}x^2\right)\biggr|_{1}^{5} \\
 &= 1 + \left(\frac{25}{4}-\frac{25}{8}\right) - \left(\frac{5}{4} - \frac{1}{8}\right) \\
-&= 1+\frac{25}{8}-\frac{9}{8} = 3}
+&= 1+\frac{25}{8}-\frac{9}{8} \\
+&= 3}
 \end{examp}
 
-This example may not convince you the continuous tail sum formula is very useful, but it should at least provide some reassurance that it's correct. We'll see examples where the tail sum formula will make our calculations easier in the next few sections.
+This example may not convince you the continuous tail sum formula is very useful, but it should at least provide some reassurance that it's correct. We'll see instances where the tail sum formula will make our calculations easier in the next few sections.
 
 %If at least 90% of the surface of a sphere is coloured red, show that it's possible to inscribe a cube such that all eight vertices meet the sphere at red coloured points. (Use eight indicator random variables and linearity of expectation)
 
@@ -762,7 +763,7 @@ Exponential random variables are used to model time between recurrent events in 
 \par
 Quantities that are typically modelled by exponential random variables include times required for radioactive atoms to decay, distances between mutations on a DNA sequence, and lifetimes of mechanical or electronic devices.
 \par
-\begin{prop}\index{Exponential Distribution!expected value of}If $X \sim Exponential(\lambda)$, then its cdf is the function given below, and $E(X) = \frac{1}{\lambda}$.
+\begin{prop}\index{Exponential Distribution!expected value of}If $X \sim Exponential(\lambda)$, then the cdf $F_X$ is as given below, and $E(X) = \frac{1}{\lambda}$.
 \renewcommand*{\arraystretch}{1.35}
 \eqnsgap{F_X(x) = \left\{
 \begin{array}{cl}
@@ -771,11 +772,10 @@ Quantities that are typically modelled by exponential random variables include t
 \right.}
 \renewcommand*{\arraystretch}{1}
 \end{prop}
-\begin{pf} To obtain the cdf $F_X$, let's find an antiderivative for $f_X$ on $[0, \infty)$ using the substitution $u  = - \lambda x$, so $du = - \lambda dx$, and $dx = \frac{-1}{\lambda} du$.
-
-\eqns{\int f_X(x) \, dx &= \int \lambda e^{-\lambda x} \, dx \\ &= \int \lambda e^{u} \, \frac{-1}{\lambda} \, du \text{ \ where \ } u = -\lambda x  \\ &= - \int e^{u} \, du = -e^u + C =  -e^{-\lambda x} + C}
+\begin{pf} Integrating the pdf, using the substitution $u = -\lambda x$, gives the result below. 
+\eqns{\int f_X(x) \, dx &= \int \lambda e^{-\lambda x} \, dx \\ &= \int \lambda e^{u} \, \frac{-1}{\lambda} \, du \text{ \ where \ } u = -\lambda x  \\ &= - \int e^{u} \, du \\ &= -e^u + C \\ &=  -e^{-\lambda x} + C}
 \par
-\noindent Thus, $F_X(x) = -e^{-\lambda x} + C$ on $[0,\infty)$, and since $F_X(0) = P(X \leq 0) = 0$, we have $e^{0} + C = 0$, hence $C = 1$ and $F_X(x) = 1 - e^{-\lambda x}$ as desired. Now, using the tail sum formula,
+\noindent Thus, $F_X(x) = -e^{-\lambda x} + C$ on $[0,\infty)$, and since $F_X(0) = P(X \leq 0) = 0$, we have $e^{0} + C = 0$, hence $C = 1$ and $F_X(x) = 1 - e^{-\lambda x}$ on $[0,\infty)$ as desired. Now, using the tail sum formula,
 \eqns{E(X) &= \int_{0}^{\infty} 1 - F_X(x) \, dx \\ &= \int_{0}^{\infty} 1 - (1-e^{-\lambda x}) \, dx \\ &= \int_{0}^{\infty} e^{-\lambda x}\, dx  \\ &= \int_{0}^{-\infty} e^{u} \frac{-1}{\lambda}\, du  \text{ \ where \ } u = -\lambda x  \\ &= \frac{-1}{\lambda}\int_{0}^{-\infty} e^{u} \, du \\ &= \frac{-1}{\lambda}\left(\lim_{u \to -\infty} e^u - e^{0}\right) = \frac{-1}{\lambda}\left(0 - 1\right) = \frac{1}{\lambda}.}
 \end{pf}
 \begin{examp}At a certain intersection, there is an average of three car accidents per day. Assuming the time between crashes is exponentially distributed, what is the probability that the next two accidents will occur at least five hours apart?
@@ -916,14 +916,20 @@ The traditional way to get around this problem is to use a large table of values
 What if $X$ is a normally distributed random variable with a mean which is not zero and a standard deviation which is not one? As you might expect given the two graphs above, any two normal distributions differ by shifting and scaling, in the following precise sense.
 \begin{prop}$X \sim Normal (\mu,\sigma)$, then $Z = \frac{X - \mu}{\sigma} \sim Normal(0,1)$.
 \end{prop}
-\begin{pf}
-Using substitution, let $z = \frac{x - \mu}{\sigma} = \frac{1}{\sigma}x - \frac{\mu}{\sigma}$, so $dz = \frac{1}{\sigma}\,dx$, and $dx = \sigma \, dz$. 
-\eqns{f_X(x)\,dx &= \frac{1}{\sqrt{2\pi\sigma^2}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}} \, \sigma \, dz \\ &= \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(\mu+\sigma z-\mu)^2}{2\sigma^2}} \, \sigma \, dz \\ &= \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\, dz = f_Z(z) \, dz}
+\begin{pf} Since the pdf $f_X$ has no elementary antiderivative, if we use the method of distribution functions, we have to work the integral of the pdf directly. First note
+\eqns{P(Z \leq z) = P(\textstyle\frac{X-\mu}{\sigma} \leq z) = P(X \leq \mu+\sigma z) = \displaystyle\int_{-\infty}^{\mu+\sigma z} \frac{1}{\sqrt{2\pi \sigma^2}}\,e^{-\frac{(x-\mu)^2}{2\sigma^2}} \, dx.}
 \par
-\noindent Thus, $f_Z$ is the pdf of a normal distribution with $\mu = 0$ and $\sigma = 1$ as claimed.
+\noindent Now that we have an expression for $F_Z(z) = P(Z \leq z)$, we can find the pdf $f_Z(z)$ with the aid the of the fundamental theorem of calculus and the chain rule.
+\eqnsgap{f_Z(z) &= \frac{d}{dz} F_Z(z) \\ &= \frac{d}{dz}\int_{-\infty}^{\mu+\sigma z} \frac{1}{\sqrt{2\pi \sigma^2}}\,e^{-\frac{(x-\mu)^2}{2\sigma^2}} \, dx \\ &= \frac{1}{\sqrt{2\pi \sigma^2}}\,e^{-\frac{((\mu + \sigma z)-\mu)^2}{2\sigma^2}} \cdot \frac{d}{dz}(\mu + \sigma z) \\ &= \frac{1}{\sqrt{2\pi \sigma^2}}\,e^{-\frac{(\sigma z)^2}{2\sigma^2}} \cdot \sigma \\ &= \frac{1}{\sqrt{2\pi}}\,e^{-\frac{z^2}{2}}}
+%$P(X \leq x) = P(\frac{X-\mu}{\sigma} \leq \frac{x-\mu}{\sigma}) = P(Z \leq \frac{x-\mu}{\sigma})$, we have
+%\eqnsgap{P(Z \leq x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2\pi\sigma^2}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}}\,dx}
+%Using substitution, let $z = \frac{x - \mu}{\sigma} = \frac{1}{\sigma}x - \frac{\mu}{\sigma}$, so $dz = \frac{1}{\sigma}\,dx$, and $dx = \sigma \, dz$. 
+%\eqns{f_X(x)\,dx &= \frac{1}{\sqrt{2\pi\sigma^2}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}} \, \sigma \, dz \\ &= \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(\mu+\sigma z-\mu)^2}{2\sigma^2}} \, \sigma \, dz \\ &= \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\, dz = f_Z(z) \, dz}
+%\par
+\noindent Thus, $f_Z$ is the pdf of a normal distribution with $\mu = 0$ and $\sigma = 1$.
 \end{pf}
 \par
-The process of translating values of any normally distributed random variable into corresponding values of $Z$ is known as standardization\index{Standardization}. To standardize a value $x$ of a normally distributed random variable $X \sim Normal(\mu, \sigma)$ we simply apply the formula $z  = \frac{x - \mu}{\sigma}$, and we can treat the resulting $z$ as a value of $Z \sim Normal(0, 1)$.
+The process of translating values of any normally distributed random variable into corresponding values of $Z \sim Normal (0,1)$ is known as standardization\index{Standardization}. To standardize a value $x$ of a normally distributed random variable $X \sim Normal(\mu, \sigma)$ we simply apply the formula $z  = \frac{x - \mu}{\sigma}$, and we can treat the resulting $z$ as a value of $Z \sim Normal(0, 1)$.
 \begin{examp}\label{FemaleHeightsNormal} The height of a randomly selected Canadian adult female, in inches, is approximated by the random variable $X \sim Normal(64,2.5)$. What proportion of Canadian adult females are taller than 5'8"? What proportion have heights between 5'3" and 5'7"?
 \par
 \noindent To standardize 5'8"\,=\,68", we calculate $z = \frac{68 - 64}{2.5} = 1.6$. Then we have

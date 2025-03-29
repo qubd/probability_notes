@@ -447,12 +447,13 @@ We've seen a concrete example involving this estimator already, Example \ref{Min
 
 Aside from the logic that lead us to consider the maximum likelihood estimator in the first place (our best guess for $\theta$ should be the value that makes the data we've actually observed as likely as possible), the maximum likelihood estimator also has some nice properties that give it additional appeal.
 \par
-Although the maximum likelihood estimator is not unbiased, it is asymptotically unbiased, meaning that as the sample size grows very large, its bias converges to zero. In addition, it also has asymptotically minimal variance, which means that as the sample size grows very large, its variance will eventually be smaller than or equal to the variance of any other unbiased estimator.
+Although the maximum likelihood estimator is not unbiased, it is asymptotically unbiased, meaning that as the sample size grows very large, its bias approaches zero. In addition, it also has asymptotically minimal variance, meaning that given any other unbiased estimator, as the sample size grows very large, the maximum likelihood estimator will either eventually have smaller variance, or the difference in the variances will approach zero.
 
 \begin{prop} As the sample size $n \to \infty$, $\text{Bias}(\widehat{\theta}_{MLE}) \to 0$ and if $\widehat{\theta}_{U}$ is any other unbiased estimator of $\theta$, then $\Var(\widehat{\theta}_{MLE}) \leq \Var(\widehat{\theta}_{U}) + \epsilon$ where $\epsilon \to 0$.
 \end{prop}
 
-This proposition gives us confidence that the maximum likelihood estimator will do a better and better job of estimating a parameter as the amount of sample data we acquire grows larger and larger. The proof is beyond the scope of this course, but the idea of asymptotic unbiasedness is illustrated in the example below.
+This proposition gives us confidence that the maximum likelihood estimator will do a better and better job of estimating a parameter as the amount of sample data we acquire grows larger and larger. Proving this propoaition is well beyond the scope of this course, but the idea of asymptotic unbiasedness is illustrated in the following example.
+
 \begin{examp} Let $X \sim Uniform(m)$. In Example \ref{TankProblemMLE}, we saw the maximum likelihood estimator for the parameter $m$ is $\widehat{m} = max(X_1,X_2,\dots\,,X_n)$. Show that $\widehat{m}$ is asymptotically unbiased.
 \par
 \noindent Consider the expected value of the estimator $\widehat{m}$,

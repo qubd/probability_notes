@@ -568,7 +568,7 @@ where $S$ is the sample standard deviation, as in Definition \ref{SampleStdDev}.
 \begin{center}
 \begin{tikzpicture}[scale = 0.65]
 \begin{axis}[ymin=0,ymax=0.42,xmin=-3, xmax = 3, xtick = {-2,-1,0,1,2}, ytick = {}]
-       \addplot[very thick,domain=-3:3,blue,samples=100] gnuplot {(gamma(1)/(sqrt(pi)*gamma(0.5)))*(1+x*x)**(-1)};
+       \addplot[very thick,domain=-3:3,blue,samples=100, opacity=1] gnuplot {(gamma(1)/(sqrt(pi)*gamma(0.5)))*(1+x*x)**(-1)};
        \addplot[very thick,domain=-3:3,blue,samples=100, opacity=0.8] gnuplot {(gamma(1.5)/(sqrt(2*pi)*gamma(1)))*(1+(0.5)*x*x)**(-(1.5))};
        \addplot[very thick,domain=-3:3,blue,samples=100, opacity=0.6] gnuplot {(gamma(0.5*(4+1))/(sqrt(4*pi)*gamma((0.5*4))))*(1+(0.25)*x*x)**(-(0.5*(4+1)))};
        \addplot[very thick,domain=-3:3,blue,samples=100, opacity=0.4] gnuplot {(gamma(0.5*(10+1))/(sqrt(10*pi)*gamma((0.5*10))))*(1+(0.1)*x*x)**(-(0.5*(10+1)))};
